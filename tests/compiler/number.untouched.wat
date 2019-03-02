@@ -11,6 +11,8 @@
  (type $iiii (func (param i32 i32 i32) (result i32)))
  (type $iiiii_ (func (param i32 i32 i32 i32 i32)))
  (type $i_ (func (param i32)))
+ (type $Ii (func (param i64) (result i32)))
+ (type $iIi_ (func (param i32 i64 i32)))
  (type $fi (func (param f32) (result i32)))
  (import "env" "abort" (func $~lib/env/abort (param i32 i32 i32 i32)))
  (memory $0 1)
@@ -39,6 +41,10 @@
  (data (i32.const 2152) "\01\00\00\002\00")
  (data (i32.const 2160) "\04\00\00\00t\00r\00u\00e\00")
  (data (i32.const 2176) "\05\00\00\00f\00a\00l\00s\00e\00")
+ (data (i32.const 2192) "\90\01\00\00\00\00\00\000\000\000\001\000\002\000\003\000\004\000\005\000\006\000\007\000\008\000\009\001\000\001\001\001\002\001\003\001\004\001\005\001\006\001\007\001\008\001\009\002\000\002\001\002\002\002\003\002\004\002\005\002\006\002\007\002\008\002\009\003\000\003\001\003\002\003\003\003\004\003\005\003\006\003\007\003\008\003\009\004\000\004\001\004\002\004\003\004\004\004\005\004\006\004\007\004\008\004\009\005\000\005\001\005\002\005\003\005\004\005\005\005\006\005\007\005\008\005\009\006\000\006\001\006\002\006\003\006\004\006\005\006\006\006\007\006\008\006\009\007\000\007\001\007\002\007\003\007\004\007\005\007\006\007\007\007\008\007\009\008\000\008\001\008\002\008\003\008\004\008\005\008\006\008\007\008\008\008\009\009\000\009\001\009\002\009\003\009\004\009\005\009\006\009\007\009\008\009\009\00\00\00\00\00\00\00\00\00\00\00\00\00\00\00\00\00\00\00\00\00\00\00\00\00\00\00\00\00\00\00\00\00\00\00\00\00\00\00\00\00\00\00\00\00\00\00\00\00\00\00\00\00\00\00\00\00\00\00\00\00\00\00\00\00\00\00\00\00\00\00\00\00\00\00\00\00\00\00\00\00\00\00\00\00\00\00\00\00\00\00\00\00\00\00\00\00\00\00\00\00\00\00\00\00")
+ (data (i32.const 2704) "\90\08\00\00d\00\00\00")
+ (data (i32.const 2712) "\13\00\00\009\002\002\003\003\007\002\000\003\006\008\005\004\007\007\005\008\000\007\00")
+ (data (i32.const 2760) "\14\00\00\001\008\004\004\006\007\004\004\000\007\003\007\000\009\005\005\001\006\001\005\00")
  (table $0 1 funcref)
  (elem (i32.const 0) $null)
  (global $~lib/allocator/arena/startOffset (mut i32) (i32.const 0))
@@ -52,6 +58,11 @@
  (global $~lib/internal/number/_K (mut i32) (i32.const 0))
  (global $~lib/internal/number/_frc_pow (mut i64) (i64.const 0))
  (global $~lib/internal/number/_exp_pow (mut i32) (i32.const 0))
+ (global $~lib/builtins/i64.MAX_VALUE i64 (i64.const 9223372036854775807))
+ (global $~lib/number/I64.MAX_VALUE i64 (i64.const 9223372036854775807))
+ (global $~lib/builtins/u32.MAX_VALUE i32 (i32.const -1))
+ (global $~lib/builtins/u64.MAX_VALUE i64 (i64.const -1))
+ (global $~lib/number/U64.MAX_VALUE i64 (i64.const -1))
  (global $~lib/number/F32.NaN f32 (f32.const nan:0x400000))
  (global $~lib/builtins/f32.MIN_SAFE_INTEGER f32 (f32.const -16777215))
  (global $~lib/builtins/f32.MAX_SAFE_INTEGER f32 (f32.const 16777215))
@@ -60,7 +71,7 @@
  (global $~lib/builtins/f64.MIN_SAFE_INTEGER f64 (f64.const -9007199254740991))
  (global $~lib/builtins/f64.MAX_SAFE_INTEGER f64 (f64.const 9007199254740991))
  (global $~lib/builtins/f64.EPSILON f64 (f64.const 2.220446049250313e-16))
- (global $~lib/memory/HEAP_BASE i32 (i32.const 2192))
+ (global $~lib/memory/HEAP_BASE i32 (i32.const 2804))
  (export "memory" (memory $0))
  (export "table" (table $0))
  (start $start)
@@ -3711,7 +3722,413 @@
    i32.const 2176
   end
  )
- (func $~lib/number/F32.isSafeInteger (; 24 ;) (type $fi) (param $0 f32) (result i32)
+ (func $~lib/internal/number/decimalCount64 (; 24 ;) (type $Ii) (param $0 i64) (result i32)
+  (local $1 i32)
+  local.get $0
+  i64.const 1000000000000000
+  i64.lt_u
+  if
+   local.get $0
+   i64.const 1000000000000
+   i64.lt_u
+   if
+    i32.const 11
+    i32.const 12
+    local.get $0
+    i64.const 100000000000
+    i64.lt_u
+    select
+    return
+   else    
+    i32.const 14
+    i32.const 15
+    local.get $0
+    i64.const 100000000000000
+    i64.lt_u
+    select
+    local.set $1
+    i32.const 13
+    local.get $1
+    local.get $0
+    i64.const 10000000000000
+    i64.lt_u
+    select
+    return
+   end
+   unreachable
+   unreachable
+  else   
+   local.get $0
+   i64.const 100000000000000000
+   i64.lt_u
+   if
+    i32.const 16
+    i32.const 17
+    local.get $0
+    i64.const 10000000000000000
+    i64.lt_u
+    select
+    return
+   else    
+    i32.const 19
+    i32.const 20
+    local.get $0
+    i64.const -8446744073709551616
+    i64.lt_u
+    select
+    local.set $1
+    i32.const 18
+    local.get $1
+    local.get $0
+    i64.const 1000000000000000000
+    i64.lt_u
+    select
+    return
+   end
+   unreachable
+   unreachable
+  end
+  unreachable
+  unreachable
+ )
+ (func $~lib/internal/number/utoa64_lut (; 25 ;) (type $iIi_) (param $0 i32) (param $1 i64) (param $2 i32)
+  (local $3 i32)
+  (local $4 i64)
+  (local $5 i32)
+  (local $6 i32)
+  (local $7 i32)
+  (local $8 i32)
+  (local $9 i32)
+  (local $10 i32)
+  (local $11 i32)
+  (local $12 i32)
+  (local $13 i32)
+  (local $14 i32)
+  (local $15 i64)
+  (local $16 i64)
+  block $~lib/internal/number/DIGITS|inlined.1 (result i32)
+   i32.const 2704
+  end
+  i32.load
+  local.set $3
+  block $break|0
+   loop $continue|0
+    local.get $1
+    i64.const 100000000
+    i64.ge_u
+    if
+     block
+      local.get $1
+      i64.const 100000000
+      i64.div_u
+      local.set $4
+      local.get $1
+      local.get $4
+      i64.const 100000000
+      i64.mul
+      i64.sub
+      i32.wrap_i64
+      local.set $5
+      local.get $4
+      local.set $1
+      local.get $5
+      i32.const 10000
+      i32.div_u
+      local.set $6
+      local.get $5
+      i32.const 10000
+      i32.rem_u
+      local.set $7
+      local.get $6
+      i32.const 100
+      i32.div_u
+      local.set $8
+      local.get $6
+      i32.const 100
+      i32.rem_u
+      local.set $9
+      local.get $7
+      i32.const 100
+      i32.div_u
+      local.set $10
+      local.get $7
+      i32.const 100
+      i32.rem_u
+      local.set $11
+      block $~lib/internal/arraybuffer/LOAD<u32,u64>|inlined.4 (result i64)
+       local.get $3
+       local.set $12
+       local.get $10
+       local.set $13
+       i32.const 0
+       local.set $14
+       local.get $12
+       local.get $13
+       i32.const 2
+       i32.shl
+       i32.add
+       local.get $14
+       i32.add
+       i64.load32_u offset=8
+      end
+      local.set $15
+      block $~lib/internal/arraybuffer/LOAD<u32,u64>|inlined.5 (result i64)
+       local.get $3
+       local.set $14
+       local.get $11
+       local.set $13
+       i32.const 0
+       local.set $12
+       local.get $14
+       local.get $13
+       i32.const 2
+       i32.shl
+       i32.add
+       local.get $12
+       i32.add
+       i64.load32_u offset=8
+      end
+      local.set $16
+      local.get $2
+      i32.const 4
+      i32.sub
+      local.set $2
+      local.get $0
+      local.get $2
+      i32.const 1
+      i32.shl
+      i32.add
+      local.get $15
+      local.get $16
+      i64.const 32
+      i64.shl
+      i64.or
+      i64.store offset=4
+      block $~lib/internal/arraybuffer/LOAD<u32,u64>|inlined.6 (result i64)
+       local.get $3
+       local.set $12
+       local.get $8
+       local.set $13
+       i32.const 0
+       local.set $14
+       local.get $12
+       local.get $13
+       i32.const 2
+       i32.shl
+       i32.add
+       local.get $14
+       i32.add
+       i64.load32_u offset=8
+      end
+      local.set $15
+      block $~lib/internal/arraybuffer/LOAD<u32,u64>|inlined.7 (result i64)
+       local.get $3
+       local.set $14
+       local.get $9
+       local.set $13
+       i32.const 0
+       local.set $12
+       local.get $14
+       local.get $13
+       i32.const 2
+       i32.shl
+       i32.add
+       local.get $12
+       i32.add
+       i64.load32_u offset=8
+      end
+      local.set $16
+      local.get $2
+      i32.const 4
+      i32.sub
+      local.set $2
+      local.get $0
+      local.get $2
+      i32.const 1
+      i32.shl
+      i32.add
+      local.get $15
+      local.get $16
+      i64.const 32
+      i64.shl
+      i64.or
+      i64.store offset=4
+     end
+     br $continue|0
+    end
+   end
+  end
+  local.get $0
+  local.get $1
+  i32.wrap_i64
+  local.get $2
+  call $~lib/internal/number/utoa32_lut
+ )
+ (func $~lib/internal/number/itoa64 (; 26 ;) (type $Ii) (param $0 i64) (result i32)
+  (local $1 i32)
+  (local $2 i32)
+  (local $3 i32)
+  (local $4 i32)
+  (local $5 i32)
+  (local $6 i32)
+  (local $7 i32)
+  (local $8 i64)
+  local.get $0
+  i64.eqz
+  if
+   i32.const 8
+   return
+  end
+  local.get $0
+  i64.const 0
+  i64.lt_s
+  local.set $1
+  local.get $1
+  if
+   i64.const 0
+   local.get $0
+   i64.sub
+   local.set $0
+  end
+  local.get $0
+  global.get $~lib/builtins/u32.MAX_VALUE
+  i64.extend_i32_u
+  i64.le_u
+  if
+   local.get $0
+   i32.wrap_i64
+   local.set $3
+   local.get $3
+   call $~lib/internal/number/decimalCount32
+   local.get $1
+   i32.add
+   local.set $4
+   local.get $4
+   call $~lib/internal/string/allocateUnsafe
+   local.set $2
+   block $~lib/internal/number/utoa32_core|inlined.3
+    local.get $2
+    local.set $5
+    local.get $3
+    local.set $6
+    local.get $4
+    local.set $7
+    local.get $5
+    local.get $6
+    local.get $7
+    call $~lib/internal/number/utoa32_lut
+   end
+  else   
+   local.get $0
+   call $~lib/internal/number/decimalCount64
+   local.get $1
+   i32.add
+   local.set $4
+   local.get $4
+   call $~lib/internal/string/allocateUnsafe
+   local.set $2
+   block $~lib/internal/number/utoa64_core|inlined.0
+    local.get $2
+    local.set $3
+    local.get $0
+    local.set $8
+    local.get $4
+    local.set $7
+    local.get $3
+    local.get $8
+    local.get $7
+    call $~lib/internal/number/utoa64_lut
+   end
+  end
+  local.get $1
+  if
+   local.get $2
+   i32.const 45
+   i32.store16 offset=4
+  end
+  local.get $2
+ )
+ (func $~lib/internal/number/itoa<i64> (; 27 ;) (type $Ii) (param $0 i64) (result i32)
+  local.get $0
+  call $~lib/internal/number/itoa64
+  return
+ )
+ (func $~lib/number/I64#toString (; 28 ;) (type $Ii) (param $0 i64) (result i32)
+  local.get $0
+  call $~lib/internal/number/itoa<i64>
+ )
+ (func $~lib/internal/number/utoa64 (; 29 ;) (type $Ii) (param $0 i64) (result i32)
+  (local $1 i32)
+  (local $2 i32)
+  (local $3 i32)
+  (local $4 i32)
+  (local $5 i32)
+  (local $6 i32)
+  (local $7 i64)
+  local.get $0
+  i64.eqz
+  if
+   i32.const 8
+   return
+  end
+  local.get $0
+  global.get $~lib/builtins/u32.MAX_VALUE
+  i64.extend_i32_u
+  i64.le_u
+  if
+   local.get $0
+   i32.wrap_i64
+   local.set $2
+   local.get $2
+   call $~lib/internal/number/decimalCount32
+   local.set $3
+   local.get $3
+   call $~lib/internal/string/allocateUnsafe
+   local.set $1
+   block $~lib/internal/number/utoa32_core|inlined.4
+    local.get $1
+    local.set $4
+    local.get $2
+    local.set $5
+    local.get $3
+    local.set $6
+    local.get $4
+    local.get $5
+    local.get $6
+    call $~lib/internal/number/utoa32_lut
+   end
+  else   
+   local.get $0
+   call $~lib/internal/number/decimalCount64
+   local.set $3
+   local.get $3
+   call $~lib/internal/string/allocateUnsafe
+   local.set $1
+   block $~lib/internal/number/utoa64_core|inlined.1
+    local.get $1
+    local.set $2
+    local.get $0
+    local.set $7
+    local.get $3
+    local.set $6
+    local.get $2
+    local.get $7
+    local.get $6
+    call $~lib/internal/number/utoa64_lut
+   end
+  end
+  local.get $1
+ )
+ (func $~lib/internal/number/itoa<u64> (; 30 ;) (type $Ii) (param $0 i64) (result i32)
+  local.get $0
+  call $~lib/internal/number/utoa64
+  return
+ )
+ (func $~lib/number/U64#toString (; 31 ;) (type $Ii) (param $0 i64) (result i32)
+  local.get $0
+  call $~lib/internal/number/itoa<u64>
+ )
+ (func $~lib/number/F32.isSafeInteger (; 32 ;) (type $fi) (param $0 f32) (result i32)
   (local $1 i32)
   local.get $0
   f32.abs
@@ -3727,7 +4144,7 @@
    local.get $1
   end
  )
- (func $~lib/number/F32.isInteger (; 25 ;) (type $fi) (param $0 f32) (result i32)
+ (func $~lib/number/F32.isInteger (; 33 ;) (type $fi) (param $0 f32) (result i32)
   (local $1 f32)
   (local $2 i32)
   block $~lib/builtins/isFinite<f32>|inlined.0 (result i32)
@@ -3751,7 +4168,7 @@
    local.get $2
   end
  )
- (func $~lib/number/F64.isSafeInteger (; 26 ;) (type $Fi) (param $0 f64) (result i32)
+ (func $~lib/number/F64.isSafeInteger (; 34 ;) (type $Fi) (param $0 f64) (result i32)
   (local $1 i32)
   local.get $0
   f64.abs
@@ -3767,7 +4184,7 @@
    local.get $1
   end
  )
- (func $~lib/number/F64.isInteger (; 27 ;) (type $Fi) (param $0 f64) (result i32)
+ (func $~lib/number/F64.isInteger (; 35 ;) (type $Fi) (param $0 f64) (result i32)
   (local $1 f64)
   (local $2 i32)
   block $~lib/builtins/isFinite<f64>|inlined.0 (result i32)
@@ -3791,7 +4208,7 @@
    local.get $2
   end
  )
- (func $start:number (; 28 ;) (type $_)
+ (func $start:number (; 36 ;) (type $_)
   (local $0 i32)
   (local $1 f32)
   (local $2 f64)
@@ -3967,6 +4384,32 @@
    call $~lib/env/abort
    unreachable
   end
+  global.get $~lib/number/I64.MAX_VALUE
+  call $~lib/number/I64#toString
+  i32.const 2712
+  call $~lib/string/String.__eq
+  i32.eqz
+  if
+   i32.const 0
+   i32.const 600
+   i32.const 23
+   i32.const 0
+   call $~lib/env/abort
+   unreachable
+  end
+  global.get $~lib/number/U64.MAX_VALUE
+  call $~lib/number/U64#toString
+  i32.const 2760
+  call $~lib/string/String.__eq
+  i32.eqz
+  if
+   i32.const 0
+   i32.const 600
+   i32.const 24
+   i32.const 0
+   call $~lib/env/abort
+   unreachable
+  end
   block $~lib/builtins/isNaN<f32>|inlined.0 (result i32)
    global.get $~lib/number/F32.NaN
    local.set $1
@@ -3980,7 +4423,7 @@
   if
    i32.const 0
    i32.const 600
-   i32.const 25
+   i32.const 28
    i32.const 0
    call $~lib/env/abort
    unreachable
@@ -3995,7 +4438,7 @@
   if
    i32.const 0
    i32.const 600
-   i32.const 27
+   i32.const 30
    i32.const 0
    call $~lib/env/abort
    unreachable
@@ -4008,7 +4451,7 @@
   if
    i32.const 0
    i32.const 600
-   i32.const 28
+   i32.const 31
    i32.const 0
    call $~lib/env/abort
    unreachable
@@ -4021,7 +4464,7 @@
   if
    i32.const 0
    i32.const 600
-   i32.const 29
+   i32.const 32
    i32.const 0
    call $~lib/env/abort
    unreachable
@@ -4034,7 +4477,7 @@
   if
    i32.const 0
    i32.const 600
-   i32.const 30
+   i32.const 33
    i32.const 0
    call $~lib/env/abort
    unreachable
@@ -4047,7 +4490,7 @@
   if
    i32.const 0
    i32.const 600
-   i32.const 31
+   i32.const 34
    i32.const 0
    call $~lib/env/abort
    unreachable
@@ -4060,7 +4503,7 @@
   if
    i32.const 0
    i32.const 600
-   i32.const 32
+   i32.const 35
    i32.const 0
    call $~lib/env/abort
    unreachable
@@ -4073,7 +4516,7 @@
   if
    i32.const 0
    i32.const 600
-   i32.const 33
+   i32.const 36
    i32.const 0
    call $~lib/env/abort
    unreachable
@@ -4088,7 +4531,7 @@
   if
    i32.const 0
    i32.const 600
-   i32.const 34
+   i32.const 37
    i32.const 0
    call $~lib/env/abort
    unreachable
@@ -4101,7 +4544,7 @@
   if
    i32.const 0
    i32.const 600
-   i32.const 35
+   i32.const 38
    i32.const 0
    call $~lib/env/abort
    unreachable
@@ -4116,7 +4559,7 @@
   if
    i32.const 0
    i32.const 600
-   i32.const 36
+   i32.const 39
    i32.const 0
    call $~lib/env/abort
    unreachable
@@ -4131,7 +4574,7 @@
   if
    i32.const 0
    i32.const 600
-   i32.const 37
+   i32.const 40
    i32.const 0
    call $~lib/env/abort
    unreachable
@@ -4146,7 +4589,7 @@
   if
    i32.const 0
    i32.const 600
-   i32.const 38
+   i32.const 41
    i32.const 0
    call $~lib/env/abort
    unreachable
@@ -4161,7 +4604,7 @@
   if
    i32.const 0
    i32.const 600
-   i32.const 39
+   i32.const 42
    i32.const 0
    call $~lib/env/abort
    unreachable
@@ -4176,7 +4619,7 @@
   if
    i32.const 0
    i32.const 600
-   i32.const 40
+   i32.const 43
    i32.const 0
    call $~lib/env/abort
    unreachable
@@ -4191,7 +4634,7 @@
   if
    i32.const 0
    i32.const 600
-   i32.const 41
+   i32.const 44
    i32.const 0
    call $~lib/env/abort
    unreachable
@@ -4206,7 +4649,7 @@
   if
    i32.const 0
    i32.const 600
-   i32.const 42
+   i32.const 45
    i32.const 0
    call $~lib/env/abort
    unreachable
@@ -4221,7 +4664,7 @@
   if
    i32.const 0
    i32.const 600
-   i32.const 43
+   i32.const 46
    i32.const 0
    call $~lib/env/abort
    unreachable
@@ -4236,7 +4679,7 @@
   if
    i32.const 0
    i32.const 600
-   i32.const 44
+   i32.const 47
    i32.const 0
    call $~lib/env/abort
    unreachable
@@ -4251,7 +4694,7 @@
   if
    i32.const 0
    i32.const 600
-   i32.const 45
+   i32.const 48
    i32.const 0
    call $~lib/env/abort
    unreachable
@@ -4266,7 +4709,7 @@
   if
    i32.const 0
    i32.const 600
-   i32.const 46
+   i32.const 49
    i32.const 0
    call $~lib/env/abort
    unreachable
@@ -4284,7 +4727,7 @@
   if
    i32.const 0
    i32.const 600
-   i32.const 48
+   i32.const 51
    i32.const 0
    call $~lib/env/abort
    unreachable
@@ -4299,7 +4742,7 @@
   if
    i32.const 0
    i32.const 600
-   i32.const 50
+   i32.const 53
    i32.const 0
    call $~lib/env/abort
    unreachable
@@ -4312,7 +4755,7 @@
   if
    i32.const 0
    i32.const 600
-   i32.const 51
+   i32.const 54
    i32.const 0
    call $~lib/env/abort
    unreachable
@@ -4325,7 +4768,7 @@
   if
    i32.const 0
    i32.const 600
-   i32.const 52
+   i32.const 55
    i32.const 0
    call $~lib/env/abort
    unreachable
@@ -4338,7 +4781,7 @@
   if
    i32.const 0
    i32.const 600
-   i32.const 53
+   i32.const 56
    i32.const 0
    call $~lib/env/abort
    unreachable
@@ -4351,7 +4794,7 @@
   if
    i32.const 0
    i32.const 600
-   i32.const 54
+   i32.const 57
    i32.const 0
    call $~lib/env/abort
    unreachable
@@ -4364,7 +4807,7 @@
   if
    i32.const 0
    i32.const 600
-   i32.const 55
+   i32.const 58
    i32.const 0
    call $~lib/env/abort
    unreachable
@@ -4377,7 +4820,7 @@
   if
    i32.const 0
    i32.const 600
-   i32.const 56
+   i32.const 59
    i32.const 0
    call $~lib/env/abort
    unreachable
@@ -4392,7 +4835,7 @@
   if
    i32.const 0
    i32.const 600
-   i32.const 57
+   i32.const 60
    i32.const 0
    call $~lib/env/abort
    unreachable
@@ -4405,7 +4848,7 @@
   if
    i32.const 0
    i32.const 600
-   i32.const 58
+   i32.const 61
    i32.const 0
    call $~lib/env/abort
    unreachable
@@ -4420,7 +4863,7 @@
   if
    i32.const 0
    i32.const 600
-   i32.const 59
+   i32.const 62
    i32.const 0
    call $~lib/env/abort
    unreachable
@@ -4435,7 +4878,7 @@
   if
    i32.const 0
    i32.const 600
-   i32.const 60
+   i32.const 63
    i32.const 0
    call $~lib/env/abort
    unreachable
@@ -4450,7 +4893,7 @@
   if
    i32.const 0
    i32.const 600
-   i32.const 61
+   i32.const 64
    i32.const 0
    call $~lib/env/abort
    unreachable
@@ -4465,7 +4908,7 @@
   if
    i32.const 0
    i32.const 600
-   i32.const 62
+   i32.const 65
    i32.const 0
    call $~lib/env/abort
    unreachable
@@ -4480,7 +4923,7 @@
   if
    i32.const 0
    i32.const 600
-   i32.const 63
+   i32.const 66
    i32.const 0
    call $~lib/env/abort
    unreachable
@@ -4495,7 +4938,7 @@
   if
    i32.const 0
    i32.const 600
-   i32.const 64
+   i32.const 67
    i32.const 0
    call $~lib/env/abort
    unreachable
@@ -4510,7 +4953,7 @@
   if
    i32.const 0
    i32.const 600
-   i32.const 65
+   i32.const 68
    i32.const 0
    call $~lib/env/abort
    unreachable
@@ -4525,7 +4968,7 @@
   if
    i32.const 0
    i32.const 600
-   i32.const 66
+   i32.const 69
    i32.const 0
    call $~lib/env/abort
    unreachable
@@ -4540,7 +4983,7 @@
   if
    i32.const 0
    i32.const 600
-   i32.const 67
+   i32.const 70
    i32.const 0
    call $~lib/env/abort
    unreachable
@@ -4555,7 +4998,7 @@
   if
    i32.const 0
    i32.const 600
-   i32.const 68
+   i32.const 71
    i32.const 0
    call $~lib/env/abort
    unreachable
@@ -4570,15 +5013,15 @@
   if
    i32.const 0
    i32.const 600
-   i32.const 69
+   i32.const 72
    i32.const 0
    call $~lib/env/abort
    unreachable
   end
  )
- (func $start (; 29 ;) (type $_)
+ (func $start (; 37 ;) (type $_)
   call $start:number
  )
- (func $null (; 30 ;) (type $_)
+ (func $null (; 38 ;) (type $_)
  )
 )

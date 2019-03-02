@@ -8,6 +8,8 @@
  (type $iFi (func (param i32 f64) (result i32)))
  (type $iIiIiIii (func (param i32 i64 i32 i64 i32 i64 i32) (result i32)))
  (type $iiii (func (param i32 i32 i32) (result i32)))
+ (type $Ii (func (param i64) (result i32)))
+ (type $iIi_ (func (param i32 i64 i32)))
  (type $FUNCSIG$iiii (func (param i32 i32 i32) (result i32)))
  (type $FUNCSIG$iii (func (param i32 i32) (result i32)))
  (import "env" "abort" (func $~lib/env/abort (param i32 i32 i32 i32)))
@@ -36,6 +38,10 @@
  (data (i32.const 2152) "\01\00\00\002")
  (data (i32.const 2160) "\04\00\00\00t\00r\00u\00e")
  (data (i32.const 2176) "\05\00\00\00f\00a\00l\00s\00e")
+ (data (i32.const 2192) "\90\01\00\00\00\00\00\000\000\000\001\000\002\000\003\000\004\000\005\000\006\000\007\000\008\000\009\001\000\001\001\001\002\001\003\001\004\001\005\001\006\001\007\001\008\001\009\002\000\002\001\002\002\002\003\002\004\002\005\002\006\002\007\002\008\002\009\003\000\003\001\003\002\003\003\003\004\003\005\003\006\003\007\003\008\003\009\004\000\004\001\004\002\004\003\004\004\004\005\004\006\004\007\004\008\004\009\005\000\005\001\005\002\005\003\005\004\005\005\005\006\005\007\005\008\005\009\006\000\006\001\006\002\006\003\006\004\006\005\006\006\006\007\006\008\006\009\007\000\007\001\007\002\007\003\007\004\007\005\007\006\007\007\007\008\007\009\008\000\008\001\008\002\008\003\008\004\008\005\008\006\008\007\008\008\008\009\009\000\009\001\009\002\009\003\009\004\009\005\009\006\009\007\009\008\009\009")
+ (data (i32.const 2704) "\90\08\00\00d")
+ (data (i32.const 2712) "\13\00\00\009\002\002\003\003\007\002\000\003\006\008\005\004\007\007\005\008\000\007")
+ (data (i32.const 2760) "\14\00\00\001\008\004\004\006\007\004\004\000\007\003\007\000\009\005\005\001\006\001\005")
  (table $0 1 funcref)
  (elem (i32.const 0) $null)
  (global $~lib/allocator/arena/startOffset (mut i32) (i32.const 0))
@@ -2661,9 +2667,255 @@
   end
   local.get $1
  )
- (func $start:number (; 15 ;) (type $_)
+ (func $~lib/internal/number/decimalCount64 (; 15 ;) (type $Ii) (param $0 i64) (result i32)
+  local.get $0
+  i64.const 1000000000000000
+  i64.lt_u
+  if (result i32)
+   local.get $0
+   i64.const 1000000000000
+   i64.lt_u
+   if (result i32)
+    i32.const 11
+    i32.const 12
+    local.get $0
+    i64.const 100000000000
+    i64.lt_u
+    select
+   else    
+    i32.const 13
+    i32.const 14
+    i32.const 15
+    local.get $0
+    i64.const 100000000000000
+    i64.lt_u
+    select
+    local.get $0
+    i64.const 10000000000000
+    i64.lt_u
+    select
+   end
+  else   
+   local.get $0
+   i64.const 100000000000000000
+   i64.lt_u
+   if (result i32)
+    i32.const 16
+    i32.const 17
+    local.get $0
+    i64.const 10000000000000000
+    i64.lt_u
+    select
+   else    
+    i32.const 18
+    i32.const 19
+    i32.const 20
+    local.get $0
+    i64.const -8446744073709551616
+    i64.lt_u
+    select
+    local.get $0
+    i64.const 1000000000000000000
+    i64.lt_u
+    select
+   end
+  end
+ )
+ (func $~lib/internal/number/utoa64_lut (; 16 ;) (type $iIi_) (param $0 i32) (param $1 i64) (param $2 i32)
+  (local $3 i32)
+  (local $4 i32)
+  (local $5 i32)
+  (local $6 i32)
+  i32.const 2704
+  i32.load
+  local.set $3
+  loop $continue|0
+   local.get $1
+   i64.const 100000000
+   i64.ge_u
+   if
+    local.get $1
+    local.get $1
+    i64.const 100000000
+    i64.div_u
+    local.tee $1
+    i64.const 100000000
+    i64.mul
+    i64.sub
+    i32.wrap_i64
+    local.tee $4
+    i32.const 10000
+    i32.div_u
+    local.tee $5
+    i32.const 100
+    i32.div_u
+    local.set $6
+    local.get $5
+    i32.const 100
+    i32.rem_u
+    local.set $5
+    local.get $2
+    i32.const 4
+    i32.sub
+    local.tee $2
+    i32.const 1
+    i32.shl
+    local.get $0
+    i32.add
+    local.get $3
+    local.get $4
+    i32.const 10000
+    i32.rem_u
+    local.tee $4
+    i32.const 100
+    i32.div_u
+    i32.const 2
+    i32.shl
+    i32.add
+    i64.load32_u offset=8
+    local.get $3
+    local.get $4
+    i32.const 100
+    i32.rem_u
+    i32.const 2
+    i32.shl
+    i32.add
+    i64.load32_u offset=8
+    i64.const 32
+    i64.shl
+    i64.or
+    i64.store offset=4
+    local.get $2
+    i32.const 4
+    i32.sub
+    local.tee $2
+    i32.const 1
+    i32.shl
+    local.get $0
+    i32.add
+    local.get $3
+    local.get $6
+    i32.const 2
+    i32.shl
+    i32.add
+    i64.load32_u offset=8
+    local.get $3
+    local.get $5
+    i32.const 2
+    i32.shl
+    i32.add
+    i64.load32_u offset=8
+    i64.const 32
+    i64.shl
+    i64.or
+    i64.store offset=4
+    br $continue|0
+   end
+  end
+  local.get $0
+  local.get $1
+  i32.wrap_i64
+  local.get $2
+  call $~lib/internal/number/utoa32_lut
+ )
+ (func $~lib/internal/number/itoa64 (; 17 ;) (type $Ii) (param $0 i64) (result i32)
+  (local $1 i32)
+  (local $2 i32)
+  (local $3 i32)
+  (local $4 i32)
+  local.get $0
+  i64.eqz
+  if
+   i32.const 8
+   return
+  end
+  block (result i32)
+   local.get $0
+   i64.const 0
+   i64.lt_s
+   local.tee $1
+   if
+    i64.const 0
+    local.get $0
+    i64.sub
+    local.set $0
+   end
+   local.get $0
+   i64.const 4294967295
+   i64.le_u
+  end
+  if
+   local.get $0
+   i32.wrap_i64
+   local.tee $4
+   call $~lib/internal/number/decimalCount32
+   local.get $1
+   i32.add
+   local.tee $2
+   call $~lib/internal/string/allocateUnsafe
+   local.tee $3
+   local.get $4
+   local.get $2
+   call $~lib/internal/number/utoa32_lut
+  else   
+   local.get $0
+   call $~lib/internal/number/decimalCount64
+   local.get $1
+   i32.add
+   local.tee $2
+   call $~lib/internal/string/allocateUnsafe
+   local.tee $3
+   local.get $0
+   local.get $2
+   call $~lib/internal/number/utoa64_lut
+  end
+  local.get $1
+  if
+   local.get $3
+   i32.const 45
+   i32.store16 offset=4
+  end
+  local.get $3
+ )
+ (func $~lib/internal/number/utoa64 (; 18 ;) (type $Ii) (param $0 i64) (result i32)
+  (local $1 i32)
+  (local $2 i32)
+  (local $3 i32)
+  local.get $0
+  i64.eqz
+  if
+   i32.const 8
+   return
+  end
+  local.get $0
+  i64.const 4294967295
+  i64.le_u
+  if
+   local.get $0
+   i32.wrap_i64
+   local.tee $3
+   call $~lib/internal/number/decimalCount32
+   local.tee $1
+   call $~lib/internal/string/allocateUnsafe
+   local.tee $2
+   local.get $3
+   local.get $1
+   call $~lib/internal/number/utoa32_lut
+  else   
+   local.get $0
+   call $~lib/internal/number/decimalCount64
+   local.tee $1
+   call $~lib/internal/string/allocateUnsafe
+   local.tee $2
+   local.get $0
+   local.get $1
+   call $~lib/internal/number/utoa64_lut
+  end
+  local.get $2
+ )
+ (func $start:number (; 19 ;) (type $_)
   (local $0 i32)
-  i32.const 2192
+  i32.const 2808
   global.set $~lib/allocator/arena/startOffset
   global.get $~lib/allocator/arena/startOffset
   global.set $~lib/allocator/arena/offset
@@ -2826,11 +3078,37 @@
    call $~lib/env/abort
    unreachable
   end
+  i64.const 9223372036854775807
+  call $~lib/internal/number/itoa64
+  i32.const 2712
+  call $~lib/string/String.__eq
+  i32.eqz
+  if
+   i32.const 0
+   i32.const 600
+   i32.const 23
+   i32.const 0
+   call $~lib/env/abort
+   unreachable
+  end
+  i64.const -1
+  call $~lib/internal/number/utoa64
+  i32.const 2760
+  call $~lib/string/String.__eq
+  i32.eqz
+  if
+   i32.const 0
+   i32.const 600
+   i32.const 24
+   i32.const 0
+   call $~lib/env/abort
+   unreachable
+  end
  )
- (func $start (; 16 ;) (type $_)
+ (func $start (; 20 ;) (type $_)
   call $start:number
  )
- (func $null (; 17 ;) (type $_)
+ (func $null (; 21 ;) (type $_)
   nop
  )
 )

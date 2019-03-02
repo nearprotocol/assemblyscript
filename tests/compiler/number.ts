@@ -20,6 +20,9 @@ assert((!1).toString() == "false");
 assert((a++).toString() == "1");
 assert((a--).toString() == "2");
 
+assert(I64.MAX_VALUE.toString() == "9223372036854775807");
+assert(U64.MAX_VALUE.toString() == "18446744073709551615");
+
 // float
 
 assert(isNaN<f32>(F32.NaN));
