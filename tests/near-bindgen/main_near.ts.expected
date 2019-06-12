@@ -7,7 +7,8 @@ import {
   rewrapFoobar as wrapped_rewrapFoobar,
   unwrapFoobar as wrapped_unwrapFoobar,
   getStringArrayLength as wrapped_getStringArrayLength,
-  convertFoobars as wrapped_convertFoobars
+  convertFoobars as wrapped_convertFoobars,
+  callbackWithName as wrapped_callbackWithName
 } from "./main";
 
 // Runtime functions
@@ -371,6 +372,70 @@ export function convertFoobars(): void {
     encoder.pushArray(null);
     __near_encode_Array_ContainerClass(result, encoder);
     encoder.popArray();
+  } else {
+    encoder.setNull(null);
+  }
+
+  let val = encoder.serialize();
+  return_value(val.byteLength, <usize>val.buffer);
+}
+import { __near_decode_PromiseArgs } from "./model_near";
+export class __near_ArgsParser_callbackWithName extends ThrowingJSONHandler {
+  buffer: Uint8Array;
+  decoder: JSONDecoder<__near_ArgsParser_callbackWithName>;
+  handledRoot: boolean = false;
+
+  __near_param_args: PromiseArgs;
+  setNull(name: string): void {
+    if (name == "args") {
+      this.__near_param_args = <PromiseArgs>null;
+      return;
+    }
+
+    super.setNull(name);
+  }
+
+  pushObject(name: string): bool {
+    if (!this.handledRoot) {
+      assert(name == null);
+      this.handledRoot = true;
+      return true;
+    } else {
+      assert(name != null);
+    }
+    if (name == "args") {
+      this.__near_param_args = __near_decode_PromiseArgs(
+        this.buffer,
+        this.decoder.state
+      );
+      return false;
+    }
+
+    return super.pushObject(name);
+  }
+
+  pushArray(name: string): bool {
+    return super.pushArray(name);
+  }
+}
+import { __near_encode_MyCallbackResult } from "./model_near";
+export function callbackWithName(): void {
+  // Reading input bytes.
+  let json = storage._internalReadBytes(4, 0, 0);
+  let handler = new __near_ArgsParser_callbackWithName();
+  handler.buffer = json;
+  handler.decoder = new JSONDecoder<__near_ArgsParser_callbackWithName>(
+    handler
+  );
+  handler.decoder.deserialize(json);
+  let result = wrapped_callbackWithName(handler.__near_param_args);
+
+  let encoder = new JSONEncoder();
+
+  if (result != null) {
+    encoder.pushObject(null);
+    __near_encode_MyCallbackResult(result, encoder);
+    encoder.popObject();
   } else {
     encoder.setNull(null);
   }
