@@ -1,5 +1,3 @@
-import "allocator/arena";
-
 // These imports need to be copied properly
 import { storage, context, ContractPromise, near } from "./near";
 import { FooBar, ContainerClass, AnotherContainerClass } from "./model_near";
@@ -33,33 +31,24 @@ export function getStringArrayLength(arr: string[]): i32 {
 }
 
 export function convertFoobars(foobars: Array<FooBar>): Array<ContainerClass> {
-    /* TODO: Fix compiler bug https://github.com/AssemblyScript/assemblyscript/issues/539
-    return foobars.map<ContainerClass>((it: FooBar, i: i32, arr: Array<FooBar>): ContainerClass => {
-        return { foobar: it};
-    });
-    */
-    let result: ContainerClass[] = new Array(foobars.length);
-    for (let i = 0; i < foobars.length; i++) {
-        result[i] = { foobar: foobars[i] }
-    }
-    return result;
+    return foobars.map<ContainerClass>(foobar => ({ foobar }));
 }
 
-export function callbackWithName(args: PromiseArgs): MyCallbackResult {
-    let contractResults = ContractPromise.getResults();
-    let allRes = new Array<MyContractPromiseResult>(contractResults.length);
-    for (let i = 0; i < contractResults.length; ++i) {
-        allRes[i] = new MyContractPromiseResult();
-        allRes[i].ok = contractResults[i].success;
-        if (allRes[i].ok && contractResults[i].buffer != null && contractResults[i].buffer.length > 0) {
-            allRes[i].r = MyCallbackResult.decode(contractResults[i].buffer);
-        }
-    }
-    let result: MyCallbackResult = {
-        rs: allRes,
-        n: context.contractName,
-    }
-    let bytes = result.encode();
-    storage.setBytes("lastResult", bytes);
-    return result;
-}
+// export function callbackWithName(args: PromiseArgs): MyCallbackResult {
+//     let contractResults = ContractPromise.getResults();
+//     let allRes = new Array<MyContractPromiseResult>(contractResults.length);
+//     for (let i = 0; i < contractResults.length; ++i) {
+//         allRes[i] = new MyContractPromiseResult();
+//         allRes[i].ok = contractResults[i].success;
+//         if (allRes[i].ok && contractResults[i].buffer != null && contractResults[i].buffer.length > 0) {
+//             allRes[i].r = MyCallbackResult.decode(contractResults[i].buffer);
+//         }
+//     }
+//     let result: MyCallbackResult = {
+//         rs: allRes,
+//         n: context.contractName,
+//     }
+//     let bytes = result.encode();
+//     storage.setBytes("lastResult", bytes);
+//     return result;
+// }
