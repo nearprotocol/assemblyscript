@@ -162,7 +162,6 @@ abstract class ExportsWalker {
 }
 
 class FunctionMetadata {
-  name: string;
   parameters: {[key: string]: string} = {};
   returnType: string;
 }
@@ -665,7 +664,7 @@ export class NEARBindingsBuilder extends ExportsWalker {
   }
 
   private generateFunctionMetadata(func: Function): FunctionMetadata {
-    let res: FunctionMetadata = {name: func.name, parameters: {}, returnType: this.typeName(func.signature.returnType)};
+    let res: FunctionMetadata = {parameters: {}, returnType: this.typeName(func.signature.returnType)};
     let parameterLen = func.signature.parameterTypes.length;
     let parameterMap = res.parameters;
     for (let i = 0; i < parameterLen; i++) {
