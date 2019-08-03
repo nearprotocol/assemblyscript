@@ -257,7 +257,14 @@ export class NEARBindingsBuilder extends ExportsWalker {
     this.generateEncodeFunction(returnType);
     this.sb.push(`export function ${element.name}(): void {
       // Reading input bytes.
-      let json = storage._internalReadBytes(4, 0, 0);
+      input(0);
+      let json_len = register_len(0);
+      if (json_len == U64.MAX_VALUE) {
+        panic();
+      }
+      let json = new Uint8Array(json_len as i32);
+      read_register(0, json.buffer as u64);
+      
       let handler = new __near_ArgsParser_${element.name}();
       handler.buffer = json;
       handler.decoder = new JSONDecoder<__near_ArgsParser_${element.name}>(handler);
@@ -278,7 +285,7 @@ export class NEARBindingsBuilder extends ExportsWalker {
       this.generateFieldEncoder(returnType, "null", "result");
       this.sb.push(`
         let val = encoder.serialize();
-        return_value(val.byteLength, <usize>val.buffer);
+        value_return(val.byteLength, <usize>val.buffer);
       `);
     }
     this.sb.push(`}`);
@@ -677,8 +684,17 @@ export class NEARBindingsBuilder extends ExportsWalker {
       import {${allImportsStr}} from "./${mainSource.normalizedPath.replace(".ts", "")}";
       
       // Runtime functions
-      @external("env", "return_value")
-      declare function return_value(value_len: usize, value_ptr: usize): void;
+      @external("env", "read_register")
+      declare function read_register(register_id: u64, ptr: u64): void;
+      @external("env", "register_len")
+      declare function register_len(register_id: u64): u64;
+      
+      @external("env", "input")
+      declare function input(register_id: u64): void; 
+      @external("env", "value_return")
+      declare function value_return(value_len: usize, value_ptr: usize): void;
+      @external("env", "panic")
+      declare function panic(): void;
     `].concat(this.sb);
 
     for (let [key, value] of this.classRanges) {
