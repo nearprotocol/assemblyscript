@@ -692,7 +692,7 @@ export class NEARBindingsBuilder extends ExportsWalker {
       @external("env", "input")
       declare function input(register_id: u64): void; 
       @external("env", "value_return")
-      declare function value_return(value_len: usize, value_ptr: usize): void;
+      declare function value_return(value_len: u64, value_ptr: u64): void;
       @external("env", "panic")
       declare function panic(): void;
     `].concat(this.sb);
