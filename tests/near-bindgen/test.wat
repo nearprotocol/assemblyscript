@@ -14,11 +14,9 @@
  (type $FUNCSIG$vij (func (param i32 i64)))
  (type $FUNCSIG$ij (func (param i64) (result i32)))
  (type $FUNCSIG$viji (func (param i32 i64 i32)))
- (type $FUNCSIG$jii (func (param i32 i32) (result i64)))
- (type $FUNCSIG$vijjjj (func (param i32 i64 i64 i64 i64)))
  (import "env" "abort" (func $~lib/builtins/abort (param i32 i32 i32 i32)))
  (import "env" "data_read" (func $~lib/near-runtime-ts/imports/data_read (param i32 i32 i32 i32 i32) (result i32)))
- (import "env" "return_value" (func $main_near/return_value (param i32 i32)))
+ (import "env" "return_value" (func $~lib/near-runtime-ts/imports/return_value (param i32 i32)))
  (import "env" "log" (func $~lib/near-runtime-ts/imports/_near_log (param i32)))
  (memory $0 1)
  (data (i32.const 8) "\02\00\00\00\01\00\00\00\01\00\00\00\02\00\00\00=\00")
@@ -86,48 +84,44 @@
  (data (i32.const 2680) "\1c\00\00\00\01\00\00\00\01\00\00\00\1c\00\00\00~\00l\00i\00b\00/\00s\00t\00r\00i\00n\00g\00.\00t\00s\00")
  (data (i32.const 2728) "(\00\00\00\01\00\00\00\01\00\00\00(\00\00\00U\00n\00e\00x\00p\00e\00c\00t\00e\00d\00 \00i\00n\00p\00u\00t\00 \00e\00n\00d\00")
  (data (i32.const 2784) "F\00\00\00\01\00\00\00\01\00\00\00F\00\00\00~\00l\00i\00b\00/\00a\00s\00s\00e\00m\00b\00l\00y\00s\00c\00r\00i\00p\00t\00-\00j\00s\00o\00n\00/\00d\00e\00c\00o\00d\00e\00r\00.\00t\00s\00")
- (data (i32.const 2872) "\1a\00\00\00\01\00\00\00\01\00\00\00\1a\00\00\00m\00o\00d\00e\00l\00_\00n\00e\00a\00r\00.\00t\00s\00")
- (data (i32.const 2920) "0\00\00\00\01\00\00\00\01\00\00\000\00\00\00U\00n\00e\00x\00p\00e\00c\00t\00e\00d\00 \00o\00b\00j\00e\00c\00t\00 \00f\00i\00e\00l\00d\00 \00")
- (data (i32.const 2984) "\18\00\00\00\01\00\00\00\01\00\00\00\18\00\00\00E\00x\00p\00e\00c\00t\00e\00d\00 \00\'\00,\00\'\00")
- (data (i32.const 3024) ":\00\00\00\01\00\00\00\01\00\00\00:\00\00\00E\00x\00p\00e\00c\00t\00e\00d\00 \00d\00o\00u\00b\00l\00e\00-\00q\00u\00o\00t\00e\00d\00 \00s\00t\00r\00i\00n\00g\00")
- (data (i32.const 3104) "8\00\00\00\01\00\00\00\01\00\00\008\00\00\00U\00n\00e\00x\00p\00e\00c\00t\00e\00d\00 \00c\00o\00n\00t\00r\00o\00l\00 \00c\00h\00a\00r\00a\00c\00t\00e\00r\00")
- (data (i32.const 3176) "\02\00\00\00\01\00\00\00\01\00\00\00\02\00\00\00/\00")
- (data (i32.const 3200) "\02\00\00\00\01\00\00\00\01\00\00\00\02\00\00\00b\00")
- (data (i32.const 3224) "\02\00\00\00\01\00\00\00\01\00\00\00\02\00\00\00n\00")
- (data (i32.const 3248) "\02\00\00\00\01\00\00\00\01\00\00\00\02\00\00\00r\00")
- (data (i32.const 3272) "\02\00\00\00\01\00\00\00\01\00\00\00\02\00\00\00t\00")
- (data (i32.const 3296) "\02\00\00\00\01\00\00\00\01\00\00\00\02\00\00\00u\00")
- (data (i32.const 3320) "&\00\00\00\01\00\00\00\01\00\00\00&\00\00\00U\00n\00e\00x\00p\00e\00c\00t\00e\00d\00 \00\\\00u\00 \00d\00i\00g\00i\00t\00")
- (data (i32.const 3376) "<\00\00\00\01\00\00\00\01\00\00\00<\00\00\00U\00n\00e\00x\00p\00e\00c\00t\00e\00d\00 \00e\00s\00c\00a\00p\00e\00d\00 \00c\00h\00a\00r\00a\00c\00t\00e\00r\00:\00 \00")
- (data (i32.const 3456) "\18\00\00\00\01\00\00\00\01\00\00\00\18\00\00\00E\00x\00p\00e\00c\00t\00e\00d\00 \00\'\00:\00\'\00")
- (data (i32.const 3496) "0\00\00\00\01\00\00\00\01\00\00\000\00\00\00U\00n\00e\00x\00p\00e\00c\00t\00e\00d\00 \00e\00n\00d\00 \00o\00f\00 \00o\00b\00j\00e\00c\00t\00")
- (data (i32.const 3560) ".\00\00\00\01\00\00\00\01\00\00\00.\00\00\00U\00n\00e\00x\00p\00e\00c\00t\00e\00d\00 \00e\00n\00d\00 \00o\00f\00 \00a\00r\00r\00a\00y\00")
- (data (i32.const 3624) "\14\00\00\00\01\00\00\00\01\00\00\00\14\00\00\00E\00x\00p\00e\00c\00t\00e\00d\00 \00\'\00")
- (data (i32.const 3664) "\02\00\00\00\01\00\00\00\01\00\00\00\02\00\00\00\'\00")
- (data (i32.const 3688) ",\00\00\00\01\00\00\00\01\00\00\00,\00\00\00U\00n\00e\00x\00p\00e\00c\00t\00e\00d\00 \00b\00o\00o\00l\00 \00f\00i\00e\00l\00d\00 \00")
- (data (i32.const 3752) "\06\00\00\00\01\00\00\00\01\00\00\00\06\00\00\00 \00:\00 \00")
- (data (i32.const 3776) "\02\00\00\00\01\00\00\00\01\00\00\00\02\00\00\00-\00")
- (data (i32.const 3800) "2\00\00\00\01\00\00\00\01\00\00\002\00\00\00U\00n\00e\00x\00p\00e\00c\00t\00e\00d\00 \00i\00n\00t\00e\00g\00e\00r\00 \00f\00i\00e\00l\00d\00 \00")
- (data (i32.const 3872) "\"\00\00\00\01\00\00\00\01\00\00\00\"\00\00\00C\00a\00n\00n\00o\00t\00 \00p\00a\00r\00s\00e\00 \00J\00S\00O\00N\00")
- (data (i32.const 3928) "0\00\00\00\01\00\00\00\01\00\00\000\00\00\00U\00n\00e\00x\00p\00e\00c\00t\00e\00d\00 \00s\00t\00r\00i\00n\00g\00 \00f\00i\00e\00l\00d\00 \00")
- (data (i32.const 3992) "\08\00\00\00\01\00\00\00\01\00\00\00\08\00\00\00 \00:\00 \00\"\00")
- (data (i32.const 4016) ",\00\00\00\01\00\00\00\01\00\00\00,\00\00\00U\00n\00e\00x\00p\00e\00c\00t\00e\00d\00 \00n\00u\00l\00l\00 \00f\00i\00e\00l\00d\00 \00")
- (data (i32.const 4080) ".\00\00\00\01\00\00\00\01\00\00\00.\00\00\00U\00n\00e\00x\00p\00e\00c\00t\00e\00d\00 \00a\00r\00r\00a\00y\00 \00f\00i\00e\00l\00d\00 \00")
- (data (i32.const 4144) "\1a\00\00\00\01\00\00\00\01\00\00\00\1a\00\00\00I\00n\00v\00a\00l\00i\00d\00 \00r\00a\00d\00i\00x\00")
- (data (i32.const 4192) "(\00\00\00\01\00\00\00\01\00\00\00(\00\00\00~\00l\00i\00b\00/\00b\00i\00g\00n\00u\00m\00/\00u\00t\00i\00l\00s\00.\00t\00s\00")
- (data (i32.const 4248) "K\00\00\00\01\00\00\00\00\00\00\00K\00\00\00\00\01\02\03\04\05\06\07\08\t$$$$$$$\n\0b\0c\0d\0e\0f\10\11\12\13\14\15\16\17\18\19\1a\1b\1c\1d\1e\1f !\"#$$$$$$\n\0b\0c\0d\0e\0f\10\11\12\13\14\15\16\17\18\19\1a\1b\1c\1d\1e\1f !\"#")
- (data (i32.const 4344) "\10\00\00\00\01\00\00\00\1e\00\00\00\10\00\00\00\a8\10\00\00\a8\10\00\00K\00\00\00K\00\00\00")
- (data (i32.const 4376) "\0e\00\00\00\01\00\00\00\01\00\00\00\0e\00\00\00t\00e\00s\00t\00.\00t\00s\00")
- (data (i32.const 4408) "d\00\00\00\01\00\00\00\01\00\00\00d\00\00\00I\00n\00t\00e\00r\00n\00a\00l\00 \00s\00c\00r\00a\00t\00c\00h\00 \00b\00u\00f\00f\00e\00r\00 \00w\00a\00s\00 \00r\00e\00s\00i\00z\00e\00d\00 \00m\00o\00r\00e\00 \00t\00h\00a\00n\00 \00o\00n\00c\00e\00")
- (data (i32.const 4528) ">\00\00\00\01\00\00\00\01\00\00\00>\00\00\00~\00l\00i\00b\00/\00n\00e\00a\00r\00-\00r\00u\00n\00t\00i\00m\00e\00-\00t\00s\00/\00s\00t\00o\00r\00a\00g\00e\00.\00t\00s\00")
- (data (i32.const 4608) "\18\00\00\00\01\00\00\00\01\00\00\00\18\00\00\00m\00a\00i\00n\00_\00n\00e\00a\00r\00.\00t\00s\00")
- (data (i32.const 4648) "\0e\00\00\00\01\00\00\00\01\00\00\00\0e\00\00\00f\00o\00o\00b\00a\00r\00s\00")
- (data (i32.const 4680) "\0c\00\00\00\01\00\00\00\01\00\00\00\0c\00\00\00f\00o\00o\00b\00a\00r\00")
- (data (i32.const 4712) ",\00\00\00\01\00\00\00\01\00\00\00,\00\00\00g\00e\00t\00S\00t\00r\00i\00n\00g\00A\00r\00r\00a\00y\00L\00e\00n\00g\00t\00h\00:\00 \00")
- (data (i32.const 4776) "\12\00\00\00\01\00\00\00\01\00\00\00\12\00\00\00c\00o\00n\00t\00a\00i\00n\00e\00r\00")
- (data (i32.const 4816) "4\00\00\00\10\00\00\00\00\00\00\00\10\00\00\00\00\00\00\00\10\00\00\00\00\00\00\00\10\00\00\00\00\00\00\001\00\00\00\02\00\00\00\10\00\00\00\00\00\00\00\10\00\00\00\00\00\00\00\10\00\00\00\00\00\00\00\93 \00\00\02\00\00\00\93 \00\00\02\00\00\00\93\00\00\00\02\00\00\00\93\04\00\00\02\00\00\00\93 \00\00\02\00\00\00\10\00\00\00\00\00\00\001\04\00\00\02\00\00\00\10\00\00\00\00\00\00\00\10\00\00\00\00\00\00\00\10\00\00\00\10\00\00\00\00\00\00\00\11\00\00\00\00\00\00\00\00\00\00\00\00\00\00\00\11\00\00\00\00\00\00\00\00\00\00\00\00\00\00\00\11\00\00\00\00\00\00\00\00\00\00\00\00\00\00\00\11\00\00\00\00\00\00\00\00\00\00\00\00\00\00\00\11\00\00\00\00\00\00\00\00\00\00\00\00\00\00\00\11\00\00\00\00\00\00\00\00\00\00\003\00\00\00\02\00\00\00\00\00\00\00\11\00\00\00\00\00\00\00\00\00\00\00\93 \00\00\02\00\00\00\00\00\00\00\11\00\00\00\00\00\00\00\00\00\00\00\10\00\00\00\00\00\00\00\93 \00\00\02\00\00\00\00\00\00\00\11\00\00\00\00\00\00\00\00\00\00\00\00\00\00\00\11\00\00\00\00\00\00\00\00\00\00\00\00\00\00\00\11\00\00\00\00\00\00\00\00\00\00\00\10\00\00\00\00\00\00\00\93 \00\00\02\00\00\00\00\00\00\00\11\00\00\00\00\00\00\00\00\00\00\00\00\00\00\00\11\00\00\00\00\00\00\00\00\00\00\00\00\00\00\00\11\00\00\00\00\00\00\00\00\00\00\00")
+ (data (i32.const 2872) "\10\00\00\00\01\00\00\00\01\00\00\00\10\00\00\00m\00o\00d\00e\00l\00.\00t\00s\00")
+ (data (i32.const 2904) "0\00\00\00\01\00\00\00\01\00\00\000\00\00\00U\00n\00e\00x\00p\00e\00c\00t\00e\00d\00 \00o\00b\00j\00e\00c\00t\00 \00f\00i\00e\00l\00d\00 \00")
+ (data (i32.const 2968) "\18\00\00\00\01\00\00\00\01\00\00\00\18\00\00\00E\00x\00p\00e\00c\00t\00e\00d\00 \00\'\00,\00\'\00")
+ (data (i32.const 3008) ":\00\00\00\01\00\00\00\01\00\00\00:\00\00\00E\00x\00p\00e\00c\00t\00e\00d\00 \00d\00o\00u\00b\00l\00e\00-\00q\00u\00o\00t\00e\00d\00 \00s\00t\00r\00i\00n\00g\00")
+ (data (i32.const 3088) "8\00\00\00\01\00\00\00\01\00\00\008\00\00\00U\00n\00e\00x\00p\00e\00c\00t\00e\00d\00 \00c\00o\00n\00t\00r\00o\00l\00 \00c\00h\00a\00r\00a\00c\00t\00e\00r\00")
+ (data (i32.const 3160) "\02\00\00\00\01\00\00\00\01\00\00\00\02\00\00\00/\00")
+ (data (i32.const 3184) "\02\00\00\00\01\00\00\00\01\00\00\00\02\00\00\00b\00")
+ (data (i32.const 3208) "\02\00\00\00\01\00\00\00\01\00\00\00\02\00\00\00n\00")
+ (data (i32.const 3232) "\02\00\00\00\01\00\00\00\01\00\00\00\02\00\00\00r\00")
+ (data (i32.const 3256) "\02\00\00\00\01\00\00\00\01\00\00\00\02\00\00\00t\00")
+ (data (i32.const 3280) "\02\00\00\00\01\00\00\00\01\00\00\00\02\00\00\00u\00")
+ (data (i32.const 3304) "&\00\00\00\01\00\00\00\01\00\00\00&\00\00\00U\00n\00e\00x\00p\00e\00c\00t\00e\00d\00 \00\\\00u\00 \00d\00i\00g\00i\00t\00")
+ (data (i32.const 3360) "<\00\00\00\01\00\00\00\01\00\00\00<\00\00\00U\00n\00e\00x\00p\00e\00c\00t\00e\00d\00 \00e\00s\00c\00a\00p\00e\00d\00 \00c\00h\00a\00r\00a\00c\00t\00e\00r\00:\00 \00")
+ (data (i32.const 3440) "\18\00\00\00\01\00\00\00\01\00\00\00\18\00\00\00E\00x\00p\00e\00c\00t\00e\00d\00 \00\'\00:\00\'\00")
+ (data (i32.const 3480) "0\00\00\00\01\00\00\00\01\00\00\000\00\00\00U\00n\00e\00x\00p\00e\00c\00t\00e\00d\00 \00e\00n\00d\00 \00o\00f\00 \00o\00b\00j\00e\00c\00t\00")
+ (data (i32.const 3544) "\0e\00\00\00\01\00\00\00\01\00\00\00\0e\00\00\00m\00a\00i\00n\00.\00t\00s\00")
+ (data (i32.const 3576) ".\00\00\00\01\00\00\00\01\00\00\00.\00\00\00U\00n\00e\00x\00p\00e\00c\00t\00e\00d\00 \00e\00n\00d\00 \00o\00f\00 \00a\00r\00r\00a\00y\00")
+ (data (i32.const 3640) "\14\00\00\00\01\00\00\00\01\00\00\00\14\00\00\00E\00x\00p\00e\00c\00t\00e\00d\00 \00\'\00")
+ (data (i32.const 3680) "\02\00\00\00\01\00\00\00\01\00\00\00\02\00\00\00\'\00")
+ (data (i32.const 3704) ",\00\00\00\01\00\00\00\01\00\00\00,\00\00\00U\00n\00e\00x\00p\00e\00c\00t\00e\00d\00 \00b\00o\00o\00l\00 \00f\00i\00e\00l\00d\00 \00")
+ (data (i32.const 3768) "\06\00\00\00\01\00\00\00\01\00\00\00\06\00\00\00 \00:\00 \00")
+ (data (i32.const 3792) "\02\00\00\00\01\00\00\00\01\00\00\00\02\00\00\00-\00")
+ (data (i32.const 3816) "2\00\00\00\01\00\00\00\01\00\00\002\00\00\00U\00n\00e\00x\00p\00e\00c\00t\00e\00d\00 \00i\00n\00t\00e\00g\00e\00r\00 \00f\00i\00e\00l\00d\00 \00")
+ (data (i32.const 3888) "\"\00\00\00\01\00\00\00\01\00\00\00\"\00\00\00C\00a\00n\00n\00o\00t\00 \00p\00a\00r\00s\00e\00 \00J\00S\00O\00N\00")
+ (data (i32.const 3944) "0\00\00\00\01\00\00\00\01\00\00\000\00\00\00U\00n\00e\00x\00p\00e\00c\00t\00e\00d\00 \00s\00t\00r\00i\00n\00g\00 \00f\00i\00e\00l\00d\00 \00")
+ (data (i32.const 4008) "\08\00\00\00\01\00\00\00\01\00\00\00\08\00\00\00 \00:\00 \00\"\00")
+ (data (i32.const 4032) ",\00\00\00\01\00\00\00\01\00\00\00,\00\00\00U\00n\00e\00x\00p\00e\00c\00t\00e\00d\00 \00n\00u\00l\00l\00 \00f\00i\00e\00l\00d\00 \00")
+ (data (i32.const 4096) ".\00\00\00\01\00\00\00\01\00\00\00.\00\00\00U\00n\00e\00x\00p\00e\00c\00t\00e\00d\00 \00a\00r\00r\00a\00y\00 \00f\00i\00e\00l\00d\00 \00")
+ (data (i32.const 4160) "\0e\00\00\00\01\00\00\00\01\00\00\00\0e\00\00\00t\00e\00s\00t\00.\00t\00s\00")
+ (data (i32.const 4192) "d\00\00\00\01\00\00\00\01\00\00\00d\00\00\00I\00n\00t\00e\00r\00n\00a\00l\00 \00s\00c\00r\00a\00t\00c\00h\00 \00b\00u\00f\00f\00e\00r\00 \00w\00a\00s\00 \00r\00e\00s\00i\00z\00e\00d\00 \00m\00o\00r\00e\00 \00t\00h\00a\00n\00 \00o\00n\00c\00e\00")
+ (data (i32.const 4312) ">\00\00\00\01\00\00\00\01\00\00\00>\00\00\00~\00l\00i\00b\00/\00n\00e\00a\00r\00-\00r\00u\00n\00t\00i\00m\00e\00-\00t\00s\00/\00s\00t\00o\00r\00a\00g\00e\00.\00t\00s\00")
+ (data (i32.const 4392) "\0e\00\00\00\01\00\00\00\01\00\00\00\0e\00\00\00f\00o\00o\00b\00a\00r\00s\00")
+ (data (i32.const 4424) "\0c\00\00\00\01\00\00\00\01\00\00\00\0c\00\00\00f\00o\00o\00b\00a\00r\00")
+ (data (i32.const 4456) ",\00\00\00\01\00\00\00\01\00\00\00,\00\00\00g\00e\00t\00S\00t\00r\00i\00n\00g\00A\00r\00r\00a\00y\00L\00e\00n\00g\00t\00h\00:\00 \00")
+ (data (i32.const 4520) "\12\00\00\00\01\00\00\00\01\00\00\00\12\00\00\00c\00o\00n\00t\00a\00i\00n\00e\00r\00")
+ (data (i32.const 4560) "3\00\00\00\10\00\00\00\00\00\00\00\10\00\00\00\00\00\00\00\10\00\00\00\00\00\00\00\10\00\00\00\00\00\00\001\00\00\00\02\00\00\00\10\00\00\00\00\00\00\00\10\00\00\00\00\00\00\00\10\00\00\00\00\00\00\00\93 \00\00\02\00\00\00\93 \00\00\02\00\00\00\93\00\00\00\02\00\00\00\93\04\00\00\02\00\00\00\93 \00\00\02\00\00\00\10\00\00\00\00\00\00\001\04\00\00\02\00\00\00\10\00\00\00\00\00\00\00\10\00\00\00\00\00\00\00\10\00\00\00\10\00\00\00\00\00\00\00\11\00\00\00\00\00\00\00\00\00\00\00\00\00\00\00\11\00\00\00\00\00\00\00\00\00\00\00\00\00\00\00\11\00\00\00\00\00\00\00\00\00\00\00\00\00\00\00\11\00\00\00\00\00\00\00\00\00\00\00\00\00\00\00\11\00\00\00\00\00\00\00\00\00\00\00\00\00\00\00\11\00\00\00\00\00\00\00\00\00\00\00\00\00\00\00\11\00\00\00\00\00\00\00\00\00\00\00\93 \00\00\02\00\00\00\00\00\00\00\11\00\00\00\00\00\00\00\00\00\00\00\10\00\00\00\00\00\00\00\93 \00\00\02\00\00\00\00\00\00\00\11\00\00\00\00\00\00\00\00\00\00\00\00\00\00\00\11\00\00\00\00\00\00\00\00\00\00\00\00\00\00\00\11\00\00\00\00\00\00\00\00\00\00\00\10\00\00\00\00\00\00\00\93 \00\00\02\00\00\00\00\00\00\00\11\00\00\00\00\00\00\00\00\00\00\00\00\00\00\00\11\00\00\00\00\00\00\00\00\00\00\00\00\00\00\00\11\00\00\00\00\00\00\00\00\00\00\00")
  (table $0 2 funcref)
- (elem (i32.const 0) $null $main/convertFoobars~anonymous|0)
+ (elem (i32.const 0) $null $main/wrapped_convertFoobars~anonymous|0)
  (global $~lib/rt/stub/startOffset (mut i32) (i32.const 0))
  (global $~lib/rt/stub/offset (mut i32) (i32.const 0))
  (global $~lib/near-runtime-ts/util/base64.PADCHAR i32 (i32.const 24))
@@ -165,9 +159,8 @@
  (global $~lib/assemblyscript-json/decoder/CHAR_A_LOWER (mut i32) (i32.const 0))
  (global $~lib/builtins/u32.MAX_VALUE i32 (i32.const -1))
  (global $~lib/argc (mut i32) (i32.const 0))
- (global $~lib/bignum/utils/RadixCharsTable i32 (i32.const 4360))
- (global $~lib/rt/__rtti_base i32 (i32.const 4816))
- (global $~lib/heap/__heap_base i32 (i32.const 5236))
+ (global $~lib/rt/__rtti_base i32 (i32.const 4560))
+ (global $~lib/heap/__heap_base i32 (i32.const 4972))
  (export "memory" (memory $0))
  (export "__alloc" (func $~lib/rt/stub/__alloc))
  (export "__retain" (func $~lib/rt/stub/__retain))
@@ -720,14 +713,14 @@
  (func $start:~lib/assemblyscript-json/index (; 19 ;) (type $FUNCSIG$v)
   call $start:~lib/assemblyscript-json/decoder
  )
- (func $start:main_near (; 20 ;) (type $FUNCSIG$v)
+ (func $start:main (; 20 ;) (type $FUNCSIG$v)
   call $start:~lib/near-runtime-ts/index
   call $start:~lib/assemblyscript-json/index
  )
  (func $start:test (; 21 ;) (type $FUNCSIG$v)
-  call $start:main_near
+  call $start:main
  )
- (func $model_near/FooBar#constructor (; 22 ;) (type $FUNCSIG$ii) (param $0 i32) (result i32)
+ (func $model/FooBar#constructor (; 22 ;) (type $FUNCSIG$ii) (param $0 i32) (result i32)
   local.get $0
   i32.eqz
   if
@@ -4968,7 +4961,7 @@
   local.get $1
   call $~lib/array/Array<~lib/string/String>#__unchecked_get
  )
- (func $model_near/__near_encode_Array_String (; 90 ;) (type $FUNCSIG$vii) (param $0 i32) (param $1 i32)
+ (func $model/__near_encode_Array_string (; 90 ;) (type $FUNCSIG$vii) (param $0 i32) (param $1 i32)
   (local $2 i32)
   (local $3 i32)
   (local $4 i32)
@@ -5066,7 +5059,7 @@
   call $~lib/array/Array<i32>#pop
   drop
  )
- (func $model_near/__near_encode_Array_Array_String (; 93 ;) (type $FUNCSIG$vii) (param $0 i32) (param $1 i32)
+ (func $model/__near_encode_Array_Array_string (; 93 ;) (type $FUNCSIG$vii) (param $0 i32) (param $1 i32)
   (local $2 i32)
   (local $3 i32)
   (local $4 i32)
@@ -5102,7 +5095,7 @@
      call $~lib/array/Array<~lib/array/Array<~lib/string/String>>#__get
      local.tee $4
      local.get $1
-     call $model_near/__near_encode_Array_String
+     call $model/__near_encode_Array_string
      local.get $1
      call $~lib/assemblyscript-json/encoder/JSONEncoder#popArray
      local.get $4
@@ -5159,7 +5152,7 @@
   local.get $1
   call $~lib/array/Array<u32>#__unchecked_get
  )
- (func $model_near/__near_encode_Array_u32 (; 97 ;) (type $FUNCSIG$vii) (param $0 i32) (param $1 i32)
+ (func $model/__near_encode_Array_u32 (; 97 ;) (type $FUNCSIG$vii) (param $0 i32) (param $1 i32)
   (local $2 i32)
   local.get $0
   call $~lib/rt/stub/__retain
@@ -5197,7 +5190,7 @@
   local.get $1
   call $~lib/rt/stub/__release
  )
- (func $model_near/__near_encode_Array_i32 (; 98 ;) (type $FUNCSIG$vii) (param $0 i32) (param $1 i32)
+ (func $model/__near_encode_Array_i32 (; 98 ;) (type $FUNCSIG$vii) (param $0 i32) (param $1 i32)
   (local $2 i32)
   local.get $0
   call $~lib/rt/stub/__retain
@@ -5803,7 +5796,7 @@
   local.get $1
   call $~lib/array/Array<~lib/typedarray/Uint8Array>#__unchecked_get
  )
- (func $model_near/__near_encode_Array_Uint8Array (; 109 ;) (type $FUNCSIG$vii) (param $0 i32) (param $1 i32)
+ (func $model/__near_encode_Array_Uint8Array (; 109 ;) (type $FUNCSIG$vii) (param $0 i32) (param $1 i32)
   (local $2 i32)
   (local $3 i32)
   (local $4 i32)
@@ -5864,7 +5857,7 @@
   local.get $1
   call $~lib/rt/stub/__release
  )
- (func $model_near/__near_encode_FooBar (; 110 ;) (type $FUNCSIG$vii) (param $0 i32) (param $1 i32)
+ (func $model/__near_encode_FooBar (; 110 ;) (type $FUNCSIG$vii) (param $0 i32) (param $1 i32)
   (local $2 i32)
   (local $3 i32)
   (local $4 i32)
@@ -5955,7 +5948,7 @@
    local.get $0
    i32.load offset=36
    local.get $1
-   call $model_near/__near_encode_Array_Array_String
+   call $model/__near_encode_Array_Array_string
    local.get $1
    call $~lib/assemblyscript-json/encoder/JSONEncoder#popArray
   else   
@@ -5975,7 +5968,7 @@
    local.get $0
    i32.load offset=40
    local.get $1
-   call $model_near/__near_encode_Array_u32
+   call $model/__near_encode_Array_u32
    local.get $1
    call $~lib/assemblyscript-json/encoder/JSONEncoder#popArray
   else   
@@ -5995,7 +5988,7 @@
    local.get $0
    i32.load offset=44
    local.get $1
-   call $model_near/__near_encode_Array_i32
+   call $model/__near_encode_Array_i32
    local.get $1
    call $~lib/assemblyscript-json/encoder/JSONEncoder#popArray
   else   
@@ -6073,7 +6066,7 @@
    local.get $0
    i32.load offset=52
    local.get $1
-   call $model_near/__near_encode_Array_Uint8Array
+   call $model/__near_encode_Array_Uint8Array
    local.get $1
    call $~lib/assemblyscript-json/encoder/JSONEncoder#popArray
   else   
@@ -6099,29 +6092,75 @@
   call $~lib/array/Array<i32>#pop
   drop
  )
- (func $model_near/FooBar#_encoder (; 112 ;) (type $FUNCSIG$ii) (param $0 i32) (result i32)
-  (local $1 i32)
-  i32.const 0
-  call $~lib/assemblyscript-json/encoder/JSONEncoder#constructor
-  local.set $1
+ (func $model/FooBar#_encoder (; 112 ;) (type $FUNCSIG$iiii) (param $0 i32) (param $1 i32) (param $2 i32) (result i32)
+  (local $3 i32)
   local.get $1
-  i32.const 0
+  call $~lib/rt/stub/__retain
+  drop
+  local.get $2
+  call $~lib/rt/stub/__retain
+  drop
+  local.get $1
+  local.get $2
   call $~lib/assemblyscript-json/encoder/JSONEncoder#pushObject
   drop
   local.get $0
   local.get $1
-  call $model_near/__near_encode_FooBar
+  call $model/__near_encode_FooBar
   local.get $1
   call $~lib/assemblyscript-json/encoder/JSONEncoder#popObject
   local.get $1
+  local.set $3
+  local.get $2
+  call $~lib/rt/stub/__release
+  local.get $3
  )
- (func $~lib/assemblyscript-json/encoder/JSONEncoder#toString (; 113 ;) (type $FUNCSIG$ii) (param $0 i32) (result i32)
+ (func $model/FooBar#encode (; 113 ;) (type $FUNCSIG$iiii) (param $0 i32) (param $1 i32) (param $2 i32) (result i32)
+  (local $3 i32)
+  (local $4 i32)
+  local.get $1
+  call $~lib/rt/stub/__retain
+  drop
+  local.get $2
+  call $~lib/rt/stub/__retain
+  drop
+  local.get $1
+  i32.const 0
+  i32.ne
+  if (result i32)
+   local.get $1
+   call $~lib/rt/stub/__retain
+  else   
+   i32.const 0
+   call $~lib/assemblyscript-json/encoder/JSONEncoder#constructor
+  end
+  local.set $3
+  local.get $0
+  local.get $3
+  local.tee $4
+  if (result i32)
+   local.get $4
+  else   
+   unreachable
+  end
+  local.get $2
+  call $model/FooBar#_encoder
+  local.set $4
+  local.get $3
+  call $~lib/rt/stub/__release
+  local.get $1
+  call $~lib/rt/stub/__release
+  local.get $2
+  call $~lib/rt/stub/__release
+  local.get $4
+ )
+ (func $~lib/assemblyscript-json/encoder/JSONEncoder#toString (; 114 ;) (type $FUNCSIG$ii) (param $0 i32) (result i32)
   local.get $0
   i32.load offset=4
   i32.const 760
   call $~lib/array/Array<~lib/string/String>#join
  )
- (func $~lib/string/String.UTF8.byteLength (; 114 ;) (type $FUNCSIG$iii) (param $0 i32) (param $1 i32) (result i32)
+ (func $~lib/string/String.UTF8.byteLength (; 115 ;) (type $FUNCSIG$iii) (param $0 i32) (param $1 i32) (result i32)
   (local $2 i32)
   (local $3 i32)
   (local $4 i32)
@@ -6244,7 +6283,7 @@
   call $~lib/rt/stub/__release
   local.get $5
  )
- (func $~lib/string/String.UTF8.encode (; 115 ;) (type $FUNCSIG$iii) (param $0 i32) (param $1 i32) (result i32)
+ (func $~lib/string/String.UTF8.encode (; 116 ;) (type $FUNCSIG$iii) (param $0 i32) (param $1 i32) (result i32)
   (local $2 i32)
   (local $3 i32)
   (local $4 i32)
@@ -6496,7 +6535,7 @@
   call $~lib/rt/stub/__release
   local.get $6
  )
- (func $~lib/assemblyscript-json/util/index/Buffer.getPtr (; 116 ;) (type $FUNCSIG$ii) (param $0 i32) (result i32)
+ (func $~lib/assemblyscript-json/util/index/Buffer.getPtr (; 117 ;) (type $FUNCSIG$ii) (param $0 i32) (result i32)
   (local $1 i32)
   local.get $0
   call $~lib/rt/stub/__retain
@@ -6508,7 +6547,7 @@
   call $~lib/rt/stub/__release
   local.get $1
  )
- (func $~lib/assemblyscript-json/util/index/Buffer.fromString (; 117 ;) (type $FUNCSIG$ii) (param $0 i32) (result i32)
+ (func $~lib/assemblyscript-json/util/index/Buffer.fromString (; 118 ;) (type $FUNCSIG$ii) (param $0 i32) (result i32)
   (local $1 i32)
   (local $2 i32)
   (local $3 i32)
@@ -6542,25 +6581,13 @@
   call $~lib/rt/stub/__release
   local.get $4
  )
- (func $~lib/assemblyscript-json/encoder/JSONEncoder#serialize (; 118 ;) (type $FUNCSIG$ii) (param $0 i32) (result i32)
+ (func $~lib/assemblyscript-json/encoder/JSONEncoder#serialize (; 119 ;) (type $FUNCSIG$ii) (param $0 i32) (result i32)
   (local $1 i32)
   (local $2 i32)
   local.get $0
   call $~lib/assemblyscript-json/encoder/JSONEncoder#toString
   local.tee $1
   call $~lib/assemblyscript-json/util/index/Buffer.fromString
-  local.set $2
-  local.get $1
-  call $~lib/rt/stub/__release
-  local.get $2
- )
- (func $model_near/FooBar#encode (; 119 ;) (type $FUNCSIG$ii) (param $0 i32) (result i32)
-  (local $1 i32)
-  (local $2 i32)
-  local.get $0
-  call $model_near/FooBar#_encoder
-  local.tee $1
-  call $~lib/assemblyscript-json/encoder/JSONEncoder#serialize
   local.set $2
   local.get $1
   call $~lib/rt/stub/__release
@@ -6593,7 +6620,7 @@
   local.set $0
   local.get $0
  )
- (func $model_near/__near_JSONHandler_FooBar#constructor (; 122 ;) (type $FUNCSIG$iii) (param $0 i32) (param $1 i32) (result i32)
+ (func $model/__near_JSONHandler_FooBar#constructor (; 122 ;) (type $FUNCSIG$iii) (param $0 i32) (param $1 i32) (result i32)
   (local $2 i32)
   (local $3 i32)
   local.get $1
@@ -6643,7 +6670,7 @@
   call $~lib/rt/stub/__release
   local.get $0
  )
- (func $~lib/assemblyscript-json/decoder/JSONDecoder<model_near/__near_JSONHandler_FooBar>#constructor (; 123 ;) (type $FUNCSIG$iii) (param $0 i32) (param $1 i32) (result i32)
+ (func $~lib/assemblyscript-json/decoder/JSONDecoder<model/__near_JSONHandler_FooBar>#constructor (; 123 ;) (type $FUNCSIG$iii) (param $0 i32) (param $1 i32) (result i32)
   (local $2 i32)
   (local $3 i32)
   local.get $1
@@ -6712,7 +6739,7 @@
   call $~lib/rt/stub/__release
   local.get $0
  )
- (func $~lib/assemblyscript-json/decoder/JSONDecoder<model_near/__near_JSONHandler_FooBar>#peekChar (; 125 ;) (type $FUNCSIG$ii) (param $0 i32) (result i32)
+ (func $~lib/assemblyscript-json/decoder/JSONDecoder<model/__near_JSONHandler_FooBar>#peekChar (; 125 ;) (type $FUNCSIG$ii) (param $0 i32) (result i32)
   local.get $0
   i32.load offset=4
   i32.load offset=4
@@ -6733,7 +6760,7 @@
   i32.load offset=4
   call $~lib/typedarray/Uint8Array#__get
  )
- (func $~lib/assemblyscript-json/decoder/JSONDecoder<model_near/__near_JSONHandler_FooBar>#isWhitespace (; 126 ;) (type $FUNCSIG$iii) (param $0 i32) (param $1 i32) (result i32)
+ (func $~lib/assemblyscript-json/decoder/JSONDecoder<model/__near_JSONHandler_FooBar>#isWhitespace (; 126 ;) (type $FUNCSIG$iii) (param $0 i32) (param $1 i32) (result i32)
   local.get $1
   i32.const 9
   i32.eq
@@ -6759,7 +6786,7 @@
    i32.eq
   end
  )
- (func $~lib/assemblyscript-json/decoder/JSONDecoder<model_near/__near_JSONHandler_FooBar>#readChar (; 127 ;) (type $FUNCSIG$ii) (param $0 i32) (result i32)
+ (func $~lib/assemblyscript-json/decoder/JSONDecoder<model/__near_JSONHandler_FooBar>#readChar (; 127 ;) (type $FUNCSIG$ii) (param $0 i32) (result i32)
   (local $1 i32)
   local.get $0
   i32.load offset=4
@@ -6793,17 +6820,17 @@
   local.get $1
   call $~lib/typedarray/Uint8Array#__get
  )
- (func $~lib/assemblyscript-json/decoder/JSONDecoder<model_near/__near_JSONHandler_FooBar>#skipWhitespace (; 128 ;) (type $FUNCSIG$vi) (param $0 i32)
+ (func $~lib/assemblyscript-json/decoder/JSONDecoder<model/__near_JSONHandler_FooBar>#skipWhitespace (; 128 ;) (type $FUNCSIG$vi) (param $0 i32)
   block $break|0
    loop $continue|0
     local.get $0
     local.get $0
-    call $~lib/assemblyscript-json/decoder/JSONDecoder<model_near/__near_JSONHandler_FooBar>#peekChar
-    call $~lib/assemblyscript-json/decoder/JSONDecoder<model_near/__near_JSONHandler_FooBar>#isWhitespace
+    call $~lib/assemblyscript-json/decoder/JSONDecoder<model/__near_JSONHandler_FooBar>#peekChar
+    call $~lib/assemblyscript-json/decoder/JSONDecoder<model/__near_JSONHandler_FooBar>#isWhitespace
     i32.eqz
     br_if $break|0
     local.get $0
-    call $~lib/assemblyscript-json/decoder/JSONDecoder<model_near/__near_JSONHandler_FooBar>#readChar
+    call $~lib/assemblyscript-json/decoder/JSONDecoder<model/__near_JSONHandler_FooBar>#readChar
     drop
     br $continue|0
    end
@@ -6819,7 +6846,7 @@
   i32.const 0
   i32.eqz
   if
-   i32.const 2936
+   i32.const 2920
    local.get $1
    call $~lib/string/String.__concat
    local.tee $2
@@ -6837,7 +6864,7 @@
   call $~lib/rt/stub/__release
   local.get $3
  )
- (func $model_near/__near_JSONHandler_FooBar#pushObject (; 130 ;) (type $FUNCSIG$iii) (param $0 i32) (param $1 i32) (result i32)
+ (func $model/__near_JSONHandler_FooBar#pushObject (; 130 ;) (type $FUNCSIG$iii) (param $0 i32) (param $1 i32) (result i32)
   (local $2 i32)
   local.get $1
   call $~lib/rt/stub/__retain
@@ -6863,8 +6890,8 @@
    if
     i32.const 0
     i32.const 2888
-    i32.const 223
-    i32.const 6
+    i32.const 82
+    i32.const 8
     call $~lib/builtins/abort
     unreachable
    end
@@ -6893,8 +6920,8 @@
    if
     i32.const 0
     i32.const 2888
-    i32.const 227
-    i32.const 6
+    i32.const 86
+    i32.const 8
     call $~lib/builtins/abort
     unreachable
    end
@@ -7184,13 +7211,13 @@
   local.get $2
   call $~lib/assemblyscript-json/decoder/DecoderState#readString
  )
- (func $~lib/assemblyscript-json/decoder/JSONDecoder<model_near/__near_JSONHandler_FooBar>#readHexDigit (; 135 ;) (type $FUNCSIG$ii) (param $0 i32) (result i32)
+ (func $~lib/assemblyscript-json/decoder/JSONDecoder<model/__near_JSONHandler_FooBar>#readHexDigit (; 135 ;) (type $FUNCSIG$ii) (param $0 i32) (result i32)
   (local $1 i32)
   (local $2 i32)
   (local $3 i32)
   (local $4 i32)
   local.get $0
-  call $~lib/assemblyscript-json/decoder/JSONDecoder<model_near/__near_JSONHandler_FooBar>#readChar
+  call $~lib/assemblyscript-json/decoder/JSONDecoder<model/__near_JSONHandler_FooBar>#readChar
   local.set $1
   local.get $1
   global.get $~lib/assemblyscript-json/decoder/CHAR_0
@@ -7255,7 +7282,7 @@
   end
   i32.eqz
   if
-   i32.const 3336
+   i32.const 3320
    i32.const 2800
    i32.const 269
    i32.const 4
@@ -7372,7 +7399,7 @@
   local.get $1
   call $~lib/string/String.fromCharCode
  )
- (func $~lib/assemblyscript-json/decoder/JSONDecoder<model_near/__near_JSONHandler_FooBar>#readEscapedChar (; 139 ;) (type $FUNCSIG$ii) (param $0 i32) (result i32)
+ (func $~lib/assemblyscript-json/decoder/JSONDecoder<model/__near_JSONHandler_FooBar>#readEscapedChar (; 139 ;) (type $FUNCSIG$ii) (param $0 i32) (result i32)
   (local $1 i32)
   (local $2 i32)
   (local $3 i32)
@@ -7380,7 +7407,7 @@
   (local $5 i32)
   (local $6 i32)
   local.get $0
-  call $~lib/assemblyscript-json/decoder/JSONDecoder<model_near/__near_JSONHandler_FooBar>#readChar
+  call $~lib/assemblyscript-json/decoder/JSONDecoder<model/__near_JSONHandler_FooBar>#readChar
   local.set $1
   local.get $1
   i32.const 1072
@@ -7403,17 +7430,17 @@
    return
   end
   local.get $1
-  i32.const 3192
+  i32.const 3176
   i32.const 0
   call $~lib/string/String#charCodeAt
   i32.eq
   if
-   i32.const 3192
+   i32.const 3176
    call $~lib/rt/stub/__retain
    return
   end
   local.get $1
-  i32.const 3216
+  i32.const 3200
   i32.const 0
   call $~lib/string/String#charCodeAt
   i32.eq
@@ -7423,7 +7450,7 @@
    return
   end
   local.get $1
-  i32.const 3240
+  i32.const 3224
   i32.const 0
   call $~lib/string/String#charCodeAt
   i32.eq
@@ -7433,7 +7460,7 @@
    return
   end
   local.get $1
-  i32.const 3264
+  i32.const 3248
   i32.const 0
   call $~lib/string/String#charCodeAt
   i32.eq
@@ -7443,7 +7470,7 @@
    return
   end
   local.get $1
-  i32.const 3288
+  i32.const 3272
   i32.const 0
   call $~lib/string/String#charCodeAt
   i32.eq
@@ -7453,22 +7480,22 @@
    return
   end
   local.get $1
-  i32.const 3312
+  i32.const 3296
   i32.const 0
   call $~lib/string/String#charCodeAt
   i32.eq
   if
    local.get $0
-   call $~lib/assemblyscript-json/decoder/JSONDecoder<model_near/__near_JSONHandler_FooBar>#readHexDigit
+   call $~lib/assemblyscript-json/decoder/JSONDecoder<model/__near_JSONHandler_FooBar>#readHexDigit
    local.set $2
    local.get $0
-   call $~lib/assemblyscript-json/decoder/JSONDecoder<model_near/__near_JSONHandler_FooBar>#readHexDigit
+   call $~lib/assemblyscript-json/decoder/JSONDecoder<model/__near_JSONHandler_FooBar>#readHexDigit
    local.set $3
    local.get $0
-   call $~lib/assemblyscript-json/decoder/JSONDecoder<model_near/__near_JSONHandler_FooBar>#readHexDigit
+   call $~lib/assemblyscript-json/decoder/JSONDecoder<model/__near_JSONHandler_FooBar>#readHexDigit
    local.set $4
    local.get $0
-   call $~lib/assemblyscript-json/decoder/JSONDecoder<model_near/__near_JSONHandler_FooBar>#readHexDigit
+   call $~lib/assemblyscript-json/decoder/JSONDecoder<model/__near_JSONHandler_FooBar>#readHexDigit
    local.set $5
    local.get $2
    i32.const 4096
@@ -7491,7 +7518,7 @@
   i32.const 0
   i32.eqz
   if
-   i32.const 3392
+   i32.const 3376
    i32.const 1
    global.set $~lib/argc
    local.get $1
@@ -7515,21 +7542,21 @@
   call $~lib/rt/stub/__release
   local.get $4
  )
- (func $~lib/assemblyscript-json/decoder/JSONDecoder<model_near/__near_JSONHandler_FooBar>#readString (; 140 ;) (type $FUNCSIG$ii) (param $0 i32) (result i32)
+ (func $~lib/assemblyscript-json/decoder/JSONDecoder<model/__near_JSONHandler_FooBar>#readString (; 140 ;) (type $FUNCSIG$ii) (param $0 i32) (result i32)
   (local $1 i32)
   (local $2 i32)
   (local $3 i32)
   (local $4 i32)
   (local $5 i32)
   local.get $0
-  call $~lib/assemblyscript-json/decoder/JSONDecoder<model_near/__near_JSONHandler_FooBar>#readChar
+  call $~lib/assemblyscript-json/decoder/JSONDecoder<model/__near_JSONHandler_FooBar>#readChar
   i32.const 1072
   i32.const 0
   call $~lib/string/String#charCodeAt
   i32.eq
   i32.eqz
   if
-   i32.const 3040
+   i32.const 3024
    i32.const 2800
    i32.const 197
    i32.const 4
@@ -7546,14 +7573,14 @@
   local.set $2
   loop $loop|0
    local.get $0
-   call $~lib/assemblyscript-json/decoder/JSONDecoder<model_near/__near_JSONHandler_FooBar>#readChar
+   call $~lib/assemblyscript-json/decoder/JSONDecoder<model/__near_JSONHandler_FooBar>#readChar
    local.set $3
    local.get $3
    i32.const 32
    i32.ge_s
    i32.eqz
    if
-    i32.const 3120
+    i32.const 3104
     i32.const 2800
     i32.const 203
     i32.const 6
@@ -7631,7 +7658,7 @@
      end
      local.get $2
      local.get $0
-     call $~lib/assemblyscript-json/decoder/JSONDecoder<model_near/__near_JSONHandler_FooBar>#readEscapedChar
+     call $~lib/assemblyscript-json/decoder/JSONDecoder<model/__near_JSONHandler_FooBar>#readEscapedChar
      local.tee $4
      call $~lib/array/Array<~lib/string/String>#push
      drop
@@ -7647,16 +7674,16 @@
   end
   unreachable
  )
- (func $~lib/assemblyscript-json/decoder/JSONDecoder<model_near/__near_JSONHandler_FooBar>#parseKey (; 141 ;) (type $FUNCSIG$vi) (param $0 i32)
+ (func $~lib/assemblyscript-json/decoder/JSONDecoder<model/__near_JSONHandler_FooBar>#parseKey (; 141 ;) (type $FUNCSIG$vi) (param $0 i32)
   (local $1 i32)
   (local $2 i32)
   local.get $0
-  call $~lib/assemblyscript-json/decoder/JSONDecoder<model_near/__near_JSONHandler_FooBar>#skipWhitespace
+  call $~lib/assemblyscript-json/decoder/JSONDecoder<model/__near_JSONHandler_FooBar>#skipWhitespace
   local.get $0
   i32.load offset=4
   local.tee $1
   local.get $0
-  call $~lib/assemblyscript-json/decoder/JSONDecoder<model_near/__near_JSONHandler_FooBar>#readString
+  call $~lib/assemblyscript-json/decoder/JSONDecoder<model/__near_JSONHandler_FooBar>#readString
   local.set $2
   local.get $1
   i32.load
@@ -7664,16 +7691,16 @@
   local.get $2
   i32.store
   local.get $0
-  call $~lib/assemblyscript-json/decoder/JSONDecoder<model_near/__near_JSONHandler_FooBar>#skipWhitespace
+  call $~lib/assemblyscript-json/decoder/JSONDecoder<model/__near_JSONHandler_FooBar>#skipWhitespace
   local.get $0
-  call $~lib/assemblyscript-json/decoder/JSONDecoder<model_near/__near_JSONHandler_FooBar>#readChar
+  call $~lib/assemblyscript-json/decoder/JSONDecoder<model/__near_JSONHandler_FooBar>#readChar
   i32.const 1984
   i32.const 0
   call $~lib/string/String#charCodeAt
   i32.eq
   i32.eqz
   if
-   i32.const 3472
+   i32.const 3456
    i32.const 2800
    i32.const 159
    i32.const 4
@@ -7684,12 +7711,12 @@
  (func $~lib/assemblyscript-json/decoder/JSONHandler#popObject (; 142 ;) (type $FUNCSIG$vi) (param $0 i32)
   nop
  )
- (func $~lib/assemblyscript-json/decoder/JSONDecoder<model_near/__near_JSONHandler_FooBar>#parseObject (; 143 ;) (type $FUNCSIG$ii) (param $0 i32) (result i32)
+ (func $~lib/assemblyscript-json/decoder/JSONDecoder<model/__near_JSONHandler_FooBar>#parseObject (; 143 ;) (type $FUNCSIG$ii) (param $0 i32) (result i32)
   (local $1 i32)
   (local $2 i32)
   (local $3 i32)
   local.get $0
-  call $~lib/assemblyscript-json/decoder/JSONDecoder<model_near/__near_JSONHandler_FooBar>#peekChar
+  call $~lib/assemblyscript-json/decoder/JSONDecoder<model/__near_JSONHandler_FooBar>#peekChar
   i32.const 2008
   i32.const 0
   call $~lib/string/String#charCodeAt
@@ -7724,19 +7751,19 @@
   local.get $0
   i32.load
   local.get $1
-  call $model_near/__near_JSONHandler_FooBar#pushObject
+  call $model/__near_JSONHandler_FooBar#pushObject
   if
    local.get $0
-   call $~lib/assemblyscript-json/decoder/JSONDecoder<model_near/__near_JSONHandler_FooBar>#readChar
+   call $~lib/assemblyscript-json/decoder/JSONDecoder<model/__near_JSONHandler_FooBar>#readChar
    drop
    local.get $0
-   call $~lib/assemblyscript-json/decoder/JSONDecoder<model_near/__near_JSONHandler_FooBar>#skipWhitespace
+   call $~lib/assemblyscript-json/decoder/JSONDecoder<model/__near_JSONHandler_FooBar>#skipWhitespace
    i32.const 1
    local.set $3
    block $break|0
     loop $continue|0
      local.get $0
-     call $~lib/assemblyscript-json/decoder/JSONDecoder<model_near/__near_JSONHandler_FooBar>#peekChar
+     call $~lib/assemblyscript-json/decoder/JSONDecoder<model/__near_JSONHandler_FooBar>#peekChar
      i32.const 2672
      i32.const 0
      call $~lib/string/String#charCodeAt
@@ -7747,14 +7774,14 @@
      i32.eqz
      if
       local.get $0
-      call $~lib/assemblyscript-json/decoder/JSONDecoder<model_near/__near_JSONHandler_FooBar>#readChar
+      call $~lib/assemblyscript-json/decoder/JSONDecoder<model/__near_JSONHandler_FooBar>#readChar
       i32.const 1048
       i32.const 0
       call $~lib/string/String#charCodeAt
       i32.eq
       i32.eqz
       if
-       i32.const 3000
+       i32.const 2984
        i32.const 2800
        i32.const 142
        i32.const 10
@@ -7766,23 +7793,23 @@
       local.set $3
      end
      local.get $0
-     call $~lib/assemblyscript-json/decoder/JSONDecoder<model_near/__near_JSONHandler_FooBar>#parseKey
+     call $~lib/assemblyscript-json/decoder/JSONDecoder<model/__near_JSONHandler_FooBar>#parseKey
      local.get $0
-     call $~lib/assemblyscript-json/decoder/JSONDecoder<model_near/__near_JSONHandler_FooBar>#parseValue
+     call $~lib/assemblyscript-json/decoder/JSONDecoder<model/__near_JSONHandler_FooBar>#parseValue
      drop
      br $continue|0
     end
     unreachable
    end
    local.get $0
-   call $~lib/assemblyscript-json/decoder/JSONDecoder<model_near/__near_JSONHandler_FooBar>#readChar
+   call $~lib/assemblyscript-json/decoder/JSONDecoder<model/__near_JSONHandler_FooBar>#readChar
    i32.const 2672
    i32.const 0
    call $~lib/string/String#charCodeAt
    i32.eq
    i32.eqz
    if
-    i32.const 3512
+    i32.const 3496
     i32.const 2800
     i32.const 149
     i32.const 6
@@ -7830,7 +7857,7 @@
   i32.store offset=12
   local.get $0
  )
- (func $model_near/__near_JSONHandler_Array_Array_String#constructor (; 145 ;) (type $FUNCSIG$iii) (param $0 i32) (param $1 i32) (result i32)
+ (func $model/__near_JSONHandler_Array_Array_string#constructor (; 145 ;) (type $FUNCSIG$iii) (param $0 i32) (param $1 i32) (result i32)
   (local $2 i32)
   (local $3 i32)
   local.get $1
@@ -7880,7 +7907,7 @@
   call $~lib/rt/stub/__release
   local.get $0
  )
- (func $~lib/assemblyscript-json/decoder/JSONDecoder<model_near/__near_JSONHandler_Array_Array_String>#constructor (; 146 ;) (type $FUNCSIG$iii) (param $0 i32) (param $1 i32) (result i32)
+ (func $~lib/assemblyscript-json/decoder/JSONDecoder<model/__near_JSONHandler_Array_Array_string>#constructor (; 146 ;) (type $FUNCSIG$iii) (param $0 i32) (param $1 i32) (result i32)
   (local $2 i32)
   (local $3 i32)
   local.get $1
@@ -7922,7 +7949,7 @@
   call $~lib/rt/stub/__release
   local.get $0
  )
- (func $~lib/assemblyscript-json/decoder/JSONDecoder<model_near/__near_JSONHandler_Array_Array_String>#peekChar (; 147 ;) (type $FUNCSIG$ii) (param $0 i32) (result i32)
+ (func $~lib/assemblyscript-json/decoder/JSONDecoder<model/__near_JSONHandler_Array_Array_string>#peekChar (; 147 ;) (type $FUNCSIG$ii) (param $0 i32) (result i32)
   local.get $0
   i32.load offset=4
   i32.load offset=4
@@ -7943,7 +7970,7 @@
   i32.load offset=4
   call $~lib/typedarray/Uint8Array#__get
  )
- (func $~lib/assemblyscript-json/decoder/JSONDecoder<model_near/__near_JSONHandler_Array_Array_String>#isWhitespace (; 148 ;) (type $FUNCSIG$iii) (param $0 i32) (param $1 i32) (result i32)
+ (func $~lib/assemblyscript-json/decoder/JSONDecoder<model/__near_JSONHandler_Array_Array_string>#isWhitespace (; 148 ;) (type $FUNCSIG$iii) (param $0 i32) (param $1 i32) (result i32)
   local.get $1
   i32.const 9
   i32.eq
@@ -7969,7 +7996,7 @@
    i32.eq
   end
  )
- (func $~lib/assemblyscript-json/decoder/JSONDecoder<model_near/__near_JSONHandler_Array_Array_String>#readChar (; 149 ;) (type $FUNCSIG$ii) (param $0 i32) (result i32)
+ (func $~lib/assemblyscript-json/decoder/JSONDecoder<model/__near_JSONHandler_Array_Array_string>#readChar (; 149 ;) (type $FUNCSIG$ii) (param $0 i32) (result i32)
   (local $1 i32)
   local.get $0
   i32.load offset=4
@@ -8003,24 +8030,24 @@
   local.get $1
   call $~lib/typedarray/Uint8Array#__get
  )
- (func $~lib/assemblyscript-json/decoder/JSONDecoder<model_near/__near_JSONHandler_Array_Array_String>#skipWhitespace (; 150 ;) (type $FUNCSIG$vi) (param $0 i32)
+ (func $~lib/assemblyscript-json/decoder/JSONDecoder<model/__near_JSONHandler_Array_Array_string>#skipWhitespace (; 150 ;) (type $FUNCSIG$vi) (param $0 i32)
   block $break|0
    loop $continue|0
     local.get $0
     local.get $0
-    call $~lib/assemblyscript-json/decoder/JSONDecoder<model_near/__near_JSONHandler_Array_Array_String>#peekChar
-    call $~lib/assemblyscript-json/decoder/JSONDecoder<model_near/__near_JSONHandler_Array_Array_String>#isWhitespace
+    call $~lib/assemblyscript-json/decoder/JSONDecoder<model/__near_JSONHandler_Array_Array_string>#peekChar
+    call $~lib/assemblyscript-json/decoder/JSONDecoder<model/__near_JSONHandler_Array_Array_string>#isWhitespace
     i32.eqz
     br_if $break|0
     local.get $0
-    call $~lib/assemblyscript-json/decoder/JSONDecoder<model_near/__near_JSONHandler_Array_Array_String>#readChar
+    call $~lib/assemblyscript-json/decoder/JSONDecoder<model/__near_JSONHandler_Array_Array_string>#readChar
     drop
     br $continue|0
    end
    unreachable
   end
  )
- (func $model_near/__near_JSONHandler_Array_String#constructor (; 151 ;) (type $FUNCSIG$iii) (param $0 i32) (param $1 i32) (result i32)
+ (func $main/__near_JSONHandler_Array_string#constructor (; 151 ;) (type $FUNCSIG$iii) (param $0 i32) (param $1 i32) (result i32)
   (local $2 i32)
   (local $3 i32)
   local.get $1
@@ -8070,7 +8097,7 @@
   call $~lib/rt/stub/__release
   local.get $0
  )
- (func $~lib/assemblyscript-json/decoder/JSONDecoder<model_near/__near_JSONHandler_Array_String>#constructor (; 152 ;) (type $FUNCSIG$iii) (param $0 i32) (param $1 i32) (result i32)
+ (func $~lib/assemblyscript-json/decoder/JSONDecoder<main/__near_JSONHandler_Array_string>#constructor (; 152 ;) (type $FUNCSIG$iii) (param $0 i32) (param $1 i32) (result i32)
   (local $2 i32)
   (local $3 i32)
   local.get $1
@@ -8112,7 +8139,7 @@
   call $~lib/rt/stub/__release
   local.get $0
  )
- (func $~lib/assemblyscript-json/decoder/JSONDecoder<model_near/__near_JSONHandler_Array_String>#peekChar (; 153 ;) (type $FUNCSIG$ii) (param $0 i32) (result i32)
+ (func $~lib/assemblyscript-json/decoder/JSONDecoder<main/__near_JSONHandler_Array_string>#peekChar (; 153 ;) (type $FUNCSIG$ii) (param $0 i32) (result i32)
   local.get $0
   i32.load offset=4
   i32.load offset=4
@@ -8133,7 +8160,7 @@
   i32.load offset=4
   call $~lib/typedarray/Uint8Array#__get
  )
- (func $~lib/assemblyscript-json/decoder/JSONDecoder<model_near/__near_JSONHandler_Array_String>#isWhitespace (; 154 ;) (type $FUNCSIG$iii) (param $0 i32) (param $1 i32) (result i32)
+ (func $~lib/assemblyscript-json/decoder/JSONDecoder<main/__near_JSONHandler_Array_string>#isWhitespace (; 154 ;) (type $FUNCSIG$iii) (param $0 i32) (param $1 i32) (result i32)
   local.get $1
   i32.const 9
   i32.eq
@@ -8159,7 +8186,7 @@
    i32.eq
   end
  )
- (func $~lib/assemblyscript-json/decoder/JSONDecoder<model_near/__near_JSONHandler_Array_String>#readChar (; 155 ;) (type $FUNCSIG$ii) (param $0 i32) (result i32)
+ (func $~lib/assemblyscript-json/decoder/JSONDecoder<main/__near_JSONHandler_Array_string>#readChar (; 155 ;) (type $FUNCSIG$ii) (param $0 i32) (result i32)
   (local $1 i32)
   local.get $0
   i32.load offset=4
@@ -8193,30 +8220,30 @@
   local.get $1
   call $~lib/typedarray/Uint8Array#__get
  )
- (func $~lib/assemblyscript-json/decoder/JSONDecoder<model_near/__near_JSONHandler_Array_String>#skipWhitespace (; 156 ;) (type $FUNCSIG$vi) (param $0 i32)
+ (func $~lib/assemblyscript-json/decoder/JSONDecoder<main/__near_JSONHandler_Array_string>#skipWhitespace (; 156 ;) (type $FUNCSIG$vi) (param $0 i32)
   block $break|0
    loop $continue|0
     local.get $0
     local.get $0
-    call $~lib/assemblyscript-json/decoder/JSONDecoder<model_near/__near_JSONHandler_Array_String>#peekChar
-    call $~lib/assemblyscript-json/decoder/JSONDecoder<model_near/__near_JSONHandler_Array_String>#isWhitespace
+    call $~lib/assemblyscript-json/decoder/JSONDecoder<main/__near_JSONHandler_Array_string>#peekChar
+    call $~lib/assemblyscript-json/decoder/JSONDecoder<main/__near_JSONHandler_Array_string>#isWhitespace
     i32.eqz
     br_if $break|0
     local.get $0
-    call $~lib/assemblyscript-json/decoder/JSONDecoder<model_near/__near_JSONHandler_Array_String>#readChar
+    call $~lib/assemblyscript-json/decoder/JSONDecoder<main/__near_JSONHandler_Array_string>#readChar
     drop
     br $continue|0
    end
    unreachable
   end
  )
- (func $~lib/assemblyscript-json/decoder/JSONDecoder<model_near/__near_JSONHandler_Array_String>#readHexDigit (; 157 ;) (type $FUNCSIG$ii) (param $0 i32) (result i32)
+ (func $~lib/assemblyscript-json/decoder/JSONDecoder<main/__near_JSONHandler_Array_string>#readHexDigit (; 157 ;) (type $FUNCSIG$ii) (param $0 i32) (result i32)
   (local $1 i32)
   (local $2 i32)
   (local $3 i32)
   (local $4 i32)
   local.get $0
-  call $~lib/assemblyscript-json/decoder/JSONDecoder<model_near/__near_JSONHandler_Array_String>#readChar
+  call $~lib/assemblyscript-json/decoder/JSONDecoder<main/__near_JSONHandler_Array_string>#readChar
   local.set $1
   local.get $1
   global.get $~lib/assemblyscript-json/decoder/CHAR_0
@@ -8281,7 +8308,7 @@
   end
   i32.eqz
   if
-   i32.const 3336
+   i32.const 3320
    i32.const 2800
    i32.const 269
    i32.const 4
@@ -8294,7 +8321,7 @@
   call $~lib/rt/stub/__release
   local.get $3
  )
- (func $~lib/assemblyscript-json/decoder/JSONDecoder<model_near/__near_JSONHandler_Array_String>#readEscapedChar (; 158 ;) (type $FUNCSIG$ii) (param $0 i32) (result i32)
+ (func $~lib/assemblyscript-json/decoder/JSONDecoder<main/__near_JSONHandler_Array_string>#readEscapedChar (; 158 ;) (type $FUNCSIG$ii) (param $0 i32) (result i32)
   (local $1 i32)
   (local $2 i32)
   (local $3 i32)
@@ -8302,7 +8329,7 @@
   (local $5 i32)
   (local $6 i32)
   local.get $0
-  call $~lib/assemblyscript-json/decoder/JSONDecoder<model_near/__near_JSONHandler_Array_String>#readChar
+  call $~lib/assemblyscript-json/decoder/JSONDecoder<main/__near_JSONHandler_Array_string>#readChar
   local.set $1
   local.get $1
   i32.const 1072
@@ -8325,17 +8352,17 @@
    return
   end
   local.get $1
-  i32.const 3192
+  i32.const 3176
   i32.const 0
   call $~lib/string/String#charCodeAt
   i32.eq
   if
-   i32.const 3192
+   i32.const 3176
    call $~lib/rt/stub/__retain
    return
   end
   local.get $1
-  i32.const 3216
+  i32.const 3200
   i32.const 0
   call $~lib/string/String#charCodeAt
   i32.eq
@@ -8345,7 +8372,7 @@
    return
   end
   local.get $1
-  i32.const 3240
+  i32.const 3224
   i32.const 0
   call $~lib/string/String#charCodeAt
   i32.eq
@@ -8355,7 +8382,7 @@
    return
   end
   local.get $1
-  i32.const 3264
+  i32.const 3248
   i32.const 0
   call $~lib/string/String#charCodeAt
   i32.eq
@@ -8365,7 +8392,7 @@
    return
   end
   local.get $1
-  i32.const 3288
+  i32.const 3272
   i32.const 0
   call $~lib/string/String#charCodeAt
   i32.eq
@@ -8375,22 +8402,22 @@
    return
   end
   local.get $1
-  i32.const 3312
+  i32.const 3296
   i32.const 0
   call $~lib/string/String#charCodeAt
   i32.eq
   if
    local.get $0
-   call $~lib/assemblyscript-json/decoder/JSONDecoder<model_near/__near_JSONHandler_Array_String>#readHexDigit
+   call $~lib/assemblyscript-json/decoder/JSONDecoder<main/__near_JSONHandler_Array_string>#readHexDigit
    local.set $2
    local.get $0
-   call $~lib/assemblyscript-json/decoder/JSONDecoder<model_near/__near_JSONHandler_Array_String>#readHexDigit
+   call $~lib/assemblyscript-json/decoder/JSONDecoder<main/__near_JSONHandler_Array_string>#readHexDigit
    local.set $3
    local.get $0
-   call $~lib/assemblyscript-json/decoder/JSONDecoder<model_near/__near_JSONHandler_Array_String>#readHexDigit
+   call $~lib/assemblyscript-json/decoder/JSONDecoder<main/__near_JSONHandler_Array_string>#readHexDigit
    local.set $4
    local.get $0
-   call $~lib/assemblyscript-json/decoder/JSONDecoder<model_near/__near_JSONHandler_Array_String>#readHexDigit
+   call $~lib/assemblyscript-json/decoder/JSONDecoder<main/__near_JSONHandler_Array_string>#readHexDigit
    local.set $5
    local.get $2
    i32.const 4096
@@ -8413,7 +8440,7 @@
   i32.const 0
   i32.eqz
   if
-   i32.const 3392
+   i32.const 3376
    i32.const 1
    global.set $~lib/argc
    local.get $1
@@ -8437,21 +8464,21 @@
   call $~lib/rt/stub/__release
   local.get $4
  )
- (func $~lib/assemblyscript-json/decoder/JSONDecoder<model_near/__near_JSONHandler_Array_String>#readString (; 159 ;) (type $FUNCSIG$ii) (param $0 i32) (result i32)
+ (func $~lib/assemblyscript-json/decoder/JSONDecoder<main/__near_JSONHandler_Array_string>#readString (; 159 ;) (type $FUNCSIG$ii) (param $0 i32) (result i32)
   (local $1 i32)
   (local $2 i32)
   (local $3 i32)
   (local $4 i32)
   (local $5 i32)
   local.get $0
-  call $~lib/assemblyscript-json/decoder/JSONDecoder<model_near/__near_JSONHandler_Array_String>#readChar
+  call $~lib/assemblyscript-json/decoder/JSONDecoder<main/__near_JSONHandler_Array_string>#readChar
   i32.const 1072
   i32.const 0
   call $~lib/string/String#charCodeAt
   i32.eq
   i32.eqz
   if
-   i32.const 3040
+   i32.const 3024
    i32.const 2800
    i32.const 197
    i32.const 4
@@ -8468,14 +8495,14 @@
   local.set $2
   loop $loop|0
    local.get $0
-   call $~lib/assemblyscript-json/decoder/JSONDecoder<model_near/__near_JSONHandler_Array_String>#readChar
+   call $~lib/assemblyscript-json/decoder/JSONDecoder<main/__near_JSONHandler_Array_string>#readChar
    local.set $3
    local.get $3
    i32.const 32
    i32.ge_s
    i32.eqz
    if
-    i32.const 3120
+    i32.const 3104
     i32.const 2800
     i32.const 203
     i32.const 6
@@ -8553,7 +8580,7 @@
      end
      local.get $2
      local.get $0
-     call $~lib/assemblyscript-json/decoder/JSONDecoder<model_near/__near_JSONHandler_Array_String>#readEscapedChar
+     call $~lib/assemblyscript-json/decoder/JSONDecoder<main/__near_JSONHandler_Array_string>#readEscapedChar
      local.tee $4
      call $~lib/array/Array<~lib/string/String>#push
      drop
@@ -8569,16 +8596,16 @@
   end
   unreachable
  )
- (func $~lib/assemblyscript-json/decoder/JSONDecoder<model_near/__near_JSONHandler_Array_String>#parseKey (; 160 ;) (type $FUNCSIG$vi) (param $0 i32)
+ (func $~lib/assemblyscript-json/decoder/JSONDecoder<main/__near_JSONHandler_Array_string>#parseKey (; 160 ;) (type $FUNCSIG$vi) (param $0 i32)
   (local $1 i32)
   (local $2 i32)
   local.get $0
-  call $~lib/assemblyscript-json/decoder/JSONDecoder<model_near/__near_JSONHandler_Array_String>#skipWhitespace
+  call $~lib/assemblyscript-json/decoder/JSONDecoder<main/__near_JSONHandler_Array_string>#skipWhitespace
   local.get $0
   i32.load offset=4
   local.tee $1
   local.get $0
-  call $~lib/assemblyscript-json/decoder/JSONDecoder<model_near/__near_JSONHandler_Array_String>#readString
+  call $~lib/assemblyscript-json/decoder/JSONDecoder<main/__near_JSONHandler_Array_string>#readString
   local.set $2
   local.get $1
   i32.load
@@ -8586,16 +8613,16 @@
   local.get $2
   i32.store
   local.get $0
-  call $~lib/assemblyscript-json/decoder/JSONDecoder<model_near/__near_JSONHandler_Array_String>#skipWhitespace
+  call $~lib/assemblyscript-json/decoder/JSONDecoder<main/__near_JSONHandler_Array_string>#skipWhitespace
   local.get $0
-  call $~lib/assemblyscript-json/decoder/JSONDecoder<model_near/__near_JSONHandler_Array_String>#readChar
+  call $~lib/assemblyscript-json/decoder/JSONDecoder<main/__near_JSONHandler_Array_string>#readChar
   i32.const 1984
   i32.const 0
   call $~lib/string/String#charCodeAt
   i32.eq
   i32.eqz
   if
-   i32.const 3472
+   i32.const 3456
    i32.const 2800
    i32.const 159
    i32.const 4
@@ -8603,12 +8630,12 @@
    unreachable
   end
  )
- (func $~lib/assemblyscript-json/decoder/JSONDecoder<model_near/__near_JSONHandler_Array_String>#parseObject (; 161 ;) (type $FUNCSIG$ii) (param $0 i32) (result i32)
+ (func $~lib/assemblyscript-json/decoder/JSONDecoder<main/__near_JSONHandler_Array_string>#parseObject (; 161 ;) (type $FUNCSIG$ii) (param $0 i32) (result i32)
   (local $1 i32)
   (local $2 i32)
   (local $3 i32)
   local.get $0
-  call $~lib/assemblyscript-json/decoder/JSONDecoder<model_near/__near_JSONHandler_Array_String>#peekChar
+  call $~lib/assemblyscript-json/decoder/JSONDecoder<main/__near_JSONHandler_Array_string>#peekChar
   i32.const 2008
   i32.const 0
   call $~lib/string/String#charCodeAt
@@ -8646,16 +8673,16 @@
   call $~lib/assemblyscript-json/decoder/ThrowingJSONHandler#pushObject
   if
    local.get $0
-   call $~lib/assemblyscript-json/decoder/JSONDecoder<model_near/__near_JSONHandler_Array_String>#readChar
+   call $~lib/assemblyscript-json/decoder/JSONDecoder<main/__near_JSONHandler_Array_string>#readChar
    drop
    local.get $0
-   call $~lib/assemblyscript-json/decoder/JSONDecoder<model_near/__near_JSONHandler_Array_String>#skipWhitespace
+   call $~lib/assemblyscript-json/decoder/JSONDecoder<main/__near_JSONHandler_Array_string>#skipWhitespace
    i32.const 1
    local.set $3
    block $break|0
     loop $continue|0
      local.get $0
-     call $~lib/assemblyscript-json/decoder/JSONDecoder<model_near/__near_JSONHandler_Array_String>#peekChar
+     call $~lib/assemblyscript-json/decoder/JSONDecoder<main/__near_JSONHandler_Array_string>#peekChar
      i32.const 2672
      i32.const 0
      call $~lib/string/String#charCodeAt
@@ -8666,14 +8693,14 @@
      i32.eqz
      if
       local.get $0
-      call $~lib/assemblyscript-json/decoder/JSONDecoder<model_near/__near_JSONHandler_Array_String>#readChar
+      call $~lib/assemblyscript-json/decoder/JSONDecoder<main/__near_JSONHandler_Array_string>#readChar
       i32.const 1048
       i32.const 0
       call $~lib/string/String#charCodeAt
       i32.eq
       i32.eqz
       if
-       i32.const 3000
+       i32.const 2984
        i32.const 2800
        i32.const 142
        i32.const 10
@@ -8685,23 +8712,23 @@
       local.set $3
      end
      local.get $0
-     call $~lib/assemblyscript-json/decoder/JSONDecoder<model_near/__near_JSONHandler_Array_String>#parseKey
+     call $~lib/assemblyscript-json/decoder/JSONDecoder<main/__near_JSONHandler_Array_string>#parseKey
      local.get $0
-     call $~lib/assemblyscript-json/decoder/JSONDecoder<model_near/__near_JSONHandler_Array_String>#parseValue
+     call $~lib/assemblyscript-json/decoder/JSONDecoder<main/__near_JSONHandler_Array_string>#parseValue
      drop
      br $continue|0
     end
     unreachable
    end
    local.get $0
-   call $~lib/assemblyscript-json/decoder/JSONDecoder<model_near/__near_JSONHandler_Array_String>#readChar
+   call $~lib/assemblyscript-json/decoder/JSONDecoder<main/__near_JSONHandler_Array_string>#readChar
    i32.const 2672
    i32.const 0
    call $~lib/string/String#charCodeAt
    i32.eq
    i32.eqz
    if
-    i32.const 3512
+    i32.const 3496
     i32.const 2800
     i32.const 149
     i32.const 6
@@ -8718,7 +8745,7 @@
   call $~lib/rt/stub/__release
   local.get $3
  )
- (func $model_near/__near_JSONHandler_Array_String#pushArray (; 162 ;) (type $FUNCSIG$iii) (param $0 i32) (param $1 i32) (result i32)
+ (func $main/__near_JSONHandler_Array_string#pushArray (; 162 ;) (type $FUNCSIG$iii) (param $0 i32) (param $1 i32) (result i32)
   (local $2 i32)
   local.get $1
   call $~lib/rt/stub/__retain
@@ -8746,9 +8773,9 @@
   i32.eqz
   if
    i32.const 0
-   i32.const 2888
-   i32.const 299
-   i32.const 8
+   i32.const 3560
+   i32.const 237
+   i32.const 10
    call $~lib/builtins/abort
    unreachable
   end
@@ -8764,12 +8791,12 @@
  (func $~lib/assemblyscript-json/decoder/JSONHandler#popArray (; 163 ;) (type $FUNCSIG$vi) (param $0 i32)
   nop
  )
- (func $~lib/assemblyscript-json/decoder/JSONDecoder<model_near/__near_JSONHandler_Array_String>#parseArray (; 164 ;) (type $FUNCSIG$ii) (param $0 i32) (result i32)
+ (func $~lib/assemblyscript-json/decoder/JSONDecoder<main/__near_JSONHandler_Array_string>#parseArray (; 164 ;) (type $FUNCSIG$ii) (param $0 i32) (result i32)
   (local $1 i32)
   (local $2 i32)
   (local $3 i32)
   local.get $0
-  call $~lib/assemblyscript-json/decoder/JSONDecoder<model_near/__near_JSONHandler_Array_String>#peekChar
+  call $~lib/assemblyscript-json/decoder/JSONDecoder<main/__near_JSONHandler_Array_string>#peekChar
   i32.const 2232
   i32.const 0
   call $~lib/string/String#charCodeAt
@@ -8804,19 +8831,19 @@
   local.get $0
   i32.load
   local.get $1
-  call $model_near/__near_JSONHandler_Array_String#pushArray
+  call $main/__near_JSONHandler_Array_string#pushArray
   if
    local.get $0
-   call $~lib/assemblyscript-json/decoder/JSONDecoder<model_near/__near_JSONHandler_Array_String>#readChar
+   call $~lib/assemblyscript-json/decoder/JSONDecoder<main/__near_JSONHandler_Array_string>#readChar
    drop
    local.get $0
-   call $~lib/assemblyscript-json/decoder/JSONDecoder<model_near/__near_JSONHandler_Array_String>#skipWhitespace
+   call $~lib/assemblyscript-json/decoder/JSONDecoder<main/__near_JSONHandler_Array_string>#skipWhitespace
    i32.const 1
    local.set $3
    block $break|0
     loop $continue|0
      local.get $0
-     call $~lib/assemblyscript-json/decoder/JSONDecoder<model_near/__near_JSONHandler_Array_String>#peekChar
+     call $~lib/assemblyscript-json/decoder/JSONDecoder<main/__near_JSONHandler_Array_string>#peekChar
      i32.const 2256
      i32.const 0
      call $~lib/string/String#charCodeAt
@@ -8827,14 +8854,14 @@
      i32.eqz
      if
       local.get $0
-      call $~lib/assemblyscript-json/decoder/JSONDecoder<model_near/__near_JSONHandler_Array_String>#readChar
+      call $~lib/assemblyscript-json/decoder/JSONDecoder<main/__near_JSONHandler_Array_string>#readChar
       i32.const 1048
       i32.const 0
       call $~lib/string/String#charCodeAt
       i32.eq
       i32.eqz
       if
-       i32.const 3000
+       i32.const 2984
        i32.const 2800
        i32.const 176
        i32.const 10
@@ -8846,21 +8873,21 @@
       local.set $3
      end
      local.get $0
-     call $~lib/assemblyscript-json/decoder/JSONDecoder<model_near/__near_JSONHandler_Array_String>#parseValue
+     call $~lib/assemblyscript-json/decoder/JSONDecoder<main/__near_JSONHandler_Array_string>#parseValue
      drop
      br $continue|0
     end
     unreachable
    end
    local.get $0
-   call $~lib/assemblyscript-json/decoder/JSONDecoder<model_near/__near_JSONHandler_Array_String>#readChar
+   call $~lib/assemblyscript-json/decoder/JSONDecoder<main/__near_JSONHandler_Array_string>#readChar
    i32.const 2256
    i32.const 0
    call $~lib/string/String#charCodeAt
    i32.eq
    i32.eqz
    if
-    i32.const 3576
+    i32.const 3592
     i32.const 2800
     i32.const 182
     i32.const 6
@@ -8877,7 +8904,7 @@
   call $~lib/rt/stub/__release
   local.get $3
  )
- (func $model_near/__near_JSONHandler_Array_String#setString (; 165 ;) (type $FUNCSIG$viii) (param $0 i32) (param $1 i32) (param $2 i32)
+ (func $main/__near_JSONHandler_Array_string#setString (; 165 ;) (type $FUNCSIG$viii) (param $0 i32) (param $1 i32) (param $2 i32)
   local.get $1
   call $~lib/rt/stub/__retain
   drop
@@ -8894,11 +8921,11 @@
   local.get $2
   call $~lib/rt/stub/__release
  )
- (func $~lib/assemblyscript-json/decoder/JSONDecoder<model_near/__near_JSONHandler_Array_String>#parseString (; 166 ;) (type $FUNCSIG$ii) (param $0 i32) (result i32)
+ (func $~lib/assemblyscript-json/decoder/JSONDecoder<main/__near_JSONHandler_Array_string>#parseString (; 166 ;) (type $FUNCSIG$ii) (param $0 i32) (result i32)
   (local $1 i32)
   (local $2 i32)
   local.get $0
-  call $~lib/assemblyscript-json/decoder/JSONDecoder<model_near/__near_JSONHandler_Array_String>#peekChar
+  call $~lib/assemblyscript-json/decoder/JSONDecoder<main/__near_JSONHandler_Array_string>#peekChar
   i32.const 1072
   i32.const 0
   call $~lib/string/String#charCodeAt
@@ -8913,16 +8940,16 @@
   i32.load offset=4
   i32.load
   local.get $0
-  call $~lib/assemblyscript-json/decoder/JSONDecoder<model_near/__near_JSONHandler_Array_String>#readString
+  call $~lib/assemblyscript-json/decoder/JSONDecoder<main/__near_JSONHandler_Array_string>#readString
   local.tee $1
-  call $model_near/__near_JSONHandler_Array_String#setString
+  call $main/__near_JSONHandler_Array_string#setString
   i32.const 1
   local.set $2
   local.get $1
   call $~lib/rt/stub/__release
   local.get $2
  )
- (func $~lib/assemblyscript-json/decoder/JSONDecoder<model_near/__near_JSONHandler_Array_String>#readAndAssert (; 167 ;) (type $FUNCSIG$vii) (param $0 i32) (param $1 i32)
+ (func $~lib/assemblyscript-json/decoder/JSONDecoder<main/__near_JSONHandler_Array_string>#readAndAssert (; 167 ;) (type $FUNCSIG$vii) (param $0 i32) (param $1 i32)
   (local $2 i32)
   (local $3 i32)
   (local $4 i32)
@@ -8943,15 +8970,15 @@
     local.get $2
     call $~lib/string/String#charCodeAt
     local.get $0
-    call $~lib/assemblyscript-json/decoder/JSONDecoder<model_near/__near_JSONHandler_Array_String>#readChar
+    call $~lib/assemblyscript-json/decoder/JSONDecoder<main/__near_JSONHandler_Array_string>#readChar
     i32.eq
     i32.eqz
     if
-     i32.const 3640
+     i32.const 3656
      local.get $1
      call $~lib/string/String.__concat
      local.tee $3
-     i32.const 3680
+     i32.const 3696
      call $~lib/string/String.__concat
      local.tee $4
      i32.const 2800
@@ -8987,11 +9014,11 @@
   i32.const 0
   i32.eqz
   if
-   i32.const 3704
+   i32.const 3720
    local.get $1
    call $~lib/string/String.__concat
    local.tee $3
-   i32.const 3768
+   i32.const 3784
    call $~lib/string/String.__concat
    local.tee $4
    local.get $2
@@ -9021,9 +9048,9 @@
   local.get $1
   call $~lib/rt/stub/__release
  )
- (func $~lib/assemblyscript-json/decoder/JSONDecoder<model_near/__near_JSONHandler_Array_String>#parseBoolean (; 169 ;) (type $FUNCSIG$ii) (param $0 i32) (result i32)
+ (func $~lib/assemblyscript-json/decoder/JSONDecoder<main/__near_JSONHandler_Array_string>#parseBoolean (; 169 ;) (type $FUNCSIG$ii) (param $0 i32) (result i32)
   local.get $0
-  call $~lib/assemblyscript-json/decoder/JSONDecoder<model_near/__near_JSONHandler_Array_String>#peekChar
+  call $~lib/assemblyscript-json/decoder/JSONDecoder<main/__near_JSONHandler_Array_string>#peekChar
   i32.const 504
   i32.const 0
   call $~lib/string/String#charCodeAt
@@ -9031,7 +9058,7 @@
   if
    local.get $0
    global.get $~lib/assemblyscript-json/decoder/FALSE_STR
-   call $~lib/assemblyscript-json/decoder/JSONDecoder<model_near/__near_JSONHandler_Array_String>#readAndAssert
+   call $~lib/assemblyscript-json/decoder/JSONDecoder<main/__near_JSONHandler_Array_string>#readAndAssert
    local.get $0
    i32.load
    local.get $0
@@ -9043,7 +9070,7 @@
    return
   end
   local.get $0
-  call $~lib/assemblyscript-json/decoder/JSONDecoder<model_near/__near_JSONHandler_Array_String>#peekChar
+  call $~lib/assemblyscript-json/decoder/JSONDecoder<main/__near_JSONHandler_Array_string>#peekChar
   i32.const 480
   i32.const 0
   call $~lib/string/String#charCodeAt
@@ -9051,7 +9078,7 @@
   if
    local.get $0
    global.get $~lib/assemblyscript-json/decoder/TRUE_STR
-   call $~lib/assemblyscript-json/decoder/JSONDecoder<model_near/__near_JSONHandler_Array_String>#readAndAssert
+   call $~lib/assemblyscript-json/decoder/JSONDecoder<main/__near_JSONHandler_Array_string>#readAndAssert
    local.get $0
    i32.load
    local.get $0
@@ -9075,11 +9102,11 @@
   i32.const 0
   i32.eqz
   if
-   i32.const 3816
+   i32.const 3832
    local.get $1
    call $~lib/string/String.__concat
    local.tee $3
-   i32.const 3768
+   i32.const 3784
    call $~lib/string/String.__concat
    local.tee $4
    local.get $2
@@ -9104,7 +9131,7 @@
   local.get $1
   call $~lib/rt/stub/__release
  )
- (func $~lib/assemblyscript-json/decoder/JSONDecoder<model_near/__near_JSONHandler_Array_String>#parseNumber (; 171 ;) (type $FUNCSIG$ii) (param $0 i32) (result i32)
+ (func $~lib/assemblyscript-json/decoder/JSONDecoder<main/__near_JSONHandler_Array_string>#parseNumber (; 171 ;) (type $FUNCSIG$ii) (param $0 i32) (result i32)
   (local $1 i64)
   (local $2 i64)
   (local $3 i32)
@@ -9114,8 +9141,8 @@
   i64.const 1
   local.set $2
   local.get $0
-  call $~lib/assemblyscript-json/decoder/JSONDecoder<model_near/__near_JSONHandler_Array_String>#peekChar
-  i32.const 3792
+  call $~lib/assemblyscript-json/decoder/JSONDecoder<main/__near_JSONHandler_Array_string>#peekChar
+  i32.const 3808
   i32.const 0
   call $~lib/string/String#charCodeAt
   i32.eq
@@ -9123,7 +9150,7 @@
    i64.const -1
    local.set $2
    local.get $0
-   call $~lib/assemblyscript-json/decoder/JSONDecoder<model_near/__near_JSONHandler_Array_String>#readChar
+   call $~lib/assemblyscript-json/decoder/JSONDecoder<main/__near_JSONHandler_Array_string>#readChar
    drop
   end
   i32.const 0
@@ -9132,11 +9159,11 @@
    loop $continue|0
     global.get $~lib/assemblyscript-json/decoder/CHAR_0
     local.get $0
-    call $~lib/assemblyscript-json/decoder/JSONDecoder<model_near/__near_JSONHandler_Array_String>#peekChar
+    call $~lib/assemblyscript-json/decoder/JSONDecoder<main/__near_JSONHandler_Array_string>#peekChar
     i32.le_s
     if (result i32)
      local.get $0
-     call $~lib/assemblyscript-json/decoder/JSONDecoder<model_near/__near_JSONHandler_Array_String>#peekChar
+     call $~lib/assemblyscript-json/decoder/JSONDecoder<main/__near_JSONHandler_Array_string>#peekChar
      global.get $~lib/assemblyscript-json/decoder/CHAR_9
      i32.le_s
     else     
@@ -9145,7 +9172,7 @@
     i32.eqz
     br_if $break|0
     local.get $0
-    call $~lib/assemblyscript-json/decoder/JSONDecoder<model_near/__near_JSONHandler_Array_String>#readChar
+    call $~lib/assemblyscript-json/decoder/JSONDecoder<main/__near_JSONHandler_Array_string>#readChar
     local.set $4
     local.get $1
     i64.const 10
@@ -9184,7 +9211,7 @@
   end
   i32.const 0
  )
- (func $model_near/__near_JSONHandler_Array_String#setNull (; 172 ;) (type $FUNCSIG$vii) (param $0 i32) (param $1 i32)
+ (func $main/__near_JSONHandler_Array_string#setNull (; 172 ;) (type $FUNCSIG$vii) (param $0 i32) (param $1 i32)
   local.get $1
   call $~lib/rt/stub/__retain
   drop
@@ -9196,9 +9223,9 @@
   local.get $1
   call $~lib/rt/stub/__release
  )
- (func $~lib/assemblyscript-json/decoder/JSONDecoder<model_near/__near_JSONHandler_Array_String>#parseNull (; 173 ;) (type $FUNCSIG$ii) (param $0 i32) (result i32)
+ (func $~lib/assemblyscript-json/decoder/JSONDecoder<main/__near_JSONHandler_Array_string>#parseNull (; 173 ;) (type $FUNCSIG$ii) (param $0 i32) (result i32)
   local.get $0
-  call $~lib/assemblyscript-json/decoder/JSONDecoder<model_near/__near_JSONHandler_Array_String>#peekChar
+  call $~lib/assemblyscript-json/decoder/JSONDecoder<main/__near_JSONHandler_Array_string>#peekChar
   i32.const 536
   i32.const 0
   call $~lib/string/String#charCodeAt
@@ -9206,65 +9233,65 @@
   if
    local.get $0
    global.get $~lib/assemblyscript-json/decoder/NULL_STR
-   call $~lib/assemblyscript-json/decoder/JSONDecoder<model_near/__near_JSONHandler_Array_String>#readAndAssert
+   call $~lib/assemblyscript-json/decoder/JSONDecoder<main/__near_JSONHandler_Array_string>#readAndAssert
    local.get $0
    i32.load
    local.get $0
    i32.load offset=4
    i32.load
-   call $model_near/__near_JSONHandler_Array_String#setNull
+   call $main/__near_JSONHandler_Array_string#setNull
    i32.const 1
    return
   end
   i32.const 0
  )
- (func $~lib/assemblyscript-json/decoder/JSONDecoder<model_near/__near_JSONHandler_Array_String>#parseValue (; 174 ;) (type $FUNCSIG$ii) (param $0 i32) (result i32)
+ (func $~lib/assemblyscript-json/decoder/JSONDecoder<main/__near_JSONHandler_Array_string>#parseValue (; 174 ;) (type $FUNCSIG$ii) (param $0 i32) (result i32)
   (local $1 i32)
   local.get $0
-  call $~lib/assemblyscript-json/decoder/JSONDecoder<model_near/__near_JSONHandler_Array_String>#skipWhitespace
+  call $~lib/assemblyscript-json/decoder/JSONDecoder<main/__near_JSONHandler_Array_string>#skipWhitespace
   local.get $0
-  call $~lib/assemblyscript-json/decoder/JSONDecoder<model_near/__near_JSONHandler_Array_String>#parseObject
+  call $~lib/assemblyscript-json/decoder/JSONDecoder<main/__near_JSONHandler_Array_string>#parseObject
   local.tee $1
   if (result i32)
    local.get $1
   else   
    local.get $0
-   call $~lib/assemblyscript-json/decoder/JSONDecoder<model_near/__near_JSONHandler_Array_String>#parseArray
+   call $~lib/assemblyscript-json/decoder/JSONDecoder<main/__near_JSONHandler_Array_string>#parseArray
   end
   local.tee $1
   if (result i32)
    local.get $1
   else   
    local.get $0
-   call $~lib/assemblyscript-json/decoder/JSONDecoder<model_near/__near_JSONHandler_Array_String>#parseString
+   call $~lib/assemblyscript-json/decoder/JSONDecoder<main/__near_JSONHandler_Array_string>#parseString
   end
   local.tee $1
   if (result i32)
    local.get $1
   else   
    local.get $0
-   call $~lib/assemblyscript-json/decoder/JSONDecoder<model_near/__near_JSONHandler_Array_String>#parseBoolean
+   call $~lib/assemblyscript-json/decoder/JSONDecoder<main/__near_JSONHandler_Array_string>#parseBoolean
   end
   local.tee $1
   if (result i32)
    local.get $1
   else   
    local.get $0
-   call $~lib/assemblyscript-json/decoder/JSONDecoder<model_near/__near_JSONHandler_Array_String>#parseNumber
+   call $~lib/assemblyscript-json/decoder/JSONDecoder<main/__near_JSONHandler_Array_string>#parseNumber
   end
   local.tee $1
   if (result i32)
    local.get $1
   else   
    local.get $0
-   call $~lib/assemblyscript-json/decoder/JSONDecoder<model_near/__near_JSONHandler_Array_String>#parseNull
+   call $~lib/assemblyscript-json/decoder/JSONDecoder<main/__near_JSONHandler_Array_string>#parseNull
   end
   local.set $1
   local.get $0
-  call $~lib/assemblyscript-json/decoder/JSONDecoder<model_near/__near_JSONHandler_Array_String>#skipWhitespace
+  call $~lib/assemblyscript-json/decoder/JSONDecoder<main/__near_JSONHandler_Array_string>#skipWhitespace
   local.get $1
  )
- (func $~lib/assemblyscript-json/decoder/JSONDecoder<model_near/__near_JSONHandler_Array_String>#deserialize (; 175 ;) (type $FUNCSIG$viii) (param $0 i32) (param $1 i32) (param $2 i32)
+ (func $~lib/assemblyscript-json/decoder/JSONDecoder<main/__near_JSONHandler_Array_string>#deserialize (; 175 ;) (type $FUNCSIG$viii) (param $0 i32) (param $1 i32) (param $2 i32)
   (local $3 i32)
   (local $4 i32)
   local.get $1
@@ -9308,12 +9335,12 @@
    i32.store offset=4
   end
   local.get $0
-  call $~lib/assemblyscript-json/decoder/JSONDecoder<model_near/__near_JSONHandler_Array_String>#parseValue
+  call $~lib/assemblyscript-json/decoder/JSONDecoder<main/__near_JSONHandler_Array_string>#parseValue
   i32.const 0
   i32.ne
   i32.eqz
   if
-   i32.const 3888
+   i32.const 3904
    i32.const 2800
    i32.const 100
    i32.const 4
@@ -9325,7 +9352,7 @@
   local.get $2
   call $~lib/rt/stub/__release
  )
- (func $model_near/__near_decode_Array_String (; 176 ;) (type $FUNCSIG$iiii) (param $0 i32) (param $1 i32) (param $2 i32) (result i32)
+ (func $main/__near_decode_Array_string (; 176 ;) (type $FUNCSIG$iiii) (param $0 i32) (param $1 i32) (param $2 i32) (result i32)
   (local $3 i32)
   (local $4 i32)
   (local $5 i32)
@@ -9353,7 +9380,7 @@
   end
   i32.const 0
   local.get $2
-  call $model_near/__near_JSONHandler_Array_String#constructor
+  call $main/__near_JSONHandler_Array_string#constructor
   local.set $3
   local.get $3
   local.tee $4
@@ -9376,7 +9403,7 @@
   local.tee $5
   i32.const 0
   local.get $3
-  call $~lib/assemblyscript-json/decoder/JSONDecoder<model_near/__near_JSONHandler_Array_String>#constructor
+  call $~lib/assemblyscript-json/decoder/JSONDecoder<main/__near_JSONHandler_Array_string>#constructor
   local.set $4
   local.get $5
   i32.load offset=4
@@ -9387,7 +9414,7 @@
   i32.load offset=4
   local.get $0
   local.get $1
-  call $~lib/assemblyscript-json/decoder/JSONDecoder<model_near/__near_JSONHandler_Array_String>#deserialize
+  call $~lib/assemblyscript-json/decoder/JSONDecoder<main/__near_JSONHandler_Array_string>#deserialize
   local.get $2
   local.set $4
   local.get $3
@@ -9434,7 +9461,7 @@
   call $~lib/rt/stub/__release
   local.get $4
  )
- (func $model_near/__near_JSONHandler_Array_Array_String#pushObject (; 178 ;) (type $FUNCSIG$iii) (param $0 i32) (param $1 i32) (result i32)
+ (func $model/__near_JSONHandler_Array_Array_string#pushObject (; 178 ;) (type $FUNCSIG$iii) (param $0 i32) (param $1 i32) (result i32)
   (local $2 i32)
   (local $3 i32)
   local.get $1
@@ -9448,7 +9475,7 @@
   i32.load offset=4
   i32.load offset=4
   i32.const 0
-  call $model_near/__near_decode_Array_String
+  call $main/__near_decode_Array_string
   local.tee $2
   call $~lib/array/Array<~lib/array/Array<~lib/string/String>>#push
   drop
@@ -9460,13 +9487,13 @@
   call $~lib/rt/stub/__release
   local.get $3
  )
- (func $~lib/assemblyscript-json/decoder/JSONDecoder<model_near/__near_JSONHandler_Array_Array_String>#readHexDigit (; 179 ;) (type $FUNCSIG$ii) (param $0 i32) (result i32)
+ (func $~lib/assemblyscript-json/decoder/JSONDecoder<model/__near_JSONHandler_Array_Array_string>#readHexDigit (; 179 ;) (type $FUNCSIG$ii) (param $0 i32) (result i32)
   (local $1 i32)
   (local $2 i32)
   (local $3 i32)
   (local $4 i32)
   local.get $0
-  call $~lib/assemblyscript-json/decoder/JSONDecoder<model_near/__near_JSONHandler_Array_Array_String>#readChar
+  call $~lib/assemblyscript-json/decoder/JSONDecoder<model/__near_JSONHandler_Array_Array_string>#readChar
   local.set $1
   local.get $1
   global.get $~lib/assemblyscript-json/decoder/CHAR_0
@@ -9531,7 +9558,7 @@
   end
   i32.eqz
   if
-   i32.const 3336
+   i32.const 3320
    i32.const 2800
    i32.const 269
    i32.const 4
@@ -9544,7 +9571,7 @@
   call $~lib/rt/stub/__release
   local.get $3
  )
- (func $~lib/assemblyscript-json/decoder/JSONDecoder<model_near/__near_JSONHandler_Array_Array_String>#readEscapedChar (; 180 ;) (type $FUNCSIG$ii) (param $0 i32) (result i32)
+ (func $~lib/assemblyscript-json/decoder/JSONDecoder<model/__near_JSONHandler_Array_Array_string>#readEscapedChar (; 180 ;) (type $FUNCSIG$ii) (param $0 i32) (result i32)
   (local $1 i32)
   (local $2 i32)
   (local $3 i32)
@@ -9552,7 +9579,7 @@
   (local $5 i32)
   (local $6 i32)
   local.get $0
-  call $~lib/assemblyscript-json/decoder/JSONDecoder<model_near/__near_JSONHandler_Array_Array_String>#readChar
+  call $~lib/assemblyscript-json/decoder/JSONDecoder<model/__near_JSONHandler_Array_Array_string>#readChar
   local.set $1
   local.get $1
   i32.const 1072
@@ -9575,17 +9602,17 @@
    return
   end
   local.get $1
-  i32.const 3192
+  i32.const 3176
   i32.const 0
   call $~lib/string/String#charCodeAt
   i32.eq
   if
-   i32.const 3192
+   i32.const 3176
    call $~lib/rt/stub/__retain
    return
   end
   local.get $1
-  i32.const 3216
+  i32.const 3200
   i32.const 0
   call $~lib/string/String#charCodeAt
   i32.eq
@@ -9595,7 +9622,7 @@
    return
   end
   local.get $1
-  i32.const 3240
+  i32.const 3224
   i32.const 0
   call $~lib/string/String#charCodeAt
   i32.eq
@@ -9605,7 +9632,7 @@
    return
   end
   local.get $1
-  i32.const 3264
+  i32.const 3248
   i32.const 0
   call $~lib/string/String#charCodeAt
   i32.eq
@@ -9615,7 +9642,7 @@
    return
   end
   local.get $1
-  i32.const 3288
+  i32.const 3272
   i32.const 0
   call $~lib/string/String#charCodeAt
   i32.eq
@@ -9625,22 +9652,22 @@
    return
   end
   local.get $1
-  i32.const 3312
+  i32.const 3296
   i32.const 0
   call $~lib/string/String#charCodeAt
   i32.eq
   if
    local.get $0
-   call $~lib/assemblyscript-json/decoder/JSONDecoder<model_near/__near_JSONHandler_Array_Array_String>#readHexDigit
+   call $~lib/assemblyscript-json/decoder/JSONDecoder<model/__near_JSONHandler_Array_Array_string>#readHexDigit
    local.set $2
    local.get $0
-   call $~lib/assemblyscript-json/decoder/JSONDecoder<model_near/__near_JSONHandler_Array_Array_String>#readHexDigit
+   call $~lib/assemblyscript-json/decoder/JSONDecoder<model/__near_JSONHandler_Array_Array_string>#readHexDigit
    local.set $3
    local.get $0
-   call $~lib/assemblyscript-json/decoder/JSONDecoder<model_near/__near_JSONHandler_Array_Array_String>#readHexDigit
+   call $~lib/assemblyscript-json/decoder/JSONDecoder<model/__near_JSONHandler_Array_Array_string>#readHexDigit
    local.set $4
    local.get $0
-   call $~lib/assemblyscript-json/decoder/JSONDecoder<model_near/__near_JSONHandler_Array_Array_String>#readHexDigit
+   call $~lib/assemblyscript-json/decoder/JSONDecoder<model/__near_JSONHandler_Array_Array_string>#readHexDigit
    local.set $5
    local.get $2
    i32.const 4096
@@ -9663,7 +9690,7 @@
   i32.const 0
   i32.eqz
   if
-   i32.const 3392
+   i32.const 3376
    i32.const 1
    global.set $~lib/argc
    local.get $1
@@ -9687,21 +9714,21 @@
   call $~lib/rt/stub/__release
   local.get $4
  )
- (func $~lib/assemblyscript-json/decoder/JSONDecoder<model_near/__near_JSONHandler_Array_Array_String>#readString (; 181 ;) (type $FUNCSIG$ii) (param $0 i32) (result i32)
+ (func $~lib/assemblyscript-json/decoder/JSONDecoder<model/__near_JSONHandler_Array_Array_string>#readString (; 181 ;) (type $FUNCSIG$ii) (param $0 i32) (result i32)
   (local $1 i32)
   (local $2 i32)
   (local $3 i32)
   (local $4 i32)
   (local $5 i32)
   local.get $0
-  call $~lib/assemblyscript-json/decoder/JSONDecoder<model_near/__near_JSONHandler_Array_Array_String>#readChar
+  call $~lib/assemblyscript-json/decoder/JSONDecoder<model/__near_JSONHandler_Array_Array_string>#readChar
   i32.const 1072
   i32.const 0
   call $~lib/string/String#charCodeAt
   i32.eq
   i32.eqz
   if
-   i32.const 3040
+   i32.const 3024
    i32.const 2800
    i32.const 197
    i32.const 4
@@ -9718,14 +9745,14 @@
   local.set $2
   loop $loop|0
    local.get $0
-   call $~lib/assemblyscript-json/decoder/JSONDecoder<model_near/__near_JSONHandler_Array_Array_String>#readChar
+   call $~lib/assemblyscript-json/decoder/JSONDecoder<model/__near_JSONHandler_Array_Array_string>#readChar
    local.set $3
    local.get $3
    i32.const 32
    i32.ge_s
    i32.eqz
    if
-    i32.const 3120
+    i32.const 3104
     i32.const 2800
     i32.const 203
     i32.const 6
@@ -9803,7 +9830,7 @@
      end
      local.get $2
      local.get $0
-     call $~lib/assemblyscript-json/decoder/JSONDecoder<model_near/__near_JSONHandler_Array_Array_String>#readEscapedChar
+     call $~lib/assemblyscript-json/decoder/JSONDecoder<model/__near_JSONHandler_Array_Array_string>#readEscapedChar
      local.tee $4
      call $~lib/array/Array<~lib/string/String>#push
      drop
@@ -9819,16 +9846,16 @@
   end
   unreachable
  )
- (func $~lib/assemblyscript-json/decoder/JSONDecoder<model_near/__near_JSONHandler_Array_Array_String>#parseKey (; 182 ;) (type $FUNCSIG$vi) (param $0 i32)
+ (func $~lib/assemblyscript-json/decoder/JSONDecoder<model/__near_JSONHandler_Array_Array_string>#parseKey (; 182 ;) (type $FUNCSIG$vi) (param $0 i32)
   (local $1 i32)
   (local $2 i32)
   local.get $0
-  call $~lib/assemblyscript-json/decoder/JSONDecoder<model_near/__near_JSONHandler_Array_Array_String>#skipWhitespace
+  call $~lib/assemblyscript-json/decoder/JSONDecoder<model/__near_JSONHandler_Array_Array_string>#skipWhitespace
   local.get $0
   i32.load offset=4
   local.tee $1
   local.get $0
-  call $~lib/assemblyscript-json/decoder/JSONDecoder<model_near/__near_JSONHandler_Array_Array_String>#readString
+  call $~lib/assemblyscript-json/decoder/JSONDecoder<model/__near_JSONHandler_Array_Array_string>#readString
   local.set $2
   local.get $1
   i32.load
@@ -9836,16 +9863,16 @@
   local.get $2
   i32.store
   local.get $0
-  call $~lib/assemblyscript-json/decoder/JSONDecoder<model_near/__near_JSONHandler_Array_Array_String>#skipWhitespace
+  call $~lib/assemblyscript-json/decoder/JSONDecoder<model/__near_JSONHandler_Array_Array_string>#skipWhitespace
   local.get $0
-  call $~lib/assemblyscript-json/decoder/JSONDecoder<model_near/__near_JSONHandler_Array_Array_String>#readChar
+  call $~lib/assemblyscript-json/decoder/JSONDecoder<model/__near_JSONHandler_Array_Array_string>#readChar
   i32.const 1984
   i32.const 0
   call $~lib/string/String#charCodeAt
   i32.eq
   i32.eqz
   if
-   i32.const 3472
+   i32.const 3456
    i32.const 2800
    i32.const 159
    i32.const 4
@@ -9853,12 +9880,12 @@
    unreachable
   end
  )
- (func $~lib/assemblyscript-json/decoder/JSONDecoder<model_near/__near_JSONHandler_Array_Array_String>#parseObject (; 183 ;) (type $FUNCSIG$ii) (param $0 i32) (result i32)
+ (func $~lib/assemblyscript-json/decoder/JSONDecoder<model/__near_JSONHandler_Array_Array_string>#parseObject (; 183 ;) (type $FUNCSIG$ii) (param $0 i32) (result i32)
   (local $1 i32)
   (local $2 i32)
   (local $3 i32)
   local.get $0
-  call $~lib/assemblyscript-json/decoder/JSONDecoder<model_near/__near_JSONHandler_Array_Array_String>#peekChar
+  call $~lib/assemblyscript-json/decoder/JSONDecoder<model/__near_JSONHandler_Array_Array_string>#peekChar
   i32.const 2008
   i32.const 0
   call $~lib/string/String#charCodeAt
@@ -9893,19 +9920,19 @@
   local.get $0
   i32.load
   local.get $1
-  call $model_near/__near_JSONHandler_Array_Array_String#pushObject
+  call $model/__near_JSONHandler_Array_Array_string#pushObject
   if
    local.get $0
-   call $~lib/assemblyscript-json/decoder/JSONDecoder<model_near/__near_JSONHandler_Array_Array_String>#readChar
+   call $~lib/assemblyscript-json/decoder/JSONDecoder<model/__near_JSONHandler_Array_Array_string>#readChar
    drop
    local.get $0
-   call $~lib/assemblyscript-json/decoder/JSONDecoder<model_near/__near_JSONHandler_Array_Array_String>#skipWhitespace
+   call $~lib/assemblyscript-json/decoder/JSONDecoder<model/__near_JSONHandler_Array_Array_string>#skipWhitespace
    i32.const 1
    local.set $3
    block $break|0
     loop $continue|0
      local.get $0
-     call $~lib/assemblyscript-json/decoder/JSONDecoder<model_near/__near_JSONHandler_Array_Array_String>#peekChar
+     call $~lib/assemblyscript-json/decoder/JSONDecoder<model/__near_JSONHandler_Array_Array_string>#peekChar
      i32.const 2672
      i32.const 0
      call $~lib/string/String#charCodeAt
@@ -9916,14 +9943,14 @@
      i32.eqz
      if
       local.get $0
-      call $~lib/assemblyscript-json/decoder/JSONDecoder<model_near/__near_JSONHandler_Array_Array_String>#readChar
+      call $~lib/assemblyscript-json/decoder/JSONDecoder<model/__near_JSONHandler_Array_Array_string>#readChar
       i32.const 1048
       i32.const 0
       call $~lib/string/String#charCodeAt
       i32.eq
       i32.eqz
       if
-       i32.const 3000
+       i32.const 2984
        i32.const 2800
        i32.const 142
        i32.const 10
@@ -9935,23 +9962,23 @@
       local.set $3
      end
      local.get $0
-     call $~lib/assemblyscript-json/decoder/JSONDecoder<model_near/__near_JSONHandler_Array_Array_String>#parseKey
+     call $~lib/assemblyscript-json/decoder/JSONDecoder<model/__near_JSONHandler_Array_Array_string>#parseKey
      local.get $0
-     call $~lib/assemblyscript-json/decoder/JSONDecoder<model_near/__near_JSONHandler_Array_Array_String>#parseValue
+     call $~lib/assemblyscript-json/decoder/JSONDecoder<model/__near_JSONHandler_Array_Array_string>#parseValue
      drop
      br $continue|0
     end
     unreachable
    end
    local.get $0
-   call $~lib/assemblyscript-json/decoder/JSONDecoder<model_near/__near_JSONHandler_Array_Array_String>#readChar
+   call $~lib/assemblyscript-json/decoder/JSONDecoder<model/__near_JSONHandler_Array_Array_string>#readChar
    i32.const 2672
    i32.const 0
    call $~lib/string/String#charCodeAt
    i32.eq
    i32.eqz
    if
-    i32.const 3512
+    i32.const 3496
     i32.const 2800
     i32.const 149
     i32.const 6
@@ -9968,7 +9995,7 @@
   call $~lib/rt/stub/__release
   local.get $3
  )
- (func $model_near/__near_JSONHandler_Array_Array_String#pushArray (; 184 ;) (type $FUNCSIG$iii) (param $0 i32) (param $1 i32) (result i32)
+ (func $model/__near_JSONHandler_Array_Array_string#pushArray (; 184 ;) (type $FUNCSIG$iii) (param $0 i32) (param $1 i32) (result i32)
   (local $2 i32)
   (local $3 i32)
   local.get $1
@@ -9989,8 +10016,8 @@
   if
    i32.const 0
    i32.const 2888
-   i32.const 271
-   i32.const 8
+   i32.const 130
+   i32.const 10
    call $~lib/builtins/abort
    unreachable
   end
@@ -10018,7 +10045,7 @@
   i32.load offset=4
   i32.load offset=4
   i32.const 0
-  call $model_near/__near_decode_Array_String
+  call $main/__near_decode_Array_string
   local.tee $2
   call $~lib/array/Array<~lib/array/Array<~lib/string/String>>#push
   drop
@@ -10030,12 +10057,12 @@
   call $~lib/rt/stub/__release
   local.get $3
  )
- (func $~lib/assemblyscript-json/decoder/JSONDecoder<model_near/__near_JSONHandler_Array_Array_String>#parseArray (; 185 ;) (type $FUNCSIG$ii) (param $0 i32) (result i32)
+ (func $~lib/assemblyscript-json/decoder/JSONDecoder<model/__near_JSONHandler_Array_Array_string>#parseArray (; 185 ;) (type $FUNCSIG$ii) (param $0 i32) (result i32)
   (local $1 i32)
   (local $2 i32)
   (local $3 i32)
   local.get $0
-  call $~lib/assemblyscript-json/decoder/JSONDecoder<model_near/__near_JSONHandler_Array_Array_String>#peekChar
+  call $~lib/assemblyscript-json/decoder/JSONDecoder<model/__near_JSONHandler_Array_Array_string>#peekChar
   i32.const 2232
   i32.const 0
   call $~lib/string/String#charCodeAt
@@ -10070,19 +10097,19 @@
   local.get $0
   i32.load
   local.get $1
-  call $model_near/__near_JSONHandler_Array_Array_String#pushArray
+  call $model/__near_JSONHandler_Array_Array_string#pushArray
   if
    local.get $0
-   call $~lib/assemblyscript-json/decoder/JSONDecoder<model_near/__near_JSONHandler_Array_Array_String>#readChar
+   call $~lib/assemblyscript-json/decoder/JSONDecoder<model/__near_JSONHandler_Array_Array_string>#readChar
    drop
    local.get $0
-   call $~lib/assemblyscript-json/decoder/JSONDecoder<model_near/__near_JSONHandler_Array_Array_String>#skipWhitespace
+   call $~lib/assemblyscript-json/decoder/JSONDecoder<model/__near_JSONHandler_Array_Array_string>#skipWhitespace
    i32.const 1
    local.set $3
    block $break|0
     loop $continue|0
      local.get $0
-     call $~lib/assemblyscript-json/decoder/JSONDecoder<model_near/__near_JSONHandler_Array_Array_String>#peekChar
+     call $~lib/assemblyscript-json/decoder/JSONDecoder<model/__near_JSONHandler_Array_Array_string>#peekChar
      i32.const 2256
      i32.const 0
      call $~lib/string/String#charCodeAt
@@ -10093,14 +10120,14 @@
      i32.eqz
      if
       local.get $0
-      call $~lib/assemblyscript-json/decoder/JSONDecoder<model_near/__near_JSONHandler_Array_Array_String>#readChar
+      call $~lib/assemblyscript-json/decoder/JSONDecoder<model/__near_JSONHandler_Array_Array_string>#readChar
       i32.const 1048
       i32.const 0
       call $~lib/string/String#charCodeAt
       i32.eq
       i32.eqz
       if
-       i32.const 3000
+       i32.const 2984
        i32.const 2800
        i32.const 176
        i32.const 10
@@ -10112,21 +10139,21 @@
       local.set $3
      end
      local.get $0
-     call $~lib/assemblyscript-json/decoder/JSONDecoder<model_near/__near_JSONHandler_Array_Array_String>#parseValue
+     call $~lib/assemblyscript-json/decoder/JSONDecoder<model/__near_JSONHandler_Array_Array_string>#parseValue
      drop
      br $continue|0
     end
     unreachable
    end
    local.get $0
-   call $~lib/assemblyscript-json/decoder/JSONDecoder<model_near/__near_JSONHandler_Array_Array_String>#readChar
+   call $~lib/assemblyscript-json/decoder/JSONDecoder<model/__near_JSONHandler_Array_Array_string>#readChar
    i32.const 2256
    i32.const 0
    call $~lib/string/String#charCodeAt
    i32.eq
    i32.eqz
    if
-    i32.const 3576
+    i32.const 3592
     i32.const 2800
     i32.const 182
     i32.const 6
@@ -10157,11 +10184,11 @@
   i32.const 0
   i32.eqz
   if
-   i32.const 3944
+   i32.const 3960
    local.get $1
    call $~lib/string/String.__concat
    local.tee $3
-   i32.const 4008
+   i32.const 4024
    call $~lib/string/String.__concat
    local.tee $4
    local.get $2
@@ -10189,11 +10216,11 @@
   local.get $2
   call $~lib/rt/stub/__release
  )
- (func $~lib/assemblyscript-json/decoder/JSONDecoder<model_near/__near_JSONHandler_Array_Array_String>#parseString (; 187 ;) (type $FUNCSIG$ii) (param $0 i32) (result i32)
+ (func $~lib/assemblyscript-json/decoder/JSONDecoder<model/__near_JSONHandler_Array_Array_string>#parseString (; 187 ;) (type $FUNCSIG$ii) (param $0 i32) (result i32)
   (local $1 i32)
   (local $2 i32)
   local.get $0
-  call $~lib/assemblyscript-json/decoder/JSONDecoder<model_near/__near_JSONHandler_Array_Array_String>#peekChar
+  call $~lib/assemblyscript-json/decoder/JSONDecoder<model/__near_JSONHandler_Array_Array_string>#peekChar
   i32.const 1072
   i32.const 0
   call $~lib/string/String#charCodeAt
@@ -10208,7 +10235,7 @@
   i32.load offset=4
   i32.load
   local.get $0
-  call $~lib/assemblyscript-json/decoder/JSONDecoder<model_near/__near_JSONHandler_Array_Array_String>#readString
+  call $~lib/assemblyscript-json/decoder/JSONDecoder<model/__near_JSONHandler_Array_Array_string>#readString
   local.tee $1
   call $~lib/assemblyscript-json/decoder/ThrowingJSONHandler#setString
   i32.const 1
@@ -10217,7 +10244,7 @@
   call $~lib/rt/stub/__release
   local.get $2
  )
- (func $~lib/assemblyscript-json/decoder/JSONDecoder<model_near/__near_JSONHandler_Array_Array_String>#readAndAssert (; 188 ;) (type $FUNCSIG$vii) (param $0 i32) (param $1 i32)
+ (func $~lib/assemblyscript-json/decoder/JSONDecoder<model/__near_JSONHandler_Array_Array_string>#readAndAssert (; 188 ;) (type $FUNCSIG$vii) (param $0 i32) (param $1 i32)
   (local $2 i32)
   (local $3 i32)
   (local $4 i32)
@@ -10238,15 +10265,15 @@
     local.get $2
     call $~lib/string/String#charCodeAt
     local.get $0
-    call $~lib/assemblyscript-json/decoder/JSONDecoder<model_near/__near_JSONHandler_Array_Array_String>#readChar
+    call $~lib/assemblyscript-json/decoder/JSONDecoder<model/__near_JSONHandler_Array_Array_string>#readChar
     i32.eq
     i32.eqz
     if
-     i32.const 3640
+     i32.const 3656
      local.get $1
      call $~lib/string/String.__concat
      local.tee $3
-     i32.const 3680
+     i32.const 3696
      call $~lib/string/String.__concat
      local.tee $4
      i32.const 2800
@@ -10270,9 +10297,9 @@
   local.get $1
   call $~lib/rt/stub/__release
  )
- (func $~lib/assemblyscript-json/decoder/JSONDecoder<model_near/__near_JSONHandler_Array_Array_String>#parseBoolean (; 189 ;) (type $FUNCSIG$ii) (param $0 i32) (result i32)
+ (func $~lib/assemblyscript-json/decoder/JSONDecoder<model/__near_JSONHandler_Array_Array_string>#parseBoolean (; 189 ;) (type $FUNCSIG$ii) (param $0 i32) (result i32)
   local.get $0
-  call $~lib/assemblyscript-json/decoder/JSONDecoder<model_near/__near_JSONHandler_Array_Array_String>#peekChar
+  call $~lib/assemblyscript-json/decoder/JSONDecoder<model/__near_JSONHandler_Array_Array_string>#peekChar
   i32.const 504
   i32.const 0
   call $~lib/string/String#charCodeAt
@@ -10280,7 +10307,7 @@
   if
    local.get $0
    global.get $~lib/assemblyscript-json/decoder/FALSE_STR
-   call $~lib/assemblyscript-json/decoder/JSONDecoder<model_near/__near_JSONHandler_Array_Array_String>#readAndAssert
+   call $~lib/assemblyscript-json/decoder/JSONDecoder<model/__near_JSONHandler_Array_Array_string>#readAndAssert
    local.get $0
    i32.load
    local.get $0
@@ -10292,7 +10319,7 @@
    return
   end
   local.get $0
-  call $~lib/assemblyscript-json/decoder/JSONDecoder<model_near/__near_JSONHandler_Array_Array_String>#peekChar
+  call $~lib/assemblyscript-json/decoder/JSONDecoder<model/__near_JSONHandler_Array_Array_string>#peekChar
   i32.const 480
   i32.const 0
   call $~lib/string/String#charCodeAt
@@ -10300,7 +10327,7 @@
   if
    local.get $0
    global.get $~lib/assemblyscript-json/decoder/TRUE_STR
-   call $~lib/assemblyscript-json/decoder/JSONDecoder<model_near/__near_JSONHandler_Array_Array_String>#readAndAssert
+   call $~lib/assemblyscript-json/decoder/JSONDecoder<model/__near_JSONHandler_Array_Array_string>#readAndAssert
    local.get $0
    i32.load
    local.get $0
@@ -10313,7 +10340,7 @@
   end
   i32.const 0
  )
- (func $~lib/assemblyscript-json/decoder/JSONDecoder<model_near/__near_JSONHandler_Array_Array_String>#parseNumber (; 190 ;) (type $FUNCSIG$ii) (param $0 i32) (result i32)
+ (func $~lib/assemblyscript-json/decoder/JSONDecoder<model/__near_JSONHandler_Array_Array_string>#parseNumber (; 190 ;) (type $FUNCSIG$ii) (param $0 i32) (result i32)
   (local $1 i64)
   (local $2 i64)
   (local $3 i32)
@@ -10323,8 +10350,8 @@
   i64.const 1
   local.set $2
   local.get $0
-  call $~lib/assemblyscript-json/decoder/JSONDecoder<model_near/__near_JSONHandler_Array_Array_String>#peekChar
-  i32.const 3792
+  call $~lib/assemblyscript-json/decoder/JSONDecoder<model/__near_JSONHandler_Array_Array_string>#peekChar
+  i32.const 3808
   i32.const 0
   call $~lib/string/String#charCodeAt
   i32.eq
@@ -10332,7 +10359,7 @@
    i64.const -1
    local.set $2
    local.get $0
-   call $~lib/assemblyscript-json/decoder/JSONDecoder<model_near/__near_JSONHandler_Array_Array_String>#readChar
+   call $~lib/assemblyscript-json/decoder/JSONDecoder<model/__near_JSONHandler_Array_Array_string>#readChar
    drop
   end
   i32.const 0
@@ -10341,11 +10368,11 @@
    loop $continue|0
     global.get $~lib/assemblyscript-json/decoder/CHAR_0
     local.get $0
-    call $~lib/assemblyscript-json/decoder/JSONDecoder<model_near/__near_JSONHandler_Array_Array_String>#peekChar
+    call $~lib/assemblyscript-json/decoder/JSONDecoder<model/__near_JSONHandler_Array_Array_string>#peekChar
     i32.le_s
     if (result i32)
      local.get $0
-     call $~lib/assemblyscript-json/decoder/JSONDecoder<model_near/__near_JSONHandler_Array_Array_String>#peekChar
+     call $~lib/assemblyscript-json/decoder/JSONDecoder<model/__near_JSONHandler_Array_Array_string>#peekChar
      global.get $~lib/assemblyscript-json/decoder/CHAR_9
      i32.le_s
     else     
@@ -10354,7 +10381,7 @@
     i32.eqz
     br_if $break|0
     local.get $0
-    call $~lib/assemblyscript-json/decoder/JSONDecoder<model_near/__near_JSONHandler_Array_Array_String>#readChar
+    call $~lib/assemblyscript-json/decoder/JSONDecoder<model/__near_JSONHandler_Array_Array_string>#readChar
     local.set $4
     local.get $1
     i64.const 10
@@ -10401,7 +10428,7 @@
   i32.const 0
   i32.eqz
   if
-   i32.const 4032
+   i32.const 4048
    local.get $1
    call $~lib/string/String.__concat
    local.tee $2
@@ -10416,9 +10443,9 @@
   local.get $1
   call $~lib/rt/stub/__release
  )
- (func $~lib/assemblyscript-json/decoder/JSONDecoder<model_near/__near_JSONHandler_Array_Array_String>#parseNull (; 192 ;) (type $FUNCSIG$ii) (param $0 i32) (result i32)
+ (func $~lib/assemblyscript-json/decoder/JSONDecoder<model/__near_JSONHandler_Array_Array_string>#parseNull (; 192 ;) (type $FUNCSIG$ii) (param $0 i32) (result i32)
   local.get $0
-  call $~lib/assemblyscript-json/decoder/JSONDecoder<model_near/__near_JSONHandler_Array_Array_String>#peekChar
+  call $~lib/assemblyscript-json/decoder/JSONDecoder<model/__near_JSONHandler_Array_Array_string>#peekChar
   i32.const 536
   i32.const 0
   call $~lib/string/String#charCodeAt
@@ -10426,7 +10453,7 @@
   if
    local.get $0
    global.get $~lib/assemblyscript-json/decoder/NULL_STR
-   call $~lib/assemblyscript-json/decoder/JSONDecoder<model_near/__near_JSONHandler_Array_Array_String>#readAndAssert
+   call $~lib/assemblyscript-json/decoder/JSONDecoder<model/__near_JSONHandler_Array_Array_string>#readAndAssert
    local.get $0
    i32.load
    local.get $0
@@ -10438,53 +10465,53 @@
   end
   i32.const 0
  )
- (func $~lib/assemblyscript-json/decoder/JSONDecoder<model_near/__near_JSONHandler_Array_Array_String>#parseValue (; 193 ;) (type $FUNCSIG$ii) (param $0 i32) (result i32)
+ (func $~lib/assemblyscript-json/decoder/JSONDecoder<model/__near_JSONHandler_Array_Array_string>#parseValue (; 193 ;) (type $FUNCSIG$ii) (param $0 i32) (result i32)
   (local $1 i32)
   local.get $0
-  call $~lib/assemblyscript-json/decoder/JSONDecoder<model_near/__near_JSONHandler_Array_Array_String>#skipWhitespace
+  call $~lib/assemblyscript-json/decoder/JSONDecoder<model/__near_JSONHandler_Array_Array_string>#skipWhitespace
   local.get $0
-  call $~lib/assemblyscript-json/decoder/JSONDecoder<model_near/__near_JSONHandler_Array_Array_String>#parseObject
+  call $~lib/assemblyscript-json/decoder/JSONDecoder<model/__near_JSONHandler_Array_Array_string>#parseObject
   local.tee $1
   if (result i32)
    local.get $1
   else   
    local.get $0
-   call $~lib/assemblyscript-json/decoder/JSONDecoder<model_near/__near_JSONHandler_Array_Array_String>#parseArray
+   call $~lib/assemblyscript-json/decoder/JSONDecoder<model/__near_JSONHandler_Array_Array_string>#parseArray
   end
   local.tee $1
   if (result i32)
    local.get $1
   else   
    local.get $0
-   call $~lib/assemblyscript-json/decoder/JSONDecoder<model_near/__near_JSONHandler_Array_Array_String>#parseString
+   call $~lib/assemblyscript-json/decoder/JSONDecoder<model/__near_JSONHandler_Array_Array_string>#parseString
   end
   local.tee $1
   if (result i32)
    local.get $1
   else   
    local.get $0
-   call $~lib/assemblyscript-json/decoder/JSONDecoder<model_near/__near_JSONHandler_Array_Array_String>#parseBoolean
+   call $~lib/assemblyscript-json/decoder/JSONDecoder<model/__near_JSONHandler_Array_Array_string>#parseBoolean
   end
   local.tee $1
   if (result i32)
    local.get $1
   else   
    local.get $0
-   call $~lib/assemblyscript-json/decoder/JSONDecoder<model_near/__near_JSONHandler_Array_Array_String>#parseNumber
+   call $~lib/assemblyscript-json/decoder/JSONDecoder<model/__near_JSONHandler_Array_Array_string>#parseNumber
   end
   local.tee $1
   if (result i32)
    local.get $1
   else   
    local.get $0
-   call $~lib/assemblyscript-json/decoder/JSONDecoder<model_near/__near_JSONHandler_Array_Array_String>#parseNull
+   call $~lib/assemblyscript-json/decoder/JSONDecoder<model/__near_JSONHandler_Array_Array_string>#parseNull
   end
   local.set $1
   local.get $0
-  call $~lib/assemblyscript-json/decoder/JSONDecoder<model_near/__near_JSONHandler_Array_Array_String>#skipWhitespace
+  call $~lib/assemblyscript-json/decoder/JSONDecoder<model/__near_JSONHandler_Array_Array_string>#skipWhitespace
   local.get $1
  )
- (func $~lib/assemblyscript-json/decoder/JSONDecoder<model_near/__near_JSONHandler_Array_Array_String>#deserialize (; 194 ;) (type $FUNCSIG$viii) (param $0 i32) (param $1 i32) (param $2 i32)
+ (func $~lib/assemblyscript-json/decoder/JSONDecoder<model/__near_JSONHandler_Array_Array_string>#deserialize (; 194 ;) (type $FUNCSIG$viii) (param $0 i32) (param $1 i32) (param $2 i32)
   (local $3 i32)
   (local $4 i32)
   local.get $1
@@ -10528,12 +10555,12 @@
    i32.store offset=4
   end
   local.get $0
-  call $~lib/assemblyscript-json/decoder/JSONDecoder<model_near/__near_JSONHandler_Array_Array_String>#parseValue
+  call $~lib/assemblyscript-json/decoder/JSONDecoder<model/__near_JSONHandler_Array_Array_string>#parseValue
   i32.const 0
   i32.ne
   i32.eqz
   if
-   i32.const 3888
+   i32.const 3904
    i32.const 2800
    i32.const 100
    i32.const 4
@@ -10545,7 +10572,7 @@
   local.get $2
   call $~lib/rt/stub/__release
  )
- (func $model_near/__near_decode_Array_Array_String (; 195 ;) (type $FUNCSIG$iiii) (param $0 i32) (param $1 i32) (param $2 i32) (result i32)
+ (func $model/__near_decode_Array_Array_string (; 195 ;) (type $FUNCSIG$iiii) (param $0 i32) (param $1 i32) (param $2 i32) (result i32)
   (local $3 i32)
   (local $4 i32)
   (local $5 i32)
@@ -10573,7 +10600,7 @@
   end
   i32.const 0
   local.get $2
-  call $model_near/__near_JSONHandler_Array_Array_String#constructor
+  call $model/__near_JSONHandler_Array_Array_string#constructor
   local.set $3
   local.get $3
   local.tee $4
@@ -10596,7 +10623,7 @@
   local.tee $5
   i32.const 0
   local.get $3
-  call $~lib/assemblyscript-json/decoder/JSONDecoder<model_near/__near_JSONHandler_Array_Array_String>#constructor
+  call $~lib/assemblyscript-json/decoder/JSONDecoder<model/__near_JSONHandler_Array_Array_string>#constructor
   local.set $4
   local.get $5
   i32.load offset=4
@@ -10607,7 +10634,7 @@
   i32.load offset=4
   local.get $0
   local.get $1
-  call $~lib/assemblyscript-json/decoder/JSONDecoder<model_near/__near_JSONHandler_Array_Array_String>#deserialize
+  call $~lib/assemblyscript-json/decoder/JSONDecoder<model/__near_JSONHandler_Array_Array_string>#deserialize
   local.get $2
   local.set $4
   local.get $3
@@ -10640,7 +10667,7 @@
   i32.store offset=12
   local.get $0
  )
- (func $model_near/__near_JSONHandler_Array_u32#constructor (; 197 ;) (type $FUNCSIG$iii) (param $0 i32) (param $1 i32) (result i32)
+ (func $model/__near_JSONHandler_Array_u32#constructor (; 197 ;) (type $FUNCSIG$iii) (param $0 i32) (param $1 i32) (result i32)
   (local $2 i32)
   (local $3 i32)
   local.get $1
@@ -10690,7 +10717,7 @@
   call $~lib/rt/stub/__release
   local.get $0
  )
- (func $~lib/assemblyscript-json/decoder/JSONDecoder<model_near/__near_JSONHandler_Array_u32>#constructor (; 198 ;) (type $FUNCSIG$iii) (param $0 i32) (param $1 i32) (result i32)
+ (func $~lib/assemblyscript-json/decoder/JSONDecoder<model/__near_JSONHandler_Array_u32>#constructor (; 198 ;) (type $FUNCSIG$iii) (param $0 i32) (param $1 i32) (result i32)
   (local $2 i32)
   (local $3 i32)
   local.get $1
@@ -10732,7 +10759,7 @@
   call $~lib/rt/stub/__release
   local.get $0
  )
- (func $~lib/assemblyscript-json/decoder/JSONDecoder<model_near/__near_JSONHandler_Array_u32>#peekChar (; 199 ;) (type $FUNCSIG$ii) (param $0 i32) (result i32)
+ (func $~lib/assemblyscript-json/decoder/JSONDecoder<model/__near_JSONHandler_Array_u32>#peekChar (; 199 ;) (type $FUNCSIG$ii) (param $0 i32) (result i32)
   local.get $0
   i32.load offset=4
   i32.load offset=4
@@ -10753,7 +10780,7 @@
   i32.load offset=4
   call $~lib/typedarray/Uint8Array#__get
  )
- (func $~lib/assemblyscript-json/decoder/JSONDecoder<model_near/__near_JSONHandler_Array_u32>#isWhitespace (; 200 ;) (type $FUNCSIG$iii) (param $0 i32) (param $1 i32) (result i32)
+ (func $~lib/assemblyscript-json/decoder/JSONDecoder<model/__near_JSONHandler_Array_u32>#isWhitespace (; 200 ;) (type $FUNCSIG$iii) (param $0 i32) (param $1 i32) (result i32)
   local.get $1
   i32.const 9
   i32.eq
@@ -10779,7 +10806,7 @@
    i32.eq
   end
  )
- (func $~lib/assemblyscript-json/decoder/JSONDecoder<model_near/__near_JSONHandler_Array_u32>#readChar (; 201 ;) (type $FUNCSIG$ii) (param $0 i32) (result i32)
+ (func $~lib/assemblyscript-json/decoder/JSONDecoder<model/__near_JSONHandler_Array_u32>#readChar (; 201 ;) (type $FUNCSIG$ii) (param $0 i32) (result i32)
   (local $1 i32)
   local.get $0
   i32.load offset=4
@@ -10813,30 +10840,30 @@
   local.get $1
   call $~lib/typedarray/Uint8Array#__get
  )
- (func $~lib/assemblyscript-json/decoder/JSONDecoder<model_near/__near_JSONHandler_Array_u32>#skipWhitespace (; 202 ;) (type $FUNCSIG$vi) (param $0 i32)
+ (func $~lib/assemblyscript-json/decoder/JSONDecoder<model/__near_JSONHandler_Array_u32>#skipWhitespace (; 202 ;) (type $FUNCSIG$vi) (param $0 i32)
   block $break|0
    loop $continue|0
     local.get $0
     local.get $0
-    call $~lib/assemblyscript-json/decoder/JSONDecoder<model_near/__near_JSONHandler_Array_u32>#peekChar
-    call $~lib/assemblyscript-json/decoder/JSONDecoder<model_near/__near_JSONHandler_Array_u32>#isWhitespace
+    call $~lib/assemblyscript-json/decoder/JSONDecoder<model/__near_JSONHandler_Array_u32>#peekChar
+    call $~lib/assemblyscript-json/decoder/JSONDecoder<model/__near_JSONHandler_Array_u32>#isWhitespace
     i32.eqz
     br_if $break|0
     local.get $0
-    call $~lib/assemblyscript-json/decoder/JSONDecoder<model_near/__near_JSONHandler_Array_u32>#readChar
+    call $~lib/assemblyscript-json/decoder/JSONDecoder<model/__near_JSONHandler_Array_u32>#readChar
     drop
     br $continue|0
    end
    unreachable
   end
  )
- (func $~lib/assemblyscript-json/decoder/JSONDecoder<model_near/__near_JSONHandler_Array_u32>#readHexDigit (; 203 ;) (type $FUNCSIG$ii) (param $0 i32) (result i32)
+ (func $~lib/assemblyscript-json/decoder/JSONDecoder<model/__near_JSONHandler_Array_u32>#readHexDigit (; 203 ;) (type $FUNCSIG$ii) (param $0 i32) (result i32)
   (local $1 i32)
   (local $2 i32)
   (local $3 i32)
   (local $4 i32)
   local.get $0
-  call $~lib/assemblyscript-json/decoder/JSONDecoder<model_near/__near_JSONHandler_Array_u32>#readChar
+  call $~lib/assemblyscript-json/decoder/JSONDecoder<model/__near_JSONHandler_Array_u32>#readChar
   local.set $1
   local.get $1
   global.get $~lib/assemblyscript-json/decoder/CHAR_0
@@ -10901,7 +10928,7 @@
   end
   i32.eqz
   if
-   i32.const 3336
+   i32.const 3320
    i32.const 2800
    i32.const 269
    i32.const 4
@@ -10914,7 +10941,7 @@
   call $~lib/rt/stub/__release
   local.get $3
  )
- (func $~lib/assemblyscript-json/decoder/JSONDecoder<model_near/__near_JSONHandler_Array_u32>#readEscapedChar (; 204 ;) (type $FUNCSIG$ii) (param $0 i32) (result i32)
+ (func $~lib/assemblyscript-json/decoder/JSONDecoder<model/__near_JSONHandler_Array_u32>#readEscapedChar (; 204 ;) (type $FUNCSIG$ii) (param $0 i32) (result i32)
   (local $1 i32)
   (local $2 i32)
   (local $3 i32)
@@ -10922,7 +10949,7 @@
   (local $5 i32)
   (local $6 i32)
   local.get $0
-  call $~lib/assemblyscript-json/decoder/JSONDecoder<model_near/__near_JSONHandler_Array_u32>#readChar
+  call $~lib/assemblyscript-json/decoder/JSONDecoder<model/__near_JSONHandler_Array_u32>#readChar
   local.set $1
   local.get $1
   i32.const 1072
@@ -10945,17 +10972,17 @@
    return
   end
   local.get $1
-  i32.const 3192
+  i32.const 3176
   i32.const 0
   call $~lib/string/String#charCodeAt
   i32.eq
   if
-   i32.const 3192
+   i32.const 3176
    call $~lib/rt/stub/__retain
    return
   end
   local.get $1
-  i32.const 3216
+  i32.const 3200
   i32.const 0
   call $~lib/string/String#charCodeAt
   i32.eq
@@ -10965,7 +10992,7 @@
    return
   end
   local.get $1
-  i32.const 3240
+  i32.const 3224
   i32.const 0
   call $~lib/string/String#charCodeAt
   i32.eq
@@ -10975,7 +11002,7 @@
    return
   end
   local.get $1
-  i32.const 3264
+  i32.const 3248
   i32.const 0
   call $~lib/string/String#charCodeAt
   i32.eq
@@ -10985,7 +11012,7 @@
    return
   end
   local.get $1
-  i32.const 3288
+  i32.const 3272
   i32.const 0
   call $~lib/string/String#charCodeAt
   i32.eq
@@ -10995,22 +11022,22 @@
    return
   end
   local.get $1
-  i32.const 3312
+  i32.const 3296
   i32.const 0
   call $~lib/string/String#charCodeAt
   i32.eq
   if
    local.get $0
-   call $~lib/assemblyscript-json/decoder/JSONDecoder<model_near/__near_JSONHandler_Array_u32>#readHexDigit
+   call $~lib/assemblyscript-json/decoder/JSONDecoder<model/__near_JSONHandler_Array_u32>#readHexDigit
    local.set $2
    local.get $0
-   call $~lib/assemblyscript-json/decoder/JSONDecoder<model_near/__near_JSONHandler_Array_u32>#readHexDigit
+   call $~lib/assemblyscript-json/decoder/JSONDecoder<model/__near_JSONHandler_Array_u32>#readHexDigit
    local.set $3
    local.get $0
-   call $~lib/assemblyscript-json/decoder/JSONDecoder<model_near/__near_JSONHandler_Array_u32>#readHexDigit
+   call $~lib/assemblyscript-json/decoder/JSONDecoder<model/__near_JSONHandler_Array_u32>#readHexDigit
    local.set $4
    local.get $0
-   call $~lib/assemblyscript-json/decoder/JSONDecoder<model_near/__near_JSONHandler_Array_u32>#readHexDigit
+   call $~lib/assemblyscript-json/decoder/JSONDecoder<model/__near_JSONHandler_Array_u32>#readHexDigit
    local.set $5
    local.get $2
    i32.const 4096
@@ -11033,7 +11060,7 @@
   i32.const 0
   i32.eqz
   if
-   i32.const 3392
+   i32.const 3376
    i32.const 1
    global.set $~lib/argc
    local.get $1
@@ -11057,21 +11084,21 @@
   call $~lib/rt/stub/__release
   local.get $4
  )
- (func $~lib/assemblyscript-json/decoder/JSONDecoder<model_near/__near_JSONHandler_Array_u32>#readString (; 205 ;) (type $FUNCSIG$ii) (param $0 i32) (result i32)
+ (func $~lib/assemblyscript-json/decoder/JSONDecoder<model/__near_JSONHandler_Array_u32>#readString (; 205 ;) (type $FUNCSIG$ii) (param $0 i32) (result i32)
   (local $1 i32)
   (local $2 i32)
   (local $3 i32)
   (local $4 i32)
   (local $5 i32)
   local.get $0
-  call $~lib/assemblyscript-json/decoder/JSONDecoder<model_near/__near_JSONHandler_Array_u32>#readChar
+  call $~lib/assemblyscript-json/decoder/JSONDecoder<model/__near_JSONHandler_Array_u32>#readChar
   i32.const 1072
   i32.const 0
   call $~lib/string/String#charCodeAt
   i32.eq
   i32.eqz
   if
-   i32.const 3040
+   i32.const 3024
    i32.const 2800
    i32.const 197
    i32.const 4
@@ -11088,14 +11115,14 @@
   local.set $2
   loop $loop|0
    local.get $0
-   call $~lib/assemblyscript-json/decoder/JSONDecoder<model_near/__near_JSONHandler_Array_u32>#readChar
+   call $~lib/assemblyscript-json/decoder/JSONDecoder<model/__near_JSONHandler_Array_u32>#readChar
    local.set $3
    local.get $3
    i32.const 32
    i32.ge_s
    i32.eqz
    if
-    i32.const 3120
+    i32.const 3104
     i32.const 2800
     i32.const 203
     i32.const 6
@@ -11173,7 +11200,7 @@
      end
      local.get $2
      local.get $0
-     call $~lib/assemblyscript-json/decoder/JSONDecoder<model_near/__near_JSONHandler_Array_u32>#readEscapedChar
+     call $~lib/assemblyscript-json/decoder/JSONDecoder<model/__near_JSONHandler_Array_u32>#readEscapedChar
      local.tee $4
      call $~lib/array/Array<~lib/string/String>#push
      drop
@@ -11189,16 +11216,16 @@
   end
   unreachable
  )
- (func $~lib/assemblyscript-json/decoder/JSONDecoder<model_near/__near_JSONHandler_Array_u32>#parseKey (; 206 ;) (type $FUNCSIG$vi) (param $0 i32)
+ (func $~lib/assemblyscript-json/decoder/JSONDecoder<model/__near_JSONHandler_Array_u32>#parseKey (; 206 ;) (type $FUNCSIG$vi) (param $0 i32)
   (local $1 i32)
   (local $2 i32)
   local.get $0
-  call $~lib/assemblyscript-json/decoder/JSONDecoder<model_near/__near_JSONHandler_Array_u32>#skipWhitespace
+  call $~lib/assemblyscript-json/decoder/JSONDecoder<model/__near_JSONHandler_Array_u32>#skipWhitespace
   local.get $0
   i32.load offset=4
   local.tee $1
   local.get $0
-  call $~lib/assemblyscript-json/decoder/JSONDecoder<model_near/__near_JSONHandler_Array_u32>#readString
+  call $~lib/assemblyscript-json/decoder/JSONDecoder<model/__near_JSONHandler_Array_u32>#readString
   local.set $2
   local.get $1
   i32.load
@@ -11206,16 +11233,16 @@
   local.get $2
   i32.store
   local.get $0
-  call $~lib/assemblyscript-json/decoder/JSONDecoder<model_near/__near_JSONHandler_Array_u32>#skipWhitespace
+  call $~lib/assemblyscript-json/decoder/JSONDecoder<model/__near_JSONHandler_Array_u32>#skipWhitespace
   local.get $0
-  call $~lib/assemblyscript-json/decoder/JSONDecoder<model_near/__near_JSONHandler_Array_u32>#readChar
+  call $~lib/assemblyscript-json/decoder/JSONDecoder<model/__near_JSONHandler_Array_u32>#readChar
   i32.const 1984
   i32.const 0
   call $~lib/string/String#charCodeAt
   i32.eq
   i32.eqz
   if
-   i32.const 3472
+   i32.const 3456
    i32.const 2800
    i32.const 159
    i32.const 4
@@ -11223,12 +11250,12 @@
    unreachable
   end
  )
- (func $~lib/assemblyscript-json/decoder/JSONDecoder<model_near/__near_JSONHandler_Array_u32>#parseObject (; 207 ;) (type $FUNCSIG$ii) (param $0 i32) (result i32)
+ (func $~lib/assemblyscript-json/decoder/JSONDecoder<model/__near_JSONHandler_Array_u32>#parseObject (; 207 ;) (type $FUNCSIG$ii) (param $0 i32) (result i32)
   (local $1 i32)
   (local $2 i32)
   (local $3 i32)
   local.get $0
-  call $~lib/assemblyscript-json/decoder/JSONDecoder<model_near/__near_JSONHandler_Array_u32>#peekChar
+  call $~lib/assemblyscript-json/decoder/JSONDecoder<model/__near_JSONHandler_Array_u32>#peekChar
   i32.const 2008
   i32.const 0
   call $~lib/string/String#charCodeAt
@@ -11266,16 +11293,16 @@
   call $~lib/assemblyscript-json/decoder/ThrowingJSONHandler#pushObject
   if
    local.get $0
-   call $~lib/assemblyscript-json/decoder/JSONDecoder<model_near/__near_JSONHandler_Array_u32>#readChar
+   call $~lib/assemblyscript-json/decoder/JSONDecoder<model/__near_JSONHandler_Array_u32>#readChar
    drop
    local.get $0
-   call $~lib/assemblyscript-json/decoder/JSONDecoder<model_near/__near_JSONHandler_Array_u32>#skipWhitespace
+   call $~lib/assemblyscript-json/decoder/JSONDecoder<model/__near_JSONHandler_Array_u32>#skipWhitespace
    i32.const 1
    local.set $3
    block $break|0
     loop $continue|0
      local.get $0
-     call $~lib/assemblyscript-json/decoder/JSONDecoder<model_near/__near_JSONHandler_Array_u32>#peekChar
+     call $~lib/assemblyscript-json/decoder/JSONDecoder<model/__near_JSONHandler_Array_u32>#peekChar
      i32.const 2672
      i32.const 0
      call $~lib/string/String#charCodeAt
@@ -11286,14 +11313,14 @@
      i32.eqz
      if
       local.get $0
-      call $~lib/assemblyscript-json/decoder/JSONDecoder<model_near/__near_JSONHandler_Array_u32>#readChar
+      call $~lib/assemblyscript-json/decoder/JSONDecoder<model/__near_JSONHandler_Array_u32>#readChar
       i32.const 1048
       i32.const 0
       call $~lib/string/String#charCodeAt
       i32.eq
       i32.eqz
       if
-       i32.const 3000
+       i32.const 2984
        i32.const 2800
        i32.const 142
        i32.const 10
@@ -11305,23 +11332,23 @@
       local.set $3
      end
      local.get $0
-     call $~lib/assemblyscript-json/decoder/JSONDecoder<model_near/__near_JSONHandler_Array_u32>#parseKey
+     call $~lib/assemblyscript-json/decoder/JSONDecoder<model/__near_JSONHandler_Array_u32>#parseKey
      local.get $0
-     call $~lib/assemblyscript-json/decoder/JSONDecoder<model_near/__near_JSONHandler_Array_u32>#parseValue
+     call $~lib/assemblyscript-json/decoder/JSONDecoder<model/__near_JSONHandler_Array_u32>#parseValue
      drop
      br $continue|0
     end
     unreachable
    end
    local.get $0
-   call $~lib/assemblyscript-json/decoder/JSONDecoder<model_near/__near_JSONHandler_Array_u32>#readChar
+   call $~lib/assemblyscript-json/decoder/JSONDecoder<model/__near_JSONHandler_Array_u32>#readChar
    i32.const 2672
    i32.const 0
    call $~lib/string/String#charCodeAt
    i32.eq
    i32.eqz
    if
-    i32.const 3512
+    i32.const 3496
     i32.const 2800
     i32.const 149
     i32.const 6
@@ -11338,7 +11365,7 @@
   call $~lib/rt/stub/__release
   local.get $3
  )
- (func $model_near/__near_JSONHandler_Array_u32#pushArray (; 208 ;) (type $FUNCSIG$iii) (param $0 i32) (param $1 i32) (result i32)
+ (func $model/__near_JSONHandler_Array_u32#pushArray (; 208 ;) (type $FUNCSIG$iii) (param $0 i32) (param $1 i32) (result i32)
   (local $2 i32)
   local.get $1
   call $~lib/rt/stub/__retain
@@ -11367,8 +11394,8 @@
   if
    i32.const 0
    i32.const 2888
-   i32.const 347
-   i32.const 8
+   i32.const 171
+   i32.const 10
    call $~lib/builtins/abort
    unreachable
   end
@@ -11381,12 +11408,12 @@
   call $~lib/rt/stub/__release
   local.get $2
  )
- (func $~lib/assemblyscript-json/decoder/JSONDecoder<model_near/__near_JSONHandler_Array_u32>#parseArray (; 209 ;) (type $FUNCSIG$ii) (param $0 i32) (result i32)
+ (func $~lib/assemblyscript-json/decoder/JSONDecoder<model/__near_JSONHandler_Array_u32>#parseArray (; 209 ;) (type $FUNCSIG$ii) (param $0 i32) (result i32)
   (local $1 i32)
   (local $2 i32)
   (local $3 i32)
   local.get $0
-  call $~lib/assemblyscript-json/decoder/JSONDecoder<model_near/__near_JSONHandler_Array_u32>#peekChar
+  call $~lib/assemblyscript-json/decoder/JSONDecoder<model/__near_JSONHandler_Array_u32>#peekChar
   i32.const 2232
   i32.const 0
   call $~lib/string/String#charCodeAt
@@ -11421,19 +11448,19 @@
   local.get $0
   i32.load
   local.get $1
-  call $model_near/__near_JSONHandler_Array_u32#pushArray
+  call $model/__near_JSONHandler_Array_u32#pushArray
   if
    local.get $0
-   call $~lib/assemblyscript-json/decoder/JSONDecoder<model_near/__near_JSONHandler_Array_u32>#readChar
+   call $~lib/assemblyscript-json/decoder/JSONDecoder<model/__near_JSONHandler_Array_u32>#readChar
    drop
    local.get $0
-   call $~lib/assemblyscript-json/decoder/JSONDecoder<model_near/__near_JSONHandler_Array_u32>#skipWhitespace
+   call $~lib/assemblyscript-json/decoder/JSONDecoder<model/__near_JSONHandler_Array_u32>#skipWhitespace
    i32.const 1
    local.set $3
    block $break|0
     loop $continue|0
      local.get $0
-     call $~lib/assemblyscript-json/decoder/JSONDecoder<model_near/__near_JSONHandler_Array_u32>#peekChar
+     call $~lib/assemblyscript-json/decoder/JSONDecoder<model/__near_JSONHandler_Array_u32>#peekChar
      i32.const 2256
      i32.const 0
      call $~lib/string/String#charCodeAt
@@ -11444,14 +11471,14 @@
      i32.eqz
      if
       local.get $0
-      call $~lib/assemblyscript-json/decoder/JSONDecoder<model_near/__near_JSONHandler_Array_u32>#readChar
+      call $~lib/assemblyscript-json/decoder/JSONDecoder<model/__near_JSONHandler_Array_u32>#readChar
       i32.const 1048
       i32.const 0
       call $~lib/string/String#charCodeAt
       i32.eq
       i32.eqz
       if
-       i32.const 3000
+       i32.const 2984
        i32.const 2800
        i32.const 176
        i32.const 10
@@ -11463,21 +11490,21 @@
       local.set $3
      end
      local.get $0
-     call $~lib/assemblyscript-json/decoder/JSONDecoder<model_near/__near_JSONHandler_Array_u32>#parseValue
+     call $~lib/assemblyscript-json/decoder/JSONDecoder<model/__near_JSONHandler_Array_u32>#parseValue
      drop
      br $continue|0
     end
     unreachable
    end
    local.get $0
-   call $~lib/assemblyscript-json/decoder/JSONDecoder<model_near/__near_JSONHandler_Array_u32>#readChar
+   call $~lib/assemblyscript-json/decoder/JSONDecoder<model/__near_JSONHandler_Array_u32>#readChar
    i32.const 2256
    i32.const 0
    call $~lib/string/String#charCodeAt
    i32.eq
    i32.eqz
    if
-    i32.const 3576
+    i32.const 3592
     i32.const 2800
     i32.const 182
     i32.const 6
@@ -11494,11 +11521,11 @@
   call $~lib/rt/stub/__release
   local.get $3
  )
- (func $~lib/assemblyscript-json/decoder/JSONDecoder<model_near/__near_JSONHandler_Array_u32>#parseString (; 210 ;) (type $FUNCSIG$ii) (param $0 i32) (result i32)
+ (func $~lib/assemblyscript-json/decoder/JSONDecoder<model/__near_JSONHandler_Array_u32>#parseString (; 210 ;) (type $FUNCSIG$ii) (param $0 i32) (result i32)
   (local $1 i32)
   (local $2 i32)
   local.get $0
-  call $~lib/assemblyscript-json/decoder/JSONDecoder<model_near/__near_JSONHandler_Array_u32>#peekChar
+  call $~lib/assemblyscript-json/decoder/JSONDecoder<model/__near_JSONHandler_Array_u32>#peekChar
   i32.const 1072
   i32.const 0
   call $~lib/string/String#charCodeAt
@@ -11513,7 +11540,7 @@
   i32.load offset=4
   i32.load
   local.get $0
-  call $~lib/assemblyscript-json/decoder/JSONDecoder<model_near/__near_JSONHandler_Array_u32>#readString
+  call $~lib/assemblyscript-json/decoder/JSONDecoder<model/__near_JSONHandler_Array_u32>#readString
   local.tee $1
   call $~lib/assemblyscript-json/decoder/ThrowingJSONHandler#setString
   i32.const 1
@@ -11522,7 +11549,7 @@
   call $~lib/rt/stub/__release
   local.get $2
  )
- (func $~lib/assemblyscript-json/decoder/JSONDecoder<model_near/__near_JSONHandler_Array_u32>#readAndAssert (; 211 ;) (type $FUNCSIG$vii) (param $0 i32) (param $1 i32)
+ (func $~lib/assemblyscript-json/decoder/JSONDecoder<model/__near_JSONHandler_Array_u32>#readAndAssert (; 211 ;) (type $FUNCSIG$vii) (param $0 i32) (param $1 i32)
   (local $2 i32)
   (local $3 i32)
   (local $4 i32)
@@ -11543,15 +11570,15 @@
     local.get $2
     call $~lib/string/String#charCodeAt
     local.get $0
-    call $~lib/assemblyscript-json/decoder/JSONDecoder<model_near/__near_JSONHandler_Array_u32>#readChar
+    call $~lib/assemblyscript-json/decoder/JSONDecoder<model/__near_JSONHandler_Array_u32>#readChar
     i32.eq
     i32.eqz
     if
-     i32.const 3640
+     i32.const 3656
      local.get $1
      call $~lib/string/String.__concat
      local.tee $3
-     i32.const 3680
+     i32.const 3696
      call $~lib/string/String.__concat
      local.tee $4
      i32.const 2800
@@ -11575,9 +11602,9 @@
   local.get $1
   call $~lib/rt/stub/__release
  )
- (func $~lib/assemblyscript-json/decoder/JSONDecoder<model_near/__near_JSONHandler_Array_u32>#parseBoolean (; 212 ;) (type $FUNCSIG$ii) (param $0 i32) (result i32)
+ (func $~lib/assemblyscript-json/decoder/JSONDecoder<model/__near_JSONHandler_Array_u32>#parseBoolean (; 212 ;) (type $FUNCSIG$ii) (param $0 i32) (result i32)
   local.get $0
-  call $~lib/assemblyscript-json/decoder/JSONDecoder<model_near/__near_JSONHandler_Array_u32>#peekChar
+  call $~lib/assemblyscript-json/decoder/JSONDecoder<model/__near_JSONHandler_Array_u32>#peekChar
   i32.const 504
   i32.const 0
   call $~lib/string/String#charCodeAt
@@ -11585,7 +11612,7 @@
   if
    local.get $0
    global.get $~lib/assemblyscript-json/decoder/FALSE_STR
-   call $~lib/assemblyscript-json/decoder/JSONDecoder<model_near/__near_JSONHandler_Array_u32>#readAndAssert
+   call $~lib/assemblyscript-json/decoder/JSONDecoder<model/__near_JSONHandler_Array_u32>#readAndAssert
    local.get $0
    i32.load
    local.get $0
@@ -11597,7 +11624,7 @@
    return
   end
   local.get $0
-  call $~lib/assemblyscript-json/decoder/JSONDecoder<model_near/__near_JSONHandler_Array_u32>#peekChar
+  call $~lib/assemblyscript-json/decoder/JSONDecoder<model/__near_JSONHandler_Array_u32>#peekChar
   i32.const 480
   i32.const 0
   call $~lib/string/String#charCodeAt
@@ -11605,7 +11632,7 @@
   if
    local.get $0
    global.get $~lib/assemblyscript-json/decoder/TRUE_STR
-   call $~lib/assemblyscript-json/decoder/JSONDecoder<model_near/__near_JSONHandler_Array_u32>#readAndAssert
+   call $~lib/assemblyscript-json/decoder/JSONDecoder<model/__near_JSONHandler_Array_u32>#readAndAssert
    local.get $0
    i32.load
    local.get $0
@@ -11645,7 +11672,7 @@
   i32.store offset=12
   local.get $3
  )
- (func $model_near/__near_JSONHandler_Array_u32#setInteger (; 214 ;) (type $FUNCSIG$viij) (param $0 i32) (param $1 i32) (param $2 i64)
+ (func $model/__near_JSONHandler_Array_u32#setInteger (; 214 ;) (type $FUNCSIG$viij) (param $0 i32) (param $1 i32) (param $2 i64)
   local.get $1
   call $~lib/rt/stub/__retain
   drop
@@ -11658,7 +11685,7 @@
   local.get $1
   call $~lib/rt/stub/__release
  )
- (func $~lib/assemblyscript-json/decoder/JSONDecoder<model_near/__near_JSONHandler_Array_u32>#parseNumber (; 215 ;) (type $FUNCSIG$ii) (param $0 i32) (result i32)
+ (func $~lib/assemblyscript-json/decoder/JSONDecoder<model/__near_JSONHandler_Array_u32>#parseNumber (; 215 ;) (type $FUNCSIG$ii) (param $0 i32) (result i32)
   (local $1 i64)
   (local $2 i64)
   (local $3 i32)
@@ -11668,8 +11695,8 @@
   i64.const 1
   local.set $2
   local.get $0
-  call $~lib/assemblyscript-json/decoder/JSONDecoder<model_near/__near_JSONHandler_Array_u32>#peekChar
-  i32.const 3792
+  call $~lib/assemblyscript-json/decoder/JSONDecoder<model/__near_JSONHandler_Array_u32>#peekChar
+  i32.const 3808
   i32.const 0
   call $~lib/string/String#charCodeAt
   i32.eq
@@ -11677,7 +11704,7 @@
    i64.const -1
    local.set $2
    local.get $0
-   call $~lib/assemblyscript-json/decoder/JSONDecoder<model_near/__near_JSONHandler_Array_u32>#readChar
+   call $~lib/assemblyscript-json/decoder/JSONDecoder<model/__near_JSONHandler_Array_u32>#readChar
    drop
   end
   i32.const 0
@@ -11686,11 +11713,11 @@
    loop $continue|0
     global.get $~lib/assemblyscript-json/decoder/CHAR_0
     local.get $0
-    call $~lib/assemblyscript-json/decoder/JSONDecoder<model_near/__near_JSONHandler_Array_u32>#peekChar
+    call $~lib/assemblyscript-json/decoder/JSONDecoder<model/__near_JSONHandler_Array_u32>#peekChar
     i32.le_s
     if (result i32)
      local.get $0
-     call $~lib/assemblyscript-json/decoder/JSONDecoder<model_near/__near_JSONHandler_Array_u32>#peekChar
+     call $~lib/assemblyscript-json/decoder/JSONDecoder<model/__near_JSONHandler_Array_u32>#peekChar
      global.get $~lib/assemblyscript-json/decoder/CHAR_9
      i32.le_s
     else     
@@ -11699,7 +11726,7 @@
     i32.eqz
     br_if $break|0
     local.get $0
-    call $~lib/assemblyscript-json/decoder/JSONDecoder<model_near/__near_JSONHandler_Array_u32>#readChar
+    call $~lib/assemblyscript-json/decoder/JSONDecoder<model/__near_JSONHandler_Array_u32>#readChar
     local.set $4
     local.get $1
     i64.const 10
@@ -11732,13 +11759,13 @@
    local.get $1
    local.get $2
    i64.mul
-   call $model_near/__near_JSONHandler_Array_u32#setInteger
+   call $model/__near_JSONHandler_Array_u32#setInteger
    i32.const 1
    return
   end
   i32.const 0
  )
- (func $model_near/__near_JSONHandler_Array_u32#setNull (; 216 ;) (type $FUNCSIG$vii) (param $0 i32) (param $1 i32)
+ (func $model/__near_JSONHandler_Array_u32#setNull (; 216 ;) (type $FUNCSIG$vii) (param $0 i32) (param $1 i32)
   local.get $1
   call $~lib/rt/stub/__retain
   drop
@@ -11750,9 +11777,9 @@
   local.get $1
   call $~lib/rt/stub/__release
  )
- (func $~lib/assemblyscript-json/decoder/JSONDecoder<model_near/__near_JSONHandler_Array_u32>#parseNull (; 217 ;) (type $FUNCSIG$ii) (param $0 i32) (result i32)
+ (func $~lib/assemblyscript-json/decoder/JSONDecoder<model/__near_JSONHandler_Array_u32>#parseNull (; 217 ;) (type $FUNCSIG$ii) (param $0 i32) (result i32)
   local.get $0
-  call $~lib/assemblyscript-json/decoder/JSONDecoder<model_near/__near_JSONHandler_Array_u32>#peekChar
+  call $~lib/assemblyscript-json/decoder/JSONDecoder<model/__near_JSONHandler_Array_u32>#peekChar
   i32.const 536
   i32.const 0
   call $~lib/string/String#charCodeAt
@@ -11760,65 +11787,65 @@
   if
    local.get $0
    global.get $~lib/assemblyscript-json/decoder/NULL_STR
-   call $~lib/assemblyscript-json/decoder/JSONDecoder<model_near/__near_JSONHandler_Array_u32>#readAndAssert
+   call $~lib/assemblyscript-json/decoder/JSONDecoder<model/__near_JSONHandler_Array_u32>#readAndAssert
    local.get $0
    i32.load
    local.get $0
    i32.load offset=4
    i32.load
-   call $model_near/__near_JSONHandler_Array_u32#setNull
+   call $model/__near_JSONHandler_Array_u32#setNull
    i32.const 1
    return
   end
   i32.const 0
  )
- (func $~lib/assemblyscript-json/decoder/JSONDecoder<model_near/__near_JSONHandler_Array_u32>#parseValue (; 218 ;) (type $FUNCSIG$ii) (param $0 i32) (result i32)
+ (func $~lib/assemblyscript-json/decoder/JSONDecoder<model/__near_JSONHandler_Array_u32>#parseValue (; 218 ;) (type $FUNCSIG$ii) (param $0 i32) (result i32)
   (local $1 i32)
   local.get $0
-  call $~lib/assemblyscript-json/decoder/JSONDecoder<model_near/__near_JSONHandler_Array_u32>#skipWhitespace
+  call $~lib/assemblyscript-json/decoder/JSONDecoder<model/__near_JSONHandler_Array_u32>#skipWhitespace
   local.get $0
-  call $~lib/assemblyscript-json/decoder/JSONDecoder<model_near/__near_JSONHandler_Array_u32>#parseObject
+  call $~lib/assemblyscript-json/decoder/JSONDecoder<model/__near_JSONHandler_Array_u32>#parseObject
   local.tee $1
   if (result i32)
    local.get $1
   else   
    local.get $0
-   call $~lib/assemblyscript-json/decoder/JSONDecoder<model_near/__near_JSONHandler_Array_u32>#parseArray
+   call $~lib/assemblyscript-json/decoder/JSONDecoder<model/__near_JSONHandler_Array_u32>#parseArray
   end
   local.tee $1
   if (result i32)
    local.get $1
   else   
    local.get $0
-   call $~lib/assemblyscript-json/decoder/JSONDecoder<model_near/__near_JSONHandler_Array_u32>#parseString
+   call $~lib/assemblyscript-json/decoder/JSONDecoder<model/__near_JSONHandler_Array_u32>#parseString
   end
   local.tee $1
   if (result i32)
    local.get $1
   else   
    local.get $0
-   call $~lib/assemblyscript-json/decoder/JSONDecoder<model_near/__near_JSONHandler_Array_u32>#parseBoolean
+   call $~lib/assemblyscript-json/decoder/JSONDecoder<model/__near_JSONHandler_Array_u32>#parseBoolean
   end
   local.tee $1
   if (result i32)
    local.get $1
   else   
    local.get $0
-   call $~lib/assemblyscript-json/decoder/JSONDecoder<model_near/__near_JSONHandler_Array_u32>#parseNumber
+   call $~lib/assemblyscript-json/decoder/JSONDecoder<model/__near_JSONHandler_Array_u32>#parseNumber
   end
   local.tee $1
   if (result i32)
    local.get $1
   else   
    local.get $0
-   call $~lib/assemblyscript-json/decoder/JSONDecoder<model_near/__near_JSONHandler_Array_u32>#parseNull
+   call $~lib/assemblyscript-json/decoder/JSONDecoder<model/__near_JSONHandler_Array_u32>#parseNull
   end
   local.set $1
   local.get $0
-  call $~lib/assemblyscript-json/decoder/JSONDecoder<model_near/__near_JSONHandler_Array_u32>#skipWhitespace
+  call $~lib/assemblyscript-json/decoder/JSONDecoder<model/__near_JSONHandler_Array_u32>#skipWhitespace
   local.get $1
  )
- (func $~lib/assemblyscript-json/decoder/JSONDecoder<model_near/__near_JSONHandler_Array_u32>#deserialize (; 219 ;) (type $FUNCSIG$viii) (param $0 i32) (param $1 i32) (param $2 i32)
+ (func $~lib/assemblyscript-json/decoder/JSONDecoder<model/__near_JSONHandler_Array_u32>#deserialize (; 219 ;) (type $FUNCSIG$viii) (param $0 i32) (param $1 i32) (param $2 i32)
   (local $3 i32)
   (local $4 i32)
   local.get $1
@@ -11862,12 +11889,12 @@
    i32.store offset=4
   end
   local.get $0
-  call $~lib/assemblyscript-json/decoder/JSONDecoder<model_near/__near_JSONHandler_Array_u32>#parseValue
+  call $~lib/assemblyscript-json/decoder/JSONDecoder<model/__near_JSONHandler_Array_u32>#parseValue
   i32.const 0
   i32.ne
   i32.eqz
   if
-   i32.const 3888
+   i32.const 3904
    i32.const 2800
    i32.const 100
    i32.const 4
@@ -11879,7 +11906,7 @@
   local.get $2
   call $~lib/rt/stub/__release
  )
- (func $model_near/__near_decode_Array_u32 (; 220 ;) (type $FUNCSIG$iiii) (param $0 i32) (param $1 i32) (param $2 i32) (result i32)
+ (func $model/__near_decode_Array_u32 (; 220 ;) (type $FUNCSIG$iiii) (param $0 i32) (param $1 i32) (param $2 i32) (result i32)
   (local $3 i32)
   (local $4 i32)
   (local $5 i32)
@@ -11907,7 +11934,7 @@
   end
   i32.const 0
   local.get $2
-  call $model_near/__near_JSONHandler_Array_u32#constructor
+  call $model/__near_JSONHandler_Array_u32#constructor
   local.set $3
   local.get $3
   local.tee $4
@@ -11930,7 +11957,7 @@
   local.tee $5
   i32.const 0
   local.get $3
-  call $~lib/assemblyscript-json/decoder/JSONDecoder<model_near/__near_JSONHandler_Array_u32>#constructor
+  call $~lib/assemblyscript-json/decoder/JSONDecoder<model/__near_JSONHandler_Array_u32>#constructor
   local.set $4
   local.get $5
   i32.load offset=4
@@ -11941,7 +11968,7 @@
   i32.load offset=4
   local.get $0
   local.get $1
-  call $~lib/assemblyscript-json/decoder/JSONDecoder<model_near/__near_JSONHandler_Array_u32>#deserialize
+  call $~lib/assemblyscript-json/decoder/JSONDecoder<model/__near_JSONHandler_Array_u32>#deserialize
   local.get $2
   local.set $4
   local.get $3
@@ -11952,7 +11979,7 @@
   call $~lib/rt/stub/__release
   local.get $4
  )
- (func $model_near/__near_JSONHandler_Array_i32#constructor (; 221 ;) (type $FUNCSIG$iii) (param $0 i32) (param $1 i32) (result i32)
+ (func $model/__near_JSONHandler_Array_i32#constructor (; 221 ;) (type $FUNCSIG$iii) (param $0 i32) (param $1 i32) (result i32)
   (local $2 i32)
   (local $3 i32)
   local.get $1
@@ -12002,7 +12029,7 @@
   call $~lib/rt/stub/__release
   local.get $0
  )
- (func $~lib/assemblyscript-json/decoder/JSONDecoder<model_near/__near_JSONHandler_Array_i32>#constructor (; 222 ;) (type $FUNCSIG$iii) (param $0 i32) (param $1 i32) (result i32)
+ (func $~lib/assemblyscript-json/decoder/JSONDecoder<model/__near_JSONHandler_Array_i32>#constructor (; 222 ;) (type $FUNCSIG$iii) (param $0 i32) (param $1 i32) (result i32)
   (local $2 i32)
   (local $3 i32)
   local.get $1
@@ -12044,7 +12071,7 @@
   call $~lib/rt/stub/__release
   local.get $0
  )
- (func $~lib/assemblyscript-json/decoder/JSONDecoder<model_near/__near_JSONHandler_Array_i32>#peekChar (; 223 ;) (type $FUNCSIG$ii) (param $0 i32) (result i32)
+ (func $~lib/assemblyscript-json/decoder/JSONDecoder<model/__near_JSONHandler_Array_i32>#peekChar (; 223 ;) (type $FUNCSIG$ii) (param $0 i32) (result i32)
   local.get $0
   i32.load offset=4
   i32.load offset=4
@@ -12065,7 +12092,7 @@
   i32.load offset=4
   call $~lib/typedarray/Uint8Array#__get
  )
- (func $~lib/assemblyscript-json/decoder/JSONDecoder<model_near/__near_JSONHandler_Array_i32>#isWhitespace (; 224 ;) (type $FUNCSIG$iii) (param $0 i32) (param $1 i32) (result i32)
+ (func $~lib/assemblyscript-json/decoder/JSONDecoder<model/__near_JSONHandler_Array_i32>#isWhitespace (; 224 ;) (type $FUNCSIG$iii) (param $0 i32) (param $1 i32) (result i32)
   local.get $1
   i32.const 9
   i32.eq
@@ -12091,7 +12118,7 @@
    i32.eq
   end
  )
- (func $~lib/assemblyscript-json/decoder/JSONDecoder<model_near/__near_JSONHandler_Array_i32>#readChar (; 225 ;) (type $FUNCSIG$ii) (param $0 i32) (result i32)
+ (func $~lib/assemblyscript-json/decoder/JSONDecoder<model/__near_JSONHandler_Array_i32>#readChar (; 225 ;) (type $FUNCSIG$ii) (param $0 i32) (result i32)
   (local $1 i32)
   local.get $0
   i32.load offset=4
@@ -12125,30 +12152,30 @@
   local.get $1
   call $~lib/typedarray/Uint8Array#__get
  )
- (func $~lib/assemblyscript-json/decoder/JSONDecoder<model_near/__near_JSONHandler_Array_i32>#skipWhitespace (; 226 ;) (type $FUNCSIG$vi) (param $0 i32)
+ (func $~lib/assemblyscript-json/decoder/JSONDecoder<model/__near_JSONHandler_Array_i32>#skipWhitespace (; 226 ;) (type $FUNCSIG$vi) (param $0 i32)
   block $break|0
    loop $continue|0
     local.get $0
     local.get $0
-    call $~lib/assemblyscript-json/decoder/JSONDecoder<model_near/__near_JSONHandler_Array_i32>#peekChar
-    call $~lib/assemblyscript-json/decoder/JSONDecoder<model_near/__near_JSONHandler_Array_i32>#isWhitespace
+    call $~lib/assemblyscript-json/decoder/JSONDecoder<model/__near_JSONHandler_Array_i32>#peekChar
+    call $~lib/assemblyscript-json/decoder/JSONDecoder<model/__near_JSONHandler_Array_i32>#isWhitespace
     i32.eqz
     br_if $break|0
     local.get $0
-    call $~lib/assemblyscript-json/decoder/JSONDecoder<model_near/__near_JSONHandler_Array_i32>#readChar
+    call $~lib/assemblyscript-json/decoder/JSONDecoder<model/__near_JSONHandler_Array_i32>#readChar
     drop
     br $continue|0
    end
    unreachable
   end
  )
- (func $~lib/assemblyscript-json/decoder/JSONDecoder<model_near/__near_JSONHandler_Array_i32>#readHexDigit (; 227 ;) (type $FUNCSIG$ii) (param $0 i32) (result i32)
+ (func $~lib/assemblyscript-json/decoder/JSONDecoder<model/__near_JSONHandler_Array_i32>#readHexDigit (; 227 ;) (type $FUNCSIG$ii) (param $0 i32) (result i32)
   (local $1 i32)
   (local $2 i32)
   (local $3 i32)
   (local $4 i32)
   local.get $0
-  call $~lib/assemblyscript-json/decoder/JSONDecoder<model_near/__near_JSONHandler_Array_i32>#readChar
+  call $~lib/assemblyscript-json/decoder/JSONDecoder<model/__near_JSONHandler_Array_i32>#readChar
   local.set $1
   local.get $1
   global.get $~lib/assemblyscript-json/decoder/CHAR_0
@@ -12213,7 +12240,7 @@
   end
   i32.eqz
   if
-   i32.const 3336
+   i32.const 3320
    i32.const 2800
    i32.const 269
    i32.const 4
@@ -12226,7 +12253,7 @@
   call $~lib/rt/stub/__release
   local.get $3
  )
- (func $~lib/assemblyscript-json/decoder/JSONDecoder<model_near/__near_JSONHandler_Array_i32>#readEscapedChar (; 228 ;) (type $FUNCSIG$ii) (param $0 i32) (result i32)
+ (func $~lib/assemblyscript-json/decoder/JSONDecoder<model/__near_JSONHandler_Array_i32>#readEscapedChar (; 228 ;) (type $FUNCSIG$ii) (param $0 i32) (result i32)
   (local $1 i32)
   (local $2 i32)
   (local $3 i32)
@@ -12234,7 +12261,7 @@
   (local $5 i32)
   (local $6 i32)
   local.get $0
-  call $~lib/assemblyscript-json/decoder/JSONDecoder<model_near/__near_JSONHandler_Array_i32>#readChar
+  call $~lib/assemblyscript-json/decoder/JSONDecoder<model/__near_JSONHandler_Array_i32>#readChar
   local.set $1
   local.get $1
   i32.const 1072
@@ -12257,17 +12284,17 @@
    return
   end
   local.get $1
-  i32.const 3192
+  i32.const 3176
   i32.const 0
   call $~lib/string/String#charCodeAt
   i32.eq
   if
-   i32.const 3192
+   i32.const 3176
    call $~lib/rt/stub/__retain
    return
   end
   local.get $1
-  i32.const 3216
+  i32.const 3200
   i32.const 0
   call $~lib/string/String#charCodeAt
   i32.eq
@@ -12277,7 +12304,7 @@
    return
   end
   local.get $1
-  i32.const 3240
+  i32.const 3224
   i32.const 0
   call $~lib/string/String#charCodeAt
   i32.eq
@@ -12287,7 +12314,7 @@
    return
   end
   local.get $1
-  i32.const 3264
+  i32.const 3248
   i32.const 0
   call $~lib/string/String#charCodeAt
   i32.eq
@@ -12297,7 +12324,7 @@
    return
   end
   local.get $1
-  i32.const 3288
+  i32.const 3272
   i32.const 0
   call $~lib/string/String#charCodeAt
   i32.eq
@@ -12307,22 +12334,22 @@
    return
   end
   local.get $1
-  i32.const 3312
+  i32.const 3296
   i32.const 0
   call $~lib/string/String#charCodeAt
   i32.eq
   if
    local.get $0
-   call $~lib/assemblyscript-json/decoder/JSONDecoder<model_near/__near_JSONHandler_Array_i32>#readHexDigit
+   call $~lib/assemblyscript-json/decoder/JSONDecoder<model/__near_JSONHandler_Array_i32>#readHexDigit
    local.set $2
    local.get $0
-   call $~lib/assemblyscript-json/decoder/JSONDecoder<model_near/__near_JSONHandler_Array_i32>#readHexDigit
+   call $~lib/assemblyscript-json/decoder/JSONDecoder<model/__near_JSONHandler_Array_i32>#readHexDigit
    local.set $3
    local.get $0
-   call $~lib/assemblyscript-json/decoder/JSONDecoder<model_near/__near_JSONHandler_Array_i32>#readHexDigit
+   call $~lib/assemblyscript-json/decoder/JSONDecoder<model/__near_JSONHandler_Array_i32>#readHexDigit
    local.set $4
    local.get $0
-   call $~lib/assemblyscript-json/decoder/JSONDecoder<model_near/__near_JSONHandler_Array_i32>#readHexDigit
+   call $~lib/assemblyscript-json/decoder/JSONDecoder<model/__near_JSONHandler_Array_i32>#readHexDigit
    local.set $5
    local.get $2
    i32.const 4096
@@ -12345,7 +12372,7 @@
   i32.const 0
   i32.eqz
   if
-   i32.const 3392
+   i32.const 3376
    i32.const 1
    global.set $~lib/argc
    local.get $1
@@ -12369,21 +12396,21 @@
   call $~lib/rt/stub/__release
   local.get $4
  )
- (func $~lib/assemblyscript-json/decoder/JSONDecoder<model_near/__near_JSONHandler_Array_i32>#readString (; 229 ;) (type $FUNCSIG$ii) (param $0 i32) (result i32)
+ (func $~lib/assemblyscript-json/decoder/JSONDecoder<model/__near_JSONHandler_Array_i32>#readString (; 229 ;) (type $FUNCSIG$ii) (param $0 i32) (result i32)
   (local $1 i32)
   (local $2 i32)
   (local $3 i32)
   (local $4 i32)
   (local $5 i32)
   local.get $0
-  call $~lib/assemblyscript-json/decoder/JSONDecoder<model_near/__near_JSONHandler_Array_i32>#readChar
+  call $~lib/assemblyscript-json/decoder/JSONDecoder<model/__near_JSONHandler_Array_i32>#readChar
   i32.const 1072
   i32.const 0
   call $~lib/string/String#charCodeAt
   i32.eq
   i32.eqz
   if
-   i32.const 3040
+   i32.const 3024
    i32.const 2800
    i32.const 197
    i32.const 4
@@ -12400,14 +12427,14 @@
   local.set $2
   loop $loop|0
    local.get $0
-   call $~lib/assemblyscript-json/decoder/JSONDecoder<model_near/__near_JSONHandler_Array_i32>#readChar
+   call $~lib/assemblyscript-json/decoder/JSONDecoder<model/__near_JSONHandler_Array_i32>#readChar
    local.set $3
    local.get $3
    i32.const 32
    i32.ge_s
    i32.eqz
    if
-    i32.const 3120
+    i32.const 3104
     i32.const 2800
     i32.const 203
     i32.const 6
@@ -12485,7 +12512,7 @@
      end
      local.get $2
      local.get $0
-     call $~lib/assemblyscript-json/decoder/JSONDecoder<model_near/__near_JSONHandler_Array_i32>#readEscapedChar
+     call $~lib/assemblyscript-json/decoder/JSONDecoder<model/__near_JSONHandler_Array_i32>#readEscapedChar
      local.tee $4
      call $~lib/array/Array<~lib/string/String>#push
      drop
@@ -12501,16 +12528,16 @@
   end
   unreachable
  )
- (func $~lib/assemblyscript-json/decoder/JSONDecoder<model_near/__near_JSONHandler_Array_i32>#parseKey (; 230 ;) (type $FUNCSIG$vi) (param $0 i32)
+ (func $~lib/assemblyscript-json/decoder/JSONDecoder<model/__near_JSONHandler_Array_i32>#parseKey (; 230 ;) (type $FUNCSIG$vi) (param $0 i32)
   (local $1 i32)
   (local $2 i32)
   local.get $0
-  call $~lib/assemblyscript-json/decoder/JSONDecoder<model_near/__near_JSONHandler_Array_i32>#skipWhitespace
+  call $~lib/assemblyscript-json/decoder/JSONDecoder<model/__near_JSONHandler_Array_i32>#skipWhitespace
   local.get $0
   i32.load offset=4
   local.tee $1
   local.get $0
-  call $~lib/assemblyscript-json/decoder/JSONDecoder<model_near/__near_JSONHandler_Array_i32>#readString
+  call $~lib/assemblyscript-json/decoder/JSONDecoder<model/__near_JSONHandler_Array_i32>#readString
   local.set $2
   local.get $1
   i32.load
@@ -12518,16 +12545,16 @@
   local.get $2
   i32.store
   local.get $0
-  call $~lib/assemblyscript-json/decoder/JSONDecoder<model_near/__near_JSONHandler_Array_i32>#skipWhitespace
+  call $~lib/assemblyscript-json/decoder/JSONDecoder<model/__near_JSONHandler_Array_i32>#skipWhitespace
   local.get $0
-  call $~lib/assemblyscript-json/decoder/JSONDecoder<model_near/__near_JSONHandler_Array_i32>#readChar
+  call $~lib/assemblyscript-json/decoder/JSONDecoder<model/__near_JSONHandler_Array_i32>#readChar
   i32.const 1984
   i32.const 0
   call $~lib/string/String#charCodeAt
   i32.eq
   i32.eqz
   if
-   i32.const 3472
+   i32.const 3456
    i32.const 2800
    i32.const 159
    i32.const 4
@@ -12535,12 +12562,12 @@
    unreachable
   end
  )
- (func $~lib/assemblyscript-json/decoder/JSONDecoder<model_near/__near_JSONHandler_Array_i32>#parseObject (; 231 ;) (type $FUNCSIG$ii) (param $0 i32) (result i32)
+ (func $~lib/assemblyscript-json/decoder/JSONDecoder<model/__near_JSONHandler_Array_i32>#parseObject (; 231 ;) (type $FUNCSIG$ii) (param $0 i32) (result i32)
   (local $1 i32)
   (local $2 i32)
   (local $3 i32)
   local.get $0
-  call $~lib/assemblyscript-json/decoder/JSONDecoder<model_near/__near_JSONHandler_Array_i32>#peekChar
+  call $~lib/assemblyscript-json/decoder/JSONDecoder<model/__near_JSONHandler_Array_i32>#peekChar
   i32.const 2008
   i32.const 0
   call $~lib/string/String#charCodeAt
@@ -12578,16 +12605,16 @@
   call $~lib/assemblyscript-json/decoder/ThrowingJSONHandler#pushObject
   if
    local.get $0
-   call $~lib/assemblyscript-json/decoder/JSONDecoder<model_near/__near_JSONHandler_Array_i32>#readChar
+   call $~lib/assemblyscript-json/decoder/JSONDecoder<model/__near_JSONHandler_Array_i32>#readChar
    drop
    local.get $0
-   call $~lib/assemblyscript-json/decoder/JSONDecoder<model_near/__near_JSONHandler_Array_i32>#skipWhitespace
+   call $~lib/assemblyscript-json/decoder/JSONDecoder<model/__near_JSONHandler_Array_i32>#skipWhitespace
    i32.const 1
    local.set $3
    block $break|0
     loop $continue|0
      local.get $0
-     call $~lib/assemblyscript-json/decoder/JSONDecoder<model_near/__near_JSONHandler_Array_i32>#peekChar
+     call $~lib/assemblyscript-json/decoder/JSONDecoder<model/__near_JSONHandler_Array_i32>#peekChar
      i32.const 2672
      i32.const 0
      call $~lib/string/String#charCodeAt
@@ -12598,14 +12625,14 @@
      i32.eqz
      if
       local.get $0
-      call $~lib/assemblyscript-json/decoder/JSONDecoder<model_near/__near_JSONHandler_Array_i32>#readChar
+      call $~lib/assemblyscript-json/decoder/JSONDecoder<model/__near_JSONHandler_Array_i32>#readChar
       i32.const 1048
       i32.const 0
       call $~lib/string/String#charCodeAt
       i32.eq
       i32.eqz
       if
-       i32.const 3000
+       i32.const 2984
        i32.const 2800
        i32.const 142
        i32.const 10
@@ -12617,23 +12644,23 @@
       local.set $3
      end
      local.get $0
-     call $~lib/assemblyscript-json/decoder/JSONDecoder<model_near/__near_JSONHandler_Array_i32>#parseKey
+     call $~lib/assemblyscript-json/decoder/JSONDecoder<model/__near_JSONHandler_Array_i32>#parseKey
      local.get $0
-     call $~lib/assemblyscript-json/decoder/JSONDecoder<model_near/__near_JSONHandler_Array_i32>#parseValue
+     call $~lib/assemblyscript-json/decoder/JSONDecoder<model/__near_JSONHandler_Array_i32>#parseValue
      drop
      br $continue|0
     end
     unreachable
    end
    local.get $0
-   call $~lib/assemblyscript-json/decoder/JSONDecoder<model_near/__near_JSONHandler_Array_i32>#readChar
+   call $~lib/assemblyscript-json/decoder/JSONDecoder<model/__near_JSONHandler_Array_i32>#readChar
    i32.const 2672
    i32.const 0
    call $~lib/string/String#charCodeAt
    i32.eq
    i32.eqz
    if
-    i32.const 3512
+    i32.const 3496
     i32.const 2800
     i32.const 149
     i32.const 6
@@ -12650,7 +12677,7 @@
   call $~lib/rt/stub/__release
   local.get $3
  )
- (func $model_near/__near_JSONHandler_Array_i32#pushArray (; 232 ;) (type $FUNCSIG$iii) (param $0 i32) (param $1 i32) (result i32)
+ (func $model/__near_JSONHandler_Array_i32#pushArray (; 232 ;) (type $FUNCSIG$iii) (param $0 i32) (param $1 i32) (result i32)
   (local $2 i32)
   local.get $1
   call $~lib/rt/stub/__retain
@@ -12679,8 +12706,8 @@
   if
    i32.const 0
    i32.const 2888
-   i32.const 383
-   i32.const 8
+   i32.const 208
+   i32.const 10
    call $~lib/builtins/abort
    unreachable
   end
@@ -12693,12 +12720,12 @@
   call $~lib/rt/stub/__release
   local.get $2
  )
- (func $~lib/assemblyscript-json/decoder/JSONDecoder<model_near/__near_JSONHandler_Array_i32>#parseArray (; 233 ;) (type $FUNCSIG$ii) (param $0 i32) (result i32)
+ (func $~lib/assemblyscript-json/decoder/JSONDecoder<model/__near_JSONHandler_Array_i32>#parseArray (; 233 ;) (type $FUNCSIG$ii) (param $0 i32) (result i32)
   (local $1 i32)
   (local $2 i32)
   (local $3 i32)
   local.get $0
-  call $~lib/assemblyscript-json/decoder/JSONDecoder<model_near/__near_JSONHandler_Array_i32>#peekChar
+  call $~lib/assemblyscript-json/decoder/JSONDecoder<model/__near_JSONHandler_Array_i32>#peekChar
   i32.const 2232
   i32.const 0
   call $~lib/string/String#charCodeAt
@@ -12733,19 +12760,19 @@
   local.get $0
   i32.load
   local.get $1
-  call $model_near/__near_JSONHandler_Array_i32#pushArray
+  call $model/__near_JSONHandler_Array_i32#pushArray
   if
    local.get $0
-   call $~lib/assemblyscript-json/decoder/JSONDecoder<model_near/__near_JSONHandler_Array_i32>#readChar
+   call $~lib/assemblyscript-json/decoder/JSONDecoder<model/__near_JSONHandler_Array_i32>#readChar
    drop
    local.get $0
-   call $~lib/assemblyscript-json/decoder/JSONDecoder<model_near/__near_JSONHandler_Array_i32>#skipWhitespace
+   call $~lib/assemblyscript-json/decoder/JSONDecoder<model/__near_JSONHandler_Array_i32>#skipWhitespace
    i32.const 1
    local.set $3
    block $break|0
     loop $continue|0
      local.get $0
-     call $~lib/assemblyscript-json/decoder/JSONDecoder<model_near/__near_JSONHandler_Array_i32>#peekChar
+     call $~lib/assemblyscript-json/decoder/JSONDecoder<model/__near_JSONHandler_Array_i32>#peekChar
      i32.const 2256
      i32.const 0
      call $~lib/string/String#charCodeAt
@@ -12756,14 +12783,14 @@
      i32.eqz
      if
       local.get $0
-      call $~lib/assemblyscript-json/decoder/JSONDecoder<model_near/__near_JSONHandler_Array_i32>#readChar
+      call $~lib/assemblyscript-json/decoder/JSONDecoder<model/__near_JSONHandler_Array_i32>#readChar
       i32.const 1048
       i32.const 0
       call $~lib/string/String#charCodeAt
       i32.eq
       i32.eqz
       if
-       i32.const 3000
+       i32.const 2984
        i32.const 2800
        i32.const 176
        i32.const 10
@@ -12775,21 +12802,21 @@
       local.set $3
      end
      local.get $0
-     call $~lib/assemblyscript-json/decoder/JSONDecoder<model_near/__near_JSONHandler_Array_i32>#parseValue
+     call $~lib/assemblyscript-json/decoder/JSONDecoder<model/__near_JSONHandler_Array_i32>#parseValue
      drop
      br $continue|0
     end
     unreachable
    end
    local.get $0
-   call $~lib/assemblyscript-json/decoder/JSONDecoder<model_near/__near_JSONHandler_Array_i32>#readChar
+   call $~lib/assemblyscript-json/decoder/JSONDecoder<model/__near_JSONHandler_Array_i32>#readChar
    i32.const 2256
    i32.const 0
    call $~lib/string/String#charCodeAt
    i32.eq
    i32.eqz
    if
-    i32.const 3576
+    i32.const 3592
     i32.const 2800
     i32.const 182
     i32.const 6
@@ -12806,11 +12833,11 @@
   call $~lib/rt/stub/__release
   local.get $3
  )
- (func $~lib/assemblyscript-json/decoder/JSONDecoder<model_near/__near_JSONHandler_Array_i32>#parseString (; 234 ;) (type $FUNCSIG$ii) (param $0 i32) (result i32)
+ (func $~lib/assemblyscript-json/decoder/JSONDecoder<model/__near_JSONHandler_Array_i32>#parseString (; 234 ;) (type $FUNCSIG$ii) (param $0 i32) (result i32)
   (local $1 i32)
   (local $2 i32)
   local.get $0
-  call $~lib/assemblyscript-json/decoder/JSONDecoder<model_near/__near_JSONHandler_Array_i32>#peekChar
+  call $~lib/assemblyscript-json/decoder/JSONDecoder<model/__near_JSONHandler_Array_i32>#peekChar
   i32.const 1072
   i32.const 0
   call $~lib/string/String#charCodeAt
@@ -12825,7 +12852,7 @@
   i32.load offset=4
   i32.load
   local.get $0
-  call $~lib/assemblyscript-json/decoder/JSONDecoder<model_near/__near_JSONHandler_Array_i32>#readString
+  call $~lib/assemblyscript-json/decoder/JSONDecoder<model/__near_JSONHandler_Array_i32>#readString
   local.tee $1
   call $~lib/assemblyscript-json/decoder/ThrowingJSONHandler#setString
   i32.const 1
@@ -12834,7 +12861,7 @@
   call $~lib/rt/stub/__release
   local.get $2
  )
- (func $~lib/assemblyscript-json/decoder/JSONDecoder<model_near/__near_JSONHandler_Array_i32>#readAndAssert (; 235 ;) (type $FUNCSIG$vii) (param $0 i32) (param $1 i32)
+ (func $~lib/assemblyscript-json/decoder/JSONDecoder<model/__near_JSONHandler_Array_i32>#readAndAssert (; 235 ;) (type $FUNCSIG$vii) (param $0 i32) (param $1 i32)
   (local $2 i32)
   (local $3 i32)
   (local $4 i32)
@@ -12855,15 +12882,15 @@
     local.get $2
     call $~lib/string/String#charCodeAt
     local.get $0
-    call $~lib/assemblyscript-json/decoder/JSONDecoder<model_near/__near_JSONHandler_Array_i32>#readChar
+    call $~lib/assemblyscript-json/decoder/JSONDecoder<model/__near_JSONHandler_Array_i32>#readChar
     i32.eq
     i32.eqz
     if
-     i32.const 3640
+     i32.const 3656
      local.get $1
      call $~lib/string/String.__concat
      local.tee $3
-     i32.const 3680
+     i32.const 3696
      call $~lib/string/String.__concat
      local.tee $4
      i32.const 2800
@@ -12887,9 +12914,9 @@
   local.get $1
   call $~lib/rt/stub/__release
  )
- (func $~lib/assemblyscript-json/decoder/JSONDecoder<model_near/__near_JSONHandler_Array_i32>#parseBoolean (; 236 ;) (type $FUNCSIG$ii) (param $0 i32) (result i32)
+ (func $~lib/assemblyscript-json/decoder/JSONDecoder<model/__near_JSONHandler_Array_i32>#parseBoolean (; 236 ;) (type $FUNCSIG$ii) (param $0 i32) (result i32)
   local.get $0
-  call $~lib/assemblyscript-json/decoder/JSONDecoder<model_near/__near_JSONHandler_Array_i32>#peekChar
+  call $~lib/assemblyscript-json/decoder/JSONDecoder<model/__near_JSONHandler_Array_i32>#peekChar
   i32.const 504
   i32.const 0
   call $~lib/string/String#charCodeAt
@@ -12897,7 +12924,7 @@
   if
    local.get $0
    global.get $~lib/assemblyscript-json/decoder/FALSE_STR
-   call $~lib/assemblyscript-json/decoder/JSONDecoder<model_near/__near_JSONHandler_Array_i32>#readAndAssert
+   call $~lib/assemblyscript-json/decoder/JSONDecoder<model/__near_JSONHandler_Array_i32>#readAndAssert
    local.get $0
    i32.load
    local.get $0
@@ -12909,7 +12936,7 @@
    return
   end
   local.get $0
-  call $~lib/assemblyscript-json/decoder/JSONDecoder<model_near/__near_JSONHandler_Array_i32>#peekChar
+  call $~lib/assemblyscript-json/decoder/JSONDecoder<model/__near_JSONHandler_Array_i32>#peekChar
   i32.const 480
   i32.const 0
   call $~lib/string/String#charCodeAt
@@ -12917,7 +12944,7 @@
   if
    local.get $0
    global.get $~lib/assemblyscript-json/decoder/TRUE_STR
-   call $~lib/assemblyscript-json/decoder/JSONDecoder<model_near/__near_JSONHandler_Array_i32>#readAndAssert
+   call $~lib/assemblyscript-json/decoder/JSONDecoder<model/__near_JSONHandler_Array_i32>#readAndAssert
    local.get $0
    i32.load
    local.get $0
@@ -12930,7 +12957,7 @@
   end
   i32.const 0
  )
- (func $model_near/__near_JSONHandler_Array_i32#setInteger (; 237 ;) (type $FUNCSIG$viij) (param $0 i32) (param $1 i32) (param $2 i64)
+ (func $model/__near_JSONHandler_Array_i32#setInteger (; 237 ;) (type $FUNCSIG$viij) (param $0 i32) (param $1 i32) (param $2 i64)
   local.get $1
   call $~lib/rt/stub/__retain
   drop
@@ -12943,7 +12970,7 @@
   local.get $1
   call $~lib/rt/stub/__release
  )
- (func $~lib/assemblyscript-json/decoder/JSONDecoder<model_near/__near_JSONHandler_Array_i32>#parseNumber (; 238 ;) (type $FUNCSIG$ii) (param $0 i32) (result i32)
+ (func $~lib/assemblyscript-json/decoder/JSONDecoder<model/__near_JSONHandler_Array_i32>#parseNumber (; 238 ;) (type $FUNCSIG$ii) (param $0 i32) (result i32)
   (local $1 i64)
   (local $2 i64)
   (local $3 i32)
@@ -12953,8 +12980,8 @@
   i64.const 1
   local.set $2
   local.get $0
-  call $~lib/assemblyscript-json/decoder/JSONDecoder<model_near/__near_JSONHandler_Array_i32>#peekChar
-  i32.const 3792
+  call $~lib/assemblyscript-json/decoder/JSONDecoder<model/__near_JSONHandler_Array_i32>#peekChar
+  i32.const 3808
   i32.const 0
   call $~lib/string/String#charCodeAt
   i32.eq
@@ -12962,7 +12989,7 @@
    i64.const -1
    local.set $2
    local.get $0
-   call $~lib/assemblyscript-json/decoder/JSONDecoder<model_near/__near_JSONHandler_Array_i32>#readChar
+   call $~lib/assemblyscript-json/decoder/JSONDecoder<model/__near_JSONHandler_Array_i32>#readChar
    drop
   end
   i32.const 0
@@ -12971,11 +12998,11 @@
    loop $continue|0
     global.get $~lib/assemblyscript-json/decoder/CHAR_0
     local.get $0
-    call $~lib/assemblyscript-json/decoder/JSONDecoder<model_near/__near_JSONHandler_Array_i32>#peekChar
+    call $~lib/assemblyscript-json/decoder/JSONDecoder<model/__near_JSONHandler_Array_i32>#peekChar
     i32.le_s
     if (result i32)
      local.get $0
-     call $~lib/assemblyscript-json/decoder/JSONDecoder<model_near/__near_JSONHandler_Array_i32>#peekChar
+     call $~lib/assemblyscript-json/decoder/JSONDecoder<model/__near_JSONHandler_Array_i32>#peekChar
      global.get $~lib/assemblyscript-json/decoder/CHAR_9
      i32.le_s
     else     
@@ -12984,7 +13011,7 @@
     i32.eqz
     br_if $break|0
     local.get $0
-    call $~lib/assemblyscript-json/decoder/JSONDecoder<model_near/__near_JSONHandler_Array_i32>#readChar
+    call $~lib/assemblyscript-json/decoder/JSONDecoder<model/__near_JSONHandler_Array_i32>#readChar
     local.set $4
     local.get $1
     i64.const 10
@@ -13017,13 +13044,13 @@
    local.get $1
    local.get $2
    i64.mul
-   call $model_near/__near_JSONHandler_Array_i32#setInteger
+   call $model/__near_JSONHandler_Array_i32#setInteger
    i32.const 1
    return
   end
   i32.const 0
  )
- (func $model_near/__near_JSONHandler_Array_i32#setNull (; 239 ;) (type $FUNCSIG$vii) (param $0 i32) (param $1 i32)
+ (func $model/__near_JSONHandler_Array_i32#setNull (; 239 ;) (type $FUNCSIG$vii) (param $0 i32) (param $1 i32)
   local.get $1
   call $~lib/rt/stub/__retain
   drop
@@ -13035,9 +13062,9 @@
   local.get $1
   call $~lib/rt/stub/__release
  )
- (func $~lib/assemblyscript-json/decoder/JSONDecoder<model_near/__near_JSONHandler_Array_i32>#parseNull (; 240 ;) (type $FUNCSIG$ii) (param $0 i32) (result i32)
+ (func $~lib/assemblyscript-json/decoder/JSONDecoder<model/__near_JSONHandler_Array_i32>#parseNull (; 240 ;) (type $FUNCSIG$ii) (param $0 i32) (result i32)
   local.get $0
-  call $~lib/assemblyscript-json/decoder/JSONDecoder<model_near/__near_JSONHandler_Array_i32>#peekChar
+  call $~lib/assemblyscript-json/decoder/JSONDecoder<model/__near_JSONHandler_Array_i32>#peekChar
   i32.const 536
   i32.const 0
   call $~lib/string/String#charCodeAt
@@ -13045,65 +13072,65 @@
   if
    local.get $0
    global.get $~lib/assemblyscript-json/decoder/NULL_STR
-   call $~lib/assemblyscript-json/decoder/JSONDecoder<model_near/__near_JSONHandler_Array_i32>#readAndAssert
+   call $~lib/assemblyscript-json/decoder/JSONDecoder<model/__near_JSONHandler_Array_i32>#readAndAssert
    local.get $0
    i32.load
    local.get $0
    i32.load offset=4
    i32.load
-   call $model_near/__near_JSONHandler_Array_i32#setNull
+   call $model/__near_JSONHandler_Array_i32#setNull
    i32.const 1
    return
   end
   i32.const 0
  )
- (func $~lib/assemblyscript-json/decoder/JSONDecoder<model_near/__near_JSONHandler_Array_i32>#parseValue (; 241 ;) (type $FUNCSIG$ii) (param $0 i32) (result i32)
+ (func $~lib/assemblyscript-json/decoder/JSONDecoder<model/__near_JSONHandler_Array_i32>#parseValue (; 241 ;) (type $FUNCSIG$ii) (param $0 i32) (result i32)
   (local $1 i32)
   local.get $0
-  call $~lib/assemblyscript-json/decoder/JSONDecoder<model_near/__near_JSONHandler_Array_i32>#skipWhitespace
+  call $~lib/assemblyscript-json/decoder/JSONDecoder<model/__near_JSONHandler_Array_i32>#skipWhitespace
   local.get $0
-  call $~lib/assemblyscript-json/decoder/JSONDecoder<model_near/__near_JSONHandler_Array_i32>#parseObject
+  call $~lib/assemblyscript-json/decoder/JSONDecoder<model/__near_JSONHandler_Array_i32>#parseObject
   local.tee $1
   if (result i32)
    local.get $1
   else   
    local.get $0
-   call $~lib/assemblyscript-json/decoder/JSONDecoder<model_near/__near_JSONHandler_Array_i32>#parseArray
+   call $~lib/assemblyscript-json/decoder/JSONDecoder<model/__near_JSONHandler_Array_i32>#parseArray
   end
   local.tee $1
   if (result i32)
    local.get $1
   else   
    local.get $0
-   call $~lib/assemblyscript-json/decoder/JSONDecoder<model_near/__near_JSONHandler_Array_i32>#parseString
+   call $~lib/assemblyscript-json/decoder/JSONDecoder<model/__near_JSONHandler_Array_i32>#parseString
   end
   local.tee $1
   if (result i32)
    local.get $1
   else   
    local.get $0
-   call $~lib/assemblyscript-json/decoder/JSONDecoder<model_near/__near_JSONHandler_Array_i32>#parseBoolean
+   call $~lib/assemblyscript-json/decoder/JSONDecoder<model/__near_JSONHandler_Array_i32>#parseBoolean
   end
   local.tee $1
   if (result i32)
    local.get $1
   else   
    local.get $0
-   call $~lib/assemblyscript-json/decoder/JSONDecoder<model_near/__near_JSONHandler_Array_i32>#parseNumber
+   call $~lib/assemblyscript-json/decoder/JSONDecoder<model/__near_JSONHandler_Array_i32>#parseNumber
   end
   local.tee $1
   if (result i32)
    local.get $1
   else   
    local.get $0
-   call $~lib/assemblyscript-json/decoder/JSONDecoder<model_near/__near_JSONHandler_Array_i32>#parseNull
+   call $~lib/assemblyscript-json/decoder/JSONDecoder<model/__near_JSONHandler_Array_i32>#parseNull
   end
   local.set $1
   local.get $0
-  call $~lib/assemblyscript-json/decoder/JSONDecoder<model_near/__near_JSONHandler_Array_i32>#skipWhitespace
+  call $~lib/assemblyscript-json/decoder/JSONDecoder<model/__near_JSONHandler_Array_i32>#skipWhitespace
   local.get $1
  )
- (func $~lib/assemblyscript-json/decoder/JSONDecoder<model_near/__near_JSONHandler_Array_i32>#deserialize (; 242 ;) (type $FUNCSIG$viii) (param $0 i32) (param $1 i32) (param $2 i32)
+ (func $~lib/assemblyscript-json/decoder/JSONDecoder<model/__near_JSONHandler_Array_i32>#deserialize (; 242 ;) (type $FUNCSIG$viii) (param $0 i32) (param $1 i32) (param $2 i32)
   (local $3 i32)
   (local $4 i32)
   local.get $1
@@ -13147,12 +13174,12 @@
    i32.store offset=4
   end
   local.get $0
-  call $~lib/assemblyscript-json/decoder/JSONDecoder<model_near/__near_JSONHandler_Array_i32>#parseValue
+  call $~lib/assemblyscript-json/decoder/JSONDecoder<model/__near_JSONHandler_Array_i32>#parseValue
   i32.const 0
   i32.ne
   i32.eqz
   if
-   i32.const 3888
+   i32.const 3904
    i32.const 2800
    i32.const 100
    i32.const 4
@@ -13164,7 +13191,7 @@
   local.get $2
   call $~lib/rt/stub/__release
  )
- (func $model_near/__near_decode_Array_i32 (; 243 ;) (type $FUNCSIG$iiii) (param $0 i32) (param $1 i32) (param $2 i32) (result i32)
+ (func $model/__near_decode_Array_i32 (; 243 ;) (type $FUNCSIG$iiii) (param $0 i32) (param $1 i32) (param $2 i32) (result i32)
   (local $3 i32)
   (local $4 i32)
   (local $5 i32)
@@ -13192,7 +13219,7 @@
   end
   i32.const 0
   local.get $2
-  call $model_near/__near_JSONHandler_Array_i32#constructor
+  call $model/__near_JSONHandler_Array_i32#constructor
   local.set $3
   local.get $3
   local.tee $4
@@ -13215,7 +13242,7 @@
   local.tee $5
   i32.const 0
   local.get $3
-  call $~lib/assemblyscript-json/decoder/JSONDecoder<model_near/__near_JSONHandler_Array_i32>#constructor
+  call $~lib/assemblyscript-json/decoder/JSONDecoder<model/__near_JSONHandler_Array_i32>#constructor
   local.set $4
   local.get $5
   i32.load offset=4
@@ -13226,7 +13253,7 @@
   i32.load offset=4
   local.get $0
   local.get $1
-  call $~lib/assemblyscript-json/decoder/JSONDecoder<model_near/__near_JSONHandler_Array_i32>#deserialize
+  call $~lib/assemblyscript-json/decoder/JSONDecoder<model/__near_JSONHandler_Array_i32>#deserialize
   local.get $2
   local.set $4
   local.get $3
@@ -13268,7 +13295,7 @@
   i32.store offset=12
   local.get $0
  )
- (func $model_near/__near_JSONHandler_Array_Uint8Array#constructor (; 245 ;) (type $FUNCSIG$iii) (param $0 i32) (param $1 i32) (result i32)
+ (func $model/__near_JSONHandler_Array_Uint8Array#constructor (; 245 ;) (type $FUNCSIG$iii) (param $0 i32) (param $1 i32) (result i32)
   (local $2 i32)
   (local $3 i32)
   local.get $1
@@ -13318,7 +13345,7 @@
   call $~lib/rt/stub/__release
   local.get $0
  )
- (func $~lib/assemblyscript-json/decoder/JSONDecoder<model_near/__near_JSONHandler_Array_Uint8Array>#constructor (; 246 ;) (type $FUNCSIG$iii) (param $0 i32) (param $1 i32) (result i32)
+ (func $~lib/assemblyscript-json/decoder/JSONDecoder<model/__near_JSONHandler_Array_Uint8Array>#constructor (; 246 ;) (type $FUNCSIG$iii) (param $0 i32) (param $1 i32) (result i32)
   (local $2 i32)
   (local $3 i32)
   local.get $1
@@ -13360,7 +13387,7 @@
   call $~lib/rt/stub/__release
   local.get $0
  )
- (func $~lib/assemblyscript-json/decoder/JSONDecoder<model_near/__near_JSONHandler_Array_Uint8Array>#peekChar (; 247 ;) (type $FUNCSIG$ii) (param $0 i32) (result i32)
+ (func $~lib/assemblyscript-json/decoder/JSONDecoder<model/__near_JSONHandler_Array_Uint8Array>#peekChar (; 247 ;) (type $FUNCSIG$ii) (param $0 i32) (result i32)
   local.get $0
   i32.load offset=4
   i32.load offset=4
@@ -13381,7 +13408,7 @@
   i32.load offset=4
   call $~lib/typedarray/Uint8Array#__get
  )
- (func $~lib/assemblyscript-json/decoder/JSONDecoder<model_near/__near_JSONHandler_Array_Uint8Array>#isWhitespace (; 248 ;) (type $FUNCSIG$iii) (param $0 i32) (param $1 i32) (result i32)
+ (func $~lib/assemblyscript-json/decoder/JSONDecoder<model/__near_JSONHandler_Array_Uint8Array>#isWhitespace (; 248 ;) (type $FUNCSIG$iii) (param $0 i32) (param $1 i32) (result i32)
   local.get $1
   i32.const 9
   i32.eq
@@ -13407,7 +13434,7 @@
    i32.eq
   end
  )
- (func $~lib/assemblyscript-json/decoder/JSONDecoder<model_near/__near_JSONHandler_Array_Uint8Array>#readChar (; 249 ;) (type $FUNCSIG$ii) (param $0 i32) (result i32)
+ (func $~lib/assemblyscript-json/decoder/JSONDecoder<model/__near_JSONHandler_Array_Uint8Array>#readChar (; 249 ;) (type $FUNCSIG$ii) (param $0 i32) (result i32)
   (local $1 i32)
   local.get $0
   i32.load offset=4
@@ -13441,30 +13468,30 @@
   local.get $1
   call $~lib/typedarray/Uint8Array#__get
  )
- (func $~lib/assemblyscript-json/decoder/JSONDecoder<model_near/__near_JSONHandler_Array_Uint8Array>#skipWhitespace (; 250 ;) (type $FUNCSIG$vi) (param $0 i32)
+ (func $~lib/assemblyscript-json/decoder/JSONDecoder<model/__near_JSONHandler_Array_Uint8Array>#skipWhitespace (; 250 ;) (type $FUNCSIG$vi) (param $0 i32)
   block $break|0
    loop $continue|0
     local.get $0
     local.get $0
-    call $~lib/assemblyscript-json/decoder/JSONDecoder<model_near/__near_JSONHandler_Array_Uint8Array>#peekChar
-    call $~lib/assemblyscript-json/decoder/JSONDecoder<model_near/__near_JSONHandler_Array_Uint8Array>#isWhitespace
+    call $~lib/assemblyscript-json/decoder/JSONDecoder<model/__near_JSONHandler_Array_Uint8Array>#peekChar
+    call $~lib/assemblyscript-json/decoder/JSONDecoder<model/__near_JSONHandler_Array_Uint8Array>#isWhitespace
     i32.eqz
     br_if $break|0
     local.get $0
-    call $~lib/assemblyscript-json/decoder/JSONDecoder<model_near/__near_JSONHandler_Array_Uint8Array>#readChar
+    call $~lib/assemblyscript-json/decoder/JSONDecoder<model/__near_JSONHandler_Array_Uint8Array>#readChar
     drop
     br $continue|0
    end
    unreachable
   end
  )
- (func $~lib/assemblyscript-json/decoder/JSONDecoder<model_near/__near_JSONHandler_Array_Uint8Array>#readHexDigit (; 251 ;) (type $FUNCSIG$ii) (param $0 i32) (result i32)
+ (func $~lib/assemblyscript-json/decoder/JSONDecoder<model/__near_JSONHandler_Array_Uint8Array>#readHexDigit (; 251 ;) (type $FUNCSIG$ii) (param $0 i32) (result i32)
   (local $1 i32)
   (local $2 i32)
   (local $3 i32)
   (local $4 i32)
   local.get $0
-  call $~lib/assemblyscript-json/decoder/JSONDecoder<model_near/__near_JSONHandler_Array_Uint8Array>#readChar
+  call $~lib/assemblyscript-json/decoder/JSONDecoder<model/__near_JSONHandler_Array_Uint8Array>#readChar
   local.set $1
   local.get $1
   global.get $~lib/assemblyscript-json/decoder/CHAR_0
@@ -13529,7 +13556,7 @@
   end
   i32.eqz
   if
-   i32.const 3336
+   i32.const 3320
    i32.const 2800
    i32.const 269
    i32.const 4
@@ -13542,7 +13569,7 @@
   call $~lib/rt/stub/__release
   local.get $3
  )
- (func $~lib/assemblyscript-json/decoder/JSONDecoder<model_near/__near_JSONHandler_Array_Uint8Array>#readEscapedChar (; 252 ;) (type $FUNCSIG$ii) (param $0 i32) (result i32)
+ (func $~lib/assemblyscript-json/decoder/JSONDecoder<model/__near_JSONHandler_Array_Uint8Array>#readEscapedChar (; 252 ;) (type $FUNCSIG$ii) (param $0 i32) (result i32)
   (local $1 i32)
   (local $2 i32)
   (local $3 i32)
@@ -13550,7 +13577,7 @@
   (local $5 i32)
   (local $6 i32)
   local.get $0
-  call $~lib/assemblyscript-json/decoder/JSONDecoder<model_near/__near_JSONHandler_Array_Uint8Array>#readChar
+  call $~lib/assemblyscript-json/decoder/JSONDecoder<model/__near_JSONHandler_Array_Uint8Array>#readChar
   local.set $1
   local.get $1
   i32.const 1072
@@ -13573,17 +13600,17 @@
    return
   end
   local.get $1
-  i32.const 3192
+  i32.const 3176
   i32.const 0
   call $~lib/string/String#charCodeAt
   i32.eq
   if
-   i32.const 3192
+   i32.const 3176
    call $~lib/rt/stub/__retain
    return
   end
   local.get $1
-  i32.const 3216
+  i32.const 3200
   i32.const 0
   call $~lib/string/String#charCodeAt
   i32.eq
@@ -13593,7 +13620,7 @@
    return
   end
   local.get $1
-  i32.const 3240
+  i32.const 3224
   i32.const 0
   call $~lib/string/String#charCodeAt
   i32.eq
@@ -13603,7 +13630,7 @@
    return
   end
   local.get $1
-  i32.const 3264
+  i32.const 3248
   i32.const 0
   call $~lib/string/String#charCodeAt
   i32.eq
@@ -13613,7 +13640,7 @@
    return
   end
   local.get $1
-  i32.const 3288
+  i32.const 3272
   i32.const 0
   call $~lib/string/String#charCodeAt
   i32.eq
@@ -13623,22 +13650,22 @@
    return
   end
   local.get $1
-  i32.const 3312
+  i32.const 3296
   i32.const 0
   call $~lib/string/String#charCodeAt
   i32.eq
   if
    local.get $0
-   call $~lib/assemblyscript-json/decoder/JSONDecoder<model_near/__near_JSONHandler_Array_Uint8Array>#readHexDigit
+   call $~lib/assemblyscript-json/decoder/JSONDecoder<model/__near_JSONHandler_Array_Uint8Array>#readHexDigit
    local.set $2
    local.get $0
-   call $~lib/assemblyscript-json/decoder/JSONDecoder<model_near/__near_JSONHandler_Array_Uint8Array>#readHexDigit
+   call $~lib/assemblyscript-json/decoder/JSONDecoder<model/__near_JSONHandler_Array_Uint8Array>#readHexDigit
    local.set $3
    local.get $0
-   call $~lib/assemblyscript-json/decoder/JSONDecoder<model_near/__near_JSONHandler_Array_Uint8Array>#readHexDigit
+   call $~lib/assemblyscript-json/decoder/JSONDecoder<model/__near_JSONHandler_Array_Uint8Array>#readHexDigit
    local.set $4
    local.get $0
-   call $~lib/assemblyscript-json/decoder/JSONDecoder<model_near/__near_JSONHandler_Array_Uint8Array>#readHexDigit
+   call $~lib/assemblyscript-json/decoder/JSONDecoder<model/__near_JSONHandler_Array_Uint8Array>#readHexDigit
    local.set $5
    local.get $2
    i32.const 4096
@@ -13661,7 +13688,7 @@
   i32.const 0
   i32.eqz
   if
-   i32.const 3392
+   i32.const 3376
    i32.const 1
    global.set $~lib/argc
    local.get $1
@@ -13685,21 +13712,21 @@
   call $~lib/rt/stub/__release
   local.get $4
  )
- (func $~lib/assemblyscript-json/decoder/JSONDecoder<model_near/__near_JSONHandler_Array_Uint8Array>#readString (; 253 ;) (type $FUNCSIG$ii) (param $0 i32) (result i32)
+ (func $~lib/assemblyscript-json/decoder/JSONDecoder<model/__near_JSONHandler_Array_Uint8Array>#readString (; 253 ;) (type $FUNCSIG$ii) (param $0 i32) (result i32)
   (local $1 i32)
   (local $2 i32)
   (local $3 i32)
   (local $4 i32)
   (local $5 i32)
   local.get $0
-  call $~lib/assemblyscript-json/decoder/JSONDecoder<model_near/__near_JSONHandler_Array_Uint8Array>#readChar
+  call $~lib/assemblyscript-json/decoder/JSONDecoder<model/__near_JSONHandler_Array_Uint8Array>#readChar
   i32.const 1072
   i32.const 0
   call $~lib/string/String#charCodeAt
   i32.eq
   i32.eqz
   if
-   i32.const 3040
+   i32.const 3024
    i32.const 2800
    i32.const 197
    i32.const 4
@@ -13716,14 +13743,14 @@
   local.set $2
   loop $loop|0
    local.get $0
-   call $~lib/assemblyscript-json/decoder/JSONDecoder<model_near/__near_JSONHandler_Array_Uint8Array>#readChar
+   call $~lib/assemblyscript-json/decoder/JSONDecoder<model/__near_JSONHandler_Array_Uint8Array>#readChar
    local.set $3
    local.get $3
    i32.const 32
    i32.ge_s
    i32.eqz
    if
-    i32.const 3120
+    i32.const 3104
     i32.const 2800
     i32.const 203
     i32.const 6
@@ -13801,7 +13828,7 @@
      end
      local.get $2
      local.get $0
-     call $~lib/assemblyscript-json/decoder/JSONDecoder<model_near/__near_JSONHandler_Array_Uint8Array>#readEscapedChar
+     call $~lib/assemblyscript-json/decoder/JSONDecoder<model/__near_JSONHandler_Array_Uint8Array>#readEscapedChar
      local.tee $4
      call $~lib/array/Array<~lib/string/String>#push
      drop
@@ -13817,16 +13844,16 @@
   end
   unreachable
  )
- (func $~lib/assemblyscript-json/decoder/JSONDecoder<model_near/__near_JSONHandler_Array_Uint8Array>#parseKey (; 254 ;) (type $FUNCSIG$vi) (param $0 i32)
+ (func $~lib/assemblyscript-json/decoder/JSONDecoder<model/__near_JSONHandler_Array_Uint8Array>#parseKey (; 254 ;) (type $FUNCSIG$vi) (param $0 i32)
   (local $1 i32)
   (local $2 i32)
   local.get $0
-  call $~lib/assemblyscript-json/decoder/JSONDecoder<model_near/__near_JSONHandler_Array_Uint8Array>#skipWhitespace
+  call $~lib/assemblyscript-json/decoder/JSONDecoder<model/__near_JSONHandler_Array_Uint8Array>#skipWhitespace
   local.get $0
   i32.load offset=4
   local.tee $1
   local.get $0
-  call $~lib/assemblyscript-json/decoder/JSONDecoder<model_near/__near_JSONHandler_Array_Uint8Array>#readString
+  call $~lib/assemblyscript-json/decoder/JSONDecoder<model/__near_JSONHandler_Array_Uint8Array>#readString
   local.set $2
   local.get $1
   i32.load
@@ -13834,16 +13861,16 @@
   local.get $2
   i32.store
   local.get $0
-  call $~lib/assemblyscript-json/decoder/JSONDecoder<model_near/__near_JSONHandler_Array_Uint8Array>#skipWhitespace
+  call $~lib/assemblyscript-json/decoder/JSONDecoder<model/__near_JSONHandler_Array_Uint8Array>#skipWhitespace
   local.get $0
-  call $~lib/assemblyscript-json/decoder/JSONDecoder<model_near/__near_JSONHandler_Array_Uint8Array>#readChar
+  call $~lib/assemblyscript-json/decoder/JSONDecoder<model/__near_JSONHandler_Array_Uint8Array>#readChar
   i32.const 1984
   i32.const 0
   call $~lib/string/String#charCodeAt
   i32.eq
   i32.eqz
   if
-   i32.const 3472
+   i32.const 3456
    i32.const 2800
    i32.const 159
    i32.const 4
@@ -13851,12 +13878,12 @@
    unreachable
   end
  )
- (func $~lib/assemblyscript-json/decoder/JSONDecoder<model_near/__near_JSONHandler_Array_Uint8Array>#parseObject (; 255 ;) (type $FUNCSIG$ii) (param $0 i32) (result i32)
+ (func $~lib/assemblyscript-json/decoder/JSONDecoder<model/__near_JSONHandler_Array_Uint8Array>#parseObject (; 255 ;) (type $FUNCSIG$ii) (param $0 i32) (result i32)
   (local $1 i32)
   (local $2 i32)
   (local $3 i32)
   local.get $0
-  call $~lib/assemblyscript-json/decoder/JSONDecoder<model_near/__near_JSONHandler_Array_Uint8Array>#peekChar
+  call $~lib/assemblyscript-json/decoder/JSONDecoder<model/__near_JSONHandler_Array_Uint8Array>#peekChar
   i32.const 2008
   i32.const 0
   call $~lib/string/String#charCodeAt
@@ -13894,16 +13921,16 @@
   call $~lib/assemblyscript-json/decoder/ThrowingJSONHandler#pushObject
   if
    local.get $0
-   call $~lib/assemblyscript-json/decoder/JSONDecoder<model_near/__near_JSONHandler_Array_Uint8Array>#readChar
+   call $~lib/assemblyscript-json/decoder/JSONDecoder<model/__near_JSONHandler_Array_Uint8Array>#readChar
    drop
    local.get $0
-   call $~lib/assemblyscript-json/decoder/JSONDecoder<model_near/__near_JSONHandler_Array_Uint8Array>#skipWhitespace
+   call $~lib/assemblyscript-json/decoder/JSONDecoder<model/__near_JSONHandler_Array_Uint8Array>#skipWhitespace
    i32.const 1
    local.set $3
    block $break|0
     loop $continue|0
      local.get $0
-     call $~lib/assemblyscript-json/decoder/JSONDecoder<model_near/__near_JSONHandler_Array_Uint8Array>#peekChar
+     call $~lib/assemblyscript-json/decoder/JSONDecoder<model/__near_JSONHandler_Array_Uint8Array>#peekChar
      i32.const 2672
      i32.const 0
      call $~lib/string/String#charCodeAt
@@ -13914,14 +13941,14 @@
      i32.eqz
      if
       local.get $0
-      call $~lib/assemblyscript-json/decoder/JSONDecoder<model_near/__near_JSONHandler_Array_Uint8Array>#readChar
+      call $~lib/assemblyscript-json/decoder/JSONDecoder<model/__near_JSONHandler_Array_Uint8Array>#readChar
       i32.const 1048
       i32.const 0
       call $~lib/string/String#charCodeAt
       i32.eq
       i32.eqz
       if
-       i32.const 3000
+       i32.const 2984
        i32.const 2800
        i32.const 142
        i32.const 10
@@ -13933,23 +13960,23 @@
       local.set $3
      end
      local.get $0
-     call $~lib/assemblyscript-json/decoder/JSONDecoder<model_near/__near_JSONHandler_Array_Uint8Array>#parseKey
+     call $~lib/assemblyscript-json/decoder/JSONDecoder<model/__near_JSONHandler_Array_Uint8Array>#parseKey
      local.get $0
-     call $~lib/assemblyscript-json/decoder/JSONDecoder<model_near/__near_JSONHandler_Array_Uint8Array>#parseValue
+     call $~lib/assemblyscript-json/decoder/JSONDecoder<model/__near_JSONHandler_Array_Uint8Array>#parseValue
      drop
      br $continue|0
     end
     unreachable
    end
    local.get $0
-   call $~lib/assemblyscript-json/decoder/JSONDecoder<model_near/__near_JSONHandler_Array_Uint8Array>#readChar
+   call $~lib/assemblyscript-json/decoder/JSONDecoder<model/__near_JSONHandler_Array_Uint8Array>#readChar
    i32.const 2672
    i32.const 0
    call $~lib/string/String#charCodeAt
    i32.eq
    i32.eqz
    if
-    i32.const 3512
+    i32.const 3496
     i32.const 2800
     i32.const 149
     i32.const 6
@@ -13966,7 +13993,7 @@
   call $~lib/rt/stub/__release
   local.get $3
  )
- (func $model_near/__near_JSONHandler_Array_Uint8Array#pushArray (; 256 ;) (type $FUNCSIG$iii) (param $0 i32) (param $1 i32) (result i32)
+ (func $model/__near_JSONHandler_Array_Uint8Array#pushArray (; 256 ;) (type $FUNCSIG$iii) (param $0 i32) (param $1 i32) (result i32)
   (local $2 i32)
   local.get $1
   call $~lib/rt/stub/__retain
@@ -13995,8 +14022,8 @@
   if
    i32.const 0
    i32.const 2888
-   i32.const 419
-   i32.const 8
+   i32.const 245
+   i32.const 10
    call $~lib/builtins/abort
    unreachable
   end
@@ -14009,12 +14036,12 @@
   call $~lib/rt/stub/__release
   local.get $2
  )
- (func $~lib/assemblyscript-json/decoder/JSONDecoder<model_near/__near_JSONHandler_Array_Uint8Array>#parseArray (; 257 ;) (type $FUNCSIG$ii) (param $0 i32) (result i32)
+ (func $~lib/assemblyscript-json/decoder/JSONDecoder<model/__near_JSONHandler_Array_Uint8Array>#parseArray (; 257 ;) (type $FUNCSIG$ii) (param $0 i32) (result i32)
   (local $1 i32)
   (local $2 i32)
   (local $3 i32)
   local.get $0
-  call $~lib/assemblyscript-json/decoder/JSONDecoder<model_near/__near_JSONHandler_Array_Uint8Array>#peekChar
+  call $~lib/assemblyscript-json/decoder/JSONDecoder<model/__near_JSONHandler_Array_Uint8Array>#peekChar
   i32.const 2232
   i32.const 0
   call $~lib/string/String#charCodeAt
@@ -14049,19 +14076,19 @@
   local.get $0
   i32.load
   local.get $1
-  call $model_near/__near_JSONHandler_Array_Uint8Array#pushArray
+  call $model/__near_JSONHandler_Array_Uint8Array#pushArray
   if
    local.get $0
-   call $~lib/assemblyscript-json/decoder/JSONDecoder<model_near/__near_JSONHandler_Array_Uint8Array>#readChar
+   call $~lib/assemblyscript-json/decoder/JSONDecoder<model/__near_JSONHandler_Array_Uint8Array>#readChar
    drop
    local.get $0
-   call $~lib/assemblyscript-json/decoder/JSONDecoder<model_near/__near_JSONHandler_Array_Uint8Array>#skipWhitespace
+   call $~lib/assemblyscript-json/decoder/JSONDecoder<model/__near_JSONHandler_Array_Uint8Array>#skipWhitespace
    i32.const 1
    local.set $3
    block $break|0
     loop $continue|0
      local.get $0
-     call $~lib/assemblyscript-json/decoder/JSONDecoder<model_near/__near_JSONHandler_Array_Uint8Array>#peekChar
+     call $~lib/assemblyscript-json/decoder/JSONDecoder<model/__near_JSONHandler_Array_Uint8Array>#peekChar
      i32.const 2256
      i32.const 0
      call $~lib/string/String#charCodeAt
@@ -14072,14 +14099,14 @@
      i32.eqz
      if
       local.get $0
-      call $~lib/assemblyscript-json/decoder/JSONDecoder<model_near/__near_JSONHandler_Array_Uint8Array>#readChar
+      call $~lib/assemblyscript-json/decoder/JSONDecoder<model/__near_JSONHandler_Array_Uint8Array>#readChar
       i32.const 1048
       i32.const 0
       call $~lib/string/String#charCodeAt
       i32.eq
       i32.eqz
       if
-       i32.const 3000
+       i32.const 2984
        i32.const 2800
        i32.const 176
        i32.const 10
@@ -14091,21 +14118,21 @@
       local.set $3
      end
      local.get $0
-     call $~lib/assemblyscript-json/decoder/JSONDecoder<model_near/__near_JSONHandler_Array_Uint8Array>#parseValue
+     call $~lib/assemblyscript-json/decoder/JSONDecoder<model/__near_JSONHandler_Array_Uint8Array>#parseValue
      drop
      br $continue|0
     end
     unreachable
    end
    local.get $0
-   call $~lib/assemblyscript-json/decoder/JSONDecoder<model_near/__near_JSONHandler_Array_Uint8Array>#readChar
+   call $~lib/assemblyscript-json/decoder/JSONDecoder<model/__near_JSONHandler_Array_Uint8Array>#readChar
    i32.const 2256
    i32.const 0
    call $~lib/string/String#charCodeAt
    i32.eq
    i32.eqz
    if
-    i32.const 3576
+    i32.const 3592
     i32.const 2800
     i32.const 182
     i32.const 6
@@ -14158,7 +14185,7 @@
   call $~lib/rt/stub/__release
   local.get $4
  )
- (func $model_near/__near_JSONHandler_Array_Uint8Array#setString (; 259 ;) (type $FUNCSIG$viii) (param $0 i32) (param $1 i32) (param $2 i32)
+ (func $model/__near_JSONHandler_Array_Uint8Array#setString (; 259 ;) (type $FUNCSIG$viii) (param $0 i32) (param $1 i32) (param $2 i32)
   (local $3 i32)
   local.get $1
   call $~lib/rt/stub/__retain
@@ -14180,11 +14207,11 @@
   local.get $2
   call $~lib/rt/stub/__release
  )
- (func $~lib/assemblyscript-json/decoder/JSONDecoder<model_near/__near_JSONHandler_Array_Uint8Array>#parseString (; 260 ;) (type $FUNCSIG$ii) (param $0 i32) (result i32)
+ (func $~lib/assemblyscript-json/decoder/JSONDecoder<model/__near_JSONHandler_Array_Uint8Array>#parseString (; 260 ;) (type $FUNCSIG$ii) (param $0 i32) (result i32)
   (local $1 i32)
   (local $2 i32)
   local.get $0
-  call $~lib/assemblyscript-json/decoder/JSONDecoder<model_near/__near_JSONHandler_Array_Uint8Array>#peekChar
+  call $~lib/assemblyscript-json/decoder/JSONDecoder<model/__near_JSONHandler_Array_Uint8Array>#peekChar
   i32.const 1072
   i32.const 0
   call $~lib/string/String#charCodeAt
@@ -14199,16 +14226,16 @@
   i32.load offset=4
   i32.load
   local.get $0
-  call $~lib/assemblyscript-json/decoder/JSONDecoder<model_near/__near_JSONHandler_Array_Uint8Array>#readString
+  call $~lib/assemblyscript-json/decoder/JSONDecoder<model/__near_JSONHandler_Array_Uint8Array>#readString
   local.tee $1
-  call $model_near/__near_JSONHandler_Array_Uint8Array#setString
+  call $model/__near_JSONHandler_Array_Uint8Array#setString
   i32.const 1
   local.set $2
   local.get $1
   call $~lib/rt/stub/__release
   local.get $2
  )
- (func $~lib/assemblyscript-json/decoder/JSONDecoder<model_near/__near_JSONHandler_Array_Uint8Array>#readAndAssert (; 261 ;) (type $FUNCSIG$vii) (param $0 i32) (param $1 i32)
+ (func $~lib/assemblyscript-json/decoder/JSONDecoder<model/__near_JSONHandler_Array_Uint8Array>#readAndAssert (; 261 ;) (type $FUNCSIG$vii) (param $0 i32) (param $1 i32)
   (local $2 i32)
   (local $3 i32)
   (local $4 i32)
@@ -14229,15 +14256,15 @@
     local.get $2
     call $~lib/string/String#charCodeAt
     local.get $0
-    call $~lib/assemblyscript-json/decoder/JSONDecoder<model_near/__near_JSONHandler_Array_Uint8Array>#readChar
+    call $~lib/assemblyscript-json/decoder/JSONDecoder<model/__near_JSONHandler_Array_Uint8Array>#readChar
     i32.eq
     i32.eqz
     if
-     i32.const 3640
+     i32.const 3656
      local.get $1
      call $~lib/string/String.__concat
      local.tee $3
-     i32.const 3680
+     i32.const 3696
      call $~lib/string/String.__concat
      local.tee $4
      i32.const 2800
@@ -14261,9 +14288,9 @@
   local.get $1
   call $~lib/rt/stub/__release
  )
- (func $~lib/assemblyscript-json/decoder/JSONDecoder<model_near/__near_JSONHandler_Array_Uint8Array>#parseBoolean (; 262 ;) (type $FUNCSIG$ii) (param $0 i32) (result i32)
+ (func $~lib/assemblyscript-json/decoder/JSONDecoder<model/__near_JSONHandler_Array_Uint8Array>#parseBoolean (; 262 ;) (type $FUNCSIG$ii) (param $0 i32) (result i32)
   local.get $0
-  call $~lib/assemblyscript-json/decoder/JSONDecoder<model_near/__near_JSONHandler_Array_Uint8Array>#peekChar
+  call $~lib/assemblyscript-json/decoder/JSONDecoder<model/__near_JSONHandler_Array_Uint8Array>#peekChar
   i32.const 504
   i32.const 0
   call $~lib/string/String#charCodeAt
@@ -14271,7 +14298,7 @@
   if
    local.get $0
    global.get $~lib/assemblyscript-json/decoder/FALSE_STR
-   call $~lib/assemblyscript-json/decoder/JSONDecoder<model_near/__near_JSONHandler_Array_Uint8Array>#readAndAssert
+   call $~lib/assemblyscript-json/decoder/JSONDecoder<model/__near_JSONHandler_Array_Uint8Array>#readAndAssert
    local.get $0
    i32.load
    local.get $0
@@ -14283,7 +14310,7 @@
    return
   end
   local.get $0
-  call $~lib/assemblyscript-json/decoder/JSONDecoder<model_near/__near_JSONHandler_Array_Uint8Array>#peekChar
+  call $~lib/assemblyscript-json/decoder/JSONDecoder<model/__near_JSONHandler_Array_Uint8Array>#peekChar
   i32.const 480
   i32.const 0
   call $~lib/string/String#charCodeAt
@@ -14291,7 +14318,7 @@
   if
    local.get $0
    global.get $~lib/assemblyscript-json/decoder/TRUE_STR
-   call $~lib/assemblyscript-json/decoder/JSONDecoder<model_near/__near_JSONHandler_Array_Uint8Array>#readAndAssert
+   call $~lib/assemblyscript-json/decoder/JSONDecoder<model/__near_JSONHandler_Array_Uint8Array>#readAndAssert
    local.get $0
    i32.load
    local.get $0
@@ -14304,7 +14331,7 @@
   end
   i32.const 0
  )
- (func $~lib/assemblyscript-json/decoder/JSONDecoder<model_near/__near_JSONHandler_Array_Uint8Array>#parseNumber (; 263 ;) (type $FUNCSIG$ii) (param $0 i32) (result i32)
+ (func $~lib/assemblyscript-json/decoder/JSONDecoder<model/__near_JSONHandler_Array_Uint8Array>#parseNumber (; 263 ;) (type $FUNCSIG$ii) (param $0 i32) (result i32)
   (local $1 i64)
   (local $2 i64)
   (local $3 i32)
@@ -14314,8 +14341,8 @@
   i64.const 1
   local.set $2
   local.get $0
-  call $~lib/assemblyscript-json/decoder/JSONDecoder<model_near/__near_JSONHandler_Array_Uint8Array>#peekChar
-  i32.const 3792
+  call $~lib/assemblyscript-json/decoder/JSONDecoder<model/__near_JSONHandler_Array_Uint8Array>#peekChar
+  i32.const 3808
   i32.const 0
   call $~lib/string/String#charCodeAt
   i32.eq
@@ -14323,7 +14350,7 @@
    i64.const -1
    local.set $2
    local.get $0
-   call $~lib/assemblyscript-json/decoder/JSONDecoder<model_near/__near_JSONHandler_Array_Uint8Array>#readChar
+   call $~lib/assemblyscript-json/decoder/JSONDecoder<model/__near_JSONHandler_Array_Uint8Array>#readChar
    drop
   end
   i32.const 0
@@ -14332,11 +14359,11 @@
    loop $continue|0
     global.get $~lib/assemblyscript-json/decoder/CHAR_0
     local.get $0
-    call $~lib/assemblyscript-json/decoder/JSONDecoder<model_near/__near_JSONHandler_Array_Uint8Array>#peekChar
+    call $~lib/assemblyscript-json/decoder/JSONDecoder<model/__near_JSONHandler_Array_Uint8Array>#peekChar
     i32.le_s
     if (result i32)
      local.get $0
-     call $~lib/assemblyscript-json/decoder/JSONDecoder<model_near/__near_JSONHandler_Array_Uint8Array>#peekChar
+     call $~lib/assemblyscript-json/decoder/JSONDecoder<model/__near_JSONHandler_Array_Uint8Array>#peekChar
      global.get $~lib/assemblyscript-json/decoder/CHAR_9
      i32.le_s
     else     
@@ -14345,7 +14372,7 @@
     i32.eqz
     br_if $break|0
     local.get $0
-    call $~lib/assemblyscript-json/decoder/JSONDecoder<model_near/__near_JSONHandler_Array_Uint8Array>#readChar
+    call $~lib/assemblyscript-json/decoder/JSONDecoder<model/__near_JSONHandler_Array_Uint8Array>#readChar
     local.set $4
     local.get $1
     i64.const 10
@@ -14384,7 +14411,7 @@
   end
   i32.const 0
  )
- (func $model_near/__near_JSONHandler_Array_Uint8Array#setNull (; 264 ;) (type $FUNCSIG$vii) (param $0 i32) (param $1 i32)
+ (func $model/__near_JSONHandler_Array_Uint8Array#setNull (; 264 ;) (type $FUNCSIG$vii) (param $0 i32) (param $1 i32)
   local.get $1
   call $~lib/rt/stub/__retain
   drop
@@ -14396,9 +14423,9 @@
   local.get $1
   call $~lib/rt/stub/__release
  )
- (func $~lib/assemblyscript-json/decoder/JSONDecoder<model_near/__near_JSONHandler_Array_Uint8Array>#parseNull (; 265 ;) (type $FUNCSIG$ii) (param $0 i32) (result i32)
+ (func $~lib/assemblyscript-json/decoder/JSONDecoder<model/__near_JSONHandler_Array_Uint8Array>#parseNull (; 265 ;) (type $FUNCSIG$ii) (param $0 i32) (result i32)
   local.get $0
-  call $~lib/assemblyscript-json/decoder/JSONDecoder<model_near/__near_JSONHandler_Array_Uint8Array>#peekChar
+  call $~lib/assemblyscript-json/decoder/JSONDecoder<model/__near_JSONHandler_Array_Uint8Array>#peekChar
   i32.const 536
   i32.const 0
   call $~lib/string/String#charCodeAt
@@ -14406,65 +14433,65 @@
   if
    local.get $0
    global.get $~lib/assemblyscript-json/decoder/NULL_STR
-   call $~lib/assemblyscript-json/decoder/JSONDecoder<model_near/__near_JSONHandler_Array_Uint8Array>#readAndAssert
+   call $~lib/assemblyscript-json/decoder/JSONDecoder<model/__near_JSONHandler_Array_Uint8Array>#readAndAssert
    local.get $0
    i32.load
    local.get $0
    i32.load offset=4
    i32.load
-   call $model_near/__near_JSONHandler_Array_Uint8Array#setNull
+   call $model/__near_JSONHandler_Array_Uint8Array#setNull
    i32.const 1
    return
   end
   i32.const 0
  )
- (func $~lib/assemblyscript-json/decoder/JSONDecoder<model_near/__near_JSONHandler_Array_Uint8Array>#parseValue (; 266 ;) (type $FUNCSIG$ii) (param $0 i32) (result i32)
+ (func $~lib/assemblyscript-json/decoder/JSONDecoder<model/__near_JSONHandler_Array_Uint8Array>#parseValue (; 266 ;) (type $FUNCSIG$ii) (param $0 i32) (result i32)
   (local $1 i32)
   local.get $0
-  call $~lib/assemblyscript-json/decoder/JSONDecoder<model_near/__near_JSONHandler_Array_Uint8Array>#skipWhitespace
+  call $~lib/assemblyscript-json/decoder/JSONDecoder<model/__near_JSONHandler_Array_Uint8Array>#skipWhitespace
   local.get $0
-  call $~lib/assemblyscript-json/decoder/JSONDecoder<model_near/__near_JSONHandler_Array_Uint8Array>#parseObject
+  call $~lib/assemblyscript-json/decoder/JSONDecoder<model/__near_JSONHandler_Array_Uint8Array>#parseObject
   local.tee $1
   if (result i32)
    local.get $1
   else   
    local.get $0
-   call $~lib/assemblyscript-json/decoder/JSONDecoder<model_near/__near_JSONHandler_Array_Uint8Array>#parseArray
+   call $~lib/assemblyscript-json/decoder/JSONDecoder<model/__near_JSONHandler_Array_Uint8Array>#parseArray
   end
   local.tee $1
   if (result i32)
    local.get $1
   else   
    local.get $0
-   call $~lib/assemblyscript-json/decoder/JSONDecoder<model_near/__near_JSONHandler_Array_Uint8Array>#parseString
+   call $~lib/assemblyscript-json/decoder/JSONDecoder<model/__near_JSONHandler_Array_Uint8Array>#parseString
   end
   local.tee $1
   if (result i32)
    local.get $1
   else   
    local.get $0
-   call $~lib/assemblyscript-json/decoder/JSONDecoder<model_near/__near_JSONHandler_Array_Uint8Array>#parseBoolean
+   call $~lib/assemblyscript-json/decoder/JSONDecoder<model/__near_JSONHandler_Array_Uint8Array>#parseBoolean
   end
   local.tee $1
   if (result i32)
    local.get $1
   else   
    local.get $0
-   call $~lib/assemblyscript-json/decoder/JSONDecoder<model_near/__near_JSONHandler_Array_Uint8Array>#parseNumber
+   call $~lib/assemblyscript-json/decoder/JSONDecoder<model/__near_JSONHandler_Array_Uint8Array>#parseNumber
   end
   local.tee $1
   if (result i32)
    local.get $1
   else   
    local.get $0
-   call $~lib/assemblyscript-json/decoder/JSONDecoder<model_near/__near_JSONHandler_Array_Uint8Array>#parseNull
+   call $~lib/assemblyscript-json/decoder/JSONDecoder<model/__near_JSONHandler_Array_Uint8Array>#parseNull
   end
   local.set $1
   local.get $0
-  call $~lib/assemblyscript-json/decoder/JSONDecoder<model_near/__near_JSONHandler_Array_Uint8Array>#skipWhitespace
+  call $~lib/assemblyscript-json/decoder/JSONDecoder<model/__near_JSONHandler_Array_Uint8Array>#skipWhitespace
   local.get $1
  )
- (func $~lib/assemblyscript-json/decoder/JSONDecoder<model_near/__near_JSONHandler_Array_Uint8Array>#deserialize (; 267 ;) (type $FUNCSIG$viii) (param $0 i32) (param $1 i32) (param $2 i32)
+ (func $~lib/assemblyscript-json/decoder/JSONDecoder<model/__near_JSONHandler_Array_Uint8Array>#deserialize (; 267 ;) (type $FUNCSIG$viii) (param $0 i32) (param $1 i32) (param $2 i32)
   (local $3 i32)
   (local $4 i32)
   local.get $1
@@ -14508,12 +14535,12 @@
    i32.store offset=4
   end
   local.get $0
-  call $~lib/assemblyscript-json/decoder/JSONDecoder<model_near/__near_JSONHandler_Array_Uint8Array>#parseValue
+  call $~lib/assemblyscript-json/decoder/JSONDecoder<model/__near_JSONHandler_Array_Uint8Array>#parseValue
   i32.const 0
   i32.ne
   i32.eqz
   if
-   i32.const 3888
+   i32.const 3904
    i32.const 2800
    i32.const 100
    i32.const 4
@@ -14525,7 +14552,7 @@
   local.get $2
   call $~lib/rt/stub/__release
  )
- (func $model_near/__near_decode_Array_Uint8Array (; 268 ;) (type $FUNCSIG$iiii) (param $0 i32) (param $1 i32) (param $2 i32) (result i32)
+ (func $model/__near_decode_Array_Uint8Array (; 268 ;) (type $FUNCSIG$iiii) (param $0 i32) (param $1 i32) (param $2 i32) (result i32)
   (local $3 i32)
   (local $4 i32)
   (local $5 i32)
@@ -14553,7 +14580,7 @@
   end
   i32.const 0
   local.get $2
-  call $model_near/__near_JSONHandler_Array_Uint8Array#constructor
+  call $model/__near_JSONHandler_Array_Uint8Array#constructor
   local.set $3
   local.get $3
   local.tee $4
@@ -14576,7 +14603,7 @@
   local.tee $5
   i32.const 0
   local.get $3
-  call $~lib/assemblyscript-json/decoder/JSONDecoder<model_near/__near_JSONHandler_Array_Uint8Array>#constructor
+  call $~lib/assemblyscript-json/decoder/JSONDecoder<model/__near_JSONHandler_Array_Uint8Array>#constructor
   local.set $4
   local.get $5
   i32.load offset=4
@@ -14587,7 +14614,7 @@
   i32.load offset=4
   local.get $0
   local.get $1
-  call $~lib/assemblyscript-json/decoder/JSONDecoder<model_near/__near_JSONHandler_Array_Uint8Array>#deserialize
+  call $~lib/assemblyscript-json/decoder/JSONDecoder<model/__near_JSONHandler_Array_Uint8Array>#deserialize
   local.get $2
   local.set $4
   local.get $3
@@ -14607,7 +14634,7 @@
   i32.const 0
   i32.eqz
   if
-   i32.const 4096
+   i32.const 4112
    local.get $1
    call $~lib/string/String.__concat
    local.tee $2
@@ -14625,7 +14652,7 @@
   call $~lib/rt/stub/__release
   local.get $3
  )
- (func $model_near/__near_JSONHandler_FooBar#pushArray (; 270 ;) (type $FUNCSIG$iii) (param $0 i32) (param $1 i32) (result i32)
+ (func $model/__near_JSONHandler_FooBar#pushArray (; 270 ;) (type $FUNCSIG$iii) (param $0 i32) (param $1 i32) (result i32)
   (local $2 i32)
   (local $3 i32)
   local.get $1
@@ -14644,7 +14671,7 @@
    i32.load offset=4
    i32.load offset=4
    i32.const 0
-   call $model_near/__near_decode_Array_Array_String
+   call $model/__near_decode_Array_Array_string
    local.set $3
    local.get $2
    i32.load offset=36
@@ -14671,7 +14698,7 @@
    i32.load offset=4
    i32.load offset=4
    i32.const 0
-   call $model_near/__near_decode_Array_u32
+   call $model/__near_decode_Array_u32
    local.set $2
    local.get $3
    i32.load offset=40
@@ -14698,7 +14725,7 @@
    i32.load offset=4
    i32.load offset=4
    i32.const 0
-   call $model_near/__near_decode_Array_i32
+   call $model/__near_decode_Array_i32
    local.set $3
    local.get $2
    i32.load offset=44
@@ -14725,7 +14752,7 @@
    i32.load offset=4
    i32.load offset=4
    i32.const 0
-   call $model_near/__near_decode_Array_Uint8Array
+   call $model/__near_decode_Array_Uint8Array
    local.set $2
    local.get $3
    i32.load offset=52
@@ -14747,12 +14774,12 @@
   call $~lib/rt/stub/__release
   local.get $2
  )
- (func $~lib/assemblyscript-json/decoder/JSONDecoder<model_near/__near_JSONHandler_FooBar>#parseArray (; 271 ;) (type $FUNCSIG$ii) (param $0 i32) (result i32)
+ (func $~lib/assemblyscript-json/decoder/JSONDecoder<model/__near_JSONHandler_FooBar>#parseArray (; 271 ;) (type $FUNCSIG$ii) (param $0 i32) (result i32)
   (local $1 i32)
   (local $2 i32)
   (local $3 i32)
   local.get $0
-  call $~lib/assemblyscript-json/decoder/JSONDecoder<model_near/__near_JSONHandler_FooBar>#peekChar
+  call $~lib/assemblyscript-json/decoder/JSONDecoder<model/__near_JSONHandler_FooBar>#peekChar
   i32.const 2232
   i32.const 0
   call $~lib/string/String#charCodeAt
@@ -14787,19 +14814,19 @@
   local.get $0
   i32.load
   local.get $1
-  call $model_near/__near_JSONHandler_FooBar#pushArray
+  call $model/__near_JSONHandler_FooBar#pushArray
   if
    local.get $0
-   call $~lib/assemblyscript-json/decoder/JSONDecoder<model_near/__near_JSONHandler_FooBar>#readChar
+   call $~lib/assemblyscript-json/decoder/JSONDecoder<model/__near_JSONHandler_FooBar>#readChar
    drop
    local.get $0
-   call $~lib/assemblyscript-json/decoder/JSONDecoder<model_near/__near_JSONHandler_FooBar>#skipWhitespace
+   call $~lib/assemblyscript-json/decoder/JSONDecoder<model/__near_JSONHandler_FooBar>#skipWhitespace
    i32.const 1
    local.set $3
    block $break|0
     loop $continue|0
      local.get $0
-     call $~lib/assemblyscript-json/decoder/JSONDecoder<model_near/__near_JSONHandler_FooBar>#peekChar
+     call $~lib/assemblyscript-json/decoder/JSONDecoder<model/__near_JSONHandler_FooBar>#peekChar
      i32.const 2256
      i32.const 0
      call $~lib/string/String#charCodeAt
@@ -14810,14 +14837,14 @@
      i32.eqz
      if
       local.get $0
-      call $~lib/assemblyscript-json/decoder/JSONDecoder<model_near/__near_JSONHandler_FooBar>#readChar
+      call $~lib/assemblyscript-json/decoder/JSONDecoder<model/__near_JSONHandler_FooBar>#readChar
       i32.const 1048
       i32.const 0
       call $~lib/string/String#charCodeAt
       i32.eq
       i32.eqz
       if
-       i32.const 3000
+       i32.const 2984
        i32.const 2800
        i32.const 176
        i32.const 10
@@ -14829,21 +14856,21 @@
       local.set $3
      end
      local.get $0
-     call $~lib/assemblyscript-json/decoder/JSONDecoder<model_near/__near_JSONHandler_FooBar>#parseValue
+     call $~lib/assemblyscript-json/decoder/JSONDecoder<model/__near_JSONHandler_FooBar>#parseValue
      drop
      br $continue|0
     end
     unreachable
    end
    local.get $0
-   call $~lib/assemblyscript-json/decoder/JSONDecoder<model_near/__near_JSONHandler_FooBar>#readChar
+   call $~lib/assemblyscript-json/decoder/JSONDecoder<model/__near_JSONHandler_FooBar>#readChar
    i32.const 2256
    i32.const 0
    call $~lib/string/String#charCodeAt
    i32.eq
    i32.eqz
    if
-    i32.const 3576
+    i32.const 3592
     i32.const 2800
     i32.const 182
     i32.const 6
@@ -14860,1621 +14887,9 @@
   call $~lib/rt/stub/__release
   local.get $3
  )
- (func $~lib/util/string/isSpace (; 272 ;) (type $FUNCSIG$ii) (param $0 i32) (result i32)
-  (local $1 i32)
-  local.get $0
-  i32.const 255
-  i32.le_s
-  if
-   block $break|0
-    block $case6|0
-     block $case5|0
-      block $case4|0
-       block $case3|0
-        block $case2|0
-         block $case1|0
-          block $case0|0
-           local.get $0
-           local.set $1
-           local.get $1
-           i32.const 9
-           i32.eq
-           br_if $case0|0
-           local.get $1
-           i32.const 10
-           i32.eq
-           br_if $case1|0
-           local.get $1
-           i32.const 11
-           i32.eq
-           br_if $case2|0
-           local.get $1
-           i32.const 12
-           i32.eq
-           br_if $case3|0
-           local.get $1
-           i32.const 13
-           i32.eq
-           br_if $case4|0
-           local.get $1
-           i32.const 32
-           i32.eq
-           br_if $case5|0
-           local.get $1
-           i32.const 160
-           i32.eq
-           br_if $case6|0
-           br $break|0
-          end
-         end
-        end
-       end
-      end
-     end
-    end
-    i32.const 1
-    return
-   end
-   i32.const 0
-   return
-  end
-  local.get $0
-  i32.const 8192
-  i32.ge_s
-  if (result i32)
-   local.get $0
-   i32.const 8202
-   i32.le_s
-  else   
-   i32.const 0
-  end
-  if
-   i32.const 1
-   return
-  end
-  block $break|1
-   block $case6|1
-    block $case5|1
-     block $case4|1
-      block $case3|1
-       block $case2|1
-        block $case1|1
-         block $case0|1
-          local.get $0
-          local.set $1
-          local.get $1
-          i32.const 5760
-          i32.eq
-          br_if $case0|1
-          local.get $1
-          i32.const 8232
-          i32.eq
-          br_if $case1|1
-          local.get $1
-          i32.const 8233
-          i32.eq
-          br_if $case2|1
-          local.get $1
-          i32.const 8239
-          i32.eq
-          br_if $case3|1
-          local.get $1
-          i32.const 8287
-          i32.eq
-          br_if $case4|1
-          local.get $1
-          i32.const 12288
-          i32.eq
-          br_if $case5|1
-          local.get $1
-          i32.const 65279
-          i32.eq
-          br_if $case6|1
-          br $break|1
-         end
-        end
-       end
-      end
-     end
-    end
-   end
-   i32.const 1
-   return
-  end
-  i32.const 0
- )
- (func $~lib/util/string/strtol<i64> (; 273 ;) (type $FUNCSIG$jii) (param $0 i32) (param $1 i32) (result i64)
-  (local $2 i32)
-  (local $3 i64)
-  (local $4 i32)
-  (local $5 i32)
-  (local $6 i64)
-  (local $7 i32)
-  (local $8 i64)
-  local.get $0
-  call $~lib/rt/stub/__retain
-  drop
-  local.get $0
-  call $~lib/string/String#get:length
-  local.set $2
-  local.get $2
-  i32.eqz
-  if
-   f64.const nan:0x8000000000000
-   i64.trunc_f64_s
-   local.set $3
-   local.get $0
-   call $~lib/rt/stub/__release
-   local.get $3
-   return
-  end
-  local.get $0
-  local.set $4
-  local.get $4
-  i32.load16_u
-  local.set $5
-  i64.const 1
-  local.set $6
-  block $break|0
-   loop $continue|0
-    local.get $5
-    call $~lib/util/string/isSpace
-    i32.eqz
-    br_if $break|0
-    local.get $4
-    i32.const 2
-    i32.add
-    local.tee $4
-    i32.load16_u
-    local.set $5
-    local.get $2
-    i32.const 1
-    i32.sub
-    local.set $2
-    br $continue|0
-   end
-   unreachable
-  end
-  local.get $5
-  i32.const 45
-  i32.eq
-  if
-   local.get $2
-   i32.const 1
-   i32.sub
-   local.tee $2
-   i32.eqz
-   if
-    f64.const nan:0x8000000000000
-    i64.trunc_f64_s
-    local.set $3
-    local.get $0
-    call $~lib/rt/stub/__release
-    local.get $3
-    return
-   end
-   local.get $4
-   i32.const 2
-   i32.add
-   local.tee $4
-   i32.load16_u
-   local.set $5
-   i64.const -1
-   local.set $6
-  else   
-   local.get $5
-   i32.const 43
-   i32.eq
-   if
-    local.get $2
-    i32.const 1
-    i32.sub
-    local.tee $2
-    i32.eqz
-    if
-     f64.const nan:0x8000000000000
-     i64.trunc_f64_s
-     local.set $3
-     local.get $0
-     call $~lib/rt/stub/__release
-     local.get $3
-     return
-    end
-    local.get $4
-    i32.const 2
-    i32.add
-    local.tee $4
-    i32.load16_u
-    local.set $5
-   end
-  end
-  local.get $1
-  i32.eqz
-  if
-   local.get $5
-   i32.const 48
-   i32.eq
-   if (result i32)
-    local.get $2
-    i32.const 2
-    i32.gt_s
-   else    
-    i32.const 0
-   end
-   if
-    block $break|1
-     block $case6|1
-      block $case5|1
-       block $case4|1
-        block $case3|1
-         block $case2|1
-          block $case1|1
-           block $case0|1
-            local.get $4
-            i32.const 2
-            i32.add
-            i32.load16_u
-            local.set $7
-            local.get $7
-            i32.const 66
-            i32.eq
-            br_if $case0|1
-            local.get $7
-            i32.const 98
-            i32.eq
-            br_if $case1|1
-            local.get $7
-            i32.const 79
-            i32.eq
-            br_if $case2|1
-            local.get $7
-            i32.const 111
-            i32.eq
-            br_if $case3|1
-            local.get $7
-            i32.const 88
-            i32.eq
-            br_if $case4|1
-            local.get $7
-            i32.const 120
-            i32.eq
-            br_if $case5|1
-            br $case6|1
-           end
-          end
-          local.get $4
-          i32.const 4
-          i32.add
-          local.set $4
-          local.get $2
-          i32.const 2
-          i32.sub
-          local.set $2
-          i32.const 2
-          local.set $1
-          br $break|1
-         end
-        end
-        local.get $4
-        i32.const 4
-        i32.add
-        local.set $4
-        local.get $2
-        i32.const 2
-        i32.sub
-        local.set $2
-        i32.const 8
-        local.set $1
-        br $break|1
-       end
-      end
-      local.get $4
-      i32.const 4
-      i32.add
-      local.set $4
-      local.get $2
-      i32.const 2
-      i32.sub
-      local.set $2
-      i32.const 16
-      local.set $1
-      br $break|1
-     end
-     i32.const 10
-     local.set $1
-    end
-   else    
-    i32.const 10
-    local.set $1
-   end
-  else   
-   local.get $1
-   i32.const 2
-   i32.lt_s
-   if (result i32)
-    i32.const 1
-   else    
-    local.get $1
-    i32.const 36
-    i32.gt_s
-   end
-   if
-    f64.const nan:0x8000000000000
-    i64.trunc_f64_s
-    local.set $3
-    local.get $0
-    call $~lib/rt/stub/__release
-    local.get $3
-    return
-   end
-  end
-  i64.const 0
-  local.set $8
-  block $break|2
-   loop $continue|2
-    local.get $2
-    local.tee $7
-    i32.const 1
-    i32.sub
-    local.set $2
-    local.get $7
-    i32.eqz
-    br_if $break|2
-    local.get $4
-    i32.load16_u
-    local.set $5
-    local.get $5
-    i32.const 48
-    i32.ge_s
-    if (result i32)
-     local.get $5
-     i32.const 57
-     i32.le_s
-    else     
-     i32.const 0
-    end
-    if
-     local.get $5
-     i32.const 48
-     i32.sub
-     local.set $5
-    else     
-     local.get $5
-     i32.const 65
-     i32.ge_s
-     if (result i32)
-      local.get $5
-      i32.const 90
-      i32.le_s
-     else      
-      i32.const 0
-     end
-     if
-      local.get $5
-      i32.const 65
-      i32.const 10
-      i32.sub
-      i32.sub
-      local.set $5
-     else      
-      local.get $5
-      i32.const 97
-      i32.ge_s
-      if (result i32)
-       local.get $5
-       i32.const 122
-       i32.le_s
-      else       
-       i32.const 0
-      end
-      if
-       local.get $5
-       i32.const 97
-       i32.const 10
-       i32.sub
-       i32.sub
-       local.set $5
-      else       
-       br $break|2
-      end
-     end
-    end
-    local.get $5
-    local.get $1
-    i32.ge_s
-    if
-     br $break|2
-    end
-    local.get $8
-    local.get $1
-    i64.extend_i32_s
-    i64.mul
-    local.get $5
-    i64.extend_i32_s
-    i64.add
-    local.set $8
-    local.get $4
-    i32.const 2
-    i32.add
-    local.set $4
-    br $continue|2
-   end
-   unreachable
-  end
-  local.get $6
-  local.get $8
-  i64.mul
-  local.set $3
-  local.get $0
-  call $~lib/rt/stub/__release
-  local.get $3
- )
- (func $~lib/number/U64.parseInt (; 274 ;) (type $FUNCSIG$jii) (param $0 i32) (param $1 i32) (result i64)
-  (local $2 i64)
-  local.get $0
-  call $~lib/rt/stub/__retain
-  drop
-  local.get $0
-  local.get $1
-  call $~lib/util/string/strtol<i64>
-  local.set $2
-  local.get $0
-  call $~lib/rt/stub/__release
-  local.get $2
- )
- (func $~lib/number/I64.parseInt (; 275 ;) (type $FUNCSIG$jii) (param $0 i32) (param $1 i32) (result i64)
-  (local $2 i64)
-  local.get $0
-  call $~lib/rt/stub/__retain
-  drop
-  local.get $0
-  local.get $1
-  call $~lib/util/string/strtol<i64>
-  local.set $2
-  local.get $0
-  call $~lib/rt/stub/__release
-  local.get $2
- )
- (func $~lib/array/Array<u8>#__unchecked_get (; 276 ;) (type $FUNCSIG$iii) (param $0 i32) (param $1 i32) (result i32)
-  local.get $0
-  i32.load offset=4
-  local.get $1
-  i32.const 0
-  i32.shl
-  i32.add
-  i32.load8_u
- )
- (func $~lib/array/Array<u8>#__get (; 277 ;) (type $FUNCSIG$iii) (param $0 i32) (param $1 i32) (result i32)
-  local.get $1
-  local.get $0
-  i32.load offset=8
-  i32.const 0
-  i32.shr_u
-  i32.ge_u
-  if
-   i32.const 776
-   i32.const 888
-   i32.const 109
-   i32.const 61
-   call $~lib/builtins/abort
-   unreachable
-  end
-  local.get $0
-  local.get $1
-  call $~lib/array/Array<u8>#__unchecked_get
- )
- (func $~lib/bignum/globals/__multi3 (; 278 ;) (type $FUNCSIG$vijjjj) (param $0 i32) (param $1 i64) (param $2 i64) (param $3 i64) (param $4 i64)
-  (local $5 i64)
-  (local $6 i64)
-  (local $7 i64)
-  (local $8 i64)
-  (local $9 i64)
-  (local $10 i64)
-  (local $11 i64)
-  (local $12 i64)
-  (local $13 i64)
-  (local $14 i64)
-  local.get $1
-  local.set $5
-  local.get $3
-  local.set $6
-  local.get $5
-  i64.const 4294967295
-  i64.and
-  local.set $9
-  local.get $6
-  i64.const 4294967295
-  i64.and
-  local.set $10
-  local.get $9
-  local.get $10
-  i64.mul
-  local.set $11
-  local.get $11
-  i64.const 4294967295
-  i64.and
-  local.set $12
-  local.get $5
-  i64.const 32
-  i64.shr_u
-  local.set $5
-  local.get $5
-  local.get $10
-  i64.mul
-  local.get $11
-  i64.const 32
-  i64.shr_u
-  i64.add
-  local.set $11
-  local.get $11
-  i64.const 4294967295
-  i64.and
-  local.set $8
-  local.get $11
-  i64.const 32
-  i64.shr_u
-  local.set $7
-  local.get $6
-  i64.const 32
-  i64.shr_u
-  local.set $6
-  local.get $9
-  local.get $6
-  i64.mul
-  local.get $8
-  i64.add
-  local.set $11
-  local.get $12
-  local.get $11
-  i64.const 32
-  i64.shl
-  i64.add
-  local.set $13
-  local.get $5
-  local.get $6
-  i64.mul
-  local.get $7
-  i64.add
-  local.set $14
-  local.get $14
-  local.get $2
-  local.get $3
-  i64.mul
-  i64.add
-  local.set $14
-  local.get $14
-  local.get $1
-  local.get $4
-  i64.mul
-  i64.add
-  local.set $14
-  local.get $14
-  local.get $11
-  i64.const 32
-  i64.shr_u
-  i64.add
-  local.set $14
-  local.get $13
-  global.set $~lib/bignum/globals/__res128_lo
-  local.get $14
-  global.set $~lib/bignum/globals/__res128_hi
- )
- (func $~lib/bignum/utils/atou128 (; 279 ;) (type $FUNCSIG$iii) (param $0 i32) (param $1 i32) (result i32)
-  (local $2 i32)
+ (func $model/__near_JSONHandler_FooBar#setString (; 272 ;) (type $FUNCSIG$viii) (param $0 i32) (param $1 i32) (param $2 i32)
   (local $3 i32)
   (local $4 i32)
-  (local $5 i32)
-  (local $6 i32)
-  (local $7 i32)
-  (local $8 i32)
-  (local $9 i32)
-  (local $10 i32)
-  (local $11 i32)
-  (local $12 i64)
-  (local $13 i64)
-  (local $14 i64)
-  (local $15 i64)
-  (local $16 i64)
-  (local $17 i64)
-  (local $18 i32)
-  (local $19 i32)
-  (local $20 i32)
-  (local $21 i32)
-  (local $22 i32)
-  local.get $0
-  call $~lib/rt/stub/__retain
-  drop
-  local.get $1
-  i32.eqz
-  if
-   i32.const 10
-   local.set $1
-  end
-  local.get $1
-  i32.const 2
-  i32.lt_s
-  if (result i32)
-   i32.const 1
-  else   
-   local.get $1
-   i32.const 36
-   i32.gt_s
-  end
-  if
-   local.get $0
-   call $~lib/rt/stub/__release
-   i32.const 4160
-   i32.const 4208
-   i32.const 133
-   i32.const 4
-   call $~lib/builtins/abort
-   unreachable
-  end
-  local.get $0
-  call $~lib/string/String#get:length
-  local.set $2
-  local.get $2
-  i32.eqz
-  if
-   i32.const 0
-   i64.const 0
-   i64.const 0
-   call $~lib/bignum/integer/u128/u128#constructor
-   local.tee $3
-   call $~lib/rt/stub/__retain
-   local.set $4
-   local.get $3
-   call $~lib/rt/stub/__release
-   local.get $0
-   call $~lib/rt/stub/__release
-   local.get $4
-   return
-  end
-  local.get $0
-  i32.const 0
-  call $~lib/string/String#charCodeAt
-  local.set $5
-  local.get $2
-  i32.const 1
-  i32.eq
-  if (result i32)
-   local.get $5
-   i32.const 48
-   i32.eq
-  else   
-   i32.const 0
-  end
-  if
-   i32.const 0
-   i64.const 0
-   i64.const 0
-   call $~lib/bignum/integer/u128/u128#constructor
-   local.tee $3
-   call $~lib/rt/stub/__retain
-   local.set $4
-   local.get $3
-   call $~lib/rt/stub/__release
-   local.get $0
-   call $~lib/rt/stub/__release
-   local.get $4
-   return
-  end
-  local.get $5
-  i32.const 45
-  i32.eq
-  local.set $6
-  local.get $6
-  if (result i32)
-   local.get $6
-  else   
-   local.get $5
-   i32.const 43
-   i32.eq
-  end
-  local.set $7
-  local.get $0
-  local.get $7
-  call $~lib/string/String#charCodeAt
-  i32.const 48
-  i32.eq
-  if
-   local.get $0
-   local.get $7
-   i32.const 1
-   i32.add
-   local.tee $7
-   call $~lib/string/String#charCodeAt
-   local.set $3
-   local.get $3
-   i32.const 120
-   i32.eq
-   if (result i32)
-    i32.const 1
-   else    
-    local.get $3
-    i32.const 88
-    i32.eq
-   end
-   if
-    i32.const 16
-    local.set $1
-    local.get $7
-    i32.const 1
-    i32.add
-    local.set $7
-   else    
-    local.get $3
-    i32.const 111
-    i32.eq
-    if (result i32)
-     i32.const 1
-    else     
-     local.get $3
-     i32.const 79
-     i32.eq
-    end
-    if
-     i32.const 8
-     local.set $1
-     local.get $7
-     i32.const 1
-     i32.add
-     local.set $7
-    else     
-     local.get $3
-     i32.const 98
-     i32.eq
-     if (result i32)
-      i32.const 1
-     else      
-      local.get $3
-      i32.const 66
-      i32.eq
-     end
-     if
-      i32.const 2
-      local.set $1
-      local.get $7
-      i32.const 1
-      i32.add
-      local.set $7
-     end
-    end
-   end
-  end
-  i32.const 0
-  i64.const 0
-  i64.const 0
-  call $~lib/bignum/integer/u128/u128#constructor
-  local.tee $3
-  call $~lib/rt/stub/__retain
-  local.set $8
-  global.get $~lib/bignum/utils/RadixCharsTable
-  call $~lib/rt/stub/__retain
-  local.set $9
-  block $break|0
-   block $case3|0
-    block $case2|0
-     block $case1|0
-      block $case0|0
-       local.get $1
-       local.set $4
-       local.get $4
-       i32.const 2
-       i32.eq
-       br_if $case0|0
-       local.get $4
-       i32.const 10
-       i32.eq
-       br_if $case1|0
-       local.get $4
-       i32.const 16
-       i32.eq
-       br_if $case2|0
-       br $case3|0
-      end
-      block $break|1
-       loop $continue|1
-        local.get $0
-        local.get $7
-        call $~lib/string/String#charCodeAt
-        i32.const 48
-        i32.sub
-        local.set $4
-        local.get $4
-        i32.const 2
-        i32.ge_u
-        if
-         br $break|1
-        end
-        local.get $8
-        call $~lib/rt/stub/__retain
-        local.set $11
-        i32.const 1
-        local.set $10
-        local.get $10
-        i32.const 127
-        i32.and
-        local.set $10
-        local.get $10
-        i64.extend_i32_s
-        local.set $12
-        local.get $12
-        i64.const 127
-        i64.add
-        local.get $12
-        i64.or
-        i64.const 64
-        i64.and
-        i64.const 6
-        i64.shr_u
-        i64.const 1
-        i64.sub
-        local.set $13
-        local.get $12
-        i64.const 6
-        i64.shr_u
-        i64.const 1
-        i64.sub
-        local.set $14
-        local.get $12
-        i64.const 63
-        i64.and
-        local.set $12
-        local.get $11
-        i64.load
-        local.set $15
-        local.get $15
-        local.get $12
-        i64.shl
-        local.set $16
-        local.get $16
-        local.get $14
-        i64.const -1
-        i64.xor
-        i64.and
-        local.set $17
-        local.get $17
-        local.get $11
-        i64.load offset=8
-        local.get $12
-        i64.shl
-        local.get $15
-        i64.const 64
-        local.get $12
-        i64.sub
-        i64.shr_u
-        local.get $13
-        i64.and
-        i64.or
-        local.get $14
-        i64.and
-        i64.or
-        local.set $17
-        i32.const 0
-        local.get $16
-        local.get $14
-        i64.and
-        local.get $17
-        call $~lib/bignum/integer/u128/u128#constructor
-        local.set $18
-        local.get $11
-        call $~lib/rt/stub/__release
-        local.get $18
-        local.tee $11
-        local.tee $18
-        local.get $8
-        local.tee $10
-        i32.ne
-        if
-         local.get $18
-         call $~lib/rt/stub/__retain
-         drop
-         local.get $10
-         call $~lib/rt/stub/__release
-        end
-        local.get $18
-        local.set $8
-        local.get $8
-        call $~lib/rt/stub/__retain
-        local.set $19
-        local.get $4
-        i64.extend_i32_u
-        local.set $12
-        i32.const 0
-        local.get $12
-        i64.const 0
-        call $~lib/bignum/integer/u128/u128#constructor
-        local.tee $18
-        call $~lib/rt/stub/__retain
-        local.set $10
-        i32.const 0
-        local.get $19
-        i64.load
-        local.get $10
-        i64.load
-        i64.or
-        local.get $19
-        i64.load offset=8
-        local.get $10
-        i64.load offset=8
-        i64.or
-        call $~lib/bignum/integer/u128/u128#constructor
-        local.set $20
-        local.get $10
-        call $~lib/rt/stub/__release
-        local.get $19
-        call $~lib/rt/stub/__release
-        local.get $20
-        local.tee $19
-        local.tee $20
-        local.get $8
-        local.tee $10
-        i32.ne
-        if
-         local.get $20
-         call $~lib/rt/stub/__retain
-         drop
-         local.get $10
-         call $~lib/rt/stub/__release
-        end
-        local.get $20
-        local.set $8
-        local.get $7
-        i32.const 1
-        i32.add
-        local.tee $7
-        local.get $2
-        i32.lt_s
-        br_if $continue|1
-       end
-      end
-      br $break|0
-     end
-     block $break|2
-      loop $continue|2
-       local.get $0
-       local.get $7
-       call $~lib/string/String#charCodeAt
-       i32.const 48
-       i32.sub
-       local.set $19
-       local.get $19
-       i32.const 10
-       i32.ge_u
-       if
-        br $break|2
-       end
-       local.get $8
-       call $~lib/rt/stub/__retain
-       local.set $20
-       i32.const 3
-       local.set $10
-       local.get $10
-       i32.const 127
-       i32.and
-       local.set $10
-       local.get $10
-       i64.extend_i32_s
-       local.set $12
-       local.get $12
-       i64.const 127
-       i64.add
-       local.get $12
-       i64.or
-       i64.const 64
-       i64.and
-       i64.const 6
-       i64.shr_u
-       i64.const 1
-       i64.sub
-       local.set $17
-       local.get $12
-       i64.const 6
-       i64.shr_u
-       i64.const 1
-       i64.sub
-       local.set $16
-       local.get $12
-       i64.const 63
-       i64.and
-       local.set $12
-       local.get $20
-       i64.load
-       local.set $15
-       local.get $15
-       local.get $12
-       i64.shl
-       local.set $14
-       local.get $14
-       local.get $16
-       i64.const -1
-       i64.xor
-       i64.and
-       local.set $13
-       local.get $13
-       local.get $20
-       i64.load offset=8
-       local.get $12
-       i64.shl
-       local.get $15
-       i64.const 64
-       local.get $12
-       i64.sub
-       i64.shr_u
-       local.get $17
-       i64.and
-       i64.or
-       local.get $16
-       i64.and
-       i64.or
-       local.set $13
-       i32.const 0
-       local.get $14
-       local.get $16
-       i64.and
-       local.get $13
-       call $~lib/bignum/integer/u128/u128#constructor
-       local.set $18
-       local.get $20
-       call $~lib/rt/stub/__release
-       local.get $18
-       local.tee $20
-       call $~lib/rt/stub/__retain
-       local.set $21
-       local.get $8
-       call $~lib/rt/stub/__retain
-       local.set $11
-       i32.const 1
-       local.set $4
-       local.get $4
-       i32.const 127
-       i32.and
-       local.set $4
-       local.get $4
-       i64.extend_i32_s
-       local.set $13
-       local.get $13
-       i64.const 127
-       i64.add
-       local.get $13
-       i64.or
-       i64.const 64
-       i64.and
-       i64.const 6
-       i64.shr_u
-       i64.const 1
-       i64.sub
-       local.set $14
-       local.get $13
-       i64.const 6
-       i64.shr_u
-       i64.const 1
-       i64.sub
-       local.set $15
-       local.get $13
-       i64.const 63
-       i64.and
-       local.set $13
-       local.get $11
-       i64.load
-       local.set $16
-       local.get $16
-       local.get $13
-       i64.shl
-       local.set $17
-       local.get $17
-       local.get $15
-       i64.const -1
-       i64.xor
-       i64.and
-       local.set $12
-       local.get $12
-       local.get $11
-       i64.load offset=8
-       local.get $13
-       i64.shl
-       local.get $16
-       i64.const 64
-       local.get $13
-       i64.sub
-       i64.shr_u
-       local.get $14
-       i64.and
-       i64.or
-       local.get $15
-       i64.and
-       i64.or
-       local.set $12
-       i32.const 0
-       local.get $17
-       local.get $15
-       i64.and
-       local.get $12
-       call $~lib/bignum/integer/u128/u128#constructor
-       local.set $10
-       local.get $11
-       call $~lib/rt/stub/__release
-       local.get $10
-       local.tee $11
-       call $~lib/rt/stub/__retain
-       local.set $18
-       local.get $18
-       i64.load
-       local.set $12
-       local.get $21
-       i64.load
-       local.get $12
-       i64.add
-       local.set $17
-       local.get $21
-       i64.load offset=8
-       local.get $18
-       i64.load offset=8
-       i64.add
-       local.get $17
-       local.get $12
-       i64.lt_u
-       i64.extend_i32_u
-       i64.add
-       local.set $16
-       i32.const 0
-       local.get $17
-       local.get $16
-       call $~lib/bignum/integer/u128/u128#constructor
-       local.set $4
-       local.get $18
-       call $~lib/rt/stub/__release
-       local.get $21
-       call $~lib/rt/stub/__release
-       local.get $4
-       local.tee $21
-       local.tee $10
-       local.get $8
-       local.tee $18
-       i32.ne
-       if
-        local.get $10
-        call $~lib/rt/stub/__retain
-        drop
-        local.get $18
-        call $~lib/rt/stub/__release
-       end
-       local.get $10
-       local.set $8
-       local.get $8
-       call $~lib/rt/stub/__retain
-       local.set $18
-       local.get $19
-       i64.extend_i32_u
-       local.set $13
-       i32.const 0
-       local.get $13
-       i64.const 0
-       call $~lib/bignum/integer/u128/u128#constructor
-       local.tee $10
-       call $~lib/rt/stub/__retain
-       local.set $4
-       local.get $4
-       i64.load
-       local.set $13
-       local.get $18
-       i64.load
-       local.get $13
-       i64.add
-       local.set $16
-       local.get $18
-       i64.load offset=8
-       local.get $4
-       i64.load offset=8
-       i64.add
-       local.get $16
-       local.get $13
-       i64.lt_u
-       i64.extend_i32_u
-       i64.add
-       local.set $17
-       i32.const 0
-       local.get $16
-       local.get $17
-       call $~lib/bignum/integer/u128/u128#constructor
-       local.set $22
-       local.get $4
-       call $~lib/rt/stub/__release
-       local.get $18
-       call $~lib/rt/stub/__release
-       local.get $22
-       local.tee $18
-       local.tee $22
-       local.get $8
-       local.tee $4
-       i32.ne
-       if
-        local.get $22
-        call $~lib/rt/stub/__retain
-        drop
-        local.get $4
-        call $~lib/rt/stub/__release
-       end
-       local.get $22
-       local.set $8
-       local.get $7
-       i32.const 1
-       i32.add
-       local.tee $7
-       local.get $2
-       i32.lt_s
-       br_if $continue|2
-      end
-     end
-     br $break|0
-    end
-    block $break|3
-     loop $continue|3
-      local.get $0
-      local.get $7
-      call $~lib/string/String#charCodeAt
-      i32.const 48
-      i32.sub
-      local.set $18
-      local.get $18
-      i32.const 74
-      i32.gt_u
-      if
-       br $break|3
-      end
-      local.get $9
-      local.get $18
-      call $~lib/array/Array<u8>#__get
-      local.set $10
-      local.get $10
-      i32.const 16
-      i32.ge_u
-      if
-       br $break|3
-      end
-      local.get $8
-      call $~lib/rt/stub/__retain
-      local.set $22
-      i32.const 4
-      local.set $4
-      local.get $4
-      i32.const 127
-      i32.and
-      local.set $4
-      local.get $4
-      i64.extend_i32_s
-      local.set $17
-      local.get $17
-      i64.const 127
-      i64.add
-      local.get $17
-      i64.or
-      i64.const 64
-      i64.and
-      i64.const 6
-      i64.shr_u
-      i64.const 1
-      i64.sub
-      local.set $16
-      local.get $17
-      i64.const 6
-      i64.shr_u
-      i64.const 1
-      i64.sub
-      local.set $13
-      local.get $17
-      i64.const 63
-      i64.and
-      local.set $17
-      local.get $22
-      i64.load
-      local.set $12
-      local.get $12
-      local.get $17
-      i64.shl
-      local.set $15
-      local.get $15
-      local.get $13
-      i64.const -1
-      i64.xor
-      i64.and
-      local.set $14
-      local.get $14
-      local.get $22
-      i64.load offset=8
-      local.get $17
-      i64.shl
-      local.get $12
-      i64.const 64
-      local.get $17
-      i64.sub
-      i64.shr_u
-      local.get $16
-      i64.and
-      i64.or
-      local.get $13
-      i64.and
-      i64.or
-      local.set $14
-      i32.const 0
-      local.get $15
-      local.get $13
-      i64.and
-      local.get $14
-      call $~lib/bignum/integer/u128/u128#constructor
-      local.set $21
-      local.get $22
-      call $~lib/rt/stub/__release
-      local.get $21
-      local.tee $22
-      local.tee $19
-      local.get $8
-      local.tee $4
-      i32.ne
-      if
-       local.get $19
-       call $~lib/rt/stub/__retain
-       drop
-       local.get $4
-       call $~lib/rt/stub/__release
-      end
-      local.get $19
-      local.set $8
-      local.get $8
-      call $~lib/rt/stub/__retain
-      local.set $11
-      local.get $10
-      i64.extend_i32_u
-      local.set $17
-      i32.const 0
-      local.get $17
-      i64.const 0
-      call $~lib/bignum/integer/u128/u128#constructor
-      local.tee $19
-      call $~lib/rt/stub/__retain
-      local.set $20
-      i32.const 0
-      local.get $11
-      i64.load
-      local.get $20
-      i64.load
-      i64.or
-      local.get $11
-      i64.load offset=8
-      local.get $20
-      i64.load offset=8
-      i64.or
-      call $~lib/bignum/integer/u128/u128#constructor
-      local.set $4
-      local.get $20
-      call $~lib/rt/stub/__release
-      local.get $11
-      call $~lib/rt/stub/__release
-      local.get $4
-      local.tee $11
-      local.tee $21
-      local.get $8
-      local.tee $20
-      i32.ne
-      if
-       local.get $21
-       call $~lib/rt/stub/__retain
-       drop
-       local.get $20
-       call $~lib/rt/stub/__release
-      end
-      local.get $21
-      local.set $8
-      local.get $7
-      i32.const 1
-      i32.add
-      local.tee $7
-      local.get $2
-      i32.lt_s
-      br_if $continue|3
-     end
-    end
-    br $break|0
-   end
-   local.get $1
-   i64.extend_i32_s
-   local.set $16
-   i32.const 0
-   local.get $16
-   i64.const 0
-   call $~lib/bignum/integer/u128/u128#constructor
-   local.set $11
-   block $break|4
-    loop $continue|4
-     local.get $0
-     local.get $7
-     call $~lib/string/String#charCodeAt
-     i32.const 48
-     i32.sub
-     local.set $19
-     local.get $19
-     i32.const 74
-     i32.gt_u
-     if
-      br $break|4
-     end
-     local.get $9
-     local.get $19
-     call $~lib/array/Array<u8>#__get
-     local.set $22
-     local.get $22
-     local.get $1
-     i32.const 255
-     i32.and
-     i32.ge_u
-     if
-      br $break|4
-     end
-     local.get $8
-     call $~lib/rt/stub/__retain
-     local.set $20
-     local.get $11
-     call $~lib/rt/stub/__retain
-     local.set $4
-     i32.const 0
-     local.get $20
-     i64.load
-     local.get $20
-     i64.load offset=8
-     local.get $4
-     i64.load
-     local.get $4
-     i64.load offset=8
-     call $~lib/bignum/globals/__multi3
-     i32.const 0
-     global.get $~lib/bignum/globals/__res128_lo
-     global.get $~lib/bignum/globals/__res128_hi
-     call $~lib/bignum/integer/u128/u128#constructor
-     local.set $10
-     local.get $4
-     call $~lib/rt/stub/__release
-     local.get $20
-     call $~lib/rt/stub/__release
-     local.get $10
-     local.tee $20
-     local.tee $21
-     local.get $8
-     local.tee $4
-     i32.ne
-     if
-      local.get $21
-      call $~lib/rt/stub/__retain
-      drop
-      local.get $4
-      call $~lib/rt/stub/__release
-     end
-     local.get $21
-     local.set $8
-     local.get $8
-     call $~lib/rt/stub/__retain
-     local.set $10
-     local.get $22
-     i64.extend_i32_u
-     local.set $13
-     i32.const 0
-     local.get $13
-     i64.const 0
-     call $~lib/bignum/integer/u128/u128#constructor
-     local.tee $21
-     call $~lib/rt/stub/__retain
-     local.set $18
-     local.get $18
-     i64.load
-     local.set $13
-     local.get $10
-     i64.load
-     local.get $13
-     i64.add
-     local.set $16
-     local.get $10
-     i64.load offset=8
-     local.get $18
-     i64.load offset=8
-     i64.add
-     local.get $16
-     local.get $13
-     i64.lt_u
-     i64.extend_i32_u
-     i64.add
-     local.set $17
-     i32.const 0
-     local.get $16
-     local.get $17
-     call $~lib/bignum/integer/u128/u128#constructor
-     local.set $4
-     local.get $18
-     call $~lib/rt/stub/__release
-     local.get $10
-     call $~lib/rt/stub/__release
-     local.get $4
-     local.tee $10
-     local.tee $4
-     local.get $8
-     local.tee $18
-     i32.ne
-     if
-      local.get $4
-      call $~lib/rt/stub/__retain
-      drop
-      local.get $18
-      call $~lib/rt/stub/__release
-     end
-     local.get $4
-     local.set $8
-     local.get $7
-     i32.const 1
-     i32.add
-     local.tee $7
-     local.get $2
-     i32.lt_s
-     br_if $continue|4
-    end
-   end
-   local.get $11
-   call $~lib/rt/stub/__release
-   br $break|0
-  end
-  local.get $6
-  if (result i32)
-   local.get $8
-   local.set $18
-   local.get $18
-   i64.load
-   i64.const -1
-   i64.xor
-   local.set $17
-   local.get $18
-   i64.load offset=8
-   i64.const -1
-   i64.xor
-   local.set $16
-   local.get $17
-   i64.const 1
-   i64.and
-   local.get $17
-   i64.const 1
-   i64.shr_u
-   i64.add
-   i64.const 63
-   i64.shr_u
-   local.set $13
-   i32.const 0
-   local.get $17
-   i64.const 1
-   i64.add
-   local.get $16
-   local.get $13
-   i64.add
-   call $~lib/bignum/integer/u128/u128#constructor
-   local.tee $18
-   local.tee $11
-  else   
-   local.get $8
-   call $~lib/rt/stub/__retain
-   local.tee $10
-  end
-  call $~lib/rt/stub/__retain
-  local.set $18
-  local.get $3
-  call $~lib/rt/stub/__release
-  local.get $0
-  call $~lib/rt/stub/__release
-  local.get $8
-  call $~lib/rt/stub/__release
-  local.get $9
-  call $~lib/rt/stub/__release
-  local.get $18
- )
- (func $model_near/__near_JSONHandler_FooBar#setString (; 280 ;) (type $FUNCSIG$viii) (param $0 i32) (param $1 i32) (param $2 i32)
-  (local $3 i32)
-  (local $4 i32)
-  (local $5 i32)
   local.get $1
   call $~lib/rt/stub/__retain
   drop
@@ -16488,8 +14903,7 @@
    local.get $0
    i32.load offset=12
    local.get $2
-   i32.const 0
-   call $~lib/number/U64.parseInt
+   i64.extend_i32_u
    i64.store offset=8
    local.get $1
    call $~lib/rt/stub/__release
@@ -16504,8 +14918,7 @@
    local.get $0
    i32.load offset=12
    local.get $2
-   i32.const 0
-   call $~lib/number/I64.parseInt
+   i64.extend_i32_u
    i64.store offset=16
    local.get $1
    call $~lib/rt/stub/__release
@@ -16549,11 +14962,18 @@
    i32.load offset=12
    local.tee $4
    local.get $2
-   call $~lib/near-runtime-ts/util/base64.decode
-   local.set $3
+   local.tee $3
    local.get $4
    i32.load offset=32
-   call $~lib/rt/stub/__release
+   local.tee $4
+   i32.ne
+   if
+    local.get $3
+    call $~lib/rt/stub/__retain
+    drop
+    local.get $4
+    call $~lib/rt/stub/__release
+   end
    local.get $3
    i32.store offset=32
    local.get $1
@@ -16570,22 +14990,19 @@
    i32.load offset=12
    local.tee $3
    local.get $2
-   call $~lib/rt/stub/__retain
-   local.set $4
-   i32.const 0
-   local.set $3
-   local.get $4
-   local.get $3
-   call $~lib/bignum/utils/atou128
-   local.set $5
-   local.get $4
-   call $~lib/rt/stub/__release
-   local.get $5
-   local.set $5
+   local.tee $4
    local.get $3
    i32.load offset=48
-   call $~lib/rt/stub/__release
-   local.get $5
+   local.tee $3
+   i32.ne
+   if
+    local.get $4
+    call $~lib/rt/stub/__retain
+    drop
+    local.get $3
+    call $~lib/rt/stub/__release
+   end
+   local.get $4
    i32.store offset=48
    local.get $1
    call $~lib/rt/stub/__release
@@ -16602,11 +15019,11 @@
   local.get $2
   call $~lib/rt/stub/__release
  )
- (func $~lib/assemblyscript-json/decoder/JSONDecoder<model_near/__near_JSONHandler_FooBar>#parseString (; 281 ;) (type $FUNCSIG$ii) (param $0 i32) (result i32)
+ (func $~lib/assemblyscript-json/decoder/JSONDecoder<model/__near_JSONHandler_FooBar>#parseString (; 273 ;) (type $FUNCSIG$ii) (param $0 i32) (result i32)
   (local $1 i32)
   (local $2 i32)
   local.get $0
-  call $~lib/assemblyscript-json/decoder/JSONDecoder<model_near/__near_JSONHandler_FooBar>#peekChar
+  call $~lib/assemblyscript-json/decoder/JSONDecoder<model/__near_JSONHandler_FooBar>#peekChar
   i32.const 1072
   i32.const 0
   call $~lib/string/String#charCodeAt
@@ -16621,16 +15038,16 @@
   i32.load offset=4
   i32.load
   local.get $0
-  call $~lib/assemblyscript-json/decoder/JSONDecoder<model_near/__near_JSONHandler_FooBar>#readString
+  call $~lib/assemblyscript-json/decoder/JSONDecoder<model/__near_JSONHandler_FooBar>#readString
   local.tee $1
-  call $model_near/__near_JSONHandler_FooBar#setString
+  call $model/__near_JSONHandler_FooBar#setString
   i32.const 1
   local.set $2
   local.get $1
   call $~lib/rt/stub/__release
   local.get $2
  )
- (func $~lib/assemblyscript-json/decoder/JSONDecoder<model_near/__near_JSONHandler_FooBar>#readAndAssert (; 282 ;) (type $FUNCSIG$vii) (param $0 i32) (param $1 i32)
+ (func $~lib/assemblyscript-json/decoder/JSONDecoder<model/__near_JSONHandler_FooBar>#readAndAssert (; 274 ;) (type $FUNCSIG$vii) (param $0 i32) (param $1 i32)
   (local $2 i32)
   (local $3 i32)
   (local $4 i32)
@@ -16651,15 +15068,15 @@
     local.get $2
     call $~lib/string/String#charCodeAt
     local.get $0
-    call $~lib/assemblyscript-json/decoder/JSONDecoder<model_near/__near_JSONHandler_FooBar>#readChar
+    call $~lib/assemblyscript-json/decoder/JSONDecoder<model/__near_JSONHandler_FooBar>#readChar
     i32.eq
     i32.eqz
     if
-     i32.const 3640
+     i32.const 3656
      local.get $1
      call $~lib/string/String.__concat
      local.tee $3
-     i32.const 3680
+     i32.const 3696
      call $~lib/string/String.__concat
      local.tee $4
      i32.const 2800
@@ -16683,7 +15100,7 @@
   local.get $1
   call $~lib/rt/stub/__release
  )
- (func $model_near/__near_JSONHandler_FooBar#setBoolean (; 283 ;) (type $FUNCSIG$viii) (param $0 i32) (param $1 i32) (param $2 i32)
+ (func $model/__near_JSONHandler_FooBar#setBoolean (; 275 ;) (type $FUNCSIG$viii) (param $0 i32) (param $1 i32) (param $2 i32)
   local.get $1
   call $~lib/rt/stub/__retain
   drop
@@ -16706,9 +15123,9 @@
   local.get $1
   call $~lib/rt/stub/__release
  )
- (func $~lib/assemblyscript-json/decoder/JSONDecoder<model_near/__near_JSONHandler_FooBar>#parseBoolean (; 284 ;) (type $FUNCSIG$ii) (param $0 i32) (result i32)
+ (func $~lib/assemblyscript-json/decoder/JSONDecoder<model/__near_JSONHandler_FooBar>#parseBoolean (; 276 ;) (type $FUNCSIG$ii) (param $0 i32) (result i32)
   local.get $0
-  call $~lib/assemblyscript-json/decoder/JSONDecoder<model_near/__near_JSONHandler_FooBar>#peekChar
+  call $~lib/assemblyscript-json/decoder/JSONDecoder<model/__near_JSONHandler_FooBar>#peekChar
   i32.const 504
   i32.const 0
   call $~lib/string/String#charCodeAt
@@ -16716,19 +15133,19 @@
   if
    local.get $0
    global.get $~lib/assemblyscript-json/decoder/FALSE_STR
-   call $~lib/assemblyscript-json/decoder/JSONDecoder<model_near/__near_JSONHandler_FooBar>#readAndAssert
+   call $~lib/assemblyscript-json/decoder/JSONDecoder<model/__near_JSONHandler_FooBar>#readAndAssert
    local.get $0
    i32.load
    local.get $0
    i32.load offset=4
    i32.load
    i32.const 0
-   call $model_near/__near_JSONHandler_FooBar#setBoolean
+   call $model/__near_JSONHandler_FooBar#setBoolean
    i32.const 1
    return
   end
   local.get $0
-  call $~lib/assemblyscript-json/decoder/JSONDecoder<model_near/__near_JSONHandler_FooBar>#peekChar
+  call $~lib/assemblyscript-json/decoder/JSONDecoder<model/__near_JSONHandler_FooBar>#peekChar
   i32.const 480
   i32.const 0
   call $~lib/string/String#charCodeAt
@@ -16736,20 +15153,20 @@
   if
    local.get $0
    global.get $~lib/assemblyscript-json/decoder/TRUE_STR
-   call $~lib/assemblyscript-json/decoder/JSONDecoder<model_near/__near_JSONHandler_FooBar>#readAndAssert
+   call $~lib/assemblyscript-json/decoder/JSONDecoder<model/__near_JSONHandler_FooBar>#readAndAssert
    local.get $0
    i32.load
    local.get $0
    i32.load offset=4
    i32.load
    i32.const 1
-   call $model_near/__near_JSONHandler_FooBar#setBoolean
+   call $model/__near_JSONHandler_FooBar#setBoolean
    i32.const 1
    return
   end
   i32.const 0
  )
- (func $model_near/__near_JSONHandler_FooBar#setInteger (; 285 ;) (type $FUNCSIG$viij) (param $0 i32) (param $1 i32) (param $2 i64)
+ (func $model/__near_JSONHandler_FooBar#setInteger (; 277 ;) (type $FUNCSIG$viij) (param $0 i32) (param $1 i32) (param $2 i64)
   local.get $1
   call $~lib/rt/stub/__retain
   drop
@@ -16786,7 +15203,7 @@
   local.get $1
   call $~lib/rt/stub/__release
  )
- (func $~lib/assemblyscript-json/decoder/JSONDecoder<model_near/__near_JSONHandler_FooBar>#parseNumber (; 286 ;) (type $FUNCSIG$ii) (param $0 i32) (result i32)
+ (func $~lib/assemblyscript-json/decoder/JSONDecoder<model/__near_JSONHandler_FooBar>#parseNumber (; 278 ;) (type $FUNCSIG$ii) (param $0 i32) (result i32)
   (local $1 i64)
   (local $2 i64)
   (local $3 i32)
@@ -16796,8 +15213,8 @@
   i64.const 1
   local.set $2
   local.get $0
-  call $~lib/assemblyscript-json/decoder/JSONDecoder<model_near/__near_JSONHandler_FooBar>#peekChar
-  i32.const 3792
+  call $~lib/assemblyscript-json/decoder/JSONDecoder<model/__near_JSONHandler_FooBar>#peekChar
+  i32.const 3808
   i32.const 0
   call $~lib/string/String#charCodeAt
   i32.eq
@@ -16805,7 +15222,7 @@
    i64.const -1
    local.set $2
    local.get $0
-   call $~lib/assemblyscript-json/decoder/JSONDecoder<model_near/__near_JSONHandler_FooBar>#readChar
+   call $~lib/assemblyscript-json/decoder/JSONDecoder<model/__near_JSONHandler_FooBar>#readChar
    drop
   end
   i32.const 0
@@ -16814,11 +15231,11 @@
    loop $continue|0
     global.get $~lib/assemblyscript-json/decoder/CHAR_0
     local.get $0
-    call $~lib/assemblyscript-json/decoder/JSONDecoder<model_near/__near_JSONHandler_FooBar>#peekChar
+    call $~lib/assemblyscript-json/decoder/JSONDecoder<model/__near_JSONHandler_FooBar>#peekChar
     i32.le_s
     if (result i32)
      local.get $0
-     call $~lib/assemblyscript-json/decoder/JSONDecoder<model_near/__near_JSONHandler_FooBar>#peekChar
+     call $~lib/assemblyscript-json/decoder/JSONDecoder<model/__near_JSONHandler_FooBar>#peekChar
      global.get $~lib/assemblyscript-json/decoder/CHAR_9
      i32.le_s
     else     
@@ -16827,7 +15244,7 @@
     i32.eqz
     br_if $break|0
     local.get $0
-    call $~lib/assemblyscript-json/decoder/JSONDecoder<model_near/__near_JSONHandler_FooBar>#readChar
+    call $~lib/assemblyscript-json/decoder/JSONDecoder<model/__near_JSONHandler_FooBar>#readChar
     local.set $4
     local.get $1
     i64.const 10
@@ -16860,132 +15277,18 @@
    local.get $1
    local.get $2
    i64.mul
-   call $model_near/__near_JSONHandler_FooBar#setInteger
+   call $model/__near_JSONHandler_FooBar#setInteger
    i32.const 1
    return
   end
   i32.const 0
  )
- (func $model_near/__near_JSONHandler_FooBar#setNull (; 287 ;) (type $FUNCSIG$vii) (param $0 i32) (param $1 i32)
+ (func $model/__near_JSONHandler_FooBar#setNull (; 279 ;) (type $FUNCSIG$vii) (param $0 i32) (param $1 i32)
   (local $2 i32)
   (local $3 i32)
   local.get $1
   call $~lib/rt/stub/__retain
   drop
-  local.get $1
-  i32.const 680
-  call $~lib/string/String.__eq
-  if
-   local.get $0
-   i32.load offset=12
-   i32.const 0
-   i32.store
-   local.get $1
-   call $~lib/rt/stub/__release
-   return
-  end
-  local.get $1
-  i32.const 2032
-  call $~lib/string/String.__eq
-  if
-   local.get $0
-   i32.load offset=12
-   i32.const 0
-   i32.store offset=4
-   local.get $1
-   call $~lib/rt/stub/__release
-   return
-  end
-  local.get $1
-  i32.const 2056
-  call $~lib/string/String.__eq
-  if
-   local.get $0
-   i32.load offset=12
-   i32.const 0
-   i64.extend_i32_u
-   i64.store offset=8
-   local.get $1
-   call $~lib/rt/stub/__release
-   return
-  end
-  local.get $1
-  i32.const 2088
-  call $~lib/string/String.__eq
-  if
-   local.get $0
-   i32.load offset=12
-   i32.const 0
-   i64.extend_i32_u
-   i64.store offset=16
-   local.get $1
-   call $~lib/rt/stub/__release
-   return
-  end
-  local.get $1
-  i32.const 2120
-  call $~lib/string/String.__eq
-  if
-   local.get $0
-   i32.load offset=12
-   i32.const 0
-   i32.store8 offset=24
-   local.get $1
-   call $~lib/rt/stub/__release
-   return
-  end
-  local.get $1
-  i32.const 2144
-  call $~lib/string/String.__eq
-  if
-   local.get $0
-   i32.load offset=12
-   local.tee $2
-   i32.const 0
-   local.tee $3
-   local.get $2
-   i32.load offset=28
-   local.tee $2
-   i32.ne
-   if
-    local.get $3
-    call $~lib/rt/stub/__retain
-    drop
-    local.get $2
-    call $~lib/rt/stub/__release
-   end
-   local.get $3
-   i32.store offset=28
-   local.get $1
-   call $~lib/rt/stub/__release
-   return
-  end
-  local.get $1
-  i32.const 2168
-  call $~lib/string/String.__eq
-  if
-   local.get $0
-   i32.load offset=12
-   local.tee $3
-   i32.const 0
-   local.tee $2
-   local.get $3
-   i32.load offset=32
-   local.tee $3
-   i32.ne
-   if
-    local.get $2
-    call $~lib/rt/stub/__retain
-    drop
-    local.get $3
-    call $~lib/rt/stub/__release
-   end
-   local.get $2
-   i32.store offset=32
-   local.get $1
-   call $~lib/rt/stub/__release
-   return
-  end
   local.get $1
   i32.const 2208
   call $~lib/string/String.__eq
@@ -17065,52 +15368,26 @@
    return
   end
   local.get $1
-  i32.const 2392
-  call $~lib/string/String.__eq
-  if
-   local.get $0
-   i32.load offset=12
-   local.tee $3
-   i32.const 0
-   local.tee $2
-   local.get $3
-   i32.load offset=48
-   local.tee $3
-   i32.ne
-   if
-    local.get $2
-    call $~lib/rt/stub/__retain
-    drop
-    local.get $3
-    call $~lib/rt/stub/__release
-   end
-   local.get $2
-   i32.store offset=48
-   local.get $1
-   call $~lib/rt/stub/__release
-   return
-  end
-  local.get $1
   i32.const 2632
   call $~lib/string/String.__eq
   if
    local.get $0
    i32.load offset=12
-   local.tee $2
-   i32.const 0
    local.tee $3
-   local.get $2
-   i32.load offset=52
+   i32.const 0
    local.tee $2
+   local.get $3
+   i32.load offset=52
+   local.tee $3
    i32.ne
    if
-    local.get $3
+    local.get $2
     call $~lib/rt/stub/__retain
     drop
-    local.get $2
+    local.get $3
     call $~lib/rt/stub/__release
    end
-   local.get $3
+   local.get $2
    i32.store offset=52
    local.get $1
    call $~lib/rt/stub/__release
@@ -17122,9 +15399,9 @@
   local.get $1
   call $~lib/rt/stub/__release
  )
- (func $~lib/assemblyscript-json/decoder/JSONDecoder<model_near/__near_JSONHandler_FooBar>#parseNull (; 288 ;) (type $FUNCSIG$ii) (param $0 i32) (result i32)
+ (func $~lib/assemblyscript-json/decoder/JSONDecoder<model/__near_JSONHandler_FooBar>#parseNull (; 280 ;) (type $FUNCSIG$ii) (param $0 i32) (result i32)
   local.get $0
-  call $~lib/assemblyscript-json/decoder/JSONDecoder<model_near/__near_JSONHandler_FooBar>#peekChar
+  call $~lib/assemblyscript-json/decoder/JSONDecoder<model/__near_JSONHandler_FooBar>#peekChar
   i32.const 536
   i32.const 0
   call $~lib/string/String#charCodeAt
@@ -17132,65 +15409,65 @@
   if
    local.get $0
    global.get $~lib/assemblyscript-json/decoder/NULL_STR
-   call $~lib/assemblyscript-json/decoder/JSONDecoder<model_near/__near_JSONHandler_FooBar>#readAndAssert
+   call $~lib/assemblyscript-json/decoder/JSONDecoder<model/__near_JSONHandler_FooBar>#readAndAssert
    local.get $0
    i32.load
    local.get $0
    i32.load offset=4
    i32.load
-   call $model_near/__near_JSONHandler_FooBar#setNull
+   call $model/__near_JSONHandler_FooBar#setNull
    i32.const 1
    return
   end
   i32.const 0
  )
- (func $~lib/assemblyscript-json/decoder/JSONDecoder<model_near/__near_JSONHandler_FooBar>#parseValue (; 289 ;) (type $FUNCSIG$ii) (param $0 i32) (result i32)
+ (func $~lib/assemblyscript-json/decoder/JSONDecoder<model/__near_JSONHandler_FooBar>#parseValue (; 281 ;) (type $FUNCSIG$ii) (param $0 i32) (result i32)
   (local $1 i32)
   local.get $0
-  call $~lib/assemblyscript-json/decoder/JSONDecoder<model_near/__near_JSONHandler_FooBar>#skipWhitespace
+  call $~lib/assemblyscript-json/decoder/JSONDecoder<model/__near_JSONHandler_FooBar>#skipWhitespace
   local.get $0
-  call $~lib/assemblyscript-json/decoder/JSONDecoder<model_near/__near_JSONHandler_FooBar>#parseObject
+  call $~lib/assemblyscript-json/decoder/JSONDecoder<model/__near_JSONHandler_FooBar>#parseObject
   local.tee $1
   if (result i32)
    local.get $1
   else   
    local.get $0
-   call $~lib/assemblyscript-json/decoder/JSONDecoder<model_near/__near_JSONHandler_FooBar>#parseArray
+   call $~lib/assemblyscript-json/decoder/JSONDecoder<model/__near_JSONHandler_FooBar>#parseArray
   end
   local.tee $1
   if (result i32)
    local.get $1
   else   
    local.get $0
-   call $~lib/assemblyscript-json/decoder/JSONDecoder<model_near/__near_JSONHandler_FooBar>#parseString
+   call $~lib/assemblyscript-json/decoder/JSONDecoder<model/__near_JSONHandler_FooBar>#parseString
   end
   local.tee $1
   if (result i32)
    local.get $1
   else   
    local.get $0
-   call $~lib/assemblyscript-json/decoder/JSONDecoder<model_near/__near_JSONHandler_FooBar>#parseBoolean
+   call $~lib/assemblyscript-json/decoder/JSONDecoder<model/__near_JSONHandler_FooBar>#parseBoolean
   end
   local.tee $1
   if (result i32)
    local.get $1
   else   
    local.get $0
-   call $~lib/assemblyscript-json/decoder/JSONDecoder<model_near/__near_JSONHandler_FooBar>#parseNumber
+   call $~lib/assemblyscript-json/decoder/JSONDecoder<model/__near_JSONHandler_FooBar>#parseNumber
   end
   local.tee $1
   if (result i32)
    local.get $1
   else   
    local.get $0
-   call $~lib/assemblyscript-json/decoder/JSONDecoder<model_near/__near_JSONHandler_FooBar>#parseNull
+   call $~lib/assemblyscript-json/decoder/JSONDecoder<model/__near_JSONHandler_FooBar>#parseNull
   end
   local.set $1
   local.get $0
-  call $~lib/assemblyscript-json/decoder/JSONDecoder<model_near/__near_JSONHandler_FooBar>#skipWhitespace
+  call $~lib/assemblyscript-json/decoder/JSONDecoder<model/__near_JSONHandler_FooBar>#skipWhitespace
   local.get $1
  )
- (func $~lib/assemblyscript-json/decoder/JSONDecoder<model_near/__near_JSONHandler_FooBar>#deserialize (; 290 ;) (type $FUNCSIG$viii) (param $0 i32) (param $1 i32) (param $2 i32)
+ (func $~lib/assemblyscript-json/decoder/JSONDecoder<model/__near_JSONHandler_FooBar>#deserialize (; 282 ;) (type $FUNCSIG$viii) (param $0 i32) (param $1 i32) (param $2 i32)
   (local $3 i32)
   (local $4 i32)
   local.get $1
@@ -17234,12 +15511,12 @@
    i32.store offset=4
   end
   local.get $0
-  call $~lib/assemblyscript-json/decoder/JSONDecoder<model_near/__near_JSONHandler_FooBar>#parseValue
+  call $~lib/assemblyscript-json/decoder/JSONDecoder<model/__near_JSONHandler_FooBar>#parseValue
   i32.const 0
   i32.ne
   i32.eqz
   if
-   i32.const 3888
+   i32.const 3904
    i32.const 2800
    i32.const 100
    i32.const 4
@@ -17251,7 +15528,7 @@
   local.get $2
   call $~lib/rt/stub/__release
  )
- (func $model_near/__near_decode_FooBar (; 291 ;) (type $FUNCSIG$iiii) (param $0 i32) (param $1 i32) (param $2 i32) (result i32)
+ (func $model/__near_decode_FooBar (; 283 ;) (type $FUNCSIG$iiii) (param $0 i32) (param $1 i32) (param $2 i32) (result i32)
   (local $3 i32)
   (local $4 i32)
   (local $5 i32)
@@ -17269,7 +15546,7 @@
   i32.eq
   if
    i32.const 0
-   call $model_near/FooBar#constructor
+   call $model/FooBar#constructor
    local.set $3
    local.get $2
    call $~lib/rt/stub/__release
@@ -17278,7 +15555,7 @@
   end
   i32.const 0
   local.get $2
-  call $model_near/__near_JSONHandler_FooBar#constructor
+  call $model/__near_JSONHandler_FooBar#constructor
   local.set $3
   local.get $3
   local.tee $4
@@ -17301,7 +15578,7 @@
   local.tee $5
   i32.const 0
   local.get $3
-  call $~lib/assemblyscript-json/decoder/JSONDecoder<model_near/__near_JSONHandler_FooBar>#constructor
+  call $~lib/assemblyscript-json/decoder/JSONDecoder<model/__near_JSONHandler_FooBar>#constructor
   local.set $4
   local.get $5
   i32.load offset=4
@@ -17312,7 +15589,7 @@
   i32.load offset=4
   local.get $0
   local.get $1
-  call $~lib/assemblyscript-json/decoder/JSONDecoder<model_near/__near_JSONHandler_FooBar>#deserialize
+  call $~lib/assemblyscript-json/decoder/JSONDecoder<model/__near_JSONHandler_FooBar>#deserialize
   local.get $2
   local.set $4
   local.get $3
@@ -17323,50 +15600,62 @@
   call $~lib/rt/stub/__release
   local.get $4
  )
- (func $model_near/FooBar#decode (; 292 ;) (type $FUNCSIG$iii) (param $0 i32) (param $1 i32) (result i32)
-  (local $2 i32)
+ (func $model/FooBar#decode (; 284 ;) (type $FUNCSIG$iiii) (param $0 i32) (param $1 i32) (param $2 i32) (result i32)
+  (local $3 i32)
   local.get $1
   call $~lib/rt/stub/__retain
   drop
+  local.get $2
+  call $~lib/rt/stub/__retain
+  drop
   local.get $1
-  i32.const 0
+  local.get $2
   local.get $0
-  call $model_near/__near_decode_FooBar
+  call $model/__near_decode_FooBar
   call $~lib/rt/stub/__release
   local.get $0
   call $~lib/rt/stub/__retain
-  local.set $2
+  local.set $3
   local.get $1
   call $~lib/rt/stub/__release
   local.get $2
+  call $~lib/rt/stub/__release
+  local.get $3
  )
- (func $model_near/FooBar.decode (; 293 ;) (type $FUNCSIG$ii) (param $0 i32) (result i32)
-  (local $1 i32)
+ (func $model/FooBar.decode (; 285 ;) (type $FUNCSIG$iii) (param $0 i32) (param $1 i32) (result i32)
   (local $2 i32)
+  (local $3 i32)
   local.get $0
   call $~lib/rt/stub/__retain
   drop
+  local.get $1
+  call $~lib/rt/stub/__retain
+  drop
   i32.const 0
-  call $model_near/FooBar#constructor
-  local.set $1
-  local.get $1
-  local.get $0
-  call $model_near/FooBar#decode
-  call $~lib/rt/stub/__release
-  local.get $1
+  call $model/FooBar#constructor
   local.set $2
+  local.get $2
   local.get $0
+  local.get $1
+  call $model/FooBar#decode
   call $~lib/rt/stub/__release
   local.get $2
+  local.set $3
+  local.get $0
+  call $~lib/rt/stub/__release
+  local.get $1
+  call $~lib/rt/stub/__release
+  local.get $3
  )
- (func $test/runTest (; 294 ;) (type $FUNCSIG$v)
+ (func $test/runTest (; 286 ;) (type $FUNCSIG$v)
   (local $0 i32)
   (local $1 i32)
   (local $2 i32)
   (local $3 i32)
   (local $4 i32)
+  (local $5 i32)
   i32.const 0
-  call $model_near/FooBar#constructor
+  call $model/FooBar#constructor
   local.set $0
   local.get $0
   i32.const 321
@@ -17441,35 +15730,40 @@
   local.tee $2
   call $~lib/array/Array<~lib/typedarray/Uint8Array>#__set
   local.get $0
-  call $model_near/FooBar#encode
-  local.set $3
-  local.get $3
-  call $model_near/FooBar.decode
+  i32.const 0
+  i32.const 760
+  call $model/FooBar#encode
+  local.tee $3
+  call $~lib/assemblyscript-json/encoder/JSONEncoder#serialize
   local.set $4
+  local.get $4
+  i32.const 0
+  call $model/FooBar.decode
+  local.set $5
   local.get $0
   i32.load
-  local.get $4
+  local.get $5
   i32.load
   i32.eq
   i32.eqz
   if
    i32.const 0
-   i32.const 4392
-   i32.const 26
+   i32.const 4176
+   i32.const 25
    i32.const 4
    call $~lib/builtins/abort
    unreachable
   end
   local.get $0
   i32.load offset=4
-  local.get $4
+  local.get $5
   i32.load offset=4
   i32.eq
   i32.eqz
   if
    i32.const 0
-   i32.const 4392
-   i32.const 27
+   i32.const 4176
+   i32.const 26
    i32.const 4
    call $~lib/builtins/abort
    unreachable
@@ -17484,8 +15778,10 @@
   call $~lib/rt/stub/__release
   local.get $4
   call $~lib/rt/stub/__release
+  local.get $5
+  call $~lib/rt/stub/__release
  )
- (func $~lib/near-runtime-ts/util/ptrTo (; 295 ;) (type $FUNCSIG$ii) (param $0 i32) (result i32)
+ (func $~lib/near-runtime-ts/util/ptrTo (; 287 ;) (type $FUNCSIG$ii) (param $0 i32) (result i32)
   (local $1 i32)
   local.get $0
   call $~lib/rt/stub/__retain
@@ -17497,7 +15793,7 @@
   call $~lib/rt/stub/__release
   local.get $1
  )
- (func $~lib/near-runtime-ts/storage/Storage#_internalBufferRead (; 296 ;) (type $FUNCSIG$iiiii) (param $0 i32) (param $1 i32) (param $2 i32) (param $3 i32) (result i32)
+ (func $~lib/near-runtime-ts/storage/Storage#_internalBufferRead (; 288 ;) (type $FUNCSIG$iiiii) (param $0 i32) (param $1 i32) (param $2 i32) (param $3 i32) (result i32)
   (local $4 i32)
   (local $5 i32)
   (local $6 i32)
@@ -17553,8 +15849,8 @@
   i32.const 0
   i32.eqz
   if
-   i32.const 4424
-   i32.const 4544
+   i32.const 4208
+   i32.const 4328
    i32.const 213
    i32.const 6
    call $~lib/builtins/abort
@@ -17562,7 +15858,7 @@
   end
   i32.const 0
  )
- (func $~lib/near-runtime-ts/storage/Storage#_internalReadBytes (; 297 ;) (type $FUNCSIG$iiiii) (param $0 i32) (param $1 i32) (param $2 i32) (param $3 i32) (result i32)
+ (func $~lib/near-runtime-ts/storage/Storage#_internalReadBytes (; 289 ;) (type $FUNCSIG$iiiii) (param $0 i32) (param $1 i32) (param $2 i32) (param $3 i32) (result i32)
   (local $4 i32)
   (local $5 i32)
   local.get $0
@@ -17592,12 +15888,12 @@
   call $~lib/memory/memory.copy
   local.get $5
  )
- (func $main_near/__near_ArgsParser_convertFoobars#constructor (; 298 ;) (type $FUNCSIG$ii) (param $0 i32) (result i32)
+ (func $main/__near_ArgsParser_convertFoobars#constructor (; 290 ;) (type $FUNCSIG$ii) (param $0 i32) (result i32)
   local.get $0
   i32.eqz
   if
    i32.const 16
-   i32.const 31
+   i32.const 30
    call $~lib/rt/stub/__alloc
    call $~lib/rt/stub/__retain
    local.set $0
@@ -17619,7 +15915,7 @@
   i32.store offset=12
   local.get $0
  )
- (func $~lib/assemblyscript-json/decoder/JSONDecoder<main_near/__near_ArgsParser_convertFoobars>#constructor (; 299 ;) (type $FUNCSIG$iii) (param $0 i32) (param $1 i32) (result i32)
+ (func $~lib/assemblyscript-json/decoder/JSONDecoder<main/__near_ArgsParser_convertFoobars>#constructor (; 291 ;) (type $FUNCSIG$iii) (param $0 i32) (param $1 i32) (result i32)
   (local $2 i32)
   (local $3 i32)
   local.get $1
@@ -17629,7 +15925,7 @@
   i32.eqz
   if
    i32.const 8
-   i32.const 32
+   i32.const 31
    call $~lib/rt/stub/__alloc
    call $~lib/rt/stub/__retain
    local.set $0
@@ -17661,7 +15957,7 @@
   call $~lib/rt/stub/__release
   local.get $0
  )
- (func $~lib/assemblyscript-json/decoder/JSONDecoder<main_near/__near_ArgsParser_convertFoobars>#peekChar (; 300 ;) (type $FUNCSIG$ii) (param $0 i32) (result i32)
+ (func $~lib/assemblyscript-json/decoder/JSONDecoder<main/__near_ArgsParser_convertFoobars>#peekChar (; 292 ;) (type $FUNCSIG$ii) (param $0 i32) (result i32)
   local.get $0
   i32.load offset=4
   i32.load offset=4
@@ -17682,7 +15978,7 @@
   i32.load offset=4
   call $~lib/typedarray/Uint8Array#__get
  )
- (func $~lib/assemblyscript-json/decoder/JSONDecoder<main_near/__near_ArgsParser_convertFoobars>#isWhitespace (; 301 ;) (type $FUNCSIG$iii) (param $0 i32) (param $1 i32) (result i32)
+ (func $~lib/assemblyscript-json/decoder/JSONDecoder<main/__near_ArgsParser_convertFoobars>#isWhitespace (; 293 ;) (type $FUNCSIG$iii) (param $0 i32) (param $1 i32) (result i32)
   local.get $1
   i32.const 9
   i32.eq
@@ -17708,7 +16004,7 @@
    i32.eq
   end
  )
- (func $~lib/assemblyscript-json/decoder/JSONDecoder<main_near/__near_ArgsParser_convertFoobars>#readChar (; 302 ;) (type $FUNCSIG$ii) (param $0 i32) (result i32)
+ (func $~lib/assemblyscript-json/decoder/JSONDecoder<main/__near_ArgsParser_convertFoobars>#readChar (; 294 ;) (type $FUNCSIG$ii) (param $0 i32) (result i32)
   (local $1 i32)
   local.get $0
   i32.load offset=4
@@ -17742,24 +16038,24 @@
   local.get $1
   call $~lib/typedarray/Uint8Array#__get
  )
- (func $~lib/assemblyscript-json/decoder/JSONDecoder<main_near/__near_ArgsParser_convertFoobars>#skipWhitespace (; 303 ;) (type $FUNCSIG$vi) (param $0 i32)
+ (func $~lib/assemblyscript-json/decoder/JSONDecoder<main/__near_ArgsParser_convertFoobars>#skipWhitespace (; 295 ;) (type $FUNCSIG$vi) (param $0 i32)
   block $break|0
    loop $continue|0
     local.get $0
     local.get $0
-    call $~lib/assemblyscript-json/decoder/JSONDecoder<main_near/__near_ArgsParser_convertFoobars>#peekChar
-    call $~lib/assemblyscript-json/decoder/JSONDecoder<main_near/__near_ArgsParser_convertFoobars>#isWhitespace
+    call $~lib/assemblyscript-json/decoder/JSONDecoder<main/__near_ArgsParser_convertFoobars>#peekChar
+    call $~lib/assemblyscript-json/decoder/JSONDecoder<main/__near_ArgsParser_convertFoobars>#isWhitespace
     i32.eqz
     br_if $break|0
     local.get $0
-    call $~lib/assemblyscript-json/decoder/JSONDecoder<main_near/__near_ArgsParser_convertFoobars>#readChar
+    call $~lib/assemblyscript-json/decoder/JSONDecoder<main/__near_ArgsParser_convertFoobars>#readChar
     drop
     br $continue|0
    end
    unreachable
   end
  )
- (func $main_near/__near_ArgsParser_convertFoobars#pushObject (; 304 ;) (type $FUNCSIG$iii) (param $0 i32) (param $1 i32) (result i32)
+ (func $main/__near_ArgsParser_convertFoobars#pushObject (; 296 ;) (type $FUNCSIG$iii) (param $0 i32) (param $1 i32) (result i32)
   (local $2 i32)
   local.get $1
   call $~lib/rt/stub/__retain
@@ -17784,9 +16080,9 @@
    i32.eqz
    if
     i32.const 0
-    i32.const 4624
-    i32.const 320
-    i32.const 6
+    i32.const 3560
+    i32.const 367
+    i32.const 8
     call $~lib/builtins/abort
     unreachable
    end
@@ -17814,9 +16110,9 @@
    i32.eqz
    if
     i32.const 0
-    i32.const 4624
-    i32.const 324
-    i32.const 6
+    i32.const 3560
+    i32.const 371
+    i32.const 8
     call $~lib/builtins/abort
     unreachable
    end
@@ -17829,13 +16125,13 @@
   call $~lib/rt/stub/__release
   local.get $2
  )
- (func $~lib/assemblyscript-json/decoder/JSONDecoder<main_near/__near_ArgsParser_convertFoobars>#readHexDigit (; 305 ;) (type $FUNCSIG$ii) (param $0 i32) (result i32)
+ (func $~lib/assemblyscript-json/decoder/JSONDecoder<main/__near_ArgsParser_convertFoobars>#readHexDigit (; 297 ;) (type $FUNCSIG$ii) (param $0 i32) (result i32)
   (local $1 i32)
   (local $2 i32)
   (local $3 i32)
   (local $4 i32)
   local.get $0
-  call $~lib/assemblyscript-json/decoder/JSONDecoder<main_near/__near_ArgsParser_convertFoobars>#readChar
+  call $~lib/assemblyscript-json/decoder/JSONDecoder<main/__near_ArgsParser_convertFoobars>#readChar
   local.set $1
   local.get $1
   global.get $~lib/assemblyscript-json/decoder/CHAR_0
@@ -17900,7 +16196,7 @@
   end
   i32.eqz
   if
-   i32.const 3336
+   i32.const 3320
    i32.const 2800
    i32.const 269
    i32.const 4
@@ -17913,7 +16209,7 @@
   call $~lib/rt/stub/__release
   local.get $3
  )
- (func $~lib/assemblyscript-json/decoder/JSONDecoder<main_near/__near_ArgsParser_convertFoobars>#readEscapedChar (; 306 ;) (type $FUNCSIG$ii) (param $0 i32) (result i32)
+ (func $~lib/assemblyscript-json/decoder/JSONDecoder<main/__near_ArgsParser_convertFoobars>#readEscapedChar (; 298 ;) (type $FUNCSIG$ii) (param $0 i32) (result i32)
   (local $1 i32)
   (local $2 i32)
   (local $3 i32)
@@ -17921,7 +16217,7 @@
   (local $5 i32)
   (local $6 i32)
   local.get $0
-  call $~lib/assemblyscript-json/decoder/JSONDecoder<main_near/__near_ArgsParser_convertFoobars>#readChar
+  call $~lib/assemblyscript-json/decoder/JSONDecoder<main/__near_ArgsParser_convertFoobars>#readChar
   local.set $1
   local.get $1
   i32.const 1072
@@ -17944,17 +16240,17 @@
    return
   end
   local.get $1
-  i32.const 3192
+  i32.const 3176
   i32.const 0
   call $~lib/string/String#charCodeAt
   i32.eq
   if
-   i32.const 3192
+   i32.const 3176
    call $~lib/rt/stub/__retain
    return
   end
   local.get $1
-  i32.const 3216
+  i32.const 3200
   i32.const 0
   call $~lib/string/String#charCodeAt
   i32.eq
@@ -17964,7 +16260,7 @@
    return
   end
   local.get $1
-  i32.const 3240
+  i32.const 3224
   i32.const 0
   call $~lib/string/String#charCodeAt
   i32.eq
@@ -17974,7 +16270,7 @@
    return
   end
   local.get $1
-  i32.const 3264
+  i32.const 3248
   i32.const 0
   call $~lib/string/String#charCodeAt
   i32.eq
@@ -17984,7 +16280,7 @@
    return
   end
   local.get $1
-  i32.const 3288
+  i32.const 3272
   i32.const 0
   call $~lib/string/String#charCodeAt
   i32.eq
@@ -17994,22 +16290,22 @@
    return
   end
   local.get $1
-  i32.const 3312
+  i32.const 3296
   i32.const 0
   call $~lib/string/String#charCodeAt
   i32.eq
   if
    local.get $0
-   call $~lib/assemblyscript-json/decoder/JSONDecoder<main_near/__near_ArgsParser_convertFoobars>#readHexDigit
+   call $~lib/assemblyscript-json/decoder/JSONDecoder<main/__near_ArgsParser_convertFoobars>#readHexDigit
    local.set $2
    local.get $0
-   call $~lib/assemblyscript-json/decoder/JSONDecoder<main_near/__near_ArgsParser_convertFoobars>#readHexDigit
+   call $~lib/assemblyscript-json/decoder/JSONDecoder<main/__near_ArgsParser_convertFoobars>#readHexDigit
    local.set $3
    local.get $0
-   call $~lib/assemblyscript-json/decoder/JSONDecoder<main_near/__near_ArgsParser_convertFoobars>#readHexDigit
+   call $~lib/assemblyscript-json/decoder/JSONDecoder<main/__near_ArgsParser_convertFoobars>#readHexDigit
    local.set $4
    local.get $0
-   call $~lib/assemblyscript-json/decoder/JSONDecoder<main_near/__near_ArgsParser_convertFoobars>#readHexDigit
+   call $~lib/assemblyscript-json/decoder/JSONDecoder<main/__near_ArgsParser_convertFoobars>#readHexDigit
    local.set $5
    local.get $2
    i32.const 4096
@@ -18032,7 +16328,7 @@
   i32.const 0
   i32.eqz
   if
-   i32.const 3392
+   i32.const 3376
    i32.const 1
    global.set $~lib/argc
    local.get $1
@@ -18056,21 +16352,21 @@
   call $~lib/rt/stub/__release
   local.get $4
  )
- (func $~lib/assemblyscript-json/decoder/JSONDecoder<main_near/__near_ArgsParser_convertFoobars>#readString (; 307 ;) (type $FUNCSIG$ii) (param $0 i32) (result i32)
+ (func $~lib/assemblyscript-json/decoder/JSONDecoder<main/__near_ArgsParser_convertFoobars>#readString (; 299 ;) (type $FUNCSIG$ii) (param $0 i32) (result i32)
   (local $1 i32)
   (local $2 i32)
   (local $3 i32)
   (local $4 i32)
   (local $5 i32)
   local.get $0
-  call $~lib/assemblyscript-json/decoder/JSONDecoder<main_near/__near_ArgsParser_convertFoobars>#readChar
+  call $~lib/assemblyscript-json/decoder/JSONDecoder<main/__near_ArgsParser_convertFoobars>#readChar
   i32.const 1072
   i32.const 0
   call $~lib/string/String#charCodeAt
   i32.eq
   i32.eqz
   if
-   i32.const 3040
+   i32.const 3024
    i32.const 2800
    i32.const 197
    i32.const 4
@@ -18087,14 +16383,14 @@
   local.set $2
   loop $loop|0
    local.get $0
-   call $~lib/assemblyscript-json/decoder/JSONDecoder<main_near/__near_ArgsParser_convertFoobars>#readChar
+   call $~lib/assemblyscript-json/decoder/JSONDecoder<main/__near_ArgsParser_convertFoobars>#readChar
    local.set $3
    local.get $3
    i32.const 32
    i32.ge_s
    i32.eqz
    if
-    i32.const 3120
+    i32.const 3104
     i32.const 2800
     i32.const 203
     i32.const 6
@@ -18172,7 +16468,7 @@
      end
      local.get $2
      local.get $0
-     call $~lib/assemblyscript-json/decoder/JSONDecoder<main_near/__near_ArgsParser_convertFoobars>#readEscapedChar
+     call $~lib/assemblyscript-json/decoder/JSONDecoder<main/__near_ArgsParser_convertFoobars>#readEscapedChar
      local.tee $4
      call $~lib/array/Array<~lib/string/String>#push
      drop
@@ -18188,16 +16484,16 @@
   end
   unreachable
  )
- (func $~lib/assemblyscript-json/decoder/JSONDecoder<main_near/__near_ArgsParser_convertFoobars>#parseKey (; 308 ;) (type $FUNCSIG$vi) (param $0 i32)
+ (func $~lib/assemblyscript-json/decoder/JSONDecoder<main/__near_ArgsParser_convertFoobars>#parseKey (; 300 ;) (type $FUNCSIG$vi) (param $0 i32)
   (local $1 i32)
   (local $2 i32)
   local.get $0
-  call $~lib/assemblyscript-json/decoder/JSONDecoder<main_near/__near_ArgsParser_convertFoobars>#skipWhitespace
+  call $~lib/assemblyscript-json/decoder/JSONDecoder<main/__near_ArgsParser_convertFoobars>#skipWhitespace
   local.get $0
   i32.load offset=4
   local.tee $1
   local.get $0
-  call $~lib/assemblyscript-json/decoder/JSONDecoder<main_near/__near_ArgsParser_convertFoobars>#readString
+  call $~lib/assemblyscript-json/decoder/JSONDecoder<main/__near_ArgsParser_convertFoobars>#readString
   local.set $2
   local.get $1
   i32.load
@@ -18205,16 +16501,16 @@
   local.get $2
   i32.store
   local.get $0
-  call $~lib/assemblyscript-json/decoder/JSONDecoder<main_near/__near_ArgsParser_convertFoobars>#skipWhitespace
+  call $~lib/assemblyscript-json/decoder/JSONDecoder<main/__near_ArgsParser_convertFoobars>#skipWhitespace
   local.get $0
-  call $~lib/assemblyscript-json/decoder/JSONDecoder<main_near/__near_ArgsParser_convertFoobars>#readChar
+  call $~lib/assemblyscript-json/decoder/JSONDecoder<main/__near_ArgsParser_convertFoobars>#readChar
   i32.const 1984
   i32.const 0
   call $~lib/string/String#charCodeAt
   i32.eq
   i32.eqz
   if
-   i32.const 3472
+   i32.const 3456
    i32.const 2800
    i32.const 159
    i32.const 4
@@ -18222,12 +16518,12 @@
    unreachable
   end
  )
- (func $~lib/assemblyscript-json/decoder/JSONDecoder<main_near/__near_ArgsParser_convertFoobars>#parseObject (; 309 ;) (type $FUNCSIG$ii) (param $0 i32) (result i32)
+ (func $~lib/assemblyscript-json/decoder/JSONDecoder<main/__near_ArgsParser_convertFoobars>#parseObject (; 301 ;) (type $FUNCSIG$ii) (param $0 i32) (result i32)
   (local $1 i32)
   (local $2 i32)
   (local $3 i32)
   local.get $0
-  call $~lib/assemblyscript-json/decoder/JSONDecoder<main_near/__near_ArgsParser_convertFoobars>#peekChar
+  call $~lib/assemblyscript-json/decoder/JSONDecoder<main/__near_ArgsParser_convertFoobars>#peekChar
   i32.const 2008
   i32.const 0
   call $~lib/string/String#charCodeAt
@@ -18262,19 +16558,19 @@
   local.get $0
   i32.load
   local.get $1
-  call $main_near/__near_ArgsParser_convertFoobars#pushObject
+  call $main/__near_ArgsParser_convertFoobars#pushObject
   if
    local.get $0
-   call $~lib/assemblyscript-json/decoder/JSONDecoder<main_near/__near_ArgsParser_convertFoobars>#readChar
+   call $~lib/assemblyscript-json/decoder/JSONDecoder<main/__near_ArgsParser_convertFoobars>#readChar
    drop
    local.get $0
-   call $~lib/assemblyscript-json/decoder/JSONDecoder<main_near/__near_ArgsParser_convertFoobars>#skipWhitespace
+   call $~lib/assemblyscript-json/decoder/JSONDecoder<main/__near_ArgsParser_convertFoobars>#skipWhitespace
    i32.const 1
    local.set $3
    block $break|0
     loop $continue|0
      local.get $0
-     call $~lib/assemblyscript-json/decoder/JSONDecoder<main_near/__near_ArgsParser_convertFoobars>#peekChar
+     call $~lib/assemblyscript-json/decoder/JSONDecoder<main/__near_ArgsParser_convertFoobars>#peekChar
      i32.const 2672
      i32.const 0
      call $~lib/string/String#charCodeAt
@@ -18285,14 +16581,14 @@
      i32.eqz
      if
       local.get $0
-      call $~lib/assemblyscript-json/decoder/JSONDecoder<main_near/__near_ArgsParser_convertFoobars>#readChar
+      call $~lib/assemblyscript-json/decoder/JSONDecoder<main/__near_ArgsParser_convertFoobars>#readChar
       i32.const 1048
       i32.const 0
       call $~lib/string/String#charCodeAt
       i32.eq
       i32.eqz
       if
-       i32.const 3000
+       i32.const 2984
        i32.const 2800
        i32.const 142
        i32.const 10
@@ -18304,23 +16600,23 @@
       local.set $3
      end
      local.get $0
-     call $~lib/assemblyscript-json/decoder/JSONDecoder<main_near/__near_ArgsParser_convertFoobars>#parseKey
+     call $~lib/assemblyscript-json/decoder/JSONDecoder<main/__near_ArgsParser_convertFoobars>#parseKey
      local.get $0
-     call $~lib/assemblyscript-json/decoder/JSONDecoder<main_near/__near_ArgsParser_convertFoobars>#parseValue
+     call $~lib/assemblyscript-json/decoder/JSONDecoder<main/__near_ArgsParser_convertFoobars>#parseValue
      drop
      br $continue|0
     end
     unreachable
    end
    local.get $0
-   call $~lib/assemblyscript-json/decoder/JSONDecoder<main_near/__near_ArgsParser_convertFoobars>#readChar
+   call $~lib/assemblyscript-json/decoder/JSONDecoder<main/__near_ArgsParser_convertFoobars>#readChar
    i32.const 2672
    i32.const 0
    call $~lib/string/String#charCodeAt
    i32.eq
    i32.eqz
    if
-    i32.const 3512
+    i32.const 3496
     i32.const 2800
     i32.const 149
     i32.const 6
@@ -18337,13 +16633,13 @@
   call $~lib/rt/stub/__release
   local.get $3
  )
- (func $~lib/array/Array<model_near/FooBar>#constructor (; 310 ;) (type $FUNCSIG$iii) (param $0 i32) (param $1 i32) (result i32)
+ (func $~lib/array/Array<model/FooBar>#constructor (; 302 ;) (type $FUNCSIG$iii) (param $0 i32) (param $1 i32) (result i32)
   local.get $0
   if (result i32)
    local.get $0
   else   
    i32.const 16
-   i32.const 33
+   i32.const 32
    call $~lib/rt/stub/__alloc
    call $~lib/rt/stub/__retain
   end
@@ -18368,7 +16664,7 @@
   i32.store offset=12
   local.get $0
  )
- (func $model_near/__near_JSONHandler_Array_FooBar#constructor (; 311 ;) (type $FUNCSIG$iii) (param $0 i32) (param $1 i32) (result i32)
+ (func $main/__near_JSONHandler_Array_FooBar#constructor (; 303 ;) (type $FUNCSIG$iii) (param $0 i32) (param $1 i32) (result i32)
   (local $2 i32)
   (local $3 i32)
   local.get $1
@@ -18379,7 +16675,7 @@
    local.get $0
   else   
    i32.const 16
-   i32.const 34
+   i32.const 33
    call $~lib/rt/stub/__alloc
    call $~lib/rt/stub/__retain
   end
@@ -18418,7 +16714,7 @@
   call $~lib/rt/stub/__release
   local.get $0
  )
- (func $~lib/assemblyscript-json/decoder/JSONDecoder<model_near/__near_JSONHandler_Array_FooBar>#constructor (; 312 ;) (type $FUNCSIG$iii) (param $0 i32) (param $1 i32) (result i32)
+ (func $~lib/assemblyscript-json/decoder/JSONDecoder<main/__near_JSONHandler_Array_FooBar>#constructor (; 304 ;) (type $FUNCSIG$iii) (param $0 i32) (param $1 i32) (result i32)
   (local $2 i32)
   (local $3 i32)
   local.get $1
@@ -18428,7 +16724,7 @@
   i32.eqz
   if
    i32.const 8
-   i32.const 35
+   i32.const 34
    call $~lib/rt/stub/__alloc
    call $~lib/rt/stub/__retain
    local.set $0
@@ -18460,7 +16756,7 @@
   call $~lib/rt/stub/__release
   local.get $0
  )
- (func $~lib/assemblyscript-json/decoder/JSONDecoder<model_near/__near_JSONHandler_Array_FooBar>#peekChar (; 313 ;) (type $FUNCSIG$ii) (param $0 i32) (result i32)
+ (func $~lib/assemblyscript-json/decoder/JSONDecoder<main/__near_JSONHandler_Array_FooBar>#peekChar (; 305 ;) (type $FUNCSIG$ii) (param $0 i32) (result i32)
   local.get $0
   i32.load offset=4
   i32.load offset=4
@@ -18481,7 +16777,7 @@
   i32.load offset=4
   call $~lib/typedarray/Uint8Array#__get
  )
- (func $~lib/assemblyscript-json/decoder/JSONDecoder<model_near/__near_JSONHandler_Array_FooBar>#isWhitespace (; 314 ;) (type $FUNCSIG$iii) (param $0 i32) (param $1 i32) (result i32)
+ (func $~lib/assemblyscript-json/decoder/JSONDecoder<main/__near_JSONHandler_Array_FooBar>#isWhitespace (; 306 ;) (type $FUNCSIG$iii) (param $0 i32) (param $1 i32) (result i32)
   local.get $1
   i32.const 9
   i32.eq
@@ -18507,7 +16803,7 @@
    i32.eq
   end
  )
- (func $~lib/assemblyscript-json/decoder/JSONDecoder<model_near/__near_JSONHandler_Array_FooBar>#readChar (; 315 ;) (type $FUNCSIG$ii) (param $0 i32) (result i32)
+ (func $~lib/assemblyscript-json/decoder/JSONDecoder<main/__near_JSONHandler_Array_FooBar>#readChar (; 307 ;) (type $FUNCSIG$ii) (param $0 i32) (result i32)
   (local $1 i32)
   local.get $0
   i32.load offset=4
@@ -18541,24 +16837,24 @@
   local.get $1
   call $~lib/typedarray/Uint8Array#__get
  )
- (func $~lib/assemblyscript-json/decoder/JSONDecoder<model_near/__near_JSONHandler_Array_FooBar>#skipWhitespace (; 316 ;) (type $FUNCSIG$vi) (param $0 i32)
+ (func $~lib/assemblyscript-json/decoder/JSONDecoder<main/__near_JSONHandler_Array_FooBar>#skipWhitespace (; 308 ;) (type $FUNCSIG$vi) (param $0 i32)
   block $break|0
    loop $continue|0
     local.get $0
     local.get $0
-    call $~lib/assemblyscript-json/decoder/JSONDecoder<model_near/__near_JSONHandler_Array_FooBar>#peekChar
-    call $~lib/assemblyscript-json/decoder/JSONDecoder<model_near/__near_JSONHandler_Array_FooBar>#isWhitespace
+    call $~lib/assemblyscript-json/decoder/JSONDecoder<main/__near_JSONHandler_Array_FooBar>#peekChar
+    call $~lib/assemblyscript-json/decoder/JSONDecoder<main/__near_JSONHandler_Array_FooBar>#isWhitespace
     i32.eqz
     br_if $break|0
     local.get $0
-    call $~lib/assemblyscript-json/decoder/JSONDecoder<model_near/__near_JSONHandler_Array_FooBar>#readChar
+    call $~lib/assemblyscript-json/decoder/JSONDecoder<main/__near_JSONHandler_Array_FooBar>#readChar
     drop
     br $continue|0
    end
    unreachable
   end
  )
- (func $~lib/array/Array<model_near/FooBar>#push (; 317 ;) (type $FUNCSIG$iii) (param $0 i32) (param $1 i32) (result i32)
+ (func $~lib/array/Array<model/FooBar>#push (; 309 ;) (type $FUNCSIG$iii) (param $0 i32) (param $1 i32) (result i32)
   (local $2 i32)
   (local $3 i32)
   (local $4 i32)
@@ -18594,7 +16890,7 @@
   call $~lib/rt/stub/__release
   local.get $4
  )
- (func $model_near/__near_JSONHandler_Array_FooBar#pushObject (; 318 ;) (type $FUNCSIG$iii) (param $0 i32) (param $1 i32) (result i32)
+ (func $main/__near_JSONHandler_Array_FooBar#pushObject (; 310 ;) (type $FUNCSIG$iii) (param $0 i32) (param $1 i32) (result i32)
   (local $2 i32)
   (local $3 i32)
   local.get $1
@@ -18608,9 +16904,9 @@
   i32.load offset=4
   i32.load offset=4
   i32.const 0
-  call $model_near/__near_decode_FooBar
+  call $model/__near_decode_FooBar
   local.tee $2
-  call $~lib/array/Array<model_near/FooBar>#push
+  call $~lib/array/Array<model/FooBar>#push
   drop
   i32.const 0
   local.set $3
@@ -18620,13 +16916,13 @@
   call $~lib/rt/stub/__release
   local.get $3
  )
- (func $~lib/assemblyscript-json/decoder/JSONDecoder<model_near/__near_JSONHandler_Array_FooBar>#readHexDigit (; 319 ;) (type $FUNCSIG$ii) (param $0 i32) (result i32)
+ (func $~lib/assemblyscript-json/decoder/JSONDecoder<main/__near_JSONHandler_Array_FooBar>#readHexDigit (; 311 ;) (type $FUNCSIG$ii) (param $0 i32) (result i32)
   (local $1 i32)
   (local $2 i32)
   (local $3 i32)
   (local $4 i32)
   local.get $0
-  call $~lib/assemblyscript-json/decoder/JSONDecoder<model_near/__near_JSONHandler_Array_FooBar>#readChar
+  call $~lib/assemblyscript-json/decoder/JSONDecoder<main/__near_JSONHandler_Array_FooBar>#readChar
   local.set $1
   local.get $1
   global.get $~lib/assemblyscript-json/decoder/CHAR_0
@@ -18691,7 +16987,7 @@
   end
   i32.eqz
   if
-   i32.const 3336
+   i32.const 3320
    i32.const 2800
    i32.const 269
    i32.const 4
@@ -18704,7 +17000,7 @@
   call $~lib/rt/stub/__release
   local.get $3
  )
- (func $~lib/assemblyscript-json/decoder/JSONDecoder<model_near/__near_JSONHandler_Array_FooBar>#readEscapedChar (; 320 ;) (type $FUNCSIG$ii) (param $0 i32) (result i32)
+ (func $~lib/assemblyscript-json/decoder/JSONDecoder<main/__near_JSONHandler_Array_FooBar>#readEscapedChar (; 312 ;) (type $FUNCSIG$ii) (param $0 i32) (result i32)
   (local $1 i32)
   (local $2 i32)
   (local $3 i32)
@@ -18712,7 +17008,7 @@
   (local $5 i32)
   (local $6 i32)
   local.get $0
-  call $~lib/assemblyscript-json/decoder/JSONDecoder<model_near/__near_JSONHandler_Array_FooBar>#readChar
+  call $~lib/assemblyscript-json/decoder/JSONDecoder<main/__near_JSONHandler_Array_FooBar>#readChar
   local.set $1
   local.get $1
   i32.const 1072
@@ -18735,17 +17031,17 @@
    return
   end
   local.get $1
-  i32.const 3192
+  i32.const 3176
   i32.const 0
   call $~lib/string/String#charCodeAt
   i32.eq
   if
-   i32.const 3192
+   i32.const 3176
    call $~lib/rt/stub/__retain
    return
   end
   local.get $1
-  i32.const 3216
+  i32.const 3200
   i32.const 0
   call $~lib/string/String#charCodeAt
   i32.eq
@@ -18755,7 +17051,7 @@
    return
   end
   local.get $1
-  i32.const 3240
+  i32.const 3224
   i32.const 0
   call $~lib/string/String#charCodeAt
   i32.eq
@@ -18765,7 +17061,7 @@
    return
   end
   local.get $1
-  i32.const 3264
+  i32.const 3248
   i32.const 0
   call $~lib/string/String#charCodeAt
   i32.eq
@@ -18775,7 +17071,7 @@
    return
   end
   local.get $1
-  i32.const 3288
+  i32.const 3272
   i32.const 0
   call $~lib/string/String#charCodeAt
   i32.eq
@@ -18785,22 +17081,22 @@
    return
   end
   local.get $1
-  i32.const 3312
+  i32.const 3296
   i32.const 0
   call $~lib/string/String#charCodeAt
   i32.eq
   if
    local.get $0
-   call $~lib/assemblyscript-json/decoder/JSONDecoder<model_near/__near_JSONHandler_Array_FooBar>#readHexDigit
+   call $~lib/assemblyscript-json/decoder/JSONDecoder<main/__near_JSONHandler_Array_FooBar>#readHexDigit
    local.set $2
    local.get $0
-   call $~lib/assemblyscript-json/decoder/JSONDecoder<model_near/__near_JSONHandler_Array_FooBar>#readHexDigit
+   call $~lib/assemblyscript-json/decoder/JSONDecoder<main/__near_JSONHandler_Array_FooBar>#readHexDigit
    local.set $3
    local.get $0
-   call $~lib/assemblyscript-json/decoder/JSONDecoder<model_near/__near_JSONHandler_Array_FooBar>#readHexDigit
+   call $~lib/assemblyscript-json/decoder/JSONDecoder<main/__near_JSONHandler_Array_FooBar>#readHexDigit
    local.set $4
    local.get $0
-   call $~lib/assemblyscript-json/decoder/JSONDecoder<model_near/__near_JSONHandler_Array_FooBar>#readHexDigit
+   call $~lib/assemblyscript-json/decoder/JSONDecoder<main/__near_JSONHandler_Array_FooBar>#readHexDigit
    local.set $5
    local.get $2
    i32.const 4096
@@ -18823,7 +17119,7 @@
   i32.const 0
   i32.eqz
   if
-   i32.const 3392
+   i32.const 3376
    i32.const 1
    global.set $~lib/argc
    local.get $1
@@ -18847,21 +17143,21 @@
   call $~lib/rt/stub/__release
   local.get $4
  )
- (func $~lib/assemblyscript-json/decoder/JSONDecoder<model_near/__near_JSONHandler_Array_FooBar>#readString (; 321 ;) (type $FUNCSIG$ii) (param $0 i32) (result i32)
+ (func $~lib/assemblyscript-json/decoder/JSONDecoder<main/__near_JSONHandler_Array_FooBar>#readString (; 313 ;) (type $FUNCSIG$ii) (param $0 i32) (result i32)
   (local $1 i32)
   (local $2 i32)
   (local $3 i32)
   (local $4 i32)
   (local $5 i32)
   local.get $0
-  call $~lib/assemblyscript-json/decoder/JSONDecoder<model_near/__near_JSONHandler_Array_FooBar>#readChar
+  call $~lib/assemblyscript-json/decoder/JSONDecoder<main/__near_JSONHandler_Array_FooBar>#readChar
   i32.const 1072
   i32.const 0
   call $~lib/string/String#charCodeAt
   i32.eq
   i32.eqz
   if
-   i32.const 3040
+   i32.const 3024
    i32.const 2800
    i32.const 197
    i32.const 4
@@ -18878,14 +17174,14 @@
   local.set $2
   loop $loop|0
    local.get $0
-   call $~lib/assemblyscript-json/decoder/JSONDecoder<model_near/__near_JSONHandler_Array_FooBar>#readChar
+   call $~lib/assemblyscript-json/decoder/JSONDecoder<main/__near_JSONHandler_Array_FooBar>#readChar
    local.set $3
    local.get $3
    i32.const 32
    i32.ge_s
    i32.eqz
    if
-    i32.const 3120
+    i32.const 3104
     i32.const 2800
     i32.const 203
     i32.const 6
@@ -18963,7 +17259,7 @@
      end
      local.get $2
      local.get $0
-     call $~lib/assemblyscript-json/decoder/JSONDecoder<model_near/__near_JSONHandler_Array_FooBar>#readEscapedChar
+     call $~lib/assemblyscript-json/decoder/JSONDecoder<main/__near_JSONHandler_Array_FooBar>#readEscapedChar
      local.tee $4
      call $~lib/array/Array<~lib/string/String>#push
      drop
@@ -18979,16 +17275,16 @@
   end
   unreachable
  )
- (func $~lib/assemblyscript-json/decoder/JSONDecoder<model_near/__near_JSONHandler_Array_FooBar>#parseKey (; 322 ;) (type $FUNCSIG$vi) (param $0 i32)
+ (func $~lib/assemblyscript-json/decoder/JSONDecoder<main/__near_JSONHandler_Array_FooBar>#parseKey (; 314 ;) (type $FUNCSIG$vi) (param $0 i32)
   (local $1 i32)
   (local $2 i32)
   local.get $0
-  call $~lib/assemblyscript-json/decoder/JSONDecoder<model_near/__near_JSONHandler_Array_FooBar>#skipWhitespace
+  call $~lib/assemblyscript-json/decoder/JSONDecoder<main/__near_JSONHandler_Array_FooBar>#skipWhitespace
   local.get $0
   i32.load offset=4
   local.tee $1
   local.get $0
-  call $~lib/assemblyscript-json/decoder/JSONDecoder<model_near/__near_JSONHandler_Array_FooBar>#readString
+  call $~lib/assemblyscript-json/decoder/JSONDecoder<main/__near_JSONHandler_Array_FooBar>#readString
   local.set $2
   local.get $1
   i32.load
@@ -18996,16 +17292,16 @@
   local.get $2
   i32.store
   local.get $0
-  call $~lib/assemblyscript-json/decoder/JSONDecoder<model_near/__near_JSONHandler_Array_FooBar>#skipWhitespace
+  call $~lib/assemblyscript-json/decoder/JSONDecoder<main/__near_JSONHandler_Array_FooBar>#skipWhitespace
   local.get $0
-  call $~lib/assemblyscript-json/decoder/JSONDecoder<model_near/__near_JSONHandler_Array_FooBar>#readChar
+  call $~lib/assemblyscript-json/decoder/JSONDecoder<main/__near_JSONHandler_Array_FooBar>#readChar
   i32.const 1984
   i32.const 0
   call $~lib/string/String#charCodeAt
   i32.eq
   i32.eqz
   if
-   i32.const 3472
+   i32.const 3456
    i32.const 2800
    i32.const 159
    i32.const 4
@@ -19013,12 +17309,12 @@
    unreachable
   end
  )
- (func $~lib/assemblyscript-json/decoder/JSONDecoder<model_near/__near_JSONHandler_Array_FooBar>#parseObject (; 323 ;) (type $FUNCSIG$ii) (param $0 i32) (result i32)
+ (func $~lib/assemblyscript-json/decoder/JSONDecoder<main/__near_JSONHandler_Array_FooBar>#parseObject (; 315 ;) (type $FUNCSIG$ii) (param $0 i32) (result i32)
   (local $1 i32)
   (local $2 i32)
   (local $3 i32)
   local.get $0
-  call $~lib/assemblyscript-json/decoder/JSONDecoder<model_near/__near_JSONHandler_Array_FooBar>#peekChar
+  call $~lib/assemblyscript-json/decoder/JSONDecoder<main/__near_JSONHandler_Array_FooBar>#peekChar
   i32.const 2008
   i32.const 0
   call $~lib/string/String#charCodeAt
@@ -19053,19 +17349,19 @@
   local.get $0
   i32.load
   local.get $1
-  call $model_near/__near_JSONHandler_Array_FooBar#pushObject
+  call $main/__near_JSONHandler_Array_FooBar#pushObject
   if
    local.get $0
-   call $~lib/assemblyscript-json/decoder/JSONDecoder<model_near/__near_JSONHandler_Array_FooBar>#readChar
+   call $~lib/assemblyscript-json/decoder/JSONDecoder<main/__near_JSONHandler_Array_FooBar>#readChar
    drop
    local.get $0
-   call $~lib/assemblyscript-json/decoder/JSONDecoder<model_near/__near_JSONHandler_Array_FooBar>#skipWhitespace
+   call $~lib/assemblyscript-json/decoder/JSONDecoder<main/__near_JSONHandler_Array_FooBar>#skipWhitespace
    i32.const 1
    local.set $3
    block $break|0
     loop $continue|0
      local.get $0
-     call $~lib/assemblyscript-json/decoder/JSONDecoder<model_near/__near_JSONHandler_Array_FooBar>#peekChar
+     call $~lib/assemblyscript-json/decoder/JSONDecoder<main/__near_JSONHandler_Array_FooBar>#peekChar
      i32.const 2672
      i32.const 0
      call $~lib/string/String#charCodeAt
@@ -19076,14 +17372,14 @@
      i32.eqz
      if
       local.get $0
-      call $~lib/assemblyscript-json/decoder/JSONDecoder<model_near/__near_JSONHandler_Array_FooBar>#readChar
+      call $~lib/assemblyscript-json/decoder/JSONDecoder<main/__near_JSONHandler_Array_FooBar>#readChar
       i32.const 1048
       i32.const 0
       call $~lib/string/String#charCodeAt
       i32.eq
       i32.eqz
       if
-       i32.const 3000
+       i32.const 2984
        i32.const 2800
        i32.const 142
        i32.const 10
@@ -19095,23 +17391,23 @@
       local.set $3
      end
      local.get $0
-     call $~lib/assemblyscript-json/decoder/JSONDecoder<model_near/__near_JSONHandler_Array_FooBar>#parseKey
+     call $~lib/assemblyscript-json/decoder/JSONDecoder<main/__near_JSONHandler_Array_FooBar>#parseKey
      local.get $0
-     call $~lib/assemblyscript-json/decoder/JSONDecoder<model_near/__near_JSONHandler_Array_FooBar>#parseValue
+     call $~lib/assemblyscript-json/decoder/JSONDecoder<main/__near_JSONHandler_Array_FooBar>#parseValue
      drop
      br $continue|0
     end
     unreachable
    end
    local.get $0
-   call $~lib/assemblyscript-json/decoder/JSONDecoder<model_near/__near_JSONHandler_Array_FooBar>#readChar
+   call $~lib/assemblyscript-json/decoder/JSONDecoder<main/__near_JSONHandler_Array_FooBar>#readChar
    i32.const 2672
    i32.const 0
    call $~lib/string/String#charCodeAt
    i32.eq
    i32.eqz
    if
-    i32.const 3512
+    i32.const 3496
     i32.const 2800
     i32.const 149
     i32.const 6
@@ -19128,7 +17424,7 @@
   call $~lib/rt/stub/__release
   local.get $3
  )
- (func $model_near/__near_JSONHandler_Array_FooBar#pushArray (; 324 ;) (type $FUNCSIG$iii) (param $0 i32) (param $1 i32) (result i32)
+ (func $main/__near_JSONHandler_Array_FooBar#pushArray (; 316 ;) (type $FUNCSIG$iii) (param $0 i32) (param $1 i32) (result i32)
   (local $2 i32)
   (local $3 i32)
   local.get $1
@@ -19148,9 +17444,9 @@
   i32.eqz
   if
    i32.const 0
-   i32.const 2888
-   i32.const 635
-   i32.const 8
+   i32.const 3560
+   i32.const 327
+   i32.const 10
    call $~lib/builtins/abort
    unreachable
   end
@@ -19178,9 +17474,9 @@
   i32.load offset=4
   i32.load offset=4
   i32.const 0
-  call $model_near/__near_decode_FooBar
+  call $model/__near_decode_FooBar
   local.tee $2
-  call $~lib/array/Array<model_near/FooBar>#push
+  call $~lib/array/Array<model/FooBar>#push
   drop
   i32.const 0
   local.set $3
@@ -19190,12 +17486,12 @@
   call $~lib/rt/stub/__release
   local.get $3
  )
- (func $~lib/assemblyscript-json/decoder/JSONDecoder<model_near/__near_JSONHandler_Array_FooBar>#parseArray (; 325 ;) (type $FUNCSIG$ii) (param $0 i32) (result i32)
+ (func $~lib/assemblyscript-json/decoder/JSONDecoder<main/__near_JSONHandler_Array_FooBar>#parseArray (; 317 ;) (type $FUNCSIG$ii) (param $0 i32) (result i32)
   (local $1 i32)
   (local $2 i32)
   (local $3 i32)
   local.get $0
-  call $~lib/assemblyscript-json/decoder/JSONDecoder<model_near/__near_JSONHandler_Array_FooBar>#peekChar
+  call $~lib/assemblyscript-json/decoder/JSONDecoder<main/__near_JSONHandler_Array_FooBar>#peekChar
   i32.const 2232
   i32.const 0
   call $~lib/string/String#charCodeAt
@@ -19230,19 +17526,19 @@
   local.get $0
   i32.load
   local.get $1
-  call $model_near/__near_JSONHandler_Array_FooBar#pushArray
+  call $main/__near_JSONHandler_Array_FooBar#pushArray
   if
    local.get $0
-   call $~lib/assemblyscript-json/decoder/JSONDecoder<model_near/__near_JSONHandler_Array_FooBar>#readChar
+   call $~lib/assemblyscript-json/decoder/JSONDecoder<main/__near_JSONHandler_Array_FooBar>#readChar
    drop
    local.get $0
-   call $~lib/assemblyscript-json/decoder/JSONDecoder<model_near/__near_JSONHandler_Array_FooBar>#skipWhitespace
+   call $~lib/assemblyscript-json/decoder/JSONDecoder<main/__near_JSONHandler_Array_FooBar>#skipWhitespace
    i32.const 1
    local.set $3
    block $break|0
     loop $continue|0
      local.get $0
-     call $~lib/assemblyscript-json/decoder/JSONDecoder<model_near/__near_JSONHandler_Array_FooBar>#peekChar
+     call $~lib/assemblyscript-json/decoder/JSONDecoder<main/__near_JSONHandler_Array_FooBar>#peekChar
      i32.const 2256
      i32.const 0
      call $~lib/string/String#charCodeAt
@@ -19253,14 +17549,14 @@
      i32.eqz
      if
       local.get $0
-      call $~lib/assemblyscript-json/decoder/JSONDecoder<model_near/__near_JSONHandler_Array_FooBar>#readChar
+      call $~lib/assemblyscript-json/decoder/JSONDecoder<main/__near_JSONHandler_Array_FooBar>#readChar
       i32.const 1048
       i32.const 0
       call $~lib/string/String#charCodeAt
       i32.eq
       i32.eqz
       if
-       i32.const 3000
+       i32.const 2984
        i32.const 2800
        i32.const 176
        i32.const 10
@@ -19272,21 +17568,21 @@
       local.set $3
      end
      local.get $0
-     call $~lib/assemblyscript-json/decoder/JSONDecoder<model_near/__near_JSONHandler_Array_FooBar>#parseValue
+     call $~lib/assemblyscript-json/decoder/JSONDecoder<main/__near_JSONHandler_Array_FooBar>#parseValue
      drop
      br $continue|0
     end
     unreachable
    end
    local.get $0
-   call $~lib/assemblyscript-json/decoder/JSONDecoder<model_near/__near_JSONHandler_Array_FooBar>#readChar
+   call $~lib/assemblyscript-json/decoder/JSONDecoder<main/__near_JSONHandler_Array_FooBar>#readChar
    i32.const 2256
    i32.const 0
    call $~lib/string/String#charCodeAt
    i32.eq
    i32.eqz
    if
-    i32.const 3576
+    i32.const 3592
     i32.const 2800
     i32.const 182
     i32.const 6
@@ -19303,11 +17599,11 @@
   call $~lib/rt/stub/__release
   local.get $3
  )
- (func $~lib/assemblyscript-json/decoder/JSONDecoder<model_near/__near_JSONHandler_Array_FooBar>#parseString (; 326 ;) (type $FUNCSIG$ii) (param $0 i32) (result i32)
+ (func $~lib/assemblyscript-json/decoder/JSONDecoder<main/__near_JSONHandler_Array_FooBar>#parseString (; 318 ;) (type $FUNCSIG$ii) (param $0 i32) (result i32)
   (local $1 i32)
   (local $2 i32)
   local.get $0
-  call $~lib/assemblyscript-json/decoder/JSONDecoder<model_near/__near_JSONHandler_Array_FooBar>#peekChar
+  call $~lib/assemblyscript-json/decoder/JSONDecoder<main/__near_JSONHandler_Array_FooBar>#peekChar
   i32.const 1072
   i32.const 0
   call $~lib/string/String#charCodeAt
@@ -19322,7 +17618,7 @@
   i32.load offset=4
   i32.load
   local.get $0
-  call $~lib/assemblyscript-json/decoder/JSONDecoder<model_near/__near_JSONHandler_Array_FooBar>#readString
+  call $~lib/assemblyscript-json/decoder/JSONDecoder<main/__near_JSONHandler_Array_FooBar>#readString
   local.tee $1
   call $~lib/assemblyscript-json/decoder/ThrowingJSONHandler#setString
   i32.const 1
@@ -19331,7 +17627,7 @@
   call $~lib/rt/stub/__release
   local.get $2
  )
- (func $~lib/assemblyscript-json/decoder/JSONDecoder<model_near/__near_JSONHandler_Array_FooBar>#readAndAssert (; 327 ;) (type $FUNCSIG$vii) (param $0 i32) (param $1 i32)
+ (func $~lib/assemblyscript-json/decoder/JSONDecoder<main/__near_JSONHandler_Array_FooBar>#readAndAssert (; 319 ;) (type $FUNCSIG$vii) (param $0 i32) (param $1 i32)
   (local $2 i32)
   (local $3 i32)
   (local $4 i32)
@@ -19352,15 +17648,15 @@
     local.get $2
     call $~lib/string/String#charCodeAt
     local.get $0
-    call $~lib/assemblyscript-json/decoder/JSONDecoder<model_near/__near_JSONHandler_Array_FooBar>#readChar
+    call $~lib/assemblyscript-json/decoder/JSONDecoder<main/__near_JSONHandler_Array_FooBar>#readChar
     i32.eq
     i32.eqz
     if
-     i32.const 3640
+     i32.const 3656
      local.get $1
      call $~lib/string/String.__concat
      local.tee $3
-     i32.const 3680
+     i32.const 3696
      call $~lib/string/String.__concat
      local.tee $4
      i32.const 2800
@@ -19384,9 +17680,9 @@
   local.get $1
   call $~lib/rt/stub/__release
  )
- (func $~lib/assemblyscript-json/decoder/JSONDecoder<model_near/__near_JSONHandler_Array_FooBar>#parseBoolean (; 328 ;) (type $FUNCSIG$ii) (param $0 i32) (result i32)
+ (func $~lib/assemblyscript-json/decoder/JSONDecoder<main/__near_JSONHandler_Array_FooBar>#parseBoolean (; 320 ;) (type $FUNCSIG$ii) (param $0 i32) (result i32)
   local.get $0
-  call $~lib/assemblyscript-json/decoder/JSONDecoder<model_near/__near_JSONHandler_Array_FooBar>#peekChar
+  call $~lib/assemblyscript-json/decoder/JSONDecoder<main/__near_JSONHandler_Array_FooBar>#peekChar
   i32.const 504
   i32.const 0
   call $~lib/string/String#charCodeAt
@@ -19394,7 +17690,7 @@
   if
    local.get $0
    global.get $~lib/assemblyscript-json/decoder/FALSE_STR
-   call $~lib/assemblyscript-json/decoder/JSONDecoder<model_near/__near_JSONHandler_Array_FooBar>#readAndAssert
+   call $~lib/assemblyscript-json/decoder/JSONDecoder<main/__near_JSONHandler_Array_FooBar>#readAndAssert
    local.get $0
    i32.load
    local.get $0
@@ -19406,7 +17702,7 @@
    return
   end
   local.get $0
-  call $~lib/assemblyscript-json/decoder/JSONDecoder<model_near/__near_JSONHandler_Array_FooBar>#peekChar
+  call $~lib/assemblyscript-json/decoder/JSONDecoder<main/__near_JSONHandler_Array_FooBar>#peekChar
   i32.const 480
   i32.const 0
   call $~lib/string/String#charCodeAt
@@ -19414,7 +17710,7 @@
   if
    local.get $0
    global.get $~lib/assemblyscript-json/decoder/TRUE_STR
-   call $~lib/assemblyscript-json/decoder/JSONDecoder<model_near/__near_JSONHandler_Array_FooBar>#readAndAssert
+   call $~lib/assemblyscript-json/decoder/JSONDecoder<main/__near_JSONHandler_Array_FooBar>#readAndAssert
    local.get $0
    i32.load
    local.get $0
@@ -19427,7 +17723,7 @@
   end
   i32.const 0
  )
- (func $~lib/assemblyscript-json/decoder/JSONDecoder<model_near/__near_JSONHandler_Array_FooBar>#parseNumber (; 329 ;) (type $FUNCSIG$ii) (param $0 i32) (result i32)
+ (func $~lib/assemblyscript-json/decoder/JSONDecoder<main/__near_JSONHandler_Array_FooBar>#parseNumber (; 321 ;) (type $FUNCSIG$ii) (param $0 i32) (result i32)
   (local $1 i64)
   (local $2 i64)
   (local $3 i32)
@@ -19437,8 +17733,8 @@
   i64.const 1
   local.set $2
   local.get $0
-  call $~lib/assemblyscript-json/decoder/JSONDecoder<model_near/__near_JSONHandler_Array_FooBar>#peekChar
-  i32.const 3792
+  call $~lib/assemblyscript-json/decoder/JSONDecoder<main/__near_JSONHandler_Array_FooBar>#peekChar
+  i32.const 3808
   i32.const 0
   call $~lib/string/String#charCodeAt
   i32.eq
@@ -19446,7 +17742,7 @@
    i64.const -1
    local.set $2
    local.get $0
-   call $~lib/assemblyscript-json/decoder/JSONDecoder<model_near/__near_JSONHandler_Array_FooBar>#readChar
+   call $~lib/assemblyscript-json/decoder/JSONDecoder<main/__near_JSONHandler_Array_FooBar>#readChar
    drop
   end
   i32.const 0
@@ -19455,11 +17751,11 @@
    loop $continue|0
     global.get $~lib/assemblyscript-json/decoder/CHAR_0
     local.get $0
-    call $~lib/assemblyscript-json/decoder/JSONDecoder<model_near/__near_JSONHandler_Array_FooBar>#peekChar
+    call $~lib/assemblyscript-json/decoder/JSONDecoder<main/__near_JSONHandler_Array_FooBar>#peekChar
     i32.le_s
     if (result i32)
      local.get $0
-     call $~lib/assemblyscript-json/decoder/JSONDecoder<model_near/__near_JSONHandler_Array_FooBar>#peekChar
+     call $~lib/assemblyscript-json/decoder/JSONDecoder<main/__near_JSONHandler_Array_FooBar>#peekChar
      global.get $~lib/assemblyscript-json/decoder/CHAR_9
      i32.le_s
     else     
@@ -19468,7 +17764,7 @@
     i32.eqz
     br_if $break|0
     local.get $0
-    call $~lib/assemblyscript-json/decoder/JSONDecoder<model_near/__near_JSONHandler_Array_FooBar>#readChar
+    call $~lib/assemblyscript-json/decoder/JSONDecoder<main/__near_JSONHandler_Array_FooBar>#readChar
     local.set $4
     local.get $1
     i64.const 10
@@ -19507,9 +17803,9 @@
   end
   i32.const 0
  )
- (func $~lib/assemblyscript-json/decoder/JSONDecoder<model_near/__near_JSONHandler_Array_FooBar>#parseNull (; 330 ;) (type $FUNCSIG$ii) (param $0 i32) (result i32)
+ (func $~lib/assemblyscript-json/decoder/JSONDecoder<main/__near_JSONHandler_Array_FooBar>#parseNull (; 322 ;) (type $FUNCSIG$ii) (param $0 i32) (result i32)
   local.get $0
-  call $~lib/assemblyscript-json/decoder/JSONDecoder<model_near/__near_JSONHandler_Array_FooBar>#peekChar
+  call $~lib/assemblyscript-json/decoder/JSONDecoder<main/__near_JSONHandler_Array_FooBar>#peekChar
   i32.const 536
   i32.const 0
   call $~lib/string/String#charCodeAt
@@ -19517,7 +17813,7 @@
   if
    local.get $0
    global.get $~lib/assemblyscript-json/decoder/NULL_STR
-   call $~lib/assemblyscript-json/decoder/JSONDecoder<model_near/__near_JSONHandler_Array_FooBar>#readAndAssert
+   call $~lib/assemblyscript-json/decoder/JSONDecoder<main/__near_JSONHandler_Array_FooBar>#readAndAssert
    local.get $0
    i32.load
    local.get $0
@@ -19529,53 +17825,53 @@
   end
   i32.const 0
  )
- (func $~lib/assemblyscript-json/decoder/JSONDecoder<model_near/__near_JSONHandler_Array_FooBar>#parseValue (; 331 ;) (type $FUNCSIG$ii) (param $0 i32) (result i32)
+ (func $~lib/assemblyscript-json/decoder/JSONDecoder<main/__near_JSONHandler_Array_FooBar>#parseValue (; 323 ;) (type $FUNCSIG$ii) (param $0 i32) (result i32)
   (local $1 i32)
   local.get $0
-  call $~lib/assemblyscript-json/decoder/JSONDecoder<model_near/__near_JSONHandler_Array_FooBar>#skipWhitespace
+  call $~lib/assemblyscript-json/decoder/JSONDecoder<main/__near_JSONHandler_Array_FooBar>#skipWhitespace
   local.get $0
-  call $~lib/assemblyscript-json/decoder/JSONDecoder<model_near/__near_JSONHandler_Array_FooBar>#parseObject
+  call $~lib/assemblyscript-json/decoder/JSONDecoder<main/__near_JSONHandler_Array_FooBar>#parseObject
   local.tee $1
   if (result i32)
    local.get $1
   else   
    local.get $0
-   call $~lib/assemblyscript-json/decoder/JSONDecoder<model_near/__near_JSONHandler_Array_FooBar>#parseArray
+   call $~lib/assemblyscript-json/decoder/JSONDecoder<main/__near_JSONHandler_Array_FooBar>#parseArray
   end
   local.tee $1
   if (result i32)
    local.get $1
   else   
    local.get $0
-   call $~lib/assemblyscript-json/decoder/JSONDecoder<model_near/__near_JSONHandler_Array_FooBar>#parseString
+   call $~lib/assemblyscript-json/decoder/JSONDecoder<main/__near_JSONHandler_Array_FooBar>#parseString
   end
   local.tee $1
   if (result i32)
    local.get $1
   else   
    local.get $0
-   call $~lib/assemblyscript-json/decoder/JSONDecoder<model_near/__near_JSONHandler_Array_FooBar>#parseBoolean
+   call $~lib/assemblyscript-json/decoder/JSONDecoder<main/__near_JSONHandler_Array_FooBar>#parseBoolean
   end
   local.tee $1
   if (result i32)
    local.get $1
   else   
    local.get $0
-   call $~lib/assemblyscript-json/decoder/JSONDecoder<model_near/__near_JSONHandler_Array_FooBar>#parseNumber
+   call $~lib/assemblyscript-json/decoder/JSONDecoder<main/__near_JSONHandler_Array_FooBar>#parseNumber
   end
   local.tee $1
   if (result i32)
    local.get $1
   else   
    local.get $0
-   call $~lib/assemblyscript-json/decoder/JSONDecoder<model_near/__near_JSONHandler_Array_FooBar>#parseNull
+   call $~lib/assemblyscript-json/decoder/JSONDecoder<main/__near_JSONHandler_Array_FooBar>#parseNull
   end
   local.set $1
   local.get $0
-  call $~lib/assemblyscript-json/decoder/JSONDecoder<model_near/__near_JSONHandler_Array_FooBar>#skipWhitespace
+  call $~lib/assemblyscript-json/decoder/JSONDecoder<main/__near_JSONHandler_Array_FooBar>#skipWhitespace
   local.get $1
  )
- (func $~lib/assemblyscript-json/decoder/JSONDecoder<model_near/__near_JSONHandler_Array_FooBar>#deserialize (; 332 ;) (type $FUNCSIG$viii) (param $0 i32) (param $1 i32) (param $2 i32)
+ (func $~lib/assemblyscript-json/decoder/JSONDecoder<main/__near_JSONHandler_Array_FooBar>#deserialize (; 324 ;) (type $FUNCSIG$viii) (param $0 i32) (param $1 i32) (param $2 i32)
   (local $3 i32)
   (local $4 i32)
   local.get $1
@@ -19619,12 +17915,12 @@
    i32.store offset=4
   end
   local.get $0
-  call $~lib/assemblyscript-json/decoder/JSONDecoder<model_near/__near_JSONHandler_Array_FooBar>#parseValue
+  call $~lib/assemblyscript-json/decoder/JSONDecoder<main/__near_JSONHandler_Array_FooBar>#parseValue
   i32.const 0
   i32.ne
   i32.eqz
   if
-   i32.const 3888
+   i32.const 3904
    i32.const 2800
    i32.const 100
    i32.const 4
@@ -19636,7 +17932,7 @@
   local.get $2
   call $~lib/rt/stub/__release
  )
- (func $model_near/__near_decode_Array_FooBar (; 333 ;) (type $FUNCSIG$iiii) (param $0 i32) (param $1 i32) (param $2 i32) (result i32)
+ (func $main/__near_decode_Array_FooBar (; 325 ;) (type $FUNCSIG$iiii) (param $0 i32) (param $1 i32) (param $2 i32) (result i32)
   (local $3 i32)
   (local $4 i32)
   (local $5 i32)
@@ -19655,7 +17951,7 @@
   if
    i32.const 0
    i32.const 0
-   call $~lib/array/Array<model_near/FooBar>#constructor
+   call $~lib/array/Array<model/FooBar>#constructor
    local.set $3
    local.get $2
    call $~lib/rt/stub/__release
@@ -19664,7 +17960,7 @@
   end
   i32.const 0
   local.get $2
-  call $model_near/__near_JSONHandler_Array_FooBar#constructor
+  call $main/__near_JSONHandler_Array_FooBar#constructor
   local.set $3
   local.get $3
   local.tee $4
@@ -19687,7 +17983,7 @@
   local.tee $5
   i32.const 0
   local.get $3
-  call $~lib/assemblyscript-json/decoder/JSONDecoder<model_near/__near_JSONHandler_Array_FooBar>#constructor
+  call $~lib/assemblyscript-json/decoder/JSONDecoder<main/__near_JSONHandler_Array_FooBar>#constructor
   local.set $4
   local.get $5
   i32.load offset=4
@@ -19698,7 +17994,7 @@
   i32.load offset=4
   local.get $0
   local.get $1
-  call $~lib/assemblyscript-json/decoder/JSONDecoder<model_near/__near_JSONHandler_Array_FooBar>#deserialize
+  call $~lib/assemblyscript-json/decoder/JSONDecoder<main/__near_JSONHandler_Array_FooBar>#deserialize
   local.get $2
   local.set $4
   local.get $3
@@ -19709,14 +18005,14 @@
   call $~lib/rt/stub/__release
   local.get $4
  )
- (func $main_near/__near_ArgsParser_convertFoobars#pushArray (; 334 ;) (type $FUNCSIG$iii) (param $0 i32) (param $1 i32) (result i32)
+ (func $main/__near_ArgsParser_convertFoobars#pushArray (; 326 ;) (type $FUNCSIG$iii) (param $0 i32) (param $1 i32) (result i32)
   (local $2 i32)
   (local $3 i32)
   local.get $1
   call $~lib/rt/stub/__retain
   drop
   local.get $1
-  i32.const 4664
+  i32.const 4408
   call $~lib/string/String.__eq
   if
    local.get $0
@@ -19727,7 +18023,7 @@
    i32.load offset=4
    i32.load offset=4
    i32.const 0
-   call $model_near/__near_decode_Array_FooBar
+   call $main/__near_decode_Array_FooBar
    local.set $3
    local.get $2
    i32.load offset=12
@@ -19749,12 +18045,12 @@
   call $~lib/rt/stub/__release
   local.get $3
  )
- (func $~lib/assemblyscript-json/decoder/JSONDecoder<main_near/__near_ArgsParser_convertFoobars>#parseArray (; 335 ;) (type $FUNCSIG$ii) (param $0 i32) (result i32)
+ (func $~lib/assemblyscript-json/decoder/JSONDecoder<main/__near_ArgsParser_convertFoobars>#parseArray (; 327 ;) (type $FUNCSIG$ii) (param $0 i32) (result i32)
   (local $1 i32)
   (local $2 i32)
   (local $3 i32)
   local.get $0
-  call $~lib/assemblyscript-json/decoder/JSONDecoder<main_near/__near_ArgsParser_convertFoobars>#peekChar
+  call $~lib/assemblyscript-json/decoder/JSONDecoder<main/__near_ArgsParser_convertFoobars>#peekChar
   i32.const 2232
   i32.const 0
   call $~lib/string/String#charCodeAt
@@ -19789,19 +18085,19 @@
   local.get $0
   i32.load
   local.get $1
-  call $main_near/__near_ArgsParser_convertFoobars#pushArray
+  call $main/__near_ArgsParser_convertFoobars#pushArray
   if
    local.get $0
-   call $~lib/assemblyscript-json/decoder/JSONDecoder<main_near/__near_ArgsParser_convertFoobars>#readChar
+   call $~lib/assemblyscript-json/decoder/JSONDecoder<main/__near_ArgsParser_convertFoobars>#readChar
    drop
    local.get $0
-   call $~lib/assemblyscript-json/decoder/JSONDecoder<main_near/__near_ArgsParser_convertFoobars>#skipWhitespace
+   call $~lib/assemblyscript-json/decoder/JSONDecoder<main/__near_ArgsParser_convertFoobars>#skipWhitespace
    i32.const 1
    local.set $3
    block $break|0
     loop $continue|0
      local.get $0
-     call $~lib/assemblyscript-json/decoder/JSONDecoder<main_near/__near_ArgsParser_convertFoobars>#peekChar
+     call $~lib/assemblyscript-json/decoder/JSONDecoder<main/__near_ArgsParser_convertFoobars>#peekChar
      i32.const 2256
      i32.const 0
      call $~lib/string/String#charCodeAt
@@ -19812,14 +18108,14 @@
      i32.eqz
      if
       local.get $0
-      call $~lib/assemblyscript-json/decoder/JSONDecoder<main_near/__near_ArgsParser_convertFoobars>#readChar
+      call $~lib/assemblyscript-json/decoder/JSONDecoder<main/__near_ArgsParser_convertFoobars>#readChar
       i32.const 1048
       i32.const 0
       call $~lib/string/String#charCodeAt
       i32.eq
       i32.eqz
       if
-       i32.const 3000
+       i32.const 2984
        i32.const 2800
        i32.const 176
        i32.const 10
@@ -19831,21 +18127,21 @@
       local.set $3
      end
      local.get $0
-     call $~lib/assemblyscript-json/decoder/JSONDecoder<main_near/__near_ArgsParser_convertFoobars>#parseValue
+     call $~lib/assemblyscript-json/decoder/JSONDecoder<main/__near_ArgsParser_convertFoobars>#parseValue
      drop
      br $continue|0
     end
     unreachable
    end
    local.get $0
-   call $~lib/assemblyscript-json/decoder/JSONDecoder<main_near/__near_ArgsParser_convertFoobars>#readChar
+   call $~lib/assemblyscript-json/decoder/JSONDecoder<main/__near_ArgsParser_convertFoobars>#readChar
    i32.const 2256
    i32.const 0
    call $~lib/string/String#charCodeAt
    i32.eq
    i32.eqz
    if
-    i32.const 3576
+    i32.const 3592
     i32.const 2800
     i32.const 182
     i32.const 6
@@ -19862,11 +18158,11 @@
   call $~lib/rt/stub/__release
   local.get $3
  )
- (func $~lib/assemblyscript-json/decoder/JSONDecoder<main_near/__near_ArgsParser_convertFoobars>#parseString (; 336 ;) (type $FUNCSIG$ii) (param $0 i32) (result i32)
+ (func $~lib/assemblyscript-json/decoder/JSONDecoder<main/__near_ArgsParser_convertFoobars>#parseString (; 328 ;) (type $FUNCSIG$ii) (param $0 i32) (result i32)
   (local $1 i32)
   (local $2 i32)
   local.get $0
-  call $~lib/assemblyscript-json/decoder/JSONDecoder<main_near/__near_ArgsParser_convertFoobars>#peekChar
+  call $~lib/assemblyscript-json/decoder/JSONDecoder<main/__near_ArgsParser_convertFoobars>#peekChar
   i32.const 1072
   i32.const 0
   call $~lib/string/String#charCodeAt
@@ -19881,7 +18177,7 @@
   i32.load offset=4
   i32.load
   local.get $0
-  call $~lib/assemblyscript-json/decoder/JSONDecoder<main_near/__near_ArgsParser_convertFoobars>#readString
+  call $~lib/assemblyscript-json/decoder/JSONDecoder<main/__near_ArgsParser_convertFoobars>#readString
   local.tee $1
   call $~lib/assemblyscript-json/decoder/ThrowingJSONHandler#setString
   i32.const 1
@@ -19890,7 +18186,7 @@
   call $~lib/rt/stub/__release
   local.get $2
  )
- (func $~lib/assemblyscript-json/decoder/JSONDecoder<main_near/__near_ArgsParser_convertFoobars>#readAndAssert (; 337 ;) (type $FUNCSIG$vii) (param $0 i32) (param $1 i32)
+ (func $~lib/assemblyscript-json/decoder/JSONDecoder<main/__near_ArgsParser_convertFoobars>#readAndAssert (; 329 ;) (type $FUNCSIG$vii) (param $0 i32) (param $1 i32)
   (local $2 i32)
   (local $3 i32)
   (local $4 i32)
@@ -19911,15 +18207,15 @@
     local.get $2
     call $~lib/string/String#charCodeAt
     local.get $0
-    call $~lib/assemblyscript-json/decoder/JSONDecoder<main_near/__near_ArgsParser_convertFoobars>#readChar
+    call $~lib/assemblyscript-json/decoder/JSONDecoder<main/__near_ArgsParser_convertFoobars>#readChar
     i32.eq
     i32.eqz
     if
-     i32.const 3640
+     i32.const 3656
      local.get $1
      call $~lib/string/String.__concat
      local.tee $3
-     i32.const 3680
+     i32.const 3696
      call $~lib/string/String.__concat
      local.tee $4
      i32.const 2800
@@ -19943,9 +18239,9 @@
   local.get $1
   call $~lib/rt/stub/__release
  )
- (func $~lib/assemblyscript-json/decoder/JSONDecoder<main_near/__near_ArgsParser_convertFoobars>#parseBoolean (; 338 ;) (type $FUNCSIG$ii) (param $0 i32) (result i32)
+ (func $~lib/assemblyscript-json/decoder/JSONDecoder<main/__near_ArgsParser_convertFoobars>#parseBoolean (; 330 ;) (type $FUNCSIG$ii) (param $0 i32) (result i32)
   local.get $0
-  call $~lib/assemblyscript-json/decoder/JSONDecoder<main_near/__near_ArgsParser_convertFoobars>#peekChar
+  call $~lib/assemblyscript-json/decoder/JSONDecoder<main/__near_ArgsParser_convertFoobars>#peekChar
   i32.const 504
   i32.const 0
   call $~lib/string/String#charCodeAt
@@ -19953,7 +18249,7 @@
   if
    local.get $0
    global.get $~lib/assemblyscript-json/decoder/FALSE_STR
-   call $~lib/assemblyscript-json/decoder/JSONDecoder<main_near/__near_ArgsParser_convertFoobars>#readAndAssert
+   call $~lib/assemblyscript-json/decoder/JSONDecoder<main/__near_ArgsParser_convertFoobars>#readAndAssert
    local.get $0
    i32.load
    local.get $0
@@ -19965,7 +18261,7 @@
    return
   end
   local.get $0
-  call $~lib/assemblyscript-json/decoder/JSONDecoder<main_near/__near_ArgsParser_convertFoobars>#peekChar
+  call $~lib/assemblyscript-json/decoder/JSONDecoder<main/__near_ArgsParser_convertFoobars>#peekChar
   i32.const 480
   i32.const 0
   call $~lib/string/String#charCodeAt
@@ -19973,7 +18269,7 @@
   if
    local.get $0
    global.get $~lib/assemblyscript-json/decoder/TRUE_STR
-   call $~lib/assemblyscript-json/decoder/JSONDecoder<main_near/__near_ArgsParser_convertFoobars>#readAndAssert
+   call $~lib/assemblyscript-json/decoder/JSONDecoder<main/__near_ArgsParser_convertFoobars>#readAndAssert
    local.get $0
    i32.load
    local.get $0
@@ -19986,7 +18282,7 @@
   end
   i32.const 0
  )
- (func $~lib/assemblyscript-json/decoder/JSONDecoder<main_near/__near_ArgsParser_convertFoobars>#parseNumber (; 339 ;) (type $FUNCSIG$ii) (param $0 i32) (result i32)
+ (func $~lib/assemblyscript-json/decoder/JSONDecoder<main/__near_ArgsParser_convertFoobars>#parseNumber (; 331 ;) (type $FUNCSIG$ii) (param $0 i32) (result i32)
   (local $1 i64)
   (local $2 i64)
   (local $3 i32)
@@ -19996,8 +18292,8 @@
   i64.const 1
   local.set $2
   local.get $0
-  call $~lib/assemblyscript-json/decoder/JSONDecoder<main_near/__near_ArgsParser_convertFoobars>#peekChar
-  i32.const 3792
+  call $~lib/assemblyscript-json/decoder/JSONDecoder<main/__near_ArgsParser_convertFoobars>#peekChar
+  i32.const 3808
   i32.const 0
   call $~lib/string/String#charCodeAt
   i32.eq
@@ -20005,7 +18301,7 @@
    i64.const -1
    local.set $2
    local.get $0
-   call $~lib/assemblyscript-json/decoder/JSONDecoder<main_near/__near_ArgsParser_convertFoobars>#readChar
+   call $~lib/assemblyscript-json/decoder/JSONDecoder<main/__near_ArgsParser_convertFoobars>#readChar
    drop
   end
   i32.const 0
@@ -20014,11 +18310,11 @@
    loop $continue|0
     global.get $~lib/assemblyscript-json/decoder/CHAR_0
     local.get $0
-    call $~lib/assemblyscript-json/decoder/JSONDecoder<main_near/__near_ArgsParser_convertFoobars>#peekChar
+    call $~lib/assemblyscript-json/decoder/JSONDecoder<main/__near_ArgsParser_convertFoobars>#peekChar
     i32.le_s
     if (result i32)
      local.get $0
-     call $~lib/assemblyscript-json/decoder/JSONDecoder<main_near/__near_ArgsParser_convertFoobars>#peekChar
+     call $~lib/assemblyscript-json/decoder/JSONDecoder<main/__near_ArgsParser_convertFoobars>#peekChar
      global.get $~lib/assemblyscript-json/decoder/CHAR_9
      i32.le_s
     else     
@@ -20027,7 +18323,7 @@
     i32.eqz
     br_if $break|0
     local.get $0
-    call $~lib/assemblyscript-json/decoder/JSONDecoder<main_near/__near_ArgsParser_convertFoobars>#readChar
+    call $~lib/assemblyscript-json/decoder/JSONDecoder<main/__near_ArgsParser_convertFoobars>#readChar
     local.set $4
     local.get $1
     i64.const 10
@@ -20066,14 +18362,14 @@
   end
   i32.const 0
  )
- (func $main_near/__near_ArgsParser_convertFoobars#setNull (; 340 ;) (type $FUNCSIG$vii) (param $0 i32) (param $1 i32)
+ (func $main/__near_ArgsParser_convertFoobars#setNull (; 332 ;) (type $FUNCSIG$vii) (param $0 i32) (param $1 i32)
   (local $2 i32)
   (local $3 i32)
   local.get $1
   call $~lib/rt/stub/__retain
   drop
   local.get $1
-  i32.const 4664
+  i32.const 4408
   call $~lib/string/String.__eq
   if
    local.get $0
@@ -20103,9 +18399,9 @@
   local.get $1
   call $~lib/rt/stub/__release
  )
- (func $~lib/assemblyscript-json/decoder/JSONDecoder<main_near/__near_ArgsParser_convertFoobars>#parseNull (; 341 ;) (type $FUNCSIG$ii) (param $0 i32) (result i32)
+ (func $~lib/assemblyscript-json/decoder/JSONDecoder<main/__near_ArgsParser_convertFoobars>#parseNull (; 333 ;) (type $FUNCSIG$ii) (param $0 i32) (result i32)
   local.get $0
-  call $~lib/assemblyscript-json/decoder/JSONDecoder<main_near/__near_ArgsParser_convertFoobars>#peekChar
+  call $~lib/assemblyscript-json/decoder/JSONDecoder<main/__near_ArgsParser_convertFoobars>#peekChar
   i32.const 536
   i32.const 0
   call $~lib/string/String#charCodeAt
@@ -20113,65 +18409,65 @@
   if
    local.get $0
    global.get $~lib/assemblyscript-json/decoder/NULL_STR
-   call $~lib/assemblyscript-json/decoder/JSONDecoder<main_near/__near_ArgsParser_convertFoobars>#readAndAssert
+   call $~lib/assemblyscript-json/decoder/JSONDecoder<main/__near_ArgsParser_convertFoobars>#readAndAssert
    local.get $0
    i32.load
    local.get $0
    i32.load offset=4
    i32.load
-   call $main_near/__near_ArgsParser_convertFoobars#setNull
+   call $main/__near_ArgsParser_convertFoobars#setNull
    i32.const 1
    return
   end
   i32.const 0
  )
- (func $~lib/assemblyscript-json/decoder/JSONDecoder<main_near/__near_ArgsParser_convertFoobars>#parseValue (; 342 ;) (type $FUNCSIG$ii) (param $0 i32) (result i32)
+ (func $~lib/assemblyscript-json/decoder/JSONDecoder<main/__near_ArgsParser_convertFoobars>#parseValue (; 334 ;) (type $FUNCSIG$ii) (param $0 i32) (result i32)
   (local $1 i32)
   local.get $0
-  call $~lib/assemblyscript-json/decoder/JSONDecoder<main_near/__near_ArgsParser_convertFoobars>#skipWhitespace
+  call $~lib/assemblyscript-json/decoder/JSONDecoder<main/__near_ArgsParser_convertFoobars>#skipWhitespace
   local.get $0
-  call $~lib/assemblyscript-json/decoder/JSONDecoder<main_near/__near_ArgsParser_convertFoobars>#parseObject
+  call $~lib/assemblyscript-json/decoder/JSONDecoder<main/__near_ArgsParser_convertFoobars>#parseObject
   local.tee $1
   if (result i32)
    local.get $1
   else   
    local.get $0
-   call $~lib/assemblyscript-json/decoder/JSONDecoder<main_near/__near_ArgsParser_convertFoobars>#parseArray
+   call $~lib/assemblyscript-json/decoder/JSONDecoder<main/__near_ArgsParser_convertFoobars>#parseArray
   end
   local.tee $1
   if (result i32)
    local.get $1
   else   
    local.get $0
-   call $~lib/assemblyscript-json/decoder/JSONDecoder<main_near/__near_ArgsParser_convertFoobars>#parseString
+   call $~lib/assemblyscript-json/decoder/JSONDecoder<main/__near_ArgsParser_convertFoobars>#parseString
   end
   local.tee $1
   if (result i32)
    local.get $1
   else   
    local.get $0
-   call $~lib/assemblyscript-json/decoder/JSONDecoder<main_near/__near_ArgsParser_convertFoobars>#parseBoolean
+   call $~lib/assemblyscript-json/decoder/JSONDecoder<main/__near_ArgsParser_convertFoobars>#parseBoolean
   end
   local.tee $1
   if (result i32)
    local.get $1
   else   
    local.get $0
-   call $~lib/assemblyscript-json/decoder/JSONDecoder<main_near/__near_ArgsParser_convertFoobars>#parseNumber
+   call $~lib/assemblyscript-json/decoder/JSONDecoder<main/__near_ArgsParser_convertFoobars>#parseNumber
   end
   local.tee $1
   if (result i32)
    local.get $1
   else   
    local.get $0
-   call $~lib/assemblyscript-json/decoder/JSONDecoder<main_near/__near_ArgsParser_convertFoobars>#parseNull
+   call $~lib/assemblyscript-json/decoder/JSONDecoder<main/__near_ArgsParser_convertFoobars>#parseNull
   end
   local.set $1
   local.get $0
-  call $~lib/assemblyscript-json/decoder/JSONDecoder<main_near/__near_ArgsParser_convertFoobars>#skipWhitespace
+  call $~lib/assemblyscript-json/decoder/JSONDecoder<main/__near_ArgsParser_convertFoobars>#skipWhitespace
   local.get $1
  )
- (func $~lib/assemblyscript-json/decoder/JSONDecoder<main_near/__near_ArgsParser_convertFoobars>#deserialize (; 343 ;) (type $FUNCSIG$viii) (param $0 i32) (param $1 i32) (param $2 i32)
+ (func $~lib/assemblyscript-json/decoder/JSONDecoder<main/__near_ArgsParser_convertFoobars>#deserialize (; 335 ;) (type $FUNCSIG$viii) (param $0 i32) (param $1 i32) (param $2 i32)
   (local $3 i32)
   (local $4 i32)
   local.get $1
@@ -20215,12 +18511,12 @@
    i32.store offset=4
   end
   local.get $0
-  call $~lib/assemblyscript-json/decoder/JSONDecoder<main_near/__near_ArgsParser_convertFoobars>#parseValue
+  call $~lib/assemblyscript-json/decoder/JSONDecoder<main/__near_ArgsParser_convertFoobars>#parseValue
   i32.const 0
   i32.ne
   i32.eqz
   if
-   i32.const 3888
+   i32.const 3904
    i32.const 2800
    i32.const 100
    i32.const 4
@@ -20232,7 +18528,7 @@
   local.get $2
   call $~lib/rt/stub/__release
  )
- (func $main/convertFoobars~anonymous|0 (; 344 ;) (type $FUNCSIG$iiii) (param $0 i32) (param $1 i32) (param $2 i32) (result i32)
+ (func $main/wrapped_convertFoobars~anonymous|0 (; 336 ;) (type $FUNCSIG$iiii) (param $0 i32) (param $1 i32) (param $2 i32) (result i32)
   (local $3 i32)
   (local $4 i32)
   local.get $0
@@ -20242,7 +18538,7 @@
   call $~lib/rt/stub/__retain
   drop
   i32.const 4
-  i32.const 36
+  i32.const 35
   call $~lib/rt/stub/__alloc
   call $~lib/rt/stub/__retain
   local.set $3
@@ -20259,7 +18555,7 @@
   call $~lib/rt/stub/__release
   local.get $4
  )
- (func $~lib/array/Array<model_near/FooBar>#map<model_near/ContainerClass> (; 345 ;) (type $FUNCSIG$iii) (param $0 i32) (param $1 i32) (result i32)
+ (func $~lib/array/Array<model/FooBar>#map<model/ContainerClass> (; 337 ;) (type $FUNCSIG$iii) (param $0 i32) (param $1 i32) (result i32)
   (local $2 i32)
   (local $3 i32)
   (local $4 i32)
@@ -20271,7 +18567,7 @@
   local.set $2
   local.get $2
   i32.const 2
-  i32.const 37
+  i32.const 36
   i32.const 0
   call $~lib/rt/__allocArray
   call $~lib/rt/stub/__retain
@@ -20334,24 +18630,24 @@
   end
   local.get $3
  )
- (func $main/convertFoobars (; 346 ;) (type $FUNCSIG$ii) (param $0 i32) (result i32)
+ (func $main/wrapped_convertFoobars (; 338 ;) (type $FUNCSIG$ii) (param $0 i32) (result i32)
   (local $1 i32)
   local.get $0
   call $~lib/rt/stub/__retain
   drop
   local.get $0
   i32.const 1
-  call $~lib/array/Array<model_near/FooBar>#map<model_near/ContainerClass>
+  call $~lib/array/Array<model/FooBar>#map<model/ContainerClass>
   local.set $1
   local.get $0
   call $~lib/rt/stub/__release
   local.get $1
  )
- (func $~lib/array/Array<model_near/ContainerClass>#get:length (; 347 ;) (type $FUNCSIG$ii) (param $0 i32) (result i32)
+ (func $~lib/array/Array<model/ContainerClass>#get:length (; 339 ;) (type $FUNCSIG$ii) (param $0 i32) (result i32)
   local.get $0
   i32.load offset=12
  )
- (func $~lib/array/Array<model_near/ContainerClass>#__unchecked_get (; 348 ;) (type $FUNCSIG$iii) (param $0 i32) (param $1 i32) (result i32)
+ (func $~lib/array/Array<model/ContainerClass>#__unchecked_get (; 340 ;) (type $FUNCSIG$iii) (param $0 i32) (param $1 i32) (result i32)
   local.get $0
   i32.load offset=4
   local.get $1
@@ -20361,7 +18657,7 @@
   i32.load
   call $~lib/rt/stub/__retain
  )
- (func $~lib/array/Array<model_near/ContainerClass>#__get (; 349 ;) (type $FUNCSIG$iii) (param $0 i32) (param $1 i32) (result i32)
+ (func $~lib/array/Array<model/ContainerClass>#__get (; 341 ;) (type $FUNCSIG$iii) (param $0 i32) (param $1 i32) (result i32)
   local.get $1
   local.get $0
   i32.load offset=12
@@ -20390,9 +18686,9 @@
   end
   local.get $0
   local.get $1
-  call $~lib/array/Array<model_near/ContainerClass>#__unchecked_get
+  call $~lib/array/Array<model/ContainerClass>#__unchecked_get
  )
- (func $model_near/__near_encode_ContainerClass (; 350 ;) (type $FUNCSIG$vii) (param $0 i32) (param $1 i32)
+ (func $model/__near_encode_ContainerClass (; 342 ;) (type $FUNCSIG$vii) (param $0 i32) (param $1 i32)
   local.get $0
   call $~lib/rt/stub/__retain
   drop
@@ -20404,19 +18700,15 @@
   i32.const 0
   i32.ne
   if
-   local.get $1
-   i32.const 4696
-   call $~lib/assemblyscript-json/encoder/JSONEncoder#pushObject
-   drop
    local.get $0
    i32.load
    local.get $1
-   call $model_near/__near_encode_FooBar
-   local.get $1
-   call $~lib/assemblyscript-json/encoder/JSONEncoder#popObject
+   i32.const 4440
+   call $model/FooBar#encode
+   call $~lib/rt/stub/__release
   else   
    local.get $1
-   i32.const 4696
+   i32.const 4440
    call $~lib/assemblyscript-json/encoder/JSONEncoder#setNull
   end
   local.get $0
@@ -20424,7 +18716,69 @@
   local.get $1
   call $~lib/rt/stub/__release
  )
- (func $main_near/__near_encode_Array_ContainerClass (; 351 ;) (type $FUNCSIG$vii) (param $0 i32) (param $1 i32)
+ (func $model/ContainerClass#_encoder (; 343 ;) (type $FUNCSIG$iiii) (param $0 i32) (param $1 i32) (param $2 i32) (result i32)
+  (local $3 i32)
+  local.get $1
+  call $~lib/rt/stub/__retain
+  drop
+  local.get $2
+  call $~lib/rt/stub/__retain
+  drop
+  local.get $1
+  local.get $2
+  call $~lib/assemblyscript-json/encoder/JSONEncoder#pushObject
+  drop
+  local.get $0
+  local.get $1
+  call $model/__near_encode_ContainerClass
+  local.get $1
+  call $~lib/assemblyscript-json/encoder/JSONEncoder#popObject
+  local.get $1
+  local.set $3
+  local.get $2
+  call $~lib/rt/stub/__release
+  local.get $3
+ )
+ (func $model/ContainerClass#encode (; 344 ;) (type $FUNCSIG$iiii) (param $0 i32) (param $1 i32) (param $2 i32) (result i32)
+  (local $3 i32)
+  (local $4 i32)
+  local.get $1
+  call $~lib/rt/stub/__retain
+  drop
+  local.get $2
+  call $~lib/rt/stub/__retain
+  drop
+  local.get $1
+  i32.const 0
+  i32.ne
+  if (result i32)
+   local.get $1
+   call $~lib/rt/stub/__retain
+  else   
+   i32.const 0
+   call $~lib/assemblyscript-json/encoder/JSONEncoder#constructor
+  end
+  local.set $3
+  local.get $0
+  local.get $3
+  local.tee $4
+  if (result i32)
+   local.get $4
+  else   
+   unreachable
+  end
+  local.get $2
+  call $model/ContainerClass#_encoder
+  local.set $4
+  local.get $3
+  call $~lib/rt/stub/__release
+  local.get $1
+  call $~lib/rt/stub/__release
+  local.get $2
+  call $~lib/rt/stub/__release
+  local.get $4
+ )
+ (func $main/__near_encode_Array_ContainerClass (; 345 ;) (type $FUNCSIG$vii) (param $0 i32) (param $1 i32)
   (local $2 i32)
   (local $3 i32)
   (local $4 i32)
@@ -20440,29 +18794,25 @@
    loop $loop|0
     local.get $2
     local.get $0
-    call $~lib/array/Array<model_near/ContainerClass>#get:length
+    call $~lib/array/Array<model/ContainerClass>#get:length
     i32.lt_s
     i32.eqz
     br_if $break|0
     local.get $0
     local.get $2
-    call $~lib/array/Array<model_near/ContainerClass>#__get
+    call $~lib/array/Array<model/ContainerClass>#__get
     local.tee $3
     i32.const 0
     i32.ne
     if
-     local.get $1
-     i32.const 0
-     call $~lib/assemblyscript-json/encoder/JSONEncoder#pushObject
-     drop
      local.get $0
      local.get $2
-     call $~lib/array/Array<model_near/ContainerClass>#__get
+     call $~lib/array/Array<model/ContainerClass>#__get
      local.tee $4
      local.get $1
-     call $model_near/__near_encode_ContainerClass
-     local.get $1
-     call $~lib/assemblyscript-json/encoder/JSONEncoder#popObject
+     i32.const 0
+     call $model/ContainerClass#encode
+     call $~lib/rt/stub/__release
      local.get $4
      call $~lib/rt/stub/__release
     else     
@@ -20485,12 +18835,12 @@
   local.get $1
   call $~lib/rt/stub/__release
  )
- (func $~lib/typedarray/Uint8Array#get:buffer (; 352 ;) (type $FUNCSIG$ii) (param $0 i32) (result i32)
+ (func $~lib/typedarray/Uint8Array#get:buffer (; 346 ;) (type $FUNCSIG$ii) (param $0 i32) (result i32)
   local.get $0
   i32.load
   call $~lib/rt/stub/__retain
  )
- (func $main_near/convertFoobars (; 353 ;) (type $FUNCSIG$v)
+ (func $main/convertFoobars (; 347 ;) (type $FUNCSIG$v)
   (local $0 i32)
   (local $1 i32)
   (local $2 i32)
@@ -20511,7 +18861,7 @@
   call $~lib/rt/stub/__retain
   local.set $0
   i32.const 0
-  call $main_near/__near_ArgsParser_convertFoobars#constructor
+  call $main/__near_ArgsParser_convertFoobars#constructor
   local.set $1
   local.get $1
   local.tee $2
@@ -20534,7 +18884,7 @@
   local.tee $3
   i32.const 0
   local.get $1
-  call $~lib/assemblyscript-json/decoder/JSONDecoder<main_near/__near_ArgsParser_convertFoobars>#constructor
+  call $~lib/assemblyscript-json/decoder/JSONDecoder<main/__near_ArgsParser_convertFoobars>#constructor
   local.set $2
   local.get $3
   i32.load offset=4
@@ -20545,10 +18895,10 @@
   i32.load offset=4
   local.get $0
   i32.const 0
-  call $~lib/assemblyscript-json/decoder/JSONDecoder<main_near/__near_ArgsParser_convertFoobars>#deserialize
+  call $~lib/assemblyscript-json/decoder/JSONDecoder<main/__near_ArgsParser_convertFoobars>#deserialize
   local.get $1
   i32.load offset=12
-  call $main/convertFoobars
+  call $main/wrapped_convertFoobars
   local.set $2
   i32.const 0
   call $~lib/assemblyscript-json/encoder/JSONEncoder#constructor
@@ -20563,7 +18913,7 @@
    drop
    local.get $2
    local.get $3
-   call $main_near/__near_encode_Array_ContainerClass
+   call $main/__near_encode_Array_ContainerClass
    local.get $3
    call $~lib/assemblyscript-json/encoder/JSONEncoder#popArray
   else   
@@ -20579,7 +18929,7 @@
   local.get $4
   call $~lib/typedarray/Uint8Array#get:buffer
   local.tee $5
-  call $main_near/return_value
+  call $~lib/near-runtime-ts/imports/return_value
   local.get $0
   call $~lib/rt/stub/__release
   local.get $1
@@ -20593,15 +18943,15 @@
   local.get $5
   call $~lib/rt/stub/__release
  )
- (func $test/convertFoobars (; 354 ;) (type $FUNCSIG$v)
-  call $main_near/convertFoobars
+ (func $test/convertFoobars (; 348 ;) (type $FUNCSIG$v)
+  call $main/convertFoobars
  )
- (func $main_near/__near_ArgsParser_getStringArrayLength#constructor (; 355 ;) (type $FUNCSIG$ii) (param $0 i32) (result i32)
+ (func $main/__near_ArgsParser_getStringArrayLength#constructor (; 349 ;) (type $FUNCSIG$ii) (param $0 i32) (result i32)
   local.get $0
   i32.eqz
   if
    i32.const 16
-   i32.const 38
+   i32.const 37
    call $~lib/rt/stub/__alloc
    call $~lib/rt/stub/__retain
    local.set $0
@@ -20623,7 +18973,7 @@
   i32.store offset=12
   local.get $0
  )
- (func $~lib/assemblyscript-json/decoder/JSONDecoder<main_near/__near_ArgsParser_getStringArrayLength>#constructor (; 356 ;) (type $FUNCSIG$iii) (param $0 i32) (param $1 i32) (result i32)
+ (func $~lib/assemblyscript-json/decoder/JSONDecoder<main/__near_ArgsParser_getStringArrayLength>#constructor (; 350 ;) (type $FUNCSIG$iii) (param $0 i32) (param $1 i32) (result i32)
   (local $2 i32)
   (local $3 i32)
   local.get $1
@@ -20633,7 +18983,7 @@
   i32.eqz
   if
    i32.const 8
-   i32.const 39
+   i32.const 38
    call $~lib/rt/stub/__alloc
    call $~lib/rt/stub/__retain
    local.set $0
@@ -20665,7 +19015,7 @@
   call $~lib/rt/stub/__release
   local.get $0
  )
- (func $~lib/assemblyscript-json/decoder/JSONDecoder<main_near/__near_ArgsParser_getStringArrayLength>#peekChar (; 357 ;) (type $FUNCSIG$ii) (param $0 i32) (result i32)
+ (func $~lib/assemblyscript-json/decoder/JSONDecoder<main/__near_ArgsParser_getStringArrayLength>#peekChar (; 351 ;) (type $FUNCSIG$ii) (param $0 i32) (result i32)
   local.get $0
   i32.load offset=4
   i32.load offset=4
@@ -20686,7 +19036,7 @@
   i32.load offset=4
   call $~lib/typedarray/Uint8Array#__get
  )
- (func $~lib/assemblyscript-json/decoder/JSONDecoder<main_near/__near_ArgsParser_getStringArrayLength>#isWhitespace (; 358 ;) (type $FUNCSIG$iii) (param $0 i32) (param $1 i32) (result i32)
+ (func $~lib/assemblyscript-json/decoder/JSONDecoder<main/__near_ArgsParser_getStringArrayLength>#isWhitespace (; 352 ;) (type $FUNCSIG$iii) (param $0 i32) (param $1 i32) (result i32)
   local.get $1
   i32.const 9
   i32.eq
@@ -20712,7 +19062,7 @@
    i32.eq
   end
  )
- (func $~lib/assemblyscript-json/decoder/JSONDecoder<main_near/__near_ArgsParser_getStringArrayLength>#readChar (; 359 ;) (type $FUNCSIG$ii) (param $0 i32) (result i32)
+ (func $~lib/assemblyscript-json/decoder/JSONDecoder<main/__near_ArgsParser_getStringArrayLength>#readChar (; 353 ;) (type $FUNCSIG$ii) (param $0 i32) (result i32)
   (local $1 i32)
   local.get $0
   i32.load offset=4
@@ -20746,24 +19096,24 @@
   local.get $1
   call $~lib/typedarray/Uint8Array#__get
  )
- (func $~lib/assemblyscript-json/decoder/JSONDecoder<main_near/__near_ArgsParser_getStringArrayLength>#skipWhitespace (; 360 ;) (type $FUNCSIG$vi) (param $0 i32)
+ (func $~lib/assemblyscript-json/decoder/JSONDecoder<main/__near_ArgsParser_getStringArrayLength>#skipWhitespace (; 354 ;) (type $FUNCSIG$vi) (param $0 i32)
   block $break|0
    loop $continue|0
     local.get $0
     local.get $0
-    call $~lib/assemblyscript-json/decoder/JSONDecoder<main_near/__near_ArgsParser_getStringArrayLength>#peekChar
-    call $~lib/assemblyscript-json/decoder/JSONDecoder<main_near/__near_ArgsParser_getStringArrayLength>#isWhitespace
+    call $~lib/assemblyscript-json/decoder/JSONDecoder<main/__near_ArgsParser_getStringArrayLength>#peekChar
+    call $~lib/assemblyscript-json/decoder/JSONDecoder<main/__near_ArgsParser_getStringArrayLength>#isWhitespace
     i32.eqz
     br_if $break|0
     local.get $0
-    call $~lib/assemblyscript-json/decoder/JSONDecoder<main_near/__near_ArgsParser_getStringArrayLength>#readChar
+    call $~lib/assemblyscript-json/decoder/JSONDecoder<main/__near_ArgsParser_getStringArrayLength>#readChar
     drop
     br $continue|0
    end
    unreachable
   end
  )
- (func $main_near/__near_ArgsParser_getStringArrayLength#pushObject (; 361 ;) (type $FUNCSIG$iii) (param $0 i32) (param $1 i32) (result i32)
+ (func $main/__near_ArgsParser_getStringArrayLength#pushObject (; 355 ;) (type $FUNCSIG$iii) (param $0 i32) (param $1 i32) (result i32)
   (local $2 i32)
   local.get $1
   call $~lib/rt/stub/__retain
@@ -20788,9 +19138,9 @@
    i32.eqz
    if
     i32.const 0
-    i32.const 4624
-    i32.const 264
-    i32.const 6
+    i32.const 3560
+    i32.const 273
+    i32.const 8
     call $~lib/builtins/abort
     unreachable
    end
@@ -20818,9 +19168,9 @@
    i32.eqz
    if
     i32.const 0
-    i32.const 4624
-    i32.const 268
-    i32.const 6
+    i32.const 3560
+    i32.const 277
+    i32.const 8
     call $~lib/builtins/abort
     unreachable
    end
@@ -20833,13 +19183,13 @@
   call $~lib/rt/stub/__release
   local.get $2
  )
- (func $~lib/assemblyscript-json/decoder/JSONDecoder<main_near/__near_ArgsParser_getStringArrayLength>#readHexDigit (; 362 ;) (type $FUNCSIG$ii) (param $0 i32) (result i32)
+ (func $~lib/assemblyscript-json/decoder/JSONDecoder<main/__near_ArgsParser_getStringArrayLength>#readHexDigit (; 356 ;) (type $FUNCSIG$ii) (param $0 i32) (result i32)
   (local $1 i32)
   (local $2 i32)
   (local $3 i32)
   (local $4 i32)
   local.get $0
-  call $~lib/assemblyscript-json/decoder/JSONDecoder<main_near/__near_ArgsParser_getStringArrayLength>#readChar
+  call $~lib/assemblyscript-json/decoder/JSONDecoder<main/__near_ArgsParser_getStringArrayLength>#readChar
   local.set $1
   local.get $1
   global.get $~lib/assemblyscript-json/decoder/CHAR_0
@@ -20904,7 +19254,7 @@
   end
   i32.eqz
   if
-   i32.const 3336
+   i32.const 3320
    i32.const 2800
    i32.const 269
    i32.const 4
@@ -20917,7 +19267,7 @@
   call $~lib/rt/stub/__release
   local.get $3
  )
- (func $~lib/assemblyscript-json/decoder/JSONDecoder<main_near/__near_ArgsParser_getStringArrayLength>#readEscapedChar (; 363 ;) (type $FUNCSIG$ii) (param $0 i32) (result i32)
+ (func $~lib/assemblyscript-json/decoder/JSONDecoder<main/__near_ArgsParser_getStringArrayLength>#readEscapedChar (; 357 ;) (type $FUNCSIG$ii) (param $0 i32) (result i32)
   (local $1 i32)
   (local $2 i32)
   (local $3 i32)
@@ -20925,7 +19275,7 @@
   (local $5 i32)
   (local $6 i32)
   local.get $0
-  call $~lib/assemblyscript-json/decoder/JSONDecoder<main_near/__near_ArgsParser_getStringArrayLength>#readChar
+  call $~lib/assemblyscript-json/decoder/JSONDecoder<main/__near_ArgsParser_getStringArrayLength>#readChar
   local.set $1
   local.get $1
   i32.const 1072
@@ -20948,17 +19298,17 @@
    return
   end
   local.get $1
-  i32.const 3192
+  i32.const 3176
   i32.const 0
   call $~lib/string/String#charCodeAt
   i32.eq
   if
-   i32.const 3192
+   i32.const 3176
    call $~lib/rt/stub/__retain
    return
   end
   local.get $1
-  i32.const 3216
+  i32.const 3200
   i32.const 0
   call $~lib/string/String#charCodeAt
   i32.eq
@@ -20968,7 +19318,7 @@
    return
   end
   local.get $1
-  i32.const 3240
+  i32.const 3224
   i32.const 0
   call $~lib/string/String#charCodeAt
   i32.eq
@@ -20978,7 +19328,7 @@
    return
   end
   local.get $1
-  i32.const 3264
+  i32.const 3248
   i32.const 0
   call $~lib/string/String#charCodeAt
   i32.eq
@@ -20988,7 +19338,7 @@
    return
   end
   local.get $1
-  i32.const 3288
+  i32.const 3272
   i32.const 0
   call $~lib/string/String#charCodeAt
   i32.eq
@@ -20998,22 +19348,22 @@
    return
   end
   local.get $1
-  i32.const 3312
+  i32.const 3296
   i32.const 0
   call $~lib/string/String#charCodeAt
   i32.eq
   if
    local.get $0
-   call $~lib/assemblyscript-json/decoder/JSONDecoder<main_near/__near_ArgsParser_getStringArrayLength>#readHexDigit
+   call $~lib/assemblyscript-json/decoder/JSONDecoder<main/__near_ArgsParser_getStringArrayLength>#readHexDigit
    local.set $2
    local.get $0
-   call $~lib/assemblyscript-json/decoder/JSONDecoder<main_near/__near_ArgsParser_getStringArrayLength>#readHexDigit
+   call $~lib/assemblyscript-json/decoder/JSONDecoder<main/__near_ArgsParser_getStringArrayLength>#readHexDigit
    local.set $3
    local.get $0
-   call $~lib/assemblyscript-json/decoder/JSONDecoder<main_near/__near_ArgsParser_getStringArrayLength>#readHexDigit
+   call $~lib/assemblyscript-json/decoder/JSONDecoder<main/__near_ArgsParser_getStringArrayLength>#readHexDigit
    local.set $4
    local.get $0
-   call $~lib/assemblyscript-json/decoder/JSONDecoder<main_near/__near_ArgsParser_getStringArrayLength>#readHexDigit
+   call $~lib/assemblyscript-json/decoder/JSONDecoder<main/__near_ArgsParser_getStringArrayLength>#readHexDigit
    local.set $5
    local.get $2
    i32.const 4096
@@ -21036,7 +19386,7 @@
   i32.const 0
   i32.eqz
   if
-   i32.const 3392
+   i32.const 3376
    i32.const 1
    global.set $~lib/argc
    local.get $1
@@ -21060,21 +19410,21 @@
   call $~lib/rt/stub/__release
   local.get $4
  )
- (func $~lib/assemblyscript-json/decoder/JSONDecoder<main_near/__near_ArgsParser_getStringArrayLength>#readString (; 364 ;) (type $FUNCSIG$ii) (param $0 i32) (result i32)
+ (func $~lib/assemblyscript-json/decoder/JSONDecoder<main/__near_ArgsParser_getStringArrayLength>#readString (; 358 ;) (type $FUNCSIG$ii) (param $0 i32) (result i32)
   (local $1 i32)
   (local $2 i32)
   (local $3 i32)
   (local $4 i32)
   (local $5 i32)
   local.get $0
-  call $~lib/assemblyscript-json/decoder/JSONDecoder<main_near/__near_ArgsParser_getStringArrayLength>#readChar
+  call $~lib/assemblyscript-json/decoder/JSONDecoder<main/__near_ArgsParser_getStringArrayLength>#readChar
   i32.const 1072
   i32.const 0
   call $~lib/string/String#charCodeAt
   i32.eq
   i32.eqz
   if
-   i32.const 3040
+   i32.const 3024
    i32.const 2800
    i32.const 197
    i32.const 4
@@ -21091,14 +19441,14 @@
   local.set $2
   loop $loop|0
    local.get $0
-   call $~lib/assemblyscript-json/decoder/JSONDecoder<main_near/__near_ArgsParser_getStringArrayLength>#readChar
+   call $~lib/assemblyscript-json/decoder/JSONDecoder<main/__near_ArgsParser_getStringArrayLength>#readChar
    local.set $3
    local.get $3
    i32.const 32
    i32.ge_s
    i32.eqz
    if
-    i32.const 3120
+    i32.const 3104
     i32.const 2800
     i32.const 203
     i32.const 6
@@ -21176,7 +19526,7 @@
      end
      local.get $2
      local.get $0
-     call $~lib/assemblyscript-json/decoder/JSONDecoder<main_near/__near_ArgsParser_getStringArrayLength>#readEscapedChar
+     call $~lib/assemblyscript-json/decoder/JSONDecoder<main/__near_ArgsParser_getStringArrayLength>#readEscapedChar
      local.tee $4
      call $~lib/array/Array<~lib/string/String>#push
      drop
@@ -21192,16 +19542,16 @@
   end
   unreachable
  )
- (func $~lib/assemblyscript-json/decoder/JSONDecoder<main_near/__near_ArgsParser_getStringArrayLength>#parseKey (; 365 ;) (type $FUNCSIG$vi) (param $0 i32)
+ (func $~lib/assemblyscript-json/decoder/JSONDecoder<main/__near_ArgsParser_getStringArrayLength>#parseKey (; 359 ;) (type $FUNCSIG$vi) (param $0 i32)
   (local $1 i32)
   (local $2 i32)
   local.get $0
-  call $~lib/assemblyscript-json/decoder/JSONDecoder<main_near/__near_ArgsParser_getStringArrayLength>#skipWhitespace
+  call $~lib/assemblyscript-json/decoder/JSONDecoder<main/__near_ArgsParser_getStringArrayLength>#skipWhitespace
   local.get $0
   i32.load offset=4
   local.tee $1
   local.get $0
-  call $~lib/assemblyscript-json/decoder/JSONDecoder<main_near/__near_ArgsParser_getStringArrayLength>#readString
+  call $~lib/assemblyscript-json/decoder/JSONDecoder<main/__near_ArgsParser_getStringArrayLength>#readString
   local.set $2
   local.get $1
   i32.load
@@ -21209,16 +19559,16 @@
   local.get $2
   i32.store
   local.get $0
-  call $~lib/assemblyscript-json/decoder/JSONDecoder<main_near/__near_ArgsParser_getStringArrayLength>#skipWhitespace
+  call $~lib/assemblyscript-json/decoder/JSONDecoder<main/__near_ArgsParser_getStringArrayLength>#skipWhitespace
   local.get $0
-  call $~lib/assemblyscript-json/decoder/JSONDecoder<main_near/__near_ArgsParser_getStringArrayLength>#readChar
+  call $~lib/assemblyscript-json/decoder/JSONDecoder<main/__near_ArgsParser_getStringArrayLength>#readChar
   i32.const 1984
   i32.const 0
   call $~lib/string/String#charCodeAt
   i32.eq
   i32.eqz
   if
-   i32.const 3472
+   i32.const 3456
    i32.const 2800
    i32.const 159
    i32.const 4
@@ -21226,12 +19576,12 @@
    unreachable
   end
  )
- (func $~lib/assemblyscript-json/decoder/JSONDecoder<main_near/__near_ArgsParser_getStringArrayLength>#parseObject (; 366 ;) (type $FUNCSIG$ii) (param $0 i32) (result i32)
+ (func $~lib/assemblyscript-json/decoder/JSONDecoder<main/__near_ArgsParser_getStringArrayLength>#parseObject (; 360 ;) (type $FUNCSIG$ii) (param $0 i32) (result i32)
   (local $1 i32)
   (local $2 i32)
   (local $3 i32)
   local.get $0
-  call $~lib/assemblyscript-json/decoder/JSONDecoder<main_near/__near_ArgsParser_getStringArrayLength>#peekChar
+  call $~lib/assemblyscript-json/decoder/JSONDecoder<main/__near_ArgsParser_getStringArrayLength>#peekChar
   i32.const 2008
   i32.const 0
   call $~lib/string/String#charCodeAt
@@ -21266,19 +19616,19 @@
   local.get $0
   i32.load
   local.get $1
-  call $main_near/__near_ArgsParser_getStringArrayLength#pushObject
+  call $main/__near_ArgsParser_getStringArrayLength#pushObject
   if
    local.get $0
-   call $~lib/assemblyscript-json/decoder/JSONDecoder<main_near/__near_ArgsParser_getStringArrayLength>#readChar
+   call $~lib/assemblyscript-json/decoder/JSONDecoder<main/__near_ArgsParser_getStringArrayLength>#readChar
    drop
    local.get $0
-   call $~lib/assemblyscript-json/decoder/JSONDecoder<main_near/__near_ArgsParser_getStringArrayLength>#skipWhitespace
+   call $~lib/assemblyscript-json/decoder/JSONDecoder<main/__near_ArgsParser_getStringArrayLength>#skipWhitespace
    i32.const 1
    local.set $3
    block $break|0
     loop $continue|0
      local.get $0
-     call $~lib/assemblyscript-json/decoder/JSONDecoder<main_near/__near_ArgsParser_getStringArrayLength>#peekChar
+     call $~lib/assemblyscript-json/decoder/JSONDecoder<main/__near_ArgsParser_getStringArrayLength>#peekChar
      i32.const 2672
      i32.const 0
      call $~lib/string/String#charCodeAt
@@ -21289,14 +19639,14 @@
      i32.eqz
      if
       local.get $0
-      call $~lib/assemblyscript-json/decoder/JSONDecoder<main_near/__near_ArgsParser_getStringArrayLength>#readChar
+      call $~lib/assemblyscript-json/decoder/JSONDecoder<main/__near_ArgsParser_getStringArrayLength>#readChar
       i32.const 1048
       i32.const 0
       call $~lib/string/String#charCodeAt
       i32.eq
       i32.eqz
       if
-       i32.const 3000
+       i32.const 2984
        i32.const 2800
        i32.const 142
        i32.const 10
@@ -21308,23 +19658,23 @@
       local.set $3
      end
      local.get $0
-     call $~lib/assemblyscript-json/decoder/JSONDecoder<main_near/__near_ArgsParser_getStringArrayLength>#parseKey
+     call $~lib/assemblyscript-json/decoder/JSONDecoder<main/__near_ArgsParser_getStringArrayLength>#parseKey
      local.get $0
-     call $~lib/assemblyscript-json/decoder/JSONDecoder<main_near/__near_ArgsParser_getStringArrayLength>#parseValue
+     call $~lib/assemblyscript-json/decoder/JSONDecoder<main/__near_ArgsParser_getStringArrayLength>#parseValue
      drop
      br $continue|0
     end
     unreachable
    end
    local.get $0
-   call $~lib/assemblyscript-json/decoder/JSONDecoder<main_near/__near_ArgsParser_getStringArrayLength>#readChar
+   call $~lib/assemblyscript-json/decoder/JSONDecoder<main/__near_ArgsParser_getStringArrayLength>#readChar
    i32.const 2672
    i32.const 0
    call $~lib/string/String#charCodeAt
    i32.eq
    i32.eqz
    if
-    i32.const 3512
+    i32.const 3496
     i32.const 2800
     i32.const 149
     i32.const 6
@@ -21341,7 +19691,7 @@
   call $~lib/rt/stub/__release
   local.get $3
  )
- (func $main_near/__near_ArgsParser_getStringArrayLength#pushArray (; 367 ;) (type $FUNCSIG$iii) (param $0 i32) (param $1 i32) (result i32)
+ (func $main/__near_ArgsParser_getStringArrayLength#pushArray (; 361 ;) (type $FUNCSIG$iii) (param $0 i32) (param $1 i32) (result i32)
   (local $2 i32)
   (local $3 i32)
   local.get $1
@@ -21359,7 +19709,7 @@
    i32.load offset=4
    i32.load offset=4
    i32.const 0
-   call $model_near/__near_decode_Array_String
+   call $main/__near_decode_Array_string
    local.set $3
    local.get $2
    i32.load offset=12
@@ -21381,12 +19731,12 @@
   call $~lib/rt/stub/__release
   local.get $3
  )
- (func $~lib/assemblyscript-json/decoder/JSONDecoder<main_near/__near_ArgsParser_getStringArrayLength>#parseArray (; 368 ;) (type $FUNCSIG$ii) (param $0 i32) (result i32)
+ (func $~lib/assemblyscript-json/decoder/JSONDecoder<main/__near_ArgsParser_getStringArrayLength>#parseArray (; 362 ;) (type $FUNCSIG$ii) (param $0 i32) (result i32)
   (local $1 i32)
   (local $2 i32)
   (local $3 i32)
   local.get $0
-  call $~lib/assemblyscript-json/decoder/JSONDecoder<main_near/__near_ArgsParser_getStringArrayLength>#peekChar
+  call $~lib/assemblyscript-json/decoder/JSONDecoder<main/__near_ArgsParser_getStringArrayLength>#peekChar
   i32.const 2232
   i32.const 0
   call $~lib/string/String#charCodeAt
@@ -21421,19 +19771,19 @@
   local.get $0
   i32.load
   local.get $1
-  call $main_near/__near_ArgsParser_getStringArrayLength#pushArray
+  call $main/__near_ArgsParser_getStringArrayLength#pushArray
   if
    local.get $0
-   call $~lib/assemblyscript-json/decoder/JSONDecoder<main_near/__near_ArgsParser_getStringArrayLength>#readChar
+   call $~lib/assemblyscript-json/decoder/JSONDecoder<main/__near_ArgsParser_getStringArrayLength>#readChar
    drop
    local.get $0
-   call $~lib/assemblyscript-json/decoder/JSONDecoder<main_near/__near_ArgsParser_getStringArrayLength>#skipWhitespace
+   call $~lib/assemblyscript-json/decoder/JSONDecoder<main/__near_ArgsParser_getStringArrayLength>#skipWhitespace
    i32.const 1
    local.set $3
    block $break|0
     loop $continue|0
      local.get $0
-     call $~lib/assemblyscript-json/decoder/JSONDecoder<main_near/__near_ArgsParser_getStringArrayLength>#peekChar
+     call $~lib/assemblyscript-json/decoder/JSONDecoder<main/__near_ArgsParser_getStringArrayLength>#peekChar
      i32.const 2256
      i32.const 0
      call $~lib/string/String#charCodeAt
@@ -21444,14 +19794,14 @@
      i32.eqz
      if
       local.get $0
-      call $~lib/assemblyscript-json/decoder/JSONDecoder<main_near/__near_ArgsParser_getStringArrayLength>#readChar
+      call $~lib/assemblyscript-json/decoder/JSONDecoder<main/__near_ArgsParser_getStringArrayLength>#readChar
       i32.const 1048
       i32.const 0
       call $~lib/string/String#charCodeAt
       i32.eq
       i32.eqz
       if
-       i32.const 3000
+       i32.const 2984
        i32.const 2800
        i32.const 176
        i32.const 10
@@ -21463,21 +19813,21 @@
       local.set $3
      end
      local.get $0
-     call $~lib/assemblyscript-json/decoder/JSONDecoder<main_near/__near_ArgsParser_getStringArrayLength>#parseValue
+     call $~lib/assemblyscript-json/decoder/JSONDecoder<main/__near_ArgsParser_getStringArrayLength>#parseValue
      drop
      br $continue|0
     end
     unreachable
    end
    local.get $0
-   call $~lib/assemblyscript-json/decoder/JSONDecoder<main_near/__near_ArgsParser_getStringArrayLength>#readChar
+   call $~lib/assemblyscript-json/decoder/JSONDecoder<main/__near_ArgsParser_getStringArrayLength>#readChar
    i32.const 2256
    i32.const 0
    call $~lib/string/String#charCodeAt
    i32.eq
    i32.eqz
    if
-    i32.const 3576
+    i32.const 3592
     i32.const 2800
     i32.const 182
     i32.const 6
@@ -21494,11 +19844,11 @@
   call $~lib/rt/stub/__release
   local.get $3
  )
- (func $~lib/assemblyscript-json/decoder/JSONDecoder<main_near/__near_ArgsParser_getStringArrayLength>#parseString (; 369 ;) (type $FUNCSIG$ii) (param $0 i32) (result i32)
+ (func $~lib/assemblyscript-json/decoder/JSONDecoder<main/__near_ArgsParser_getStringArrayLength>#parseString (; 363 ;) (type $FUNCSIG$ii) (param $0 i32) (result i32)
   (local $1 i32)
   (local $2 i32)
   local.get $0
-  call $~lib/assemblyscript-json/decoder/JSONDecoder<main_near/__near_ArgsParser_getStringArrayLength>#peekChar
+  call $~lib/assemblyscript-json/decoder/JSONDecoder<main/__near_ArgsParser_getStringArrayLength>#peekChar
   i32.const 1072
   i32.const 0
   call $~lib/string/String#charCodeAt
@@ -21513,7 +19863,7 @@
   i32.load offset=4
   i32.load
   local.get $0
-  call $~lib/assemblyscript-json/decoder/JSONDecoder<main_near/__near_ArgsParser_getStringArrayLength>#readString
+  call $~lib/assemblyscript-json/decoder/JSONDecoder<main/__near_ArgsParser_getStringArrayLength>#readString
   local.tee $1
   call $~lib/assemblyscript-json/decoder/ThrowingJSONHandler#setString
   i32.const 1
@@ -21522,7 +19872,7 @@
   call $~lib/rt/stub/__release
   local.get $2
  )
- (func $~lib/assemblyscript-json/decoder/JSONDecoder<main_near/__near_ArgsParser_getStringArrayLength>#readAndAssert (; 370 ;) (type $FUNCSIG$vii) (param $0 i32) (param $1 i32)
+ (func $~lib/assemblyscript-json/decoder/JSONDecoder<main/__near_ArgsParser_getStringArrayLength>#readAndAssert (; 364 ;) (type $FUNCSIG$vii) (param $0 i32) (param $1 i32)
   (local $2 i32)
   (local $3 i32)
   (local $4 i32)
@@ -21543,15 +19893,15 @@
     local.get $2
     call $~lib/string/String#charCodeAt
     local.get $0
-    call $~lib/assemblyscript-json/decoder/JSONDecoder<main_near/__near_ArgsParser_getStringArrayLength>#readChar
+    call $~lib/assemblyscript-json/decoder/JSONDecoder<main/__near_ArgsParser_getStringArrayLength>#readChar
     i32.eq
     i32.eqz
     if
-     i32.const 3640
+     i32.const 3656
      local.get $1
      call $~lib/string/String.__concat
      local.tee $3
-     i32.const 3680
+     i32.const 3696
      call $~lib/string/String.__concat
      local.tee $4
      i32.const 2800
@@ -21575,9 +19925,9 @@
   local.get $1
   call $~lib/rt/stub/__release
  )
- (func $~lib/assemblyscript-json/decoder/JSONDecoder<main_near/__near_ArgsParser_getStringArrayLength>#parseBoolean (; 371 ;) (type $FUNCSIG$ii) (param $0 i32) (result i32)
+ (func $~lib/assemblyscript-json/decoder/JSONDecoder<main/__near_ArgsParser_getStringArrayLength>#parseBoolean (; 365 ;) (type $FUNCSIG$ii) (param $0 i32) (result i32)
   local.get $0
-  call $~lib/assemblyscript-json/decoder/JSONDecoder<main_near/__near_ArgsParser_getStringArrayLength>#peekChar
+  call $~lib/assemblyscript-json/decoder/JSONDecoder<main/__near_ArgsParser_getStringArrayLength>#peekChar
   i32.const 504
   i32.const 0
   call $~lib/string/String#charCodeAt
@@ -21585,7 +19935,7 @@
   if
    local.get $0
    global.get $~lib/assemblyscript-json/decoder/FALSE_STR
-   call $~lib/assemblyscript-json/decoder/JSONDecoder<main_near/__near_ArgsParser_getStringArrayLength>#readAndAssert
+   call $~lib/assemblyscript-json/decoder/JSONDecoder<main/__near_ArgsParser_getStringArrayLength>#readAndAssert
    local.get $0
    i32.load
    local.get $0
@@ -21597,7 +19947,7 @@
    return
   end
   local.get $0
-  call $~lib/assemblyscript-json/decoder/JSONDecoder<main_near/__near_ArgsParser_getStringArrayLength>#peekChar
+  call $~lib/assemblyscript-json/decoder/JSONDecoder<main/__near_ArgsParser_getStringArrayLength>#peekChar
   i32.const 480
   i32.const 0
   call $~lib/string/String#charCodeAt
@@ -21605,7 +19955,7 @@
   if
    local.get $0
    global.get $~lib/assemblyscript-json/decoder/TRUE_STR
-   call $~lib/assemblyscript-json/decoder/JSONDecoder<main_near/__near_ArgsParser_getStringArrayLength>#readAndAssert
+   call $~lib/assemblyscript-json/decoder/JSONDecoder<main/__near_ArgsParser_getStringArrayLength>#readAndAssert
    local.get $0
    i32.load
    local.get $0
@@ -21618,7 +19968,7 @@
   end
   i32.const 0
  )
- (func $~lib/assemblyscript-json/decoder/JSONDecoder<main_near/__near_ArgsParser_getStringArrayLength>#parseNumber (; 372 ;) (type $FUNCSIG$ii) (param $0 i32) (result i32)
+ (func $~lib/assemblyscript-json/decoder/JSONDecoder<main/__near_ArgsParser_getStringArrayLength>#parseNumber (; 366 ;) (type $FUNCSIG$ii) (param $0 i32) (result i32)
   (local $1 i64)
   (local $2 i64)
   (local $3 i32)
@@ -21628,8 +19978,8 @@
   i64.const 1
   local.set $2
   local.get $0
-  call $~lib/assemblyscript-json/decoder/JSONDecoder<main_near/__near_ArgsParser_getStringArrayLength>#peekChar
-  i32.const 3792
+  call $~lib/assemblyscript-json/decoder/JSONDecoder<main/__near_ArgsParser_getStringArrayLength>#peekChar
+  i32.const 3808
   i32.const 0
   call $~lib/string/String#charCodeAt
   i32.eq
@@ -21637,7 +19987,7 @@
    i64.const -1
    local.set $2
    local.get $0
-   call $~lib/assemblyscript-json/decoder/JSONDecoder<main_near/__near_ArgsParser_getStringArrayLength>#readChar
+   call $~lib/assemblyscript-json/decoder/JSONDecoder<main/__near_ArgsParser_getStringArrayLength>#readChar
    drop
   end
   i32.const 0
@@ -21646,11 +19996,11 @@
    loop $continue|0
     global.get $~lib/assemblyscript-json/decoder/CHAR_0
     local.get $0
-    call $~lib/assemblyscript-json/decoder/JSONDecoder<main_near/__near_ArgsParser_getStringArrayLength>#peekChar
+    call $~lib/assemblyscript-json/decoder/JSONDecoder<main/__near_ArgsParser_getStringArrayLength>#peekChar
     i32.le_s
     if (result i32)
      local.get $0
-     call $~lib/assemblyscript-json/decoder/JSONDecoder<main_near/__near_ArgsParser_getStringArrayLength>#peekChar
+     call $~lib/assemblyscript-json/decoder/JSONDecoder<main/__near_ArgsParser_getStringArrayLength>#peekChar
      global.get $~lib/assemblyscript-json/decoder/CHAR_9
      i32.le_s
     else     
@@ -21659,7 +20009,7 @@
     i32.eqz
     br_if $break|0
     local.get $0
-    call $~lib/assemblyscript-json/decoder/JSONDecoder<main_near/__near_ArgsParser_getStringArrayLength>#readChar
+    call $~lib/assemblyscript-json/decoder/JSONDecoder<main/__near_ArgsParser_getStringArrayLength>#readChar
     local.set $4
     local.get $1
     i64.const 10
@@ -21698,7 +20048,7 @@
   end
   i32.const 0
  )
- (func $main_near/__near_ArgsParser_getStringArrayLength#setNull (; 373 ;) (type $FUNCSIG$vii) (param $0 i32) (param $1 i32)
+ (func $main/__near_ArgsParser_getStringArrayLength#setNull (; 367 ;) (type $FUNCSIG$vii) (param $0 i32) (param $1 i32)
   (local $2 i32)
   (local $3 i32)
   local.get $1
@@ -21735,9 +20085,9 @@
   local.get $1
   call $~lib/rt/stub/__release
  )
- (func $~lib/assemblyscript-json/decoder/JSONDecoder<main_near/__near_ArgsParser_getStringArrayLength>#parseNull (; 374 ;) (type $FUNCSIG$ii) (param $0 i32) (result i32)
+ (func $~lib/assemblyscript-json/decoder/JSONDecoder<main/__near_ArgsParser_getStringArrayLength>#parseNull (; 368 ;) (type $FUNCSIG$ii) (param $0 i32) (result i32)
   local.get $0
-  call $~lib/assemblyscript-json/decoder/JSONDecoder<main_near/__near_ArgsParser_getStringArrayLength>#peekChar
+  call $~lib/assemblyscript-json/decoder/JSONDecoder<main/__near_ArgsParser_getStringArrayLength>#peekChar
   i32.const 536
   i32.const 0
   call $~lib/string/String#charCodeAt
@@ -21745,65 +20095,65 @@
   if
    local.get $0
    global.get $~lib/assemblyscript-json/decoder/NULL_STR
-   call $~lib/assemblyscript-json/decoder/JSONDecoder<main_near/__near_ArgsParser_getStringArrayLength>#readAndAssert
+   call $~lib/assemblyscript-json/decoder/JSONDecoder<main/__near_ArgsParser_getStringArrayLength>#readAndAssert
    local.get $0
    i32.load
    local.get $0
    i32.load offset=4
    i32.load
-   call $main_near/__near_ArgsParser_getStringArrayLength#setNull
+   call $main/__near_ArgsParser_getStringArrayLength#setNull
    i32.const 1
    return
   end
   i32.const 0
  )
- (func $~lib/assemblyscript-json/decoder/JSONDecoder<main_near/__near_ArgsParser_getStringArrayLength>#parseValue (; 375 ;) (type $FUNCSIG$ii) (param $0 i32) (result i32)
+ (func $~lib/assemblyscript-json/decoder/JSONDecoder<main/__near_ArgsParser_getStringArrayLength>#parseValue (; 369 ;) (type $FUNCSIG$ii) (param $0 i32) (result i32)
   (local $1 i32)
   local.get $0
-  call $~lib/assemblyscript-json/decoder/JSONDecoder<main_near/__near_ArgsParser_getStringArrayLength>#skipWhitespace
+  call $~lib/assemblyscript-json/decoder/JSONDecoder<main/__near_ArgsParser_getStringArrayLength>#skipWhitespace
   local.get $0
-  call $~lib/assemblyscript-json/decoder/JSONDecoder<main_near/__near_ArgsParser_getStringArrayLength>#parseObject
+  call $~lib/assemblyscript-json/decoder/JSONDecoder<main/__near_ArgsParser_getStringArrayLength>#parseObject
   local.tee $1
   if (result i32)
    local.get $1
   else   
    local.get $0
-   call $~lib/assemblyscript-json/decoder/JSONDecoder<main_near/__near_ArgsParser_getStringArrayLength>#parseArray
+   call $~lib/assemblyscript-json/decoder/JSONDecoder<main/__near_ArgsParser_getStringArrayLength>#parseArray
   end
   local.tee $1
   if (result i32)
    local.get $1
   else   
    local.get $0
-   call $~lib/assemblyscript-json/decoder/JSONDecoder<main_near/__near_ArgsParser_getStringArrayLength>#parseString
+   call $~lib/assemblyscript-json/decoder/JSONDecoder<main/__near_ArgsParser_getStringArrayLength>#parseString
   end
   local.tee $1
   if (result i32)
    local.get $1
   else   
    local.get $0
-   call $~lib/assemblyscript-json/decoder/JSONDecoder<main_near/__near_ArgsParser_getStringArrayLength>#parseBoolean
+   call $~lib/assemblyscript-json/decoder/JSONDecoder<main/__near_ArgsParser_getStringArrayLength>#parseBoolean
   end
   local.tee $1
   if (result i32)
    local.get $1
   else   
    local.get $0
-   call $~lib/assemblyscript-json/decoder/JSONDecoder<main_near/__near_ArgsParser_getStringArrayLength>#parseNumber
+   call $~lib/assemblyscript-json/decoder/JSONDecoder<main/__near_ArgsParser_getStringArrayLength>#parseNumber
   end
   local.tee $1
   if (result i32)
    local.get $1
   else   
    local.get $0
-   call $~lib/assemblyscript-json/decoder/JSONDecoder<main_near/__near_ArgsParser_getStringArrayLength>#parseNull
+   call $~lib/assemblyscript-json/decoder/JSONDecoder<main/__near_ArgsParser_getStringArrayLength>#parseNull
   end
   local.set $1
   local.get $0
-  call $~lib/assemblyscript-json/decoder/JSONDecoder<main_near/__near_ArgsParser_getStringArrayLength>#skipWhitespace
+  call $~lib/assemblyscript-json/decoder/JSONDecoder<main/__near_ArgsParser_getStringArrayLength>#skipWhitespace
   local.get $1
  )
- (func $~lib/assemblyscript-json/decoder/JSONDecoder<main_near/__near_ArgsParser_getStringArrayLength>#deserialize (; 376 ;) (type $FUNCSIG$viii) (param $0 i32) (param $1 i32) (param $2 i32)
+ (func $~lib/assemblyscript-json/decoder/JSONDecoder<main/__near_ArgsParser_getStringArrayLength>#deserialize (; 370 ;) (type $FUNCSIG$viii) (param $0 i32) (param $1 i32) (param $2 i32)
   (local $3 i32)
   (local $4 i32)
   local.get $1
@@ -21847,12 +20197,12 @@
    i32.store offset=4
   end
   local.get $0
-  call $~lib/assemblyscript-json/decoder/JSONDecoder<main_near/__near_ArgsParser_getStringArrayLength>#parseValue
+  call $~lib/assemblyscript-json/decoder/JSONDecoder<main/__near_ArgsParser_getStringArrayLength>#parseValue
   i32.const 0
   i32.ne
   i32.eqz
   if
-   i32.const 3888
+   i32.const 3904
    i32.const 2800
    i32.const 100
    i32.const 4
@@ -21864,7 +20214,7 @@
   local.get $2
   call $~lib/rt/stub/__release
  )
- (func $~lib/util/number/itoa_stream<i32> (; 377 ;) (type $FUNCSIG$iiii) (param $0 i32) (param $1 i32) (param $2 i32) (result i32)
+ (func $~lib/util/number/itoa_stream<i32> (; 371 ;) (type $FUNCSIG$iiii) (param $0 i32) (param $1 i32) (param $2 i32) (result i32)
   (local $3 i32)
   (local $4 i32)
   (local $5 i32)
@@ -21921,7 +20271,7 @@
   end
   local.get $3
  )
- (func $~lib/array/Array<i32>#join_int (; 378 ;) (type $FUNCSIG$iii) (param $0 i32) (param $1 i32) (result i32)
+ (func $~lib/array/Array<i32>#join_int (; 372 ;) (type $FUNCSIG$iii) (param $0 i32) (param $1 i32) (result i32)
   (local $2 i32)
   (local $3 i32)
   (local $4 i32)
@@ -22074,7 +20424,7 @@
   call $~lib/rt/stub/__release
   local.get $3
  )
- (func $~lib/array/Array<i32>#join (; 379 ;) (type $FUNCSIG$iii) (param $0 i32) (param $1 i32) (result i32)
+ (func $~lib/array/Array<i32>#join (; 373 ;) (type $FUNCSIG$iii) (param $0 i32) (param $1 i32) (result i32)
   (local $2 i32)
   local.get $1
   call $~lib/rt/stub/__retain
@@ -22088,12 +20438,12 @@
   local.get $2
   return
  )
- (func $~lib/array/Array<i32>#toString (; 380 ;) (type $FUNCSIG$ii) (param $0 i32) (result i32)
+ (func $~lib/array/Array<i32>#toString (; 374 ;) (type $FUNCSIG$ii) (param $0 i32) (result i32)
   local.get $0
   i32.const 1048
   call $~lib/array/Array<i32>#join
  )
- (func $~lib/near-runtime-ts/util/toString<~lib/array/Array<i32>> (; 381 ;) (type $FUNCSIG$ii) (param $0 i32) (result i32)
+ (func $~lib/near-runtime-ts/util/toString<~lib/array/Array<i32>> (; 375 ;) (type $FUNCSIG$ii) (param $0 i32) (result i32)
   (local $1 i32)
   local.get $0
   call $~lib/rt/stub/__retain
@@ -22105,7 +20455,7 @@
   call $~lib/rt/stub/__release
   local.get $1
  )
- (func $~lib/near-runtime-ts/near/near.str<i32> (; 382 ;) (type $FUNCSIG$ii) (param $0 i32) (result i32)
+ (func $~lib/near-runtime-ts/near/near.str<i32> (; 376 ;) (type $FUNCSIG$ii) (param $0 i32) (result i32)
   (local $1 i32)
   (local $2 i32)
   (local $3 i32)
@@ -22135,7 +20485,7 @@
   call $~lib/rt/stub/__release
   local.get $3
  )
- (func $~lib/near-runtime-ts/near/near.log (; 383 ;) (type $FUNCSIG$vi) (param $0 i32)
+ (func $~lib/near-runtime-ts/near/near.log (; 377 ;) (type $FUNCSIG$vi) (param $0 i32)
   local.get $0
   call $~lib/rt/stub/__retain
   drop
@@ -22144,14 +20494,14 @@
   local.get $0
   call $~lib/rt/stub/__release
  )
- (func $main/getStringArrayLength (; 384 ;) (type $FUNCSIG$ii) (param $0 i32) (result i32)
+ (func $main/wrapped_getStringArrayLength (; 378 ;) (type $FUNCSIG$ii) (param $0 i32) (result i32)
   (local $1 i32)
   (local $2 i32)
   (local $3 i32)
   local.get $0
   call $~lib/rt/stub/__retain
   drop
-  i32.const 4728
+  i32.const 4472
   local.get $0
   call $~lib/array/Array<~lib/string/String>#get:length
   call $~lib/near-runtime-ts/near/near.str<i32>
@@ -22170,7 +20520,7 @@
   call $~lib/rt/stub/__release
   local.get $3
  )
- (func $main_near/getStringArrayLength (; 385 ;) (type $FUNCSIG$v)
+ (func $main/getStringArrayLength (; 379 ;) (type $FUNCSIG$v)
   (local $0 i32)
   (local $1 i32)
   (local $2 i32)
@@ -22191,7 +20541,7 @@
   call $~lib/rt/stub/__retain
   local.set $0
   i32.const 0
-  call $main_near/__near_ArgsParser_getStringArrayLength#constructor
+  call $main/__near_ArgsParser_getStringArrayLength#constructor
   local.set $1
   local.get $1
   local.tee $2
@@ -22214,7 +20564,7 @@
   local.tee $3
   i32.const 0
   local.get $1
-  call $~lib/assemblyscript-json/decoder/JSONDecoder<main_near/__near_ArgsParser_getStringArrayLength>#constructor
+  call $~lib/assemblyscript-json/decoder/JSONDecoder<main/__near_ArgsParser_getStringArrayLength>#constructor
   local.set $2
   local.get $3
   i32.load offset=4
@@ -22225,10 +20575,10 @@
   i32.load offset=4
   local.get $0
   i32.const 0
-  call $~lib/assemblyscript-json/decoder/JSONDecoder<main_near/__near_ArgsParser_getStringArrayLength>#deserialize
+  call $~lib/assemblyscript-json/decoder/JSONDecoder<main/__near_ArgsParser_getStringArrayLength>#deserialize
   local.get $1
   i32.load offset=12
-  call $main/getStringArrayLength
+  call $main/wrapped_getStringArrayLength
   local.set $2
   i32.const 0
   call $~lib/assemblyscript-json/encoder/JSONEncoder#constructor
@@ -22246,7 +20596,7 @@
   local.get $4
   call $~lib/typedarray/Uint8Array#get:buffer
   local.tee $5
-  call $main_near/return_value
+  call $~lib/near-runtime-ts/imports/return_value
   local.get $0
   call $~lib/rt/stub/__release
   local.get $1
@@ -22258,15 +20608,15 @@
   local.get $5
   call $~lib/rt/stub/__release
  )
- (func $test/getStringArrayLength (; 386 ;) (type $FUNCSIG$v)
-  call $main_near/getStringArrayLength
+ (func $test/getStringArrayLength (; 380 ;) (type $FUNCSIG$v)
+  call $main/getStringArrayLength
  )
- (func $main_near/__near_ArgsParser_rewrapFoobar#constructor (; 387 ;) (type $FUNCSIG$ii) (param $0 i32) (result i32)
+ (func $main/__near_ArgsParser_rewrapFoobar#constructor (; 381 ;) (type $FUNCSIG$ii) (param $0 i32) (result i32)
   local.get $0
   i32.eqz
   if
    i32.const 16
-   i32.const 40
+   i32.const 39
    call $~lib/rt/stub/__alloc
    call $~lib/rt/stub/__retain
    local.set $0
@@ -22288,7 +20638,7 @@
   i32.store offset=12
   local.get $0
  )
- (func $~lib/assemblyscript-json/decoder/JSONDecoder<main_near/__near_ArgsParser_rewrapFoobar>#constructor (; 388 ;) (type $FUNCSIG$iii) (param $0 i32) (param $1 i32) (result i32)
+ (func $~lib/assemblyscript-json/decoder/JSONDecoder<main/__near_ArgsParser_rewrapFoobar>#constructor (; 382 ;) (type $FUNCSIG$iii) (param $0 i32) (param $1 i32) (result i32)
   (local $2 i32)
   (local $3 i32)
   local.get $1
@@ -22298,7 +20648,7 @@
   i32.eqz
   if
    i32.const 8
-   i32.const 41
+   i32.const 40
    call $~lib/rt/stub/__alloc
    call $~lib/rt/stub/__retain
    local.set $0
@@ -22330,7 +20680,7 @@
   call $~lib/rt/stub/__release
   local.get $0
  )
- (func $~lib/assemblyscript-json/decoder/JSONDecoder<main_near/__near_ArgsParser_rewrapFoobar>#peekChar (; 389 ;) (type $FUNCSIG$ii) (param $0 i32) (result i32)
+ (func $~lib/assemblyscript-json/decoder/JSONDecoder<main/__near_ArgsParser_rewrapFoobar>#peekChar (; 383 ;) (type $FUNCSIG$ii) (param $0 i32) (result i32)
   local.get $0
   i32.load offset=4
   i32.load offset=4
@@ -22351,7 +20701,7 @@
   i32.load offset=4
   call $~lib/typedarray/Uint8Array#__get
  )
- (func $~lib/assemblyscript-json/decoder/JSONDecoder<main_near/__near_ArgsParser_rewrapFoobar>#isWhitespace (; 390 ;) (type $FUNCSIG$iii) (param $0 i32) (param $1 i32) (result i32)
+ (func $~lib/assemblyscript-json/decoder/JSONDecoder<main/__near_ArgsParser_rewrapFoobar>#isWhitespace (; 384 ;) (type $FUNCSIG$iii) (param $0 i32) (param $1 i32) (result i32)
   local.get $1
   i32.const 9
   i32.eq
@@ -22377,7 +20727,7 @@
    i32.eq
   end
  )
- (func $~lib/assemblyscript-json/decoder/JSONDecoder<main_near/__near_ArgsParser_rewrapFoobar>#readChar (; 391 ;) (type $FUNCSIG$ii) (param $0 i32) (result i32)
+ (func $~lib/assemblyscript-json/decoder/JSONDecoder<main/__near_ArgsParser_rewrapFoobar>#readChar (; 385 ;) (type $FUNCSIG$ii) (param $0 i32) (result i32)
   (local $1 i32)
   local.get $0
   i32.load offset=4
@@ -22411,29 +20761,29 @@
   local.get $1
   call $~lib/typedarray/Uint8Array#__get
  )
- (func $~lib/assemblyscript-json/decoder/JSONDecoder<main_near/__near_ArgsParser_rewrapFoobar>#skipWhitespace (; 392 ;) (type $FUNCSIG$vi) (param $0 i32)
+ (func $~lib/assemblyscript-json/decoder/JSONDecoder<main/__near_ArgsParser_rewrapFoobar>#skipWhitespace (; 386 ;) (type $FUNCSIG$vi) (param $0 i32)
   block $break|0
    loop $continue|0
     local.get $0
     local.get $0
-    call $~lib/assemblyscript-json/decoder/JSONDecoder<main_near/__near_ArgsParser_rewrapFoobar>#peekChar
-    call $~lib/assemblyscript-json/decoder/JSONDecoder<main_near/__near_ArgsParser_rewrapFoobar>#isWhitespace
+    call $~lib/assemblyscript-json/decoder/JSONDecoder<main/__near_ArgsParser_rewrapFoobar>#peekChar
+    call $~lib/assemblyscript-json/decoder/JSONDecoder<main/__near_ArgsParser_rewrapFoobar>#isWhitespace
     i32.eqz
     br_if $break|0
     local.get $0
-    call $~lib/assemblyscript-json/decoder/JSONDecoder<main_near/__near_ArgsParser_rewrapFoobar>#readChar
+    call $~lib/assemblyscript-json/decoder/JSONDecoder<main/__near_ArgsParser_rewrapFoobar>#readChar
     drop
     br $continue|0
    end
    unreachable
   end
  )
- (func $model_near/ContainerClass#constructor (; 393 ;) (type $FUNCSIG$ii) (param $0 i32) (result i32)
+ (func $model/ContainerClass#constructor (; 387 ;) (type $FUNCSIG$ii) (param $0 i32) (result i32)
   local.get $0
   i32.eqz
   if
    i32.const 4
-   i32.const 36
+   i32.const 35
    call $~lib/rt/stub/__alloc
    call $~lib/rt/stub/__retain
    local.set $0
@@ -22443,7 +20793,7 @@
   i32.store
   local.get $0
  )
- (func $model_near/__near_JSONHandler_ContainerClass#constructor (; 394 ;) (type $FUNCSIG$iii) (param $0 i32) (param $1 i32) (result i32)
+ (func $model/__near_JSONHandler_ContainerClass#constructor (; 388 ;) (type $FUNCSIG$iii) (param $0 i32) (param $1 i32) (result i32)
   (local $2 i32)
   (local $3 i32)
   local.get $1
@@ -22454,7 +20804,7 @@
    local.get $0
   else   
    i32.const 16
-   i32.const 42
+   i32.const 41
    call $~lib/rt/stub/__alloc
    call $~lib/rt/stub/__retain
   end
@@ -22493,7 +20843,7 @@
   call $~lib/rt/stub/__release
   local.get $0
  )
- (func $~lib/assemblyscript-json/decoder/JSONDecoder<model_near/__near_JSONHandler_ContainerClass>#constructor (; 395 ;) (type $FUNCSIG$iii) (param $0 i32) (param $1 i32) (result i32)
+ (func $~lib/assemblyscript-json/decoder/JSONDecoder<model/__near_JSONHandler_ContainerClass>#constructor (; 389 ;) (type $FUNCSIG$iii) (param $0 i32) (param $1 i32) (result i32)
   (local $2 i32)
   (local $3 i32)
   local.get $1
@@ -22503,7 +20853,7 @@
   i32.eqz
   if
    i32.const 8
-   i32.const 43
+   i32.const 42
    call $~lib/rt/stub/__alloc
    call $~lib/rt/stub/__retain
    local.set $0
@@ -22535,7 +20885,7 @@
   call $~lib/rt/stub/__release
   local.get $0
  )
- (func $~lib/assemblyscript-json/decoder/JSONDecoder<model_near/__near_JSONHandler_ContainerClass>#peekChar (; 396 ;) (type $FUNCSIG$ii) (param $0 i32) (result i32)
+ (func $~lib/assemblyscript-json/decoder/JSONDecoder<model/__near_JSONHandler_ContainerClass>#peekChar (; 390 ;) (type $FUNCSIG$ii) (param $0 i32) (result i32)
   local.get $0
   i32.load offset=4
   i32.load offset=4
@@ -22556,7 +20906,7 @@
   i32.load offset=4
   call $~lib/typedarray/Uint8Array#__get
  )
- (func $~lib/assemblyscript-json/decoder/JSONDecoder<model_near/__near_JSONHandler_ContainerClass>#isWhitespace (; 397 ;) (type $FUNCSIG$iii) (param $0 i32) (param $1 i32) (result i32)
+ (func $~lib/assemblyscript-json/decoder/JSONDecoder<model/__near_JSONHandler_ContainerClass>#isWhitespace (; 391 ;) (type $FUNCSIG$iii) (param $0 i32) (param $1 i32) (result i32)
   local.get $1
   i32.const 9
   i32.eq
@@ -22582,7 +20932,7 @@
    i32.eq
   end
  )
- (func $~lib/assemblyscript-json/decoder/JSONDecoder<model_near/__near_JSONHandler_ContainerClass>#readChar (; 398 ;) (type $FUNCSIG$ii) (param $0 i32) (result i32)
+ (func $~lib/assemblyscript-json/decoder/JSONDecoder<model/__near_JSONHandler_ContainerClass>#readChar (; 392 ;) (type $FUNCSIG$ii) (param $0 i32) (result i32)
   (local $1 i32)
   local.get $0
   i32.load offset=4
@@ -22616,24 +20966,24 @@
   local.get $1
   call $~lib/typedarray/Uint8Array#__get
  )
- (func $~lib/assemblyscript-json/decoder/JSONDecoder<model_near/__near_JSONHandler_ContainerClass>#skipWhitespace (; 399 ;) (type $FUNCSIG$vi) (param $0 i32)
+ (func $~lib/assemblyscript-json/decoder/JSONDecoder<model/__near_JSONHandler_ContainerClass>#skipWhitespace (; 393 ;) (type $FUNCSIG$vi) (param $0 i32)
   block $break|0
    loop $continue|0
     local.get $0
     local.get $0
-    call $~lib/assemblyscript-json/decoder/JSONDecoder<model_near/__near_JSONHandler_ContainerClass>#peekChar
-    call $~lib/assemblyscript-json/decoder/JSONDecoder<model_near/__near_JSONHandler_ContainerClass>#isWhitespace
+    call $~lib/assemblyscript-json/decoder/JSONDecoder<model/__near_JSONHandler_ContainerClass>#peekChar
+    call $~lib/assemblyscript-json/decoder/JSONDecoder<model/__near_JSONHandler_ContainerClass>#isWhitespace
     i32.eqz
     br_if $break|0
     local.get $0
-    call $~lib/assemblyscript-json/decoder/JSONDecoder<model_near/__near_JSONHandler_ContainerClass>#readChar
+    call $~lib/assemblyscript-json/decoder/JSONDecoder<model/__near_JSONHandler_ContainerClass>#readChar
     drop
     br $continue|0
    end
    unreachable
   end
  )
- (func $model_near/__near_JSONHandler_ContainerClass#pushObject (; 400 ;) (type $FUNCSIG$iii) (param $0 i32) (param $1 i32) (result i32)
+ (func $model/__near_JSONHandler_ContainerClass#pushObject (; 394 ;) (type $FUNCSIG$iii) (param $0 i32) (param $1 i32) (result i32)
   (local $2 i32)
   (local $3 i32)
   local.get $1
@@ -22660,8 +21010,8 @@
    if
     i32.const 0
     i32.const 2888
-    i32.const 482
-    i32.const 6
+    i32.const 406
+    i32.const 8
     call $~lib/builtins/abort
     unreachable
    end
@@ -22690,14 +21040,14 @@
    if
     i32.const 0
     i32.const 2888
-    i32.const 486
-    i32.const 6
+    i32.const 410
+    i32.const 8
     call $~lib/builtins/abort
     unreachable
    end
   end
   local.get $1
-  i32.const 4696
+  i32.const 4440
   call $~lib/string/String.__eq
   if
    local.get $0
@@ -22708,8 +21058,7 @@
    local.get $0
    i32.load offset=4
    i32.load offset=4
-   i32.const 0
-   call $model_near/__near_decode_FooBar
+   call $model/FooBar.decode
    local.set $3
    local.get $2
    i32.load
@@ -22731,13 +21080,13 @@
   call $~lib/rt/stub/__release
   local.get $3
  )
- (func $~lib/assemblyscript-json/decoder/JSONDecoder<model_near/__near_JSONHandler_ContainerClass>#readHexDigit (; 401 ;) (type $FUNCSIG$ii) (param $0 i32) (result i32)
+ (func $~lib/assemblyscript-json/decoder/JSONDecoder<model/__near_JSONHandler_ContainerClass>#readHexDigit (; 395 ;) (type $FUNCSIG$ii) (param $0 i32) (result i32)
   (local $1 i32)
   (local $2 i32)
   (local $3 i32)
   (local $4 i32)
   local.get $0
-  call $~lib/assemblyscript-json/decoder/JSONDecoder<model_near/__near_JSONHandler_ContainerClass>#readChar
+  call $~lib/assemblyscript-json/decoder/JSONDecoder<model/__near_JSONHandler_ContainerClass>#readChar
   local.set $1
   local.get $1
   global.get $~lib/assemblyscript-json/decoder/CHAR_0
@@ -22802,7 +21151,7 @@
   end
   i32.eqz
   if
-   i32.const 3336
+   i32.const 3320
    i32.const 2800
    i32.const 269
    i32.const 4
@@ -22815,7 +21164,7 @@
   call $~lib/rt/stub/__release
   local.get $3
  )
- (func $~lib/assemblyscript-json/decoder/JSONDecoder<model_near/__near_JSONHandler_ContainerClass>#readEscapedChar (; 402 ;) (type $FUNCSIG$ii) (param $0 i32) (result i32)
+ (func $~lib/assemblyscript-json/decoder/JSONDecoder<model/__near_JSONHandler_ContainerClass>#readEscapedChar (; 396 ;) (type $FUNCSIG$ii) (param $0 i32) (result i32)
   (local $1 i32)
   (local $2 i32)
   (local $3 i32)
@@ -22823,7 +21172,7 @@
   (local $5 i32)
   (local $6 i32)
   local.get $0
-  call $~lib/assemblyscript-json/decoder/JSONDecoder<model_near/__near_JSONHandler_ContainerClass>#readChar
+  call $~lib/assemblyscript-json/decoder/JSONDecoder<model/__near_JSONHandler_ContainerClass>#readChar
   local.set $1
   local.get $1
   i32.const 1072
@@ -22846,17 +21195,17 @@
    return
   end
   local.get $1
-  i32.const 3192
+  i32.const 3176
   i32.const 0
   call $~lib/string/String#charCodeAt
   i32.eq
   if
-   i32.const 3192
+   i32.const 3176
    call $~lib/rt/stub/__retain
    return
   end
   local.get $1
-  i32.const 3216
+  i32.const 3200
   i32.const 0
   call $~lib/string/String#charCodeAt
   i32.eq
@@ -22866,7 +21215,7 @@
    return
   end
   local.get $1
-  i32.const 3240
+  i32.const 3224
   i32.const 0
   call $~lib/string/String#charCodeAt
   i32.eq
@@ -22876,7 +21225,7 @@
    return
   end
   local.get $1
-  i32.const 3264
+  i32.const 3248
   i32.const 0
   call $~lib/string/String#charCodeAt
   i32.eq
@@ -22886,7 +21235,7 @@
    return
   end
   local.get $1
-  i32.const 3288
+  i32.const 3272
   i32.const 0
   call $~lib/string/String#charCodeAt
   i32.eq
@@ -22896,22 +21245,22 @@
    return
   end
   local.get $1
-  i32.const 3312
+  i32.const 3296
   i32.const 0
   call $~lib/string/String#charCodeAt
   i32.eq
   if
    local.get $0
-   call $~lib/assemblyscript-json/decoder/JSONDecoder<model_near/__near_JSONHandler_ContainerClass>#readHexDigit
+   call $~lib/assemblyscript-json/decoder/JSONDecoder<model/__near_JSONHandler_ContainerClass>#readHexDigit
    local.set $2
    local.get $0
-   call $~lib/assemblyscript-json/decoder/JSONDecoder<model_near/__near_JSONHandler_ContainerClass>#readHexDigit
+   call $~lib/assemblyscript-json/decoder/JSONDecoder<model/__near_JSONHandler_ContainerClass>#readHexDigit
    local.set $3
    local.get $0
-   call $~lib/assemblyscript-json/decoder/JSONDecoder<model_near/__near_JSONHandler_ContainerClass>#readHexDigit
+   call $~lib/assemblyscript-json/decoder/JSONDecoder<model/__near_JSONHandler_ContainerClass>#readHexDigit
    local.set $4
    local.get $0
-   call $~lib/assemblyscript-json/decoder/JSONDecoder<model_near/__near_JSONHandler_ContainerClass>#readHexDigit
+   call $~lib/assemblyscript-json/decoder/JSONDecoder<model/__near_JSONHandler_ContainerClass>#readHexDigit
    local.set $5
    local.get $2
    i32.const 4096
@@ -22934,7 +21283,7 @@
   i32.const 0
   i32.eqz
   if
-   i32.const 3392
+   i32.const 3376
    i32.const 1
    global.set $~lib/argc
    local.get $1
@@ -22958,21 +21307,21 @@
   call $~lib/rt/stub/__release
   local.get $4
  )
- (func $~lib/assemblyscript-json/decoder/JSONDecoder<model_near/__near_JSONHandler_ContainerClass>#readString (; 403 ;) (type $FUNCSIG$ii) (param $0 i32) (result i32)
+ (func $~lib/assemblyscript-json/decoder/JSONDecoder<model/__near_JSONHandler_ContainerClass>#readString (; 397 ;) (type $FUNCSIG$ii) (param $0 i32) (result i32)
   (local $1 i32)
   (local $2 i32)
   (local $3 i32)
   (local $4 i32)
   (local $5 i32)
   local.get $0
-  call $~lib/assemblyscript-json/decoder/JSONDecoder<model_near/__near_JSONHandler_ContainerClass>#readChar
+  call $~lib/assemblyscript-json/decoder/JSONDecoder<model/__near_JSONHandler_ContainerClass>#readChar
   i32.const 1072
   i32.const 0
   call $~lib/string/String#charCodeAt
   i32.eq
   i32.eqz
   if
-   i32.const 3040
+   i32.const 3024
    i32.const 2800
    i32.const 197
    i32.const 4
@@ -22989,14 +21338,14 @@
   local.set $2
   loop $loop|0
    local.get $0
-   call $~lib/assemblyscript-json/decoder/JSONDecoder<model_near/__near_JSONHandler_ContainerClass>#readChar
+   call $~lib/assemblyscript-json/decoder/JSONDecoder<model/__near_JSONHandler_ContainerClass>#readChar
    local.set $3
    local.get $3
    i32.const 32
    i32.ge_s
    i32.eqz
    if
-    i32.const 3120
+    i32.const 3104
     i32.const 2800
     i32.const 203
     i32.const 6
@@ -23074,7 +21423,7 @@
      end
      local.get $2
      local.get $0
-     call $~lib/assemblyscript-json/decoder/JSONDecoder<model_near/__near_JSONHandler_ContainerClass>#readEscapedChar
+     call $~lib/assemblyscript-json/decoder/JSONDecoder<model/__near_JSONHandler_ContainerClass>#readEscapedChar
      local.tee $4
      call $~lib/array/Array<~lib/string/String>#push
      drop
@@ -23090,16 +21439,16 @@
   end
   unreachable
  )
- (func $~lib/assemblyscript-json/decoder/JSONDecoder<model_near/__near_JSONHandler_ContainerClass>#parseKey (; 404 ;) (type $FUNCSIG$vi) (param $0 i32)
+ (func $~lib/assemblyscript-json/decoder/JSONDecoder<model/__near_JSONHandler_ContainerClass>#parseKey (; 398 ;) (type $FUNCSIG$vi) (param $0 i32)
   (local $1 i32)
   (local $2 i32)
   local.get $0
-  call $~lib/assemblyscript-json/decoder/JSONDecoder<model_near/__near_JSONHandler_ContainerClass>#skipWhitespace
+  call $~lib/assemblyscript-json/decoder/JSONDecoder<model/__near_JSONHandler_ContainerClass>#skipWhitespace
   local.get $0
   i32.load offset=4
   local.tee $1
   local.get $0
-  call $~lib/assemblyscript-json/decoder/JSONDecoder<model_near/__near_JSONHandler_ContainerClass>#readString
+  call $~lib/assemblyscript-json/decoder/JSONDecoder<model/__near_JSONHandler_ContainerClass>#readString
   local.set $2
   local.get $1
   i32.load
@@ -23107,16 +21456,16 @@
   local.get $2
   i32.store
   local.get $0
-  call $~lib/assemblyscript-json/decoder/JSONDecoder<model_near/__near_JSONHandler_ContainerClass>#skipWhitespace
+  call $~lib/assemblyscript-json/decoder/JSONDecoder<model/__near_JSONHandler_ContainerClass>#skipWhitespace
   local.get $0
-  call $~lib/assemblyscript-json/decoder/JSONDecoder<model_near/__near_JSONHandler_ContainerClass>#readChar
+  call $~lib/assemblyscript-json/decoder/JSONDecoder<model/__near_JSONHandler_ContainerClass>#readChar
   i32.const 1984
   i32.const 0
   call $~lib/string/String#charCodeAt
   i32.eq
   i32.eqz
   if
-   i32.const 3472
+   i32.const 3456
    i32.const 2800
    i32.const 159
    i32.const 4
@@ -23124,12 +21473,12 @@
    unreachable
   end
  )
- (func $~lib/assemblyscript-json/decoder/JSONDecoder<model_near/__near_JSONHandler_ContainerClass>#parseObject (; 405 ;) (type $FUNCSIG$ii) (param $0 i32) (result i32)
+ (func $~lib/assemblyscript-json/decoder/JSONDecoder<model/__near_JSONHandler_ContainerClass>#parseObject (; 399 ;) (type $FUNCSIG$ii) (param $0 i32) (result i32)
   (local $1 i32)
   (local $2 i32)
   (local $3 i32)
   local.get $0
-  call $~lib/assemblyscript-json/decoder/JSONDecoder<model_near/__near_JSONHandler_ContainerClass>#peekChar
+  call $~lib/assemblyscript-json/decoder/JSONDecoder<model/__near_JSONHandler_ContainerClass>#peekChar
   i32.const 2008
   i32.const 0
   call $~lib/string/String#charCodeAt
@@ -23164,19 +21513,19 @@
   local.get $0
   i32.load
   local.get $1
-  call $model_near/__near_JSONHandler_ContainerClass#pushObject
+  call $model/__near_JSONHandler_ContainerClass#pushObject
   if
    local.get $0
-   call $~lib/assemblyscript-json/decoder/JSONDecoder<model_near/__near_JSONHandler_ContainerClass>#readChar
+   call $~lib/assemblyscript-json/decoder/JSONDecoder<model/__near_JSONHandler_ContainerClass>#readChar
    drop
    local.get $0
-   call $~lib/assemblyscript-json/decoder/JSONDecoder<model_near/__near_JSONHandler_ContainerClass>#skipWhitespace
+   call $~lib/assemblyscript-json/decoder/JSONDecoder<model/__near_JSONHandler_ContainerClass>#skipWhitespace
    i32.const 1
    local.set $3
    block $break|0
     loop $continue|0
      local.get $0
-     call $~lib/assemblyscript-json/decoder/JSONDecoder<model_near/__near_JSONHandler_ContainerClass>#peekChar
+     call $~lib/assemblyscript-json/decoder/JSONDecoder<model/__near_JSONHandler_ContainerClass>#peekChar
      i32.const 2672
      i32.const 0
      call $~lib/string/String#charCodeAt
@@ -23187,14 +21536,14 @@
      i32.eqz
      if
       local.get $0
-      call $~lib/assemblyscript-json/decoder/JSONDecoder<model_near/__near_JSONHandler_ContainerClass>#readChar
+      call $~lib/assemblyscript-json/decoder/JSONDecoder<model/__near_JSONHandler_ContainerClass>#readChar
       i32.const 1048
       i32.const 0
       call $~lib/string/String#charCodeAt
       i32.eq
       i32.eqz
       if
-       i32.const 3000
+       i32.const 2984
        i32.const 2800
        i32.const 142
        i32.const 10
@@ -23206,23 +21555,23 @@
       local.set $3
      end
      local.get $0
-     call $~lib/assemblyscript-json/decoder/JSONDecoder<model_near/__near_JSONHandler_ContainerClass>#parseKey
+     call $~lib/assemblyscript-json/decoder/JSONDecoder<model/__near_JSONHandler_ContainerClass>#parseKey
      local.get $0
-     call $~lib/assemblyscript-json/decoder/JSONDecoder<model_near/__near_JSONHandler_ContainerClass>#parseValue
+     call $~lib/assemblyscript-json/decoder/JSONDecoder<model/__near_JSONHandler_ContainerClass>#parseValue
      drop
      br $continue|0
     end
     unreachable
    end
    local.get $0
-   call $~lib/assemblyscript-json/decoder/JSONDecoder<model_near/__near_JSONHandler_ContainerClass>#readChar
+   call $~lib/assemblyscript-json/decoder/JSONDecoder<model/__near_JSONHandler_ContainerClass>#readChar
    i32.const 2672
    i32.const 0
    call $~lib/string/String#charCodeAt
    i32.eq
    i32.eqz
    if
-    i32.const 3512
+    i32.const 3496
     i32.const 2800
     i32.const 149
     i32.const 6
@@ -23239,7 +21588,7 @@
   call $~lib/rt/stub/__release
   local.get $3
  )
- (func $model_near/__near_JSONHandler_ContainerClass#pushArray (; 406 ;) (type $FUNCSIG$iii) (param $0 i32) (param $1 i32) (result i32)
+ (func $model/__near_JSONHandler_ContainerClass#pushArray (; 400 ;) (type $FUNCSIG$iii) (param $0 i32) (param $1 i32) (result i32)
   (local $2 i32)
   local.get $1
   call $~lib/rt/stub/__retain
@@ -23252,12 +21601,12 @@
   call $~lib/rt/stub/__release
   local.get $2
  )
- (func $~lib/assemblyscript-json/decoder/JSONDecoder<model_near/__near_JSONHandler_ContainerClass>#parseArray (; 407 ;) (type $FUNCSIG$ii) (param $0 i32) (result i32)
+ (func $~lib/assemblyscript-json/decoder/JSONDecoder<model/__near_JSONHandler_ContainerClass>#parseArray (; 401 ;) (type $FUNCSIG$ii) (param $0 i32) (result i32)
   (local $1 i32)
   (local $2 i32)
   (local $3 i32)
   local.get $0
-  call $~lib/assemblyscript-json/decoder/JSONDecoder<model_near/__near_JSONHandler_ContainerClass>#peekChar
+  call $~lib/assemblyscript-json/decoder/JSONDecoder<model/__near_JSONHandler_ContainerClass>#peekChar
   i32.const 2232
   i32.const 0
   call $~lib/string/String#charCodeAt
@@ -23292,19 +21641,19 @@
   local.get $0
   i32.load
   local.get $1
-  call $model_near/__near_JSONHandler_ContainerClass#pushArray
+  call $model/__near_JSONHandler_ContainerClass#pushArray
   if
    local.get $0
-   call $~lib/assemblyscript-json/decoder/JSONDecoder<model_near/__near_JSONHandler_ContainerClass>#readChar
+   call $~lib/assemblyscript-json/decoder/JSONDecoder<model/__near_JSONHandler_ContainerClass>#readChar
    drop
    local.get $0
-   call $~lib/assemblyscript-json/decoder/JSONDecoder<model_near/__near_JSONHandler_ContainerClass>#skipWhitespace
+   call $~lib/assemblyscript-json/decoder/JSONDecoder<model/__near_JSONHandler_ContainerClass>#skipWhitespace
    i32.const 1
    local.set $3
    block $break|0
     loop $continue|0
      local.get $0
-     call $~lib/assemblyscript-json/decoder/JSONDecoder<model_near/__near_JSONHandler_ContainerClass>#peekChar
+     call $~lib/assemblyscript-json/decoder/JSONDecoder<model/__near_JSONHandler_ContainerClass>#peekChar
      i32.const 2256
      i32.const 0
      call $~lib/string/String#charCodeAt
@@ -23315,14 +21664,14 @@
      i32.eqz
      if
       local.get $0
-      call $~lib/assemblyscript-json/decoder/JSONDecoder<model_near/__near_JSONHandler_ContainerClass>#readChar
+      call $~lib/assemblyscript-json/decoder/JSONDecoder<model/__near_JSONHandler_ContainerClass>#readChar
       i32.const 1048
       i32.const 0
       call $~lib/string/String#charCodeAt
       i32.eq
       i32.eqz
       if
-       i32.const 3000
+       i32.const 2984
        i32.const 2800
        i32.const 176
        i32.const 10
@@ -23334,21 +21683,21 @@
       local.set $3
      end
      local.get $0
-     call $~lib/assemblyscript-json/decoder/JSONDecoder<model_near/__near_JSONHandler_ContainerClass>#parseValue
+     call $~lib/assemblyscript-json/decoder/JSONDecoder<model/__near_JSONHandler_ContainerClass>#parseValue
      drop
      br $continue|0
     end
     unreachable
    end
    local.get $0
-   call $~lib/assemblyscript-json/decoder/JSONDecoder<model_near/__near_JSONHandler_ContainerClass>#readChar
+   call $~lib/assemblyscript-json/decoder/JSONDecoder<model/__near_JSONHandler_ContainerClass>#readChar
    i32.const 2256
    i32.const 0
    call $~lib/string/String#charCodeAt
    i32.eq
    i32.eqz
    if
-    i32.const 3576
+    i32.const 3592
     i32.const 2800
     i32.const 182
     i32.const 6
@@ -23365,11 +21714,11 @@
   call $~lib/rt/stub/__release
   local.get $3
  )
- (func $~lib/assemblyscript-json/decoder/JSONDecoder<model_near/__near_JSONHandler_ContainerClass>#parseString (; 408 ;) (type $FUNCSIG$ii) (param $0 i32) (result i32)
+ (func $~lib/assemblyscript-json/decoder/JSONDecoder<model/__near_JSONHandler_ContainerClass>#parseString (; 402 ;) (type $FUNCSIG$ii) (param $0 i32) (result i32)
   (local $1 i32)
   (local $2 i32)
   local.get $0
-  call $~lib/assemblyscript-json/decoder/JSONDecoder<model_near/__near_JSONHandler_ContainerClass>#peekChar
+  call $~lib/assemblyscript-json/decoder/JSONDecoder<model/__near_JSONHandler_ContainerClass>#peekChar
   i32.const 1072
   i32.const 0
   call $~lib/string/String#charCodeAt
@@ -23384,7 +21733,7 @@
   i32.load offset=4
   i32.load
   local.get $0
-  call $~lib/assemblyscript-json/decoder/JSONDecoder<model_near/__near_JSONHandler_ContainerClass>#readString
+  call $~lib/assemblyscript-json/decoder/JSONDecoder<model/__near_JSONHandler_ContainerClass>#readString
   local.tee $1
   call $~lib/assemblyscript-json/decoder/ThrowingJSONHandler#setString
   i32.const 1
@@ -23393,7 +21742,7 @@
   call $~lib/rt/stub/__release
   local.get $2
  )
- (func $~lib/assemblyscript-json/decoder/JSONDecoder<model_near/__near_JSONHandler_ContainerClass>#readAndAssert (; 409 ;) (type $FUNCSIG$vii) (param $0 i32) (param $1 i32)
+ (func $~lib/assemblyscript-json/decoder/JSONDecoder<model/__near_JSONHandler_ContainerClass>#readAndAssert (; 403 ;) (type $FUNCSIG$vii) (param $0 i32) (param $1 i32)
   (local $2 i32)
   (local $3 i32)
   (local $4 i32)
@@ -23414,15 +21763,15 @@
     local.get $2
     call $~lib/string/String#charCodeAt
     local.get $0
-    call $~lib/assemblyscript-json/decoder/JSONDecoder<model_near/__near_JSONHandler_ContainerClass>#readChar
+    call $~lib/assemblyscript-json/decoder/JSONDecoder<model/__near_JSONHandler_ContainerClass>#readChar
     i32.eq
     i32.eqz
     if
-     i32.const 3640
+     i32.const 3656
      local.get $1
      call $~lib/string/String.__concat
      local.tee $3
-     i32.const 3680
+     i32.const 3696
      call $~lib/string/String.__concat
      local.tee $4
      i32.const 2800
@@ -23446,9 +21795,9 @@
   local.get $1
   call $~lib/rt/stub/__release
  )
- (func $~lib/assemblyscript-json/decoder/JSONDecoder<model_near/__near_JSONHandler_ContainerClass>#parseBoolean (; 410 ;) (type $FUNCSIG$ii) (param $0 i32) (result i32)
+ (func $~lib/assemblyscript-json/decoder/JSONDecoder<model/__near_JSONHandler_ContainerClass>#parseBoolean (; 404 ;) (type $FUNCSIG$ii) (param $0 i32) (result i32)
   local.get $0
-  call $~lib/assemblyscript-json/decoder/JSONDecoder<model_near/__near_JSONHandler_ContainerClass>#peekChar
+  call $~lib/assemblyscript-json/decoder/JSONDecoder<model/__near_JSONHandler_ContainerClass>#peekChar
   i32.const 504
   i32.const 0
   call $~lib/string/String#charCodeAt
@@ -23456,7 +21805,7 @@
   if
    local.get $0
    global.get $~lib/assemblyscript-json/decoder/FALSE_STR
-   call $~lib/assemblyscript-json/decoder/JSONDecoder<model_near/__near_JSONHandler_ContainerClass>#readAndAssert
+   call $~lib/assemblyscript-json/decoder/JSONDecoder<model/__near_JSONHandler_ContainerClass>#readAndAssert
    local.get $0
    i32.load
    local.get $0
@@ -23468,7 +21817,7 @@
    return
   end
   local.get $0
-  call $~lib/assemblyscript-json/decoder/JSONDecoder<model_near/__near_JSONHandler_ContainerClass>#peekChar
+  call $~lib/assemblyscript-json/decoder/JSONDecoder<model/__near_JSONHandler_ContainerClass>#peekChar
   i32.const 480
   i32.const 0
   call $~lib/string/String#charCodeAt
@@ -23476,7 +21825,7 @@
   if
    local.get $0
    global.get $~lib/assemblyscript-json/decoder/TRUE_STR
-   call $~lib/assemblyscript-json/decoder/JSONDecoder<model_near/__near_JSONHandler_ContainerClass>#readAndAssert
+   call $~lib/assemblyscript-json/decoder/JSONDecoder<model/__near_JSONHandler_ContainerClass>#readAndAssert
    local.get $0
    i32.load
    local.get $0
@@ -23489,7 +21838,7 @@
   end
   i32.const 0
  )
- (func $~lib/assemblyscript-json/decoder/JSONDecoder<model_near/__near_JSONHandler_ContainerClass>#parseNumber (; 411 ;) (type $FUNCSIG$ii) (param $0 i32) (result i32)
+ (func $~lib/assemblyscript-json/decoder/JSONDecoder<model/__near_JSONHandler_ContainerClass>#parseNumber (; 405 ;) (type $FUNCSIG$ii) (param $0 i32) (result i32)
   (local $1 i64)
   (local $2 i64)
   (local $3 i32)
@@ -23499,8 +21848,8 @@
   i64.const 1
   local.set $2
   local.get $0
-  call $~lib/assemblyscript-json/decoder/JSONDecoder<model_near/__near_JSONHandler_ContainerClass>#peekChar
-  i32.const 3792
+  call $~lib/assemblyscript-json/decoder/JSONDecoder<model/__near_JSONHandler_ContainerClass>#peekChar
+  i32.const 3808
   i32.const 0
   call $~lib/string/String#charCodeAt
   i32.eq
@@ -23508,7 +21857,7 @@
    i64.const -1
    local.set $2
    local.get $0
-   call $~lib/assemblyscript-json/decoder/JSONDecoder<model_near/__near_JSONHandler_ContainerClass>#readChar
+   call $~lib/assemblyscript-json/decoder/JSONDecoder<model/__near_JSONHandler_ContainerClass>#readChar
    drop
   end
   i32.const 0
@@ -23517,11 +21866,11 @@
    loop $continue|0
     global.get $~lib/assemblyscript-json/decoder/CHAR_0
     local.get $0
-    call $~lib/assemblyscript-json/decoder/JSONDecoder<model_near/__near_JSONHandler_ContainerClass>#peekChar
+    call $~lib/assemblyscript-json/decoder/JSONDecoder<model/__near_JSONHandler_ContainerClass>#peekChar
     i32.le_s
     if (result i32)
      local.get $0
-     call $~lib/assemblyscript-json/decoder/JSONDecoder<model_near/__near_JSONHandler_ContainerClass>#peekChar
+     call $~lib/assemblyscript-json/decoder/JSONDecoder<model/__near_JSONHandler_ContainerClass>#peekChar
      global.get $~lib/assemblyscript-json/decoder/CHAR_9
      i32.le_s
     else     
@@ -23530,7 +21879,7 @@
     i32.eqz
     br_if $break|0
     local.get $0
-    call $~lib/assemblyscript-json/decoder/JSONDecoder<model_near/__near_JSONHandler_ContainerClass>#readChar
+    call $~lib/assemblyscript-json/decoder/JSONDecoder<model/__near_JSONHandler_ContainerClass>#readChar
     local.set $4
     local.get $1
     i64.const 10
@@ -23569,14 +21918,14 @@
   end
   i32.const 0
  )
- (func $model_near/__near_JSONHandler_ContainerClass#setNull (; 412 ;) (type $FUNCSIG$vii) (param $0 i32) (param $1 i32)
+ (func $model/__near_JSONHandler_ContainerClass#setNull (; 406 ;) (type $FUNCSIG$vii) (param $0 i32) (param $1 i32)
   (local $2 i32)
   (local $3 i32)
   local.get $1
   call $~lib/rt/stub/__retain
   drop
   local.get $1
-  i32.const 4696
+  i32.const 4440
   call $~lib/string/String.__eq
   if
    local.get $0
@@ -23607,9 +21956,9 @@
   local.get $1
   call $~lib/rt/stub/__release
  )
- (func $~lib/assemblyscript-json/decoder/JSONDecoder<model_near/__near_JSONHandler_ContainerClass>#parseNull (; 413 ;) (type $FUNCSIG$ii) (param $0 i32) (result i32)
+ (func $~lib/assemblyscript-json/decoder/JSONDecoder<model/__near_JSONHandler_ContainerClass>#parseNull (; 407 ;) (type $FUNCSIG$ii) (param $0 i32) (result i32)
   local.get $0
-  call $~lib/assemblyscript-json/decoder/JSONDecoder<model_near/__near_JSONHandler_ContainerClass>#peekChar
+  call $~lib/assemblyscript-json/decoder/JSONDecoder<model/__near_JSONHandler_ContainerClass>#peekChar
   i32.const 536
   i32.const 0
   call $~lib/string/String#charCodeAt
@@ -23617,65 +21966,65 @@
   if
    local.get $0
    global.get $~lib/assemblyscript-json/decoder/NULL_STR
-   call $~lib/assemblyscript-json/decoder/JSONDecoder<model_near/__near_JSONHandler_ContainerClass>#readAndAssert
+   call $~lib/assemblyscript-json/decoder/JSONDecoder<model/__near_JSONHandler_ContainerClass>#readAndAssert
    local.get $0
    i32.load
    local.get $0
    i32.load offset=4
    i32.load
-   call $model_near/__near_JSONHandler_ContainerClass#setNull
+   call $model/__near_JSONHandler_ContainerClass#setNull
    i32.const 1
    return
   end
   i32.const 0
  )
- (func $~lib/assemblyscript-json/decoder/JSONDecoder<model_near/__near_JSONHandler_ContainerClass>#parseValue (; 414 ;) (type $FUNCSIG$ii) (param $0 i32) (result i32)
+ (func $~lib/assemblyscript-json/decoder/JSONDecoder<model/__near_JSONHandler_ContainerClass>#parseValue (; 408 ;) (type $FUNCSIG$ii) (param $0 i32) (result i32)
   (local $1 i32)
   local.get $0
-  call $~lib/assemblyscript-json/decoder/JSONDecoder<model_near/__near_JSONHandler_ContainerClass>#skipWhitespace
+  call $~lib/assemblyscript-json/decoder/JSONDecoder<model/__near_JSONHandler_ContainerClass>#skipWhitespace
   local.get $0
-  call $~lib/assemblyscript-json/decoder/JSONDecoder<model_near/__near_JSONHandler_ContainerClass>#parseObject
+  call $~lib/assemblyscript-json/decoder/JSONDecoder<model/__near_JSONHandler_ContainerClass>#parseObject
   local.tee $1
   if (result i32)
    local.get $1
   else   
    local.get $0
-   call $~lib/assemblyscript-json/decoder/JSONDecoder<model_near/__near_JSONHandler_ContainerClass>#parseArray
+   call $~lib/assemblyscript-json/decoder/JSONDecoder<model/__near_JSONHandler_ContainerClass>#parseArray
   end
   local.tee $1
   if (result i32)
    local.get $1
   else   
    local.get $0
-   call $~lib/assemblyscript-json/decoder/JSONDecoder<model_near/__near_JSONHandler_ContainerClass>#parseString
+   call $~lib/assemblyscript-json/decoder/JSONDecoder<model/__near_JSONHandler_ContainerClass>#parseString
   end
   local.tee $1
   if (result i32)
    local.get $1
   else   
    local.get $0
-   call $~lib/assemblyscript-json/decoder/JSONDecoder<model_near/__near_JSONHandler_ContainerClass>#parseBoolean
+   call $~lib/assemblyscript-json/decoder/JSONDecoder<model/__near_JSONHandler_ContainerClass>#parseBoolean
   end
   local.tee $1
   if (result i32)
    local.get $1
   else   
    local.get $0
-   call $~lib/assemblyscript-json/decoder/JSONDecoder<model_near/__near_JSONHandler_ContainerClass>#parseNumber
+   call $~lib/assemblyscript-json/decoder/JSONDecoder<model/__near_JSONHandler_ContainerClass>#parseNumber
   end
   local.tee $1
   if (result i32)
    local.get $1
   else   
    local.get $0
-   call $~lib/assemblyscript-json/decoder/JSONDecoder<model_near/__near_JSONHandler_ContainerClass>#parseNull
+   call $~lib/assemblyscript-json/decoder/JSONDecoder<model/__near_JSONHandler_ContainerClass>#parseNull
   end
   local.set $1
   local.get $0
-  call $~lib/assemblyscript-json/decoder/JSONDecoder<model_near/__near_JSONHandler_ContainerClass>#skipWhitespace
+  call $~lib/assemblyscript-json/decoder/JSONDecoder<model/__near_JSONHandler_ContainerClass>#skipWhitespace
   local.get $1
  )
- (func $~lib/assemblyscript-json/decoder/JSONDecoder<model_near/__near_JSONHandler_ContainerClass>#deserialize (; 415 ;) (type $FUNCSIG$viii) (param $0 i32) (param $1 i32) (param $2 i32)
+ (func $~lib/assemblyscript-json/decoder/JSONDecoder<model/__near_JSONHandler_ContainerClass>#deserialize (; 409 ;) (type $FUNCSIG$viii) (param $0 i32) (param $1 i32) (param $2 i32)
   (local $3 i32)
   (local $4 i32)
   local.get $1
@@ -23719,12 +22068,12 @@
    i32.store offset=4
   end
   local.get $0
-  call $~lib/assemblyscript-json/decoder/JSONDecoder<model_near/__near_JSONHandler_ContainerClass>#parseValue
+  call $~lib/assemblyscript-json/decoder/JSONDecoder<model/__near_JSONHandler_ContainerClass>#parseValue
   i32.const 0
   i32.ne
   i32.eqz
   if
-   i32.const 3888
+   i32.const 3904
    i32.const 2800
    i32.const 100
    i32.const 4
@@ -23736,7 +22085,7 @@
   local.get $2
   call $~lib/rt/stub/__release
  )
- (func $model_near/__near_decode_ContainerClass (; 416 ;) (type $FUNCSIG$iiii) (param $0 i32) (param $1 i32) (param $2 i32) (result i32)
+ (func $model/__near_decode_ContainerClass (; 410 ;) (type $FUNCSIG$iiii) (param $0 i32) (param $1 i32) (param $2 i32) (result i32)
   (local $3 i32)
   (local $4 i32)
   (local $5 i32)
@@ -23754,7 +22103,7 @@
   i32.eq
   if
    i32.const 0
-   call $model_near/ContainerClass#constructor
+   call $model/ContainerClass#constructor
    local.set $3
    local.get $2
    call $~lib/rt/stub/__release
@@ -23763,7 +22112,7 @@
   end
   i32.const 0
   local.get $2
-  call $model_near/__near_JSONHandler_ContainerClass#constructor
+  call $model/__near_JSONHandler_ContainerClass#constructor
   local.set $3
   local.get $3
   local.tee $4
@@ -23786,7 +22135,7 @@
   local.tee $5
   i32.const 0
   local.get $3
-  call $~lib/assemblyscript-json/decoder/JSONDecoder<model_near/__near_JSONHandler_ContainerClass>#constructor
+  call $~lib/assemblyscript-json/decoder/JSONDecoder<model/__near_JSONHandler_ContainerClass>#constructor
   local.set $4
   local.get $5
   i32.load offset=4
@@ -23797,7 +22146,7 @@
   i32.load offset=4
   local.get $0
   local.get $1
-  call $~lib/assemblyscript-json/decoder/JSONDecoder<model_near/__near_JSONHandler_ContainerClass>#deserialize
+  call $~lib/assemblyscript-json/decoder/JSONDecoder<model/__near_JSONHandler_ContainerClass>#deserialize
   local.get $2
   local.set $4
   local.get $3
@@ -23808,7 +22157,54 @@
   call $~lib/rt/stub/__release
   local.get $4
  )
- (func $main_near/__near_ArgsParser_rewrapFoobar#pushObject (; 417 ;) (type $FUNCSIG$iii) (param $0 i32) (param $1 i32) (result i32)
+ (func $model/ContainerClass#decode (; 411 ;) (type $FUNCSIG$iiii) (param $0 i32) (param $1 i32) (param $2 i32) (result i32)
+  (local $3 i32)
+  local.get $1
+  call $~lib/rt/stub/__retain
+  drop
+  local.get $2
+  call $~lib/rt/stub/__retain
+  drop
+  local.get $1
+  local.get $2
+  local.get $0
+  call $model/__near_decode_ContainerClass
+  call $~lib/rt/stub/__release
+  local.get $0
+  call $~lib/rt/stub/__retain
+  local.set $3
+  local.get $1
+  call $~lib/rt/stub/__release
+  local.get $2
+  call $~lib/rt/stub/__release
+  local.get $3
+ )
+ (func $model/ContainerClass.decode (; 412 ;) (type $FUNCSIG$iii) (param $0 i32) (param $1 i32) (result i32)
+  (local $2 i32)
+  (local $3 i32)
+  local.get $0
+  call $~lib/rt/stub/__retain
+  drop
+  local.get $1
+  call $~lib/rt/stub/__retain
+  drop
+  i32.const 0
+  call $model/ContainerClass#constructor
+  local.set $2
+  local.get $2
+  local.get $0
+  local.get $1
+  call $model/ContainerClass#decode
+  call $~lib/rt/stub/__release
+  local.get $2
+  local.set $3
+  local.get $0
+  call $~lib/rt/stub/__release
+  local.get $1
+  call $~lib/rt/stub/__release
+  local.get $3
+ )
+ (func $main/__near_ArgsParser_rewrapFoobar#pushObject (; 413 ;) (type $FUNCSIG$iii) (param $0 i32) (param $1 i32) (result i32)
   (local $2 i32)
   (local $3 i32)
   local.get $1
@@ -23834,9 +22230,9 @@
    i32.eqz
    if
     i32.const 0
-    i32.const 4624
-    i32.const 138
-    i32.const 6
+    i32.const 3560
+    i32.const 118
+    i32.const 8
     call $~lib/builtins/abort
     unreachable
    end
@@ -23864,15 +22260,15 @@
    i32.eqz
    if
     i32.const 0
-    i32.const 4624
-    i32.const 142
-    i32.const 6
+    i32.const 3560
+    i32.const 122
+    i32.const 8
     call $~lib/builtins/abort
     unreachable
    end
   end
   local.get $1
-  i32.const 4792
+  i32.const 4536
   call $~lib/string/String.__eq
   if
    local.get $0
@@ -23882,8 +22278,7 @@
    local.get $0
    i32.load offset=4
    i32.load offset=4
-   i32.const 0
-   call $model_near/__near_decode_ContainerClass
+   call $model/ContainerClass.decode
    local.set $3
    local.get $2
    i32.load offset=12
@@ -23905,13 +22300,13 @@
   call $~lib/rt/stub/__release
   local.get $3
  )
- (func $~lib/assemblyscript-json/decoder/JSONDecoder<main_near/__near_ArgsParser_rewrapFoobar>#readHexDigit (; 418 ;) (type $FUNCSIG$ii) (param $0 i32) (result i32)
+ (func $~lib/assemblyscript-json/decoder/JSONDecoder<main/__near_ArgsParser_rewrapFoobar>#readHexDigit (; 414 ;) (type $FUNCSIG$ii) (param $0 i32) (result i32)
   (local $1 i32)
   (local $2 i32)
   (local $3 i32)
   (local $4 i32)
   local.get $0
-  call $~lib/assemblyscript-json/decoder/JSONDecoder<main_near/__near_ArgsParser_rewrapFoobar>#readChar
+  call $~lib/assemblyscript-json/decoder/JSONDecoder<main/__near_ArgsParser_rewrapFoobar>#readChar
   local.set $1
   local.get $1
   global.get $~lib/assemblyscript-json/decoder/CHAR_0
@@ -23976,7 +22371,7 @@
   end
   i32.eqz
   if
-   i32.const 3336
+   i32.const 3320
    i32.const 2800
    i32.const 269
    i32.const 4
@@ -23989,7 +22384,7 @@
   call $~lib/rt/stub/__release
   local.get $3
  )
- (func $~lib/assemblyscript-json/decoder/JSONDecoder<main_near/__near_ArgsParser_rewrapFoobar>#readEscapedChar (; 419 ;) (type $FUNCSIG$ii) (param $0 i32) (result i32)
+ (func $~lib/assemblyscript-json/decoder/JSONDecoder<main/__near_ArgsParser_rewrapFoobar>#readEscapedChar (; 415 ;) (type $FUNCSIG$ii) (param $0 i32) (result i32)
   (local $1 i32)
   (local $2 i32)
   (local $3 i32)
@@ -23997,7 +22392,7 @@
   (local $5 i32)
   (local $6 i32)
   local.get $0
-  call $~lib/assemblyscript-json/decoder/JSONDecoder<main_near/__near_ArgsParser_rewrapFoobar>#readChar
+  call $~lib/assemblyscript-json/decoder/JSONDecoder<main/__near_ArgsParser_rewrapFoobar>#readChar
   local.set $1
   local.get $1
   i32.const 1072
@@ -24020,17 +22415,17 @@
    return
   end
   local.get $1
-  i32.const 3192
+  i32.const 3176
   i32.const 0
   call $~lib/string/String#charCodeAt
   i32.eq
   if
-   i32.const 3192
+   i32.const 3176
    call $~lib/rt/stub/__retain
    return
   end
   local.get $1
-  i32.const 3216
+  i32.const 3200
   i32.const 0
   call $~lib/string/String#charCodeAt
   i32.eq
@@ -24040,7 +22435,7 @@
    return
   end
   local.get $1
-  i32.const 3240
+  i32.const 3224
   i32.const 0
   call $~lib/string/String#charCodeAt
   i32.eq
@@ -24050,7 +22445,7 @@
    return
   end
   local.get $1
-  i32.const 3264
+  i32.const 3248
   i32.const 0
   call $~lib/string/String#charCodeAt
   i32.eq
@@ -24060,7 +22455,7 @@
    return
   end
   local.get $1
-  i32.const 3288
+  i32.const 3272
   i32.const 0
   call $~lib/string/String#charCodeAt
   i32.eq
@@ -24070,22 +22465,22 @@
    return
   end
   local.get $1
-  i32.const 3312
+  i32.const 3296
   i32.const 0
   call $~lib/string/String#charCodeAt
   i32.eq
   if
    local.get $0
-   call $~lib/assemblyscript-json/decoder/JSONDecoder<main_near/__near_ArgsParser_rewrapFoobar>#readHexDigit
+   call $~lib/assemblyscript-json/decoder/JSONDecoder<main/__near_ArgsParser_rewrapFoobar>#readHexDigit
    local.set $2
    local.get $0
-   call $~lib/assemblyscript-json/decoder/JSONDecoder<main_near/__near_ArgsParser_rewrapFoobar>#readHexDigit
+   call $~lib/assemblyscript-json/decoder/JSONDecoder<main/__near_ArgsParser_rewrapFoobar>#readHexDigit
    local.set $3
    local.get $0
-   call $~lib/assemblyscript-json/decoder/JSONDecoder<main_near/__near_ArgsParser_rewrapFoobar>#readHexDigit
+   call $~lib/assemblyscript-json/decoder/JSONDecoder<main/__near_ArgsParser_rewrapFoobar>#readHexDigit
    local.set $4
    local.get $0
-   call $~lib/assemblyscript-json/decoder/JSONDecoder<main_near/__near_ArgsParser_rewrapFoobar>#readHexDigit
+   call $~lib/assemblyscript-json/decoder/JSONDecoder<main/__near_ArgsParser_rewrapFoobar>#readHexDigit
    local.set $5
    local.get $2
    i32.const 4096
@@ -24108,7 +22503,7 @@
   i32.const 0
   i32.eqz
   if
-   i32.const 3392
+   i32.const 3376
    i32.const 1
    global.set $~lib/argc
    local.get $1
@@ -24132,21 +22527,21 @@
   call $~lib/rt/stub/__release
   local.get $4
  )
- (func $~lib/assemblyscript-json/decoder/JSONDecoder<main_near/__near_ArgsParser_rewrapFoobar>#readString (; 420 ;) (type $FUNCSIG$ii) (param $0 i32) (result i32)
+ (func $~lib/assemblyscript-json/decoder/JSONDecoder<main/__near_ArgsParser_rewrapFoobar>#readString (; 416 ;) (type $FUNCSIG$ii) (param $0 i32) (result i32)
   (local $1 i32)
   (local $2 i32)
   (local $3 i32)
   (local $4 i32)
   (local $5 i32)
   local.get $0
-  call $~lib/assemblyscript-json/decoder/JSONDecoder<main_near/__near_ArgsParser_rewrapFoobar>#readChar
+  call $~lib/assemblyscript-json/decoder/JSONDecoder<main/__near_ArgsParser_rewrapFoobar>#readChar
   i32.const 1072
   i32.const 0
   call $~lib/string/String#charCodeAt
   i32.eq
   i32.eqz
   if
-   i32.const 3040
+   i32.const 3024
    i32.const 2800
    i32.const 197
    i32.const 4
@@ -24163,14 +22558,14 @@
   local.set $2
   loop $loop|0
    local.get $0
-   call $~lib/assemblyscript-json/decoder/JSONDecoder<main_near/__near_ArgsParser_rewrapFoobar>#readChar
+   call $~lib/assemblyscript-json/decoder/JSONDecoder<main/__near_ArgsParser_rewrapFoobar>#readChar
    local.set $3
    local.get $3
    i32.const 32
    i32.ge_s
    i32.eqz
    if
-    i32.const 3120
+    i32.const 3104
     i32.const 2800
     i32.const 203
     i32.const 6
@@ -24248,7 +22643,7 @@
      end
      local.get $2
      local.get $0
-     call $~lib/assemblyscript-json/decoder/JSONDecoder<main_near/__near_ArgsParser_rewrapFoobar>#readEscapedChar
+     call $~lib/assemblyscript-json/decoder/JSONDecoder<main/__near_ArgsParser_rewrapFoobar>#readEscapedChar
      local.tee $4
      call $~lib/array/Array<~lib/string/String>#push
      drop
@@ -24264,16 +22659,16 @@
   end
   unreachable
  )
- (func $~lib/assemblyscript-json/decoder/JSONDecoder<main_near/__near_ArgsParser_rewrapFoobar>#parseKey (; 421 ;) (type $FUNCSIG$vi) (param $0 i32)
+ (func $~lib/assemblyscript-json/decoder/JSONDecoder<main/__near_ArgsParser_rewrapFoobar>#parseKey (; 417 ;) (type $FUNCSIG$vi) (param $0 i32)
   (local $1 i32)
   (local $2 i32)
   local.get $0
-  call $~lib/assemblyscript-json/decoder/JSONDecoder<main_near/__near_ArgsParser_rewrapFoobar>#skipWhitespace
+  call $~lib/assemblyscript-json/decoder/JSONDecoder<main/__near_ArgsParser_rewrapFoobar>#skipWhitespace
   local.get $0
   i32.load offset=4
   local.tee $1
   local.get $0
-  call $~lib/assemblyscript-json/decoder/JSONDecoder<main_near/__near_ArgsParser_rewrapFoobar>#readString
+  call $~lib/assemblyscript-json/decoder/JSONDecoder<main/__near_ArgsParser_rewrapFoobar>#readString
   local.set $2
   local.get $1
   i32.load
@@ -24281,16 +22676,16 @@
   local.get $2
   i32.store
   local.get $0
-  call $~lib/assemblyscript-json/decoder/JSONDecoder<main_near/__near_ArgsParser_rewrapFoobar>#skipWhitespace
+  call $~lib/assemblyscript-json/decoder/JSONDecoder<main/__near_ArgsParser_rewrapFoobar>#skipWhitespace
   local.get $0
-  call $~lib/assemblyscript-json/decoder/JSONDecoder<main_near/__near_ArgsParser_rewrapFoobar>#readChar
+  call $~lib/assemblyscript-json/decoder/JSONDecoder<main/__near_ArgsParser_rewrapFoobar>#readChar
   i32.const 1984
   i32.const 0
   call $~lib/string/String#charCodeAt
   i32.eq
   i32.eqz
   if
-   i32.const 3472
+   i32.const 3456
    i32.const 2800
    i32.const 159
    i32.const 4
@@ -24298,12 +22693,12 @@
    unreachable
   end
  )
- (func $~lib/assemblyscript-json/decoder/JSONDecoder<main_near/__near_ArgsParser_rewrapFoobar>#parseObject (; 422 ;) (type $FUNCSIG$ii) (param $0 i32) (result i32)
+ (func $~lib/assemblyscript-json/decoder/JSONDecoder<main/__near_ArgsParser_rewrapFoobar>#parseObject (; 418 ;) (type $FUNCSIG$ii) (param $0 i32) (result i32)
   (local $1 i32)
   (local $2 i32)
   (local $3 i32)
   local.get $0
-  call $~lib/assemblyscript-json/decoder/JSONDecoder<main_near/__near_ArgsParser_rewrapFoobar>#peekChar
+  call $~lib/assemblyscript-json/decoder/JSONDecoder<main/__near_ArgsParser_rewrapFoobar>#peekChar
   i32.const 2008
   i32.const 0
   call $~lib/string/String#charCodeAt
@@ -24338,19 +22733,19 @@
   local.get $0
   i32.load
   local.get $1
-  call $main_near/__near_ArgsParser_rewrapFoobar#pushObject
+  call $main/__near_ArgsParser_rewrapFoobar#pushObject
   if
    local.get $0
-   call $~lib/assemblyscript-json/decoder/JSONDecoder<main_near/__near_ArgsParser_rewrapFoobar>#readChar
+   call $~lib/assemblyscript-json/decoder/JSONDecoder<main/__near_ArgsParser_rewrapFoobar>#readChar
    drop
    local.get $0
-   call $~lib/assemblyscript-json/decoder/JSONDecoder<main_near/__near_ArgsParser_rewrapFoobar>#skipWhitespace
+   call $~lib/assemblyscript-json/decoder/JSONDecoder<main/__near_ArgsParser_rewrapFoobar>#skipWhitespace
    i32.const 1
    local.set $3
    block $break|0
     loop $continue|0
      local.get $0
-     call $~lib/assemblyscript-json/decoder/JSONDecoder<main_near/__near_ArgsParser_rewrapFoobar>#peekChar
+     call $~lib/assemblyscript-json/decoder/JSONDecoder<main/__near_ArgsParser_rewrapFoobar>#peekChar
      i32.const 2672
      i32.const 0
      call $~lib/string/String#charCodeAt
@@ -24361,14 +22756,14 @@
      i32.eqz
      if
       local.get $0
-      call $~lib/assemblyscript-json/decoder/JSONDecoder<main_near/__near_ArgsParser_rewrapFoobar>#readChar
+      call $~lib/assemblyscript-json/decoder/JSONDecoder<main/__near_ArgsParser_rewrapFoobar>#readChar
       i32.const 1048
       i32.const 0
       call $~lib/string/String#charCodeAt
       i32.eq
       i32.eqz
       if
-       i32.const 3000
+       i32.const 2984
        i32.const 2800
        i32.const 142
        i32.const 10
@@ -24380,23 +22775,23 @@
       local.set $3
      end
      local.get $0
-     call $~lib/assemblyscript-json/decoder/JSONDecoder<main_near/__near_ArgsParser_rewrapFoobar>#parseKey
+     call $~lib/assemblyscript-json/decoder/JSONDecoder<main/__near_ArgsParser_rewrapFoobar>#parseKey
      local.get $0
-     call $~lib/assemblyscript-json/decoder/JSONDecoder<main_near/__near_ArgsParser_rewrapFoobar>#parseValue
+     call $~lib/assemblyscript-json/decoder/JSONDecoder<main/__near_ArgsParser_rewrapFoobar>#parseValue
      drop
      br $continue|0
     end
     unreachable
    end
    local.get $0
-   call $~lib/assemblyscript-json/decoder/JSONDecoder<main_near/__near_ArgsParser_rewrapFoobar>#readChar
+   call $~lib/assemblyscript-json/decoder/JSONDecoder<main/__near_ArgsParser_rewrapFoobar>#readChar
    i32.const 2672
    i32.const 0
    call $~lib/string/String#charCodeAt
    i32.eq
    i32.eqz
    if
-    i32.const 3512
+    i32.const 3496
     i32.const 2800
     i32.const 149
     i32.const 6
@@ -24413,7 +22808,7 @@
   call $~lib/rt/stub/__release
   local.get $3
  )
- (func $main_near/__near_ArgsParser_rewrapFoobar#pushArray (; 423 ;) (type $FUNCSIG$iii) (param $0 i32) (param $1 i32) (result i32)
+ (func $main/__near_ArgsParser_rewrapFoobar#pushArray (; 419 ;) (type $FUNCSIG$iii) (param $0 i32) (param $1 i32) (result i32)
   (local $2 i32)
   local.get $1
   call $~lib/rt/stub/__retain
@@ -24426,12 +22821,12 @@
   call $~lib/rt/stub/__release
   local.get $2
  )
- (func $~lib/assemblyscript-json/decoder/JSONDecoder<main_near/__near_ArgsParser_rewrapFoobar>#parseArray (; 424 ;) (type $FUNCSIG$ii) (param $0 i32) (result i32)
+ (func $~lib/assemblyscript-json/decoder/JSONDecoder<main/__near_ArgsParser_rewrapFoobar>#parseArray (; 420 ;) (type $FUNCSIG$ii) (param $0 i32) (result i32)
   (local $1 i32)
   (local $2 i32)
   (local $3 i32)
   local.get $0
-  call $~lib/assemblyscript-json/decoder/JSONDecoder<main_near/__near_ArgsParser_rewrapFoobar>#peekChar
+  call $~lib/assemblyscript-json/decoder/JSONDecoder<main/__near_ArgsParser_rewrapFoobar>#peekChar
   i32.const 2232
   i32.const 0
   call $~lib/string/String#charCodeAt
@@ -24466,19 +22861,19 @@
   local.get $0
   i32.load
   local.get $1
-  call $main_near/__near_ArgsParser_rewrapFoobar#pushArray
+  call $main/__near_ArgsParser_rewrapFoobar#pushArray
   if
    local.get $0
-   call $~lib/assemblyscript-json/decoder/JSONDecoder<main_near/__near_ArgsParser_rewrapFoobar>#readChar
+   call $~lib/assemblyscript-json/decoder/JSONDecoder<main/__near_ArgsParser_rewrapFoobar>#readChar
    drop
    local.get $0
-   call $~lib/assemblyscript-json/decoder/JSONDecoder<main_near/__near_ArgsParser_rewrapFoobar>#skipWhitespace
+   call $~lib/assemblyscript-json/decoder/JSONDecoder<main/__near_ArgsParser_rewrapFoobar>#skipWhitespace
    i32.const 1
    local.set $3
    block $break|0
     loop $continue|0
      local.get $0
-     call $~lib/assemblyscript-json/decoder/JSONDecoder<main_near/__near_ArgsParser_rewrapFoobar>#peekChar
+     call $~lib/assemblyscript-json/decoder/JSONDecoder<main/__near_ArgsParser_rewrapFoobar>#peekChar
      i32.const 2256
      i32.const 0
      call $~lib/string/String#charCodeAt
@@ -24489,14 +22884,14 @@
      i32.eqz
      if
       local.get $0
-      call $~lib/assemblyscript-json/decoder/JSONDecoder<main_near/__near_ArgsParser_rewrapFoobar>#readChar
+      call $~lib/assemblyscript-json/decoder/JSONDecoder<main/__near_ArgsParser_rewrapFoobar>#readChar
       i32.const 1048
       i32.const 0
       call $~lib/string/String#charCodeAt
       i32.eq
       i32.eqz
       if
-       i32.const 3000
+       i32.const 2984
        i32.const 2800
        i32.const 176
        i32.const 10
@@ -24508,21 +22903,21 @@
       local.set $3
      end
      local.get $0
-     call $~lib/assemblyscript-json/decoder/JSONDecoder<main_near/__near_ArgsParser_rewrapFoobar>#parseValue
+     call $~lib/assemblyscript-json/decoder/JSONDecoder<main/__near_ArgsParser_rewrapFoobar>#parseValue
      drop
      br $continue|0
     end
     unreachable
    end
    local.get $0
-   call $~lib/assemblyscript-json/decoder/JSONDecoder<main_near/__near_ArgsParser_rewrapFoobar>#readChar
+   call $~lib/assemblyscript-json/decoder/JSONDecoder<main/__near_ArgsParser_rewrapFoobar>#readChar
    i32.const 2256
    i32.const 0
    call $~lib/string/String#charCodeAt
    i32.eq
    i32.eqz
    if
-    i32.const 3576
+    i32.const 3592
     i32.const 2800
     i32.const 182
     i32.const 6
@@ -24539,11 +22934,11 @@
   call $~lib/rt/stub/__release
   local.get $3
  )
- (func $~lib/assemblyscript-json/decoder/JSONDecoder<main_near/__near_ArgsParser_rewrapFoobar>#parseString (; 425 ;) (type $FUNCSIG$ii) (param $0 i32) (result i32)
+ (func $~lib/assemblyscript-json/decoder/JSONDecoder<main/__near_ArgsParser_rewrapFoobar>#parseString (; 421 ;) (type $FUNCSIG$ii) (param $0 i32) (result i32)
   (local $1 i32)
   (local $2 i32)
   local.get $0
-  call $~lib/assemblyscript-json/decoder/JSONDecoder<main_near/__near_ArgsParser_rewrapFoobar>#peekChar
+  call $~lib/assemblyscript-json/decoder/JSONDecoder<main/__near_ArgsParser_rewrapFoobar>#peekChar
   i32.const 1072
   i32.const 0
   call $~lib/string/String#charCodeAt
@@ -24558,7 +22953,7 @@
   i32.load offset=4
   i32.load
   local.get $0
-  call $~lib/assemblyscript-json/decoder/JSONDecoder<main_near/__near_ArgsParser_rewrapFoobar>#readString
+  call $~lib/assemblyscript-json/decoder/JSONDecoder<main/__near_ArgsParser_rewrapFoobar>#readString
   local.tee $1
   call $~lib/assemblyscript-json/decoder/ThrowingJSONHandler#setString
   i32.const 1
@@ -24567,7 +22962,7 @@
   call $~lib/rt/stub/__release
   local.get $2
  )
- (func $~lib/assemblyscript-json/decoder/JSONDecoder<main_near/__near_ArgsParser_rewrapFoobar>#readAndAssert (; 426 ;) (type $FUNCSIG$vii) (param $0 i32) (param $1 i32)
+ (func $~lib/assemblyscript-json/decoder/JSONDecoder<main/__near_ArgsParser_rewrapFoobar>#readAndAssert (; 422 ;) (type $FUNCSIG$vii) (param $0 i32) (param $1 i32)
   (local $2 i32)
   (local $3 i32)
   (local $4 i32)
@@ -24588,15 +22983,15 @@
     local.get $2
     call $~lib/string/String#charCodeAt
     local.get $0
-    call $~lib/assemblyscript-json/decoder/JSONDecoder<main_near/__near_ArgsParser_rewrapFoobar>#readChar
+    call $~lib/assemblyscript-json/decoder/JSONDecoder<main/__near_ArgsParser_rewrapFoobar>#readChar
     i32.eq
     i32.eqz
     if
-     i32.const 3640
+     i32.const 3656
      local.get $1
      call $~lib/string/String.__concat
      local.tee $3
-     i32.const 3680
+     i32.const 3696
      call $~lib/string/String.__concat
      local.tee $4
      i32.const 2800
@@ -24620,9 +23015,9 @@
   local.get $1
   call $~lib/rt/stub/__release
  )
- (func $~lib/assemblyscript-json/decoder/JSONDecoder<main_near/__near_ArgsParser_rewrapFoobar>#parseBoolean (; 427 ;) (type $FUNCSIG$ii) (param $0 i32) (result i32)
+ (func $~lib/assemblyscript-json/decoder/JSONDecoder<main/__near_ArgsParser_rewrapFoobar>#parseBoolean (; 423 ;) (type $FUNCSIG$ii) (param $0 i32) (result i32)
   local.get $0
-  call $~lib/assemblyscript-json/decoder/JSONDecoder<main_near/__near_ArgsParser_rewrapFoobar>#peekChar
+  call $~lib/assemblyscript-json/decoder/JSONDecoder<main/__near_ArgsParser_rewrapFoobar>#peekChar
   i32.const 504
   i32.const 0
   call $~lib/string/String#charCodeAt
@@ -24630,7 +23025,7 @@
   if
    local.get $0
    global.get $~lib/assemblyscript-json/decoder/FALSE_STR
-   call $~lib/assemblyscript-json/decoder/JSONDecoder<main_near/__near_ArgsParser_rewrapFoobar>#readAndAssert
+   call $~lib/assemblyscript-json/decoder/JSONDecoder<main/__near_ArgsParser_rewrapFoobar>#readAndAssert
    local.get $0
    i32.load
    local.get $0
@@ -24642,7 +23037,7 @@
    return
   end
   local.get $0
-  call $~lib/assemblyscript-json/decoder/JSONDecoder<main_near/__near_ArgsParser_rewrapFoobar>#peekChar
+  call $~lib/assemblyscript-json/decoder/JSONDecoder<main/__near_ArgsParser_rewrapFoobar>#peekChar
   i32.const 480
   i32.const 0
   call $~lib/string/String#charCodeAt
@@ -24650,7 +23045,7 @@
   if
    local.get $0
    global.get $~lib/assemblyscript-json/decoder/TRUE_STR
-   call $~lib/assemblyscript-json/decoder/JSONDecoder<main_near/__near_ArgsParser_rewrapFoobar>#readAndAssert
+   call $~lib/assemblyscript-json/decoder/JSONDecoder<main/__near_ArgsParser_rewrapFoobar>#readAndAssert
    local.get $0
    i32.load
    local.get $0
@@ -24663,7 +23058,7 @@
   end
   i32.const 0
  )
- (func $~lib/assemblyscript-json/decoder/JSONDecoder<main_near/__near_ArgsParser_rewrapFoobar>#parseNumber (; 428 ;) (type $FUNCSIG$ii) (param $0 i32) (result i32)
+ (func $~lib/assemblyscript-json/decoder/JSONDecoder<main/__near_ArgsParser_rewrapFoobar>#parseNumber (; 424 ;) (type $FUNCSIG$ii) (param $0 i32) (result i32)
   (local $1 i64)
   (local $2 i64)
   (local $3 i32)
@@ -24673,8 +23068,8 @@
   i64.const 1
   local.set $2
   local.get $0
-  call $~lib/assemblyscript-json/decoder/JSONDecoder<main_near/__near_ArgsParser_rewrapFoobar>#peekChar
-  i32.const 3792
+  call $~lib/assemblyscript-json/decoder/JSONDecoder<main/__near_ArgsParser_rewrapFoobar>#peekChar
+  i32.const 3808
   i32.const 0
   call $~lib/string/String#charCodeAt
   i32.eq
@@ -24682,7 +23077,7 @@
    i64.const -1
    local.set $2
    local.get $0
-   call $~lib/assemblyscript-json/decoder/JSONDecoder<main_near/__near_ArgsParser_rewrapFoobar>#readChar
+   call $~lib/assemblyscript-json/decoder/JSONDecoder<main/__near_ArgsParser_rewrapFoobar>#readChar
    drop
   end
   i32.const 0
@@ -24691,11 +23086,11 @@
    loop $continue|0
     global.get $~lib/assemblyscript-json/decoder/CHAR_0
     local.get $0
-    call $~lib/assemblyscript-json/decoder/JSONDecoder<main_near/__near_ArgsParser_rewrapFoobar>#peekChar
+    call $~lib/assemblyscript-json/decoder/JSONDecoder<main/__near_ArgsParser_rewrapFoobar>#peekChar
     i32.le_s
     if (result i32)
      local.get $0
-     call $~lib/assemblyscript-json/decoder/JSONDecoder<main_near/__near_ArgsParser_rewrapFoobar>#peekChar
+     call $~lib/assemblyscript-json/decoder/JSONDecoder<main/__near_ArgsParser_rewrapFoobar>#peekChar
      global.get $~lib/assemblyscript-json/decoder/CHAR_9
      i32.le_s
     else     
@@ -24704,7 +23099,7 @@
     i32.eqz
     br_if $break|0
     local.get $0
-    call $~lib/assemblyscript-json/decoder/JSONDecoder<main_near/__near_ArgsParser_rewrapFoobar>#readChar
+    call $~lib/assemblyscript-json/decoder/JSONDecoder<main/__near_ArgsParser_rewrapFoobar>#readChar
     local.set $4
     local.get $1
     i64.const 10
@@ -24743,14 +23138,14 @@
   end
   i32.const 0
  )
- (func $main_near/__near_ArgsParser_rewrapFoobar#setNull (; 429 ;) (type $FUNCSIG$vii) (param $0 i32) (param $1 i32)
+ (func $main/__near_ArgsParser_rewrapFoobar#setNull (; 425 ;) (type $FUNCSIG$vii) (param $0 i32) (param $1 i32)
   (local $2 i32)
   (local $3 i32)
   local.get $1
   call $~lib/rt/stub/__retain
   drop
   local.get $1
-  i32.const 4792
+  i32.const 4536
   call $~lib/string/String.__eq
   if
    local.get $0
@@ -24780,9 +23175,9 @@
   local.get $1
   call $~lib/rt/stub/__release
  )
- (func $~lib/assemblyscript-json/decoder/JSONDecoder<main_near/__near_ArgsParser_rewrapFoobar>#parseNull (; 430 ;) (type $FUNCSIG$ii) (param $0 i32) (result i32)
+ (func $~lib/assemblyscript-json/decoder/JSONDecoder<main/__near_ArgsParser_rewrapFoobar>#parseNull (; 426 ;) (type $FUNCSIG$ii) (param $0 i32) (result i32)
   local.get $0
-  call $~lib/assemblyscript-json/decoder/JSONDecoder<main_near/__near_ArgsParser_rewrapFoobar>#peekChar
+  call $~lib/assemblyscript-json/decoder/JSONDecoder<main/__near_ArgsParser_rewrapFoobar>#peekChar
   i32.const 536
   i32.const 0
   call $~lib/string/String#charCodeAt
@@ -24790,65 +23185,65 @@
   if
    local.get $0
    global.get $~lib/assemblyscript-json/decoder/NULL_STR
-   call $~lib/assemblyscript-json/decoder/JSONDecoder<main_near/__near_ArgsParser_rewrapFoobar>#readAndAssert
+   call $~lib/assemblyscript-json/decoder/JSONDecoder<main/__near_ArgsParser_rewrapFoobar>#readAndAssert
    local.get $0
    i32.load
    local.get $0
    i32.load offset=4
    i32.load
-   call $main_near/__near_ArgsParser_rewrapFoobar#setNull
+   call $main/__near_ArgsParser_rewrapFoobar#setNull
    i32.const 1
    return
   end
   i32.const 0
  )
- (func $~lib/assemblyscript-json/decoder/JSONDecoder<main_near/__near_ArgsParser_rewrapFoobar>#parseValue (; 431 ;) (type $FUNCSIG$ii) (param $0 i32) (result i32)
+ (func $~lib/assemblyscript-json/decoder/JSONDecoder<main/__near_ArgsParser_rewrapFoobar>#parseValue (; 427 ;) (type $FUNCSIG$ii) (param $0 i32) (result i32)
   (local $1 i32)
   local.get $0
-  call $~lib/assemblyscript-json/decoder/JSONDecoder<main_near/__near_ArgsParser_rewrapFoobar>#skipWhitespace
+  call $~lib/assemblyscript-json/decoder/JSONDecoder<main/__near_ArgsParser_rewrapFoobar>#skipWhitespace
   local.get $0
-  call $~lib/assemblyscript-json/decoder/JSONDecoder<main_near/__near_ArgsParser_rewrapFoobar>#parseObject
+  call $~lib/assemblyscript-json/decoder/JSONDecoder<main/__near_ArgsParser_rewrapFoobar>#parseObject
   local.tee $1
   if (result i32)
    local.get $1
   else   
    local.get $0
-   call $~lib/assemblyscript-json/decoder/JSONDecoder<main_near/__near_ArgsParser_rewrapFoobar>#parseArray
+   call $~lib/assemblyscript-json/decoder/JSONDecoder<main/__near_ArgsParser_rewrapFoobar>#parseArray
   end
   local.tee $1
   if (result i32)
    local.get $1
   else   
    local.get $0
-   call $~lib/assemblyscript-json/decoder/JSONDecoder<main_near/__near_ArgsParser_rewrapFoobar>#parseString
+   call $~lib/assemblyscript-json/decoder/JSONDecoder<main/__near_ArgsParser_rewrapFoobar>#parseString
   end
   local.tee $1
   if (result i32)
    local.get $1
   else   
    local.get $0
-   call $~lib/assemblyscript-json/decoder/JSONDecoder<main_near/__near_ArgsParser_rewrapFoobar>#parseBoolean
+   call $~lib/assemblyscript-json/decoder/JSONDecoder<main/__near_ArgsParser_rewrapFoobar>#parseBoolean
   end
   local.tee $1
   if (result i32)
    local.get $1
   else   
    local.get $0
-   call $~lib/assemblyscript-json/decoder/JSONDecoder<main_near/__near_ArgsParser_rewrapFoobar>#parseNumber
+   call $~lib/assemblyscript-json/decoder/JSONDecoder<main/__near_ArgsParser_rewrapFoobar>#parseNumber
   end
   local.tee $1
   if (result i32)
    local.get $1
   else   
    local.get $0
-   call $~lib/assemblyscript-json/decoder/JSONDecoder<main_near/__near_ArgsParser_rewrapFoobar>#parseNull
+   call $~lib/assemblyscript-json/decoder/JSONDecoder<main/__near_ArgsParser_rewrapFoobar>#parseNull
   end
   local.set $1
   local.get $0
-  call $~lib/assemblyscript-json/decoder/JSONDecoder<main_near/__near_ArgsParser_rewrapFoobar>#skipWhitespace
+  call $~lib/assemblyscript-json/decoder/JSONDecoder<main/__near_ArgsParser_rewrapFoobar>#skipWhitespace
   local.get $1
  )
- (func $~lib/assemblyscript-json/decoder/JSONDecoder<main_near/__near_ArgsParser_rewrapFoobar>#deserialize (; 432 ;) (type $FUNCSIG$viii) (param $0 i32) (param $1 i32) (param $2 i32)
+ (func $~lib/assemblyscript-json/decoder/JSONDecoder<main/__near_ArgsParser_rewrapFoobar>#deserialize (; 428 ;) (type $FUNCSIG$viii) (param $0 i32) (param $1 i32) (param $2 i32)
   (local $3 i32)
   (local $4 i32)
   local.get $1
@@ -24892,12 +23287,12 @@
    i32.store offset=4
   end
   local.get $0
-  call $~lib/assemblyscript-json/decoder/JSONDecoder<main_near/__near_ArgsParser_rewrapFoobar>#parseValue
+  call $~lib/assemblyscript-json/decoder/JSONDecoder<main/__near_ArgsParser_rewrapFoobar>#parseValue
   i32.const 0
   i32.ne
   i32.eqz
   if
-   i32.const 3888
+   i32.const 3904
    i32.const 2800
    i32.const 100
    i32.const 4
@@ -24909,12 +23304,12 @@
   local.get $2
   call $~lib/rt/stub/__release
  )
- (func $model_near/AnotherContainerClass#constructor (; 433 ;) (type $FUNCSIG$ii) (param $0 i32) (result i32)
+ (func $model/AnotherContainerClass#constructor (; 429 ;) (type $FUNCSIG$ii) (param $0 i32) (result i32)
   local.get $0
   i32.eqz
   if
    i32.const 4
-   i32.const 44
+   i32.const 43
    call $~lib/rt/stub/__alloc
    call $~lib/rt/stub/__retain
    local.set $0
@@ -24924,7 +23319,7 @@
   i32.store
   local.get $0
  )
- (func $main/rewrapFoobar (; 434 ;) (type $FUNCSIG$ii) (param $0 i32) (result i32)
+ (func $main/wrapped_rewrapFoobar (; 430 ;) (type $FUNCSIG$ii) (param $0 i32) (result i32)
   (local $1 i32)
   (local $2 i32)
   (local $3 i32)
@@ -24934,13 +23329,13 @@
   call $~lib/rt/stub/__retain
   drop
   i32.const 0
-  call $model_near/AnotherContainerClass#constructor
+  call $model/AnotherContainerClass#constructor
   local.set $1
   local.get $1
   local.tee $3
   i32.const 1
   i32.const 2
-  i32.const 45
+  i32.const 44
   i32.const 0
   call $~lib/rt/__allocArray
   local.set $2
@@ -24950,7 +23345,7 @@
   local.get $3
   i32.const 1
   i32.const 2
-  i32.const 33
+  i32.const 32
   i32.const 0
   call $~lib/rt/__allocArray
   local.set $4
@@ -24986,11 +23381,11 @@
   call $~lib/rt/stub/__release
   local.get $4
  )
- (func $~lib/array/Array<~lib/array/Array<model_near/FooBar>>#get:length (; 435 ;) (type $FUNCSIG$ii) (param $0 i32) (result i32)
+ (func $~lib/array/Array<~lib/array/Array<model/FooBar>>#get:length (; 431 ;) (type $FUNCSIG$ii) (param $0 i32) (result i32)
   local.get $0
   i32.load offset=12
  )
- (func $~lib/array/Array<~lib/array/Array<model_near/FooBar>>#__unchecked_get (; 436 ;) (type $FUNCSIG$iii) (param $0 i32) (param $1 i32) (result i32)
+ (func $~lib/array/Array<~lib/array/Array<model/FooBar>>#__unchecked_get (; 432 ;) (type $FUNCSIG$iii) (param $0 i32) (param $1 i32) (result i32)
   local.get $0
   i32.load offset=4
   local.get $1
@@ -25000,7 +23395,7 @@
   i32.load
   call $~lib/rt/stub/__retain
  )
- (func $~lib/array/Array<~lib/array/Array<model_near/FooBar>>#__get (; 437 ;) (type $FUNCSIG$iii) (param $0 i32) (param $1 i32) (result i32)
+ (func $~lib/array/Array<~lib/array/Array<model/FooBar>>#__get (; 433 ;) (type $FUNCSIG$iii) (param $0 i32) (param $1 i32) (result i32)
   local.get $1
   local.get $0
   i32.load offset=12
@@ -25029,13 +23424,13 @@
   end
   local.get $0
   local.get $1
-  call $~lib/array/Array<~lib/array/Array<model_near/FooBar>>#__unchecked_get
+  call $~lib/array/Array<~lib/array/Array<model/FooBar>>#__unchecked_get
  )
- (func $~lib/array/Array<model_near/FooBar>#get:length (; 438 ;) (type $FUNCSIG$ii) (param $0 i32) (result i32)
+ (func $~lib/array/Array<model/FooBar>#get:length (; 434 ;) (type $FUNCSIG$ii) (param $0 i32) (result i32)
   local.get $0
   i32.load offset=12
  )
- (func $~lib/array/Array<model_near/FooBar>#__unchecked_get (; 439 ;) (type $FUNCSIG$iii) (param $0 i32) (param $1 i32) (result i32)
+ (func $~lib/array/Array<model/FooBar>#__unchecked_get (; 435 ;) (type $FUNCSIG$iii) (param $0 i32) (param $1 i32) (result i32)
   local.get $0
   i32.load offset=4
   local.get $1
@@ -25045,7 +23440,7 @@
   i32.load
   call $~lib/rt/stub/__retain
  )
- (func $~lib/array/Array<model_near/FooBar>#__get (; 440 ;) (type $FUNCSIG$iii) (param $0 i32) (param $1 i32) (result i32)
+ (func $~lib/array/Array<model/FooBar>#__get (; 436 ;) (type $FUNCSIG$iii) (param $0 i32) (param $1 i32) (result i32)
   local.get $1
   local.get $0
   i32.load offset=12
@@ -25074,9 +23469,9 @@
   end
   local.get $0
   local.get $1
-  call $~lib/array/Array<model_near/FooBar>#__unchecked_get
+  call $~lib/array/Array<model/FooBar>#__unchecked_get
  )
- (func $model_near/__near_encode_Array_FooBar (; 441 ;) (type $FUNCSIG$vii) (param $0 i32) (param $1 i32)
+ (func $model/__near_encode_Array_FooBar (; 437 ;) (type $FUNCSIG$vii) (param $0 i32) (param $1 i32)
   (local $2 i32)
   (local $3 i32)
   (local $4 i32)
@@ -25092,29 +23487,25 @@
    loop $loop|0
     local.get $2
     local.get $0
-    call $~lib/array/Array<model_near/FooBar>#get:length
+    call $~lib/array/Array<model/FooBar>#get:length
     i32.lt_s
     i32.eqz
     br_if $break|0
     local.get $0
     local.get $2
-    call $~lib/array/Array<model_near/FooBar>#__get
+    call $~lib/array/Array<model/FooBar>#__get
     local.tee $3
     i32.const 0
     i32.ne
     if
-     local.get $1
-     i32.const 0
-     call $~lib/assemblyscript-json/encoder/JSONEncoder#pushObject
-     drop
      local.get $0
      local.get $2
-     call $~lib/array/Array<model_near/FooBar>#__get
+     call $~lib/array/Array<model/FooBar>#__get
      local.tee $4
      local.get $1
-     call $model_near/__near_encode_FooBar
-     local.get $1
-     call $~lib/assemblyscript-json/encoder/JSONEncoder#popObject
+     i32.const 0
+     call $model/FooBar#encode
+     call $~lib/rt/stub/__release
      local.get $4
      call $~lib/rt/stub/__release
     else     
@@ -25137,7 +23528,7 @@
   local.get $1
   call $~lib/rt/stub/__release
  )
- (func $model_near/__near_encode_Array_Array_FooBar (; 442 ;) (type $FUNCSIG$vii) (param $0 i32) (param $1 i32)
+ (func $model/__near_encode_Array_Array_FooBar (; 438 ;) (type $FUNCSIG$vii) (param $0 i32) (param $1 i32)
   (local $2 i32)
   (local $3 i32)
   (local $4 i32)
@@ -25153,13 +23544,13 @@
    loop $loop|0
     local.get $2
     local.get $0
-    call $~lib/array/Array<~lib/array/Array<model_near/FooBar>>#get:length
+    call $~lib/array/Array<~lib/array/Array<model/FooBar>>#get:length
     i32.lt_s
     i32.eqz
     br_if $break|0
     local.get $0
     local.get $2
-    call $~lib/array/Array<~lib/array/Array<model_near/FooBar>>#__get
+    call $~lib/array/Array<~lib/array/Array<model/FooBar>>#__get
     local.tee $3
     i32.const 0
     i32.ne
@@ -25170,10 +23561,10 @@
      drop
      local.get $0
      local.get $2
-     call $~lib/array/Array<~lib/array/Array<model_near/FooBar>>#__get
+     call $~lib/array/Array<~lib/array/Array<model/FooBar>>#__get
      local.tee $4
      local.get $1
-     call $model_near/__near_encode_Array_FooBar
+     call $model/__near_encode_Array_FooBar
      local.get $1
      call $~lib/assemblyscript-json/encoder/JSONEncoder#popArray
      local.get $4
@@ -25198,7 +23589,7 @@
   local.get $1
   call $~lib/rt/stub/__release
  )
- (func $model_near/__near_encode_AnotherContainerClass (; 443 ;) (type $FUNCSIG$vii) (param $0 i32) (param $1 i32)
+ (func $model/__near_encode_AnotherContainerClass (; 439 ;) (type $FUNCSIG$vii) (param $0 i32) (param $1 i32)
   local.get $0
   call $~lib/rt/stub/__retain
   drop
@@ -25211,18 +23602,18 @@
   i32.ne
   if
    local.get $1
-   i32.const 4664
+   i32.const 4408
    call $~lib/assemblyscript-json/encoder/JSONEncoder#pushArray
    drop
    local.get $0
    i32.load
    local.get $1
-   call $model_near/__near_encode_Array_Array_FooBar
+   call $model/__near_encode_Array_Array_FooBar
    local.get $1
    call $~lib/assemblyscript-json/encoder/JSONEncoder#popArray
   else   
    local.get $1
-   i32.const 4664
+   i32.const 4408
    call $~lib/assemblyscript-json/encoder/JSONEncoder#setNull
   end
   local.get $0
@@ -25230,7 +23621,69 @@
   local.get $1
   call $~lib/rt/stub/__release
  )
- (func $main_near/rewrapFoobar (; 444 ;) (type $FUNCSIG$v)
+ (func $model/AnotherContainerClass#_encoder (; 440 ;) (type $FUNCSIG$iiii) (param $0 i32) (param $1 i32) (param $2 i32) (result i32)
+  (local $3 i32)
+  local.get $1
+  call $~lib/rt/stub/__retain
+  drop
+  local.get $2
+  call $~lib/rt/stub/__retain
+  drop
+  local.get $1
+  local.get $2
+  call $~lib/assemblyscript-json/encoder/JSONEncoder#pushObject
+  drop
+  local.get $0
+  local.get $1
+  call $model/__near_encode_AnotherContainerClass
+  local.get $1
+  call $~lib/assemblyscript-json/encoder/JSONEncoder#popObject
+  local.get $1
+  local.set $3
+  local.get $2
+  call $~lib/rt/stub/__release
+  local.get $3
+ )
+ (func $model/AnotherContainerClass#encode (; 441 ;) (type $FUNCSIG$iiii) (param $0 i32) (param $1 i32) (param $2 i32) (result i32)
+  (local $3 i32)
+  (local $4 i32)
+  local.get $1
+  call $~lib/rt/stub/__retain
+  drop
+  local.get $2
+  call $~lib/rt/stub/__retain
+  drop
+  local.get $1
+  i32.const 0
+  i32.ne
+  if (result i32)
+   local.get $1
+   call $~lib/rt/stub/__retain
+  else   
+   i32.const 0
+   call $~lib/assemblyscript-json/encoder/JSONEncoder#constructor
+  end
+  local.set $3
+  local.get $0
+  local.get $3
+  local.tee $4
+  if (result i32)
+   local.get $4
+  else   
+   unreachable
+  end
+  local.get $2
+  call $model/AnotherContainerClass#_encoder
+  local.set $4
+  local.get $3
+  call $~lib/rt/stub/__release
+  local.get $1
+  call $~lib/rt/stub/__release
+  local.get $2
+  call $~lib/rt/stub/__release
+  local.get $4
+ )
+ (func $main/rewrapFoobar (; 442 ;) (type $FUNCSIG$v)
   (local $0 i32)
   (local $1 i32)
   (local $2 i32)
@@ -25251,7 +23704,7 @@
   call $~lib/rt/stub/__retain
   local.set $0
   i32.const 0
-  call $main_near/__near_ArgsParser_rewrapFoobar#constructor
+  call $main/__near_ArgsParser_rewrapFoobar#constructor
   local.set $1
   local.get $1
   local.tee $2
@@ -25274,7 +23727,7 @@
   local.tee $3
   i32.const 0
   local.get $1
-  call $~lib/assemblyscript-json/decoder/JSONDecoder<main_near/__near_ArgsParser_rewrapFoobar>#constructor
+  call $~lib/assemblyscript-json/decoder/JSONDecoder<main/__near_ArgsParser_rewrapFoobar>#constructor
   local.set $2
   local.get $3
   i32.load offset=4
@@ -25285,10 +23738,10 @@
   i32.load offset=4
   local.get $0
   i32.const 0
-  call $~lib/assemblyscript-json/decoder/JSONDecoder<main_near/__near_ArgsParser_rewrapFoobar>#deserialize
+  call $~lib/assemblyscript-json/decoder/JSONDecoder<main/__near_ArgsParser_rewrapFoobar>#deserialize
   local.get $1
   i32.load offset=12
-  call $main/rewrapFoobar
+  call $main/wrapped_rewrapFoobar
   local.set $2
   i32.const 0
   call $~lib/assemblyscript-json/encoder/JSONEncoder#constructor
@@ -25297,15 +23750,11 @@
   i32.const 0
   i32.ne
   if
-   local.get $3
-   i32.const 0
-   call $~lib/assemblyscript-json/encoder/JSONEncoder#pushObject
-   drop
    local.get $2
    local.get $3
-   call $model_near/__near_encode_AnotherContainerClass
-   local.get $3
-   call $~lib/assemblyscript-json/encoder/JSONEncoder#popObject
+   i32.const 0
+   call $model/AnotherContainerClass#encode
+   call $~lib/rt/stub/__release
   else   
    local.get $3
    i32.const 0
@@ -25319,7 +23768,7 @@
   local.get $4
   call $~lib/typedarray/Uint8Array#get:buffer
   local.tee $5
-  call $main_near/return_value
+  call $~lib/near-runtime-ts/imports/return_value
   local.get $0
   call $~lib/rt/stub/__release
   local.get $1
@@ -25333,15 +23782,15 @@
   local.get $5
   call $~lib/rt/stub/__release
  )
- (func $test/rewrapFoobar (; 445 ;) (type $FUNCSIG$v)
-  call $main_near/rewrapFoobar
+ (func $test/rewrapFoobar (; 443 ;) (type $FUNCSIG$v)
+  call $main/rewrapFoobar
  )
- (func $main_near/__near_ArgsParser_unwrapFoobar#constructor (; 446 ;) (type $FUNCSIG$ii) (param $0 i32) (result i32)
+ (func $main/__near_ArgsParser_unwrapFoobar#constructor (; 444 ;) (type $FUNCSIG$ii) (param $0 i32) (result i32)
   local.get $0
   i32.eqz
   if
    i32.const 16
-   i32.const 46
+   i32.const 45
    call $~lib/rt/stub/__alloc
    call $~lib/rt/stub/__retain
    local.set $0
@@ -25363,7 +23812,7 @@
   i32.store offset=12
   local.get $0
  )
- (func $~lib/assemblyscript-json/decoder/JSONDecoder<main_near/__near_ArgsParser_unwrapFoobar>#constructor (; 447 ;) (type $FUNCSIG$iii) (param $0 i32) (param $1 i32) (result i32)
+ (func $~lib/assemblyscript-json/decoder/JSONDecoder<main/__near_ArgsParser_unwrapFoobar>#constructor (; 445 ;) (type $FUNCSIG$iii) (param $0 i32) (param $1 i32) (result i32)
   (local $2 i32)
   (local $3 i32)
   local.get $1
@@ -25373,7 +23822,7 @@
   i32.eqz
   if
    i32.const 8
-   i32.const 47
+   i32.const 46
    call $~lib/rt/stub/__alloc
    call $~lib/rt/stub/__retain
    local.set $0
@@ -25405,7 +23854,7 @@
   call $~lib/rt/stub/__release
   local.get $0
  )
- (func $~lib/assemblyscript-json/decoder/JSONDecoder<main_near/__near_ArgsParser_unwrapFoobar>#peekChar (; 448 ;) (type $FUNCSIG$ii) (param $0 i32) (result i32)
+ (func $~lib/assemblyscript-json/decoder/JSONDecoder<main/__near_ArgsParser_unwrapFoobar>#peekChar (; 446 ;) (type $FUNCSIG$ii) (param $0 i32) (result i32)
   local.get $0
   i32.load offset=4
   i32.load offset=4
@@ -25426,7 +23875,7 @@
   i32.load offset=4
   call $~lib/typedarray/Uint8Array#__get
  )
- (func $~lib/assemblyscript-json/decoder/JSONDecoder<main_near/__near_ArgsParser_unwrapFoobar>#isWhitespace (; 449 ;) (type $FUNCSIG$iii) (param $0 i32) (param $1 i32) (result i32)
+ (func $~lib/assemblyscript-json/decoder/JSONDecoder<main/__near_ArgsParser_unwrapFoobar>#isWhitespace (; 447 ;) (type $FUNCSIG$iii) (param $0 i32) (param $1 i32) (result i32)
   local.get $1
   i32.const 9
   i32.eq
@@ -25452,7 +23901,7 @@
    i32.eq
   end
  )
- (func $~lib/assemblyscript-json/decoder/JSONDecoder<main_near/__near_ArgsParser_unwrapFoobar>#readChar (; 450 ;) (type $FUNCSIG$ii) (param $0 i32) (result i32)
+ (func $~lib/assemblyscript-json/decoder/JSONDecoder<main/__near_ArgsParser_unwrapFoobar>#readChar (; 448 ;) (type $FUNCSIG$ii) (param $0 i32) (result i32)
   (local $1 i32)
   local.get $0
   i32.load offset=4
@@ -25486,24 +23935,24 @@
   local.get $1
   call $~lib/typedarray/Uint8Array#__get
  )
- (func $~lib/assemblyscript-json/decoder/JSONDecoder<main_near/__near_ArgsParser_unwrapFoobar>#skipWhitespace (; 451 ;) (type $FUNCSIG$vi) (param $0 i32)
+ (func $~lib/assemblyscript-json/decoder/JSONDecoder<main/__near_ArgsParser_unwrapFoobar>#skipWhitespace (; 449 ;) (type $FUNCSIG$vi) (param $0 i32)
   block $break|0
    loop $continue|0
     local.get $0
     local.get $0
-    call $~lib/assemblyscript-json/decoder/JSONDecoder<main_near/__near_ArgsParser_unwrapFoobar>#peekChar
-    call $~lib/assemblyscript-json/decoder/JSONDecoder<main_near/__near_ArgsParser_unwrapFoobar>#isWhitespace
+    call $~lib/assemblyscript-json/decoder/JSONDecoder<main/__near_ArgsParser_unwrapFoobar>#peekChar
+    call $~lib/assemblyscript-json/decoder/JSONDecoder<main/__near_ArgsParser_unwrapFoobar>#isWhitespace
     i32.eqz
     br_if $break|0
     local.get $0
-    call $~lib/assemblyscript-json/decoder/JSONDecoder<main_near/__near_ArgsParser_unwrapFoobar>#readChar
+    call $~lib/assemblyscript-json/decoder/JSONDecoder<main/__near_ArgsParser_unwrapFoobar>#readChar
     drop
     br $continue|0
    end
    unreachable
   end
  )
- (func $model_near/__near_JSONHandler_AnotherContainerClass#constructor (; 452 ;) (type $FUNCSIG$iii) (param $0 i32) (param $1 i32) (result i32)
+ (func $model/__near_JSONHandler_AnotherContainerClass#constructor (; 450 ;) (type $FUNCSIG$iii) (param $0 i32) (param $1 i32) (result i32)
   (local $2 i32)
   (local $3 i32)
   local.get $1
@@ -25514,7 +23963,7 @@
    local.get $0
   else   
    i32.const 16
-   i32.const 48
+   i32.const 47
    call $~lib/rt/stub/__alloc
    call $~lib/rt/stub/__retain
   end
@@ -25553,7 +24002,7 @@
   call $~lib/rt/stub/__release
   local.get $0
  )
- (func $~lib/assemblyscript-json/decoder/JSONDecoder<model_near/__near_JSONHandler_AnotherContainerClass>#constructor (; 453 ;) (type $FUNCSIG$iii) (param $0 i32) (param $1 i32) (result i32)
+ (func $~lib/assemblyscript-json/decoder/JSONDecoder<model/__near_JSONHandler_AnotherContainerClass>#constructor (; 451 ;) (type $FUNCSIG$iii) (param $0 i32) (param $1 i32) (result i32)
   (local $2 i32)
   (local $3 i32)
   local.get $1
@@ -25563,7 +24012,7 @@
   i32.eqz
   if
    i32.const 8
-   i32.const 49
+   i32.const 48
    call $~lib/rt/stub/__alloc
    call $~lib/rt/stub/__retain
    local.set $0
@@ -25595,7 +24044,7 @@
   call $~lib/rt/stub/__release
   local.get $0
  )
- (func $~lib/assemblyscript-json/decoder/JSONDecoder<model_near/__near_JSONHandler_AnotherContainerClass>#peekChar (; 454 ;) (type $FUNCSIG$ii) (param $0 i32) (result i32)
+ (func $~lib/assemblyscript-json/decoder/JSONDecoder<model/__near_JSONHandler_AnotherContainerClass>#peekChar (; 452 ;) (type $FUNCSIG$ii) (param $0 i32) (result i32)
   local.get $0
   i32.load offset=4
   i32.load offset=4
@@ -25616,7 +24065,7 @@
   i32.load offset=4
   call $~lib/typedarray/Uint8Array#__get
  )
- (func $~lib/assemblyscript-json/decoder/JSONDecoder<model_near/__near_JSONHandler_AnotherContainerClass>#isWhitespace (; 455 ;) (type $FUNCSIG$iii) (param $0 i32) (param $1 i32) (result i32)
+ (func $~lib/assemblyscript-json/decoder/JSONDecoder<model/__near_JSONHandler_AnotherContainerClass>#isWhitespace (; 453 ;) (type $FUNCSIG$iii) (param $0 i32) (param $1 i32) (result i32)
   local.get $1
   i32.const 9
   i32.eq
@@ -25642,7 +24091,7 @@
    i32.eq
   end
  )
- (func $~lib/assemblyscript-json/decoder/JSONDecoder<model_near/__near_JSONHandler_AnotherContainerClass>#readChar (; 456 ;) (type $FUNCSIG$ii) (param $0 i32) (result i32)
+ (func $~lib/assemblyscript-json/decoder/JSONDecoder<model/__near_JSONHandler_AnotherContainerClass>#readChar (; 454 ;) (type $FUNCSIG$ii) (param $0 i32) (result i32)
   (local $1 i32)
   local.get $0
   i32.load offset=4
@@ -25676,24 +24125,24 @@
   local.get $1
   call $~lib/typedarray/Uint8Array#__get
  )
- (func $~lib/assemblyscript-json/decoder/JSONDecoder<model_near/__near_JSONHandler_AnotherContainerClass>#skipWhitespace (; 457 ;) (type $FUNCSIG$vi) (param $0 i32)
+ (func $~lib/assemblyscript-json/decoder/JSONDecoder<model/__near_JSONHandler_AnotherContainerClass>#skipWhitespace (; 455 ;) (type $FUNCSIG$vi) (param $0 i32)
   block $break|0
    loop $continue|0
     local.get $0
     local.get $0
-    call $~lib/assemblyscript-json/decoder/JSONDecoder<model_near/__near_JSONHandler_AnotherContainerClass>#peekChar
-    call $~lib/assemblyscript-json/decoder/JSONDecoder<model_near/__near_JSONHandler_AnotherContainerClass>#isWhitespace
+    call $~lib/assemblyscript-json/decoder/JSONDecoder<model/__near_JSONHandler_AnotherContainerClass>#peekChar
+    call $~lib/assemblyscript-json/decoder/JSONDecoder<model/__near_JSONHandler_AnotherContainerClass>#isWhitespace
     i32.eqz
     br_if $break|0
     local.get $0
-    call $~lib/assemblyscript-json/decoder/JSONDecoder<model_near/__near_JSONHandler_AnotherContainerClass>#readChar
+    call $~lib/assemblyscript-json/decoder/JSONDecoder<model/__near_JSONHandler_AnotherContainerClass>#readChar
     drop
     br $continue|0
    end
    unreachable
   end
  )
- (func $model_near/__near_JSONHandler_AnotherContainerClass#pushObject (; 458 ;) (type $FUNCSIG$iii) (param $0 i32) (param $1 i32) (result i32)
+ (func $model/__near_JSONHandler_AnotherContainerClass#pushObject (; 456 ;) (type $FUNCSIG$iii) (param $0 i32) (param $1 i32) (result i32)
   (local $2 i32)
   local.get $1
   call $~lib/rt/stub/__retain
@@ -25719,8 +24168,8 @@
    if
     i32.const 0
     i32.const 2888
-    i32.const 573
-    i32.const 6
+    i32.const 471
+    i32.const 8
     call $~lib/builtins/abort
     unreachable
    end
@@ -25749,8 +24198,8 @@
    if
     i32.const 0
     i32.const 2888
-    i32.const 577
-    i32.const 6
+    i32.const 475
+    i32.const 8
     call $~lib/builtins/abort
     unreachable
    end
@@ -25763,13 +24212,13 @@
   call $~lib/rt/stub/__release
   local.get $2
  )
- (func $~lib/assemblyscript-json/decoder/JSONDecoder<model_near/__near_JSONHandler_AnotherContainerClass>#readHexDigit (; 459 ;) (type $FUNCSIG$ii) (param $0 i32) (result i32)
+ (func $~lib/assemblyscript-json/decoder/JSONDecoder<model/__near_JSONHandler_AnotherContainerClass>#readHexDigit (; 457 ;) (type $FUNCSIG$ii) (param $0 i32) (result i32)
   (local $1 i32)
   (local $2 i32)
   (local $3 i32)
   (local $4 i32)
   local.get $0
-  call $~lib/assemblyscript-json/decoder/JSONDecoder<model_near/__near_JSONHandler_AnotherContainerClass>#readChar
+  call $~lib/assemblyscript-json/decoder/JSONDecoder<model/__near_JSONHandler_AnotherContainerClass>#readChar
   local.set $1
   local.get $1
   global.get $~lib/assemblyscript-json/decoder/CHAR_0
@@ -25834,7 +24283,7 @@
   end
   i32.eqz
   if
-   i32.const 3336
+   i32.const 3320
    i32.const 2800
    i32.const 269
    i32.const 4
@@ -25847,7 +24296,7 @@
   call $~lib/rt/stub/__release
   local.get $3
  )
- (func $~lib/assemblyscript-json/decoder/JSONDecoder<model_near/__near_JSONHandler_AnotherContainerClass>#readEscapedChar (; 460 ;) (type $FUNCSIG$ii) (param $0 i32) (result i32)
+ (func $~lib/assemblyscript-json/decoder/JSONDecoder<model/__near_JSONHandler_AnotherContainerClass>#readEscapedChar (; 458 ;) (type $FUNCSIG$ii) (param $0 i32) (result i32)
   (local $1 i32)
   (local $2 i32)
   (local $3 i32)
@@ -25855,7 +24304,7 @@
   (local $5 i32)
   (local $6 i32)
   local.get $0
-  call $~lib/assemblyscript-json/decoder/JSONDecoder<model_near/__near_JSONHandler_AnotherContainerClass>#readChar
+  call $~lib/assemblyscript-json/decoder/JSONDecoder<model/__near_JSONHandler_AnotherContainerClass>#readChar
   local.set $1
   local.get $1
   i32.const 1072
@@ -25878,17 +24327,17 @@
    return
   end
   local.get $1
-  i32.const 3192
+  i32.const 3176
   i32.const 0
   call $~lib/string/String#charCodeAt
   i32.eq
   if
-   i32.const 3192
+   i32.const 3176
    call $~lib/rt/stub/__retain
    return
   end
   local.get $1
-  i32.const 3216
+  i32.const 3200
   i32.const 0
   call $~lib/string/String#charCodeAt
   i32.eq
@@ -25898,7 +24347,7 @@
    return
   end
   local.get $1
-  i32.const 3240
+  i32.const 3224
   i32.const 0
   call $~lib/string/String#charCodeAt
   i32.eq
@@ -25908,7 +24357,7 @@
    return
   end
   local.get $1
-  i32.const 3264
+  i32.const 3248
   i32.const 0
   call $~lib/string/String#charCodeAt
   i32.eq
@@ -25918,7 +24367,7 @@
    return
   end
   local.get $1
-  i32.const 3288
+  i32.const 3272
   i32.const 0
   call $~lib/string/String#charCodeAt
   i32.eq
@@ -25928,22 +24377,22 @@
    return
   end
   local.get $1
-  i32.const 3312
+  i32.const 3296
   i32.const 0
   call $~lib/string/String#charCodeAt
   i32.eq
   if
    local.get $0
-   call $~lib/assemblyscript-json/decoder/JSONDecoder<model_near/__near_JSONHandler_AnotherContainerClass>#readHexDigit
+   call $~lib/assemblyscript-json/decoder/JSONDecoder<model/__near_JSONHandler_AnotherContainerClass>#readHexDigit
    local.set $2
    local.get $0
-   call $~lib/assemblyscript-json/decoder/JSONDecoder<model_near/__near_JSONHandler_AnotherContainerClass>#readHexDigit
+   call $~lib/assemblyscript-json/decoder/JSONDecoder<model/__near_JSONHandler_AnotherContainerClass>#readHexDigit
    local.set $3
    local.get $0
-   call $~lib/assemblyscript-json/decoder/JSONDecoder<model_near/__near_JSONHandler_AnotherContainerClass>#readHexDigit
+   call $~lib/assemblyscript-json/decoder/JSONDecoder<model/__near_JSONHandler_AnotherContainerClass>#readHexDigit
    local.set $4
    local.get $0
-   call $~lib/assemblyscript-json/decoder/JSONDecoder<model_near/__near_JSONHandler_AnotherContainerClass>#readHexDigit
+   call $~lib/assemblyscript-json/decoder/JSONDecoder<model/__near_JSONHandler_AnotherContainerClass>#readHexDigit
    local.set $5
    local.get $2
    i32.const 4096
@@ -25966,7 +24415,7 @@
   i32.const 0
   i32.eqz
   if
-   i32.const 3392
+   i32.const 3376
    i32.const 1
    global.set $~lib/argc
    local.get $1
@@ -25990,21 +24439,21 @@
   call $~lib/rt/stub/__release
   local.get $4
  )
- (func $~lib/assemblyscript-json/decoder/JSONDecoder<model_near/__near_JSONHandler_AnotherContainerClass>#readString (; 461 ;) (type $FUNCSIG$ii) (param $0 i32) (result i32)
+ (func $~lib/assemblyscript-json/decoder/JSONDecoder<model/__near_JSONHandler_AnotherContainerClass>#readString (; 459 ;) (type $FUNCSIG$ii) (param $0 i32) (result i32)
   (local $1 i32)
   (local $2 i32)
   (local $3 i32)
   (local $4 i32)
   (local $5 i32)
   local.get $0
-  call $~lib/assemblyscript-json/decoder/JSONDecoder<model_near/__near_JSONHandler_AnotherContainerClass>#readChar
+  call $~lib/assemblyscript-json/decoder/JSONDecoder<model/__near_JSONHandler_AnotherContainerClass>#readChar
   i32.const 1072
   i32.const 0
   call $~lib/string/String#charCodeAt
   i32.eq
   i32.eqz
   if
-   i32.const 3040
+   i32.const 3024
    i32.const 2800
    i32.const 197
    i32.const 4
@@ -26021,14 +24470,14 @@
   local.set $2
   loop $loop|0
    local.get $0
-   call $~lib/assemblyscript-json/decoder/JSONDecoder<model_near/__near_JSONHandler_AnotherContainerClass>#readChar
+   call $~lib/assemblyscript-json/decoder/JSONDecoder<model/__near_JSONHandler_AnotherContainerClass>#readChar
    local.set $3
    local.get $3
    i32.const 32
    i32.ge_s
    i32.eqz
    if
-    i32.const 3120
+    i32.const 3104
     i32.const 2800
     i32.const 203
     i32.const 6
@@ -26106,7 +24555,7 @@
      end
      local.get $2
      local.get $0
-     call $~lib/assemblyscript-json/decoder/JSONDecoder<model_near/__near_JSONHandler_AnotherContainerClass>#readEscapedChar
+     call $~lib/assemblyscript-json/decoder/JSONDecoder<model/__near_JSONHandler_AnotherContainerClass>#readEscapedChar
      local.tee $4
      call $~lib/array/Array<~lib/string/String>#push
      drop
@@ -26122,16 +24571,16 @@
   end
   unreachable
  )
- (func $~lib/assemblyscript-json/decoder/JSONDecoder<model_near/__near_JSONHandler_AnotherContainerClass>#parseKey (; 462 ;) (type $FUNCSIG$vi) (param $0 i32)
+ (func $~lib/assemblyscript-json/decoder/JSONDecoder<model/__near_JSONHandler_AnotherContainerClass>#parseKey (; 460 ;) (type $FUNCSIG$vi) (param $0 i32)
   (local $1 i32)
   (local $2 i32)
   local.get $0
-  call $~lib/assemblyscript-json/decoder/JSONDecoder<model_near/__near_JSONHandler_AnotherContainerClass>#skipWhitespace
+  call $~lib/assemblyscript-json/decoder/JSONDecoder<model/__near_JSONHandler_AnotherContainerClass>#skipWhitespace
   local.get $0
   i32.load offset=4
   local.tee $1
   local.get $0
-  call $~lib/assemblyscript-json/decoder/JSONDecoder<model_near/__near_JSONHandler_AnotherContainerClass>#readString
+  call $~lib/assemblyscript-json/decoder/JSONDecoder<model/__near_JSONHandler_AnotherContainerClass>#readString
   local.set $2
   local.get $1
   i32.load
@@ -26139,16 +24588,16 @@
   local.get $2
   i32.store
   local.get $0
-  call $~lib/assemblyscript-json/decoder/JSONDecoder<model_near/__near_JSONHandler_AnotherContainerClass>#skipWhitespace
+  call $~lib/assemblyscript-json/decoder/JSONDecoder<model/__near_JSONHandler_AnotherContainerClass>#skipWhitespace
   local.get $0
-  call $~lib/assemblyscript-json/decoder/JSONDecoder<model_near/__near_JSONHandler_AnotherContainerClass>#readChar
+  call $~lib/assemblyscript-json/decoder/JSONDecoder<model/__near_JSONHandler_AnotherContainerClass>#readChar
   i32.const 1984
   i32.const 0
   call $~lib/string/String#charCodeAt
   i32.eq
   i32.eqz
   if
-   i32.const 3472
+   i32.const 3456
    i32.const 2800
    i32.const 159
    i32.const 4
@@ -26156,12 +24605,12 @@
    unreachable
   end
  )
- (func $~lib/assemblyscript-json/decoder/JSONDecoder<model_near/__near_JSONHandler_AnotherContainerClass>#parseObject (; 463 ;) (type $FUNCSIG$ii) (param $0 i32) (result i32)
+ (func $~lib/assemblyscript-json/decoder/JSONDecoder<model/__near_JSONHandler_AnotherContainerClass>#parseObject (; 461 ;) (type $FUNCSIG$ii) (param $0 i32) (result i32)
   (local $1 i32)
   (local $2 i32)
   (local $3 i32)
   local.get $0
-  call $~lib/assemblyscript-json/decoder/JSONDecoder<model_near/__near_JSONHandler_AnotherContainerClass>#peekChar
+  call $~lib/assemblyscript-json/decoder/JSONDecoder<model/__near_JSONHandler_AnotherContainerClass>#peekChar
   i32.const 2008
   i32.const 0
   call $~lib/string/String#charCodeAt
@@ -26196,19 +24645,19 @@
   local.get $0
   i32.load
   local.get $1
-  call $model_near/__near_JSONHandler_AnotherContainerClass#pushObject
+  call $model/__near_JSONHandler_AnotherContainerClass#pushObject
   if
    local.get $0
-   call $~lib/assemblyscript-json/decoder/JSONDecoder<model_near/__near_JSONHandler_AnotherContainerClass>#readChar
+   call $~lib/assemblyscript-json/decoder/JSONDecoder<model/__near_JSONHandler_AnotherContainerClass>#readChar
    drop
    local.get $0
-   call $~lib/assemblyscript-json/decoder/JSONDecoder<model_near/__near_JSONHandler_AnotherContainerClass>#skipWhitespace
+   call $~lib/assemblyscript-json/decoder/JSONDecoder<model/__near_JSONHandler_AnotherContainerClass>#skipWhitespace
    i32.const 1
    local.set $3
    block $break|0
     loop $continue|0
      local.get $0
-     call $~lib/assemblyscript-json/decoder/JSONDecoder<model_near/__near_JSONHandler_AnotherContainerClass>#peekChar
+     call $~lib/assemblyscript-json/decoder/JSONDecoder<model/__near_JSONHandler_AnotherContainerClass>#peekChar
      i32.const 2672
      i32.const 0
      call $~lib/string/String#charCodeAt
@@ -26219,14 +24668,14 @@
      i32.eqz
      if
       local.get $0
-      call $~lib/assemblyscript-json/decoder/JSONDecoder<model_near/__near_JSONHandler_AnotherContainerClass>#readChar
+      call $~lib/assemblyscript-json/decoder/JSONDecoder<model/__near_JSONHandler_AnotherContainerClass>#readChar
       i32.const 1048
       i32.const 0
       call $~lib/string/String#charCodeAt
       i32.eq
       i32.eqz
       if
-       i32.const 3000
+       i32.const 2984
        i32.const 2800
        i32.const 142
        i32.const 10
@@ -26238,23 +24687,23 @@
       local.set $3
      end
      local.get $0
-     call $~lib/assemblyscript-json/decoder/JSONDecoder<model_near/__near_JSONHandler_AnotherContainerClass>#parseKey
+     call $~lib/assemblyscript-json/decoder/JSONDecoder<model/__near_JSONHandler_AnotherContainerClass>#parseKey
      local.get $0
-     call $~lib/assemblyscript-json/decoder/JSONDecoder<model_near/__near_JSONHandler_AnotherContainerClass>#parseValue
+     call $~lib/assemblyscript-json/decoder/JSONDecoder<model/__near_JSONHandler_AnotherContainerClass>#parseValue
      drop
      br $continue|0
     end
     unreachable
    end
    local.get $0
-   call $~lib/assemblyscript-json/decoder/JSONDecoder<model_near/__near_JSONHandler_AnotherContainerClass>#readChar
+   call $~lib/assemblyscript-json/decoder/JSONDecoder<model/__near_JSONHandler_AnotherContainerClass>#readChar
    i32.const 2672
    i32.const 0
    call $~lib/string/String#charCodeAt
    i32.eq
    i32.eqz
    if
-    i32.const 3512
+    i32.const 3496
     i32.const 2800
     i32.const 149
     i32.const 6
@@ -26271,13 +24720,13 @@
   call $~lib/rt/stub/__release
   local.get $3
  )
- (func $~lib/array/Array<~lib/array/Array<model_near/FooBar>>#constructor (; 464 ;) (type $FUNCSIG$iii) (param $0 i32) (param $1 i32) (result i32)
+ (func $~lib/array/Array<~lib/array/Array<model/FooBar>>#constructor (; 462 ;) (type $FUNCSIG$iii) (param $0 i32) (param $1 i32) (result i32)
   local.get $0
   if (result i32)
    local.get $0
   else   
    i32.const 16
-   i32.const 45
+   i32.const 44
    call $~lib/rt/stub/__alloc
    call $~lib/rt/stub/__retain
   end
@@ -26302,7 +24751,7 @@
   i32.store offset=12
   local.get $0
  )
- (func $model_near/__near_JSONHandler_Array_Array_FooBar#constructor (; 465 ;) (type $FUNCSIG$iii) (param $0 i32) (param $1 i32) (result i32)
+ (func $model/__near_JSONHandler_Array_Array_FooBar#constructor (; 463 ;) (type $FUNCSIG$iii) (param $0 i32) (param $1 i32) (result i32)
   (local $2 i32)
   (local $3 i32)
   local.get $1
@@ -26313,7 +24762,7 @@
    local.get $0
   else   
    i32.const 16
-   i32.const 50
+   i32.const 49
    call $~lib/rt/stub/__alloc
    call $~lib/rt/stub/__retain
   end
@@ -26352,7 +24801,7 @@
   call $~lib/rt/stub/__release
   local.get $0
  )
- (func $~lib/assemblyscript-json/decoder/JSONDecoder<model_near/__near_JSONHandler_Array_Array_FooBar>#constructor (; 466 ;) (type $FUNCSIG$iii) (param $0 i32) (param $1 i32) (result i32)
+ (func $~lib/assemblyscript-json/decoder/JSONDecoder<model/__near_JSONHandler_Array_Array_FooBar>#constructor (; 464 ;) (type $FUNCSIG$iii) (param $0 i32) (param $1 i32) (result i32)
   (local $2 i32)
   (local $3 i32)
   local.get $1
@@ -26362,7 +24811,7 @@
   i32.eqz
   if
    i32.const 8
-   i32.const 51
+   i32.const 50
    call $~lib/rt/stub/__alloc
    call $~lib/rt/stub/__retain
    local.set $0
@@ -26394,7 +24843,7 @@
   call $~lib/rt/stub/__release
   local.get $0
  )
- (func $~lib/assemblyscript-json/decoder/JSONDecoder<model_near/__near_JSONHandler_Array_Array_FooBar>#peekChar (; 467 ;) (type $FUNCSIG$ii) (param $0 i32) (result i32)
+ (func $~lib/assemblyscript-json/decoder/JSONDecoder<model/__near_JSONHandler_Array_Array_FooBar>#peekChar (; 465 ;) (type $FUNCSIG$ii) (param $0 i32) (result i32)
   local.get $0
   i32.load offset=4
   i32.load offset=4
@@ -26415,7 +24864,7 @@
   i32.load offset=4
   call $~lib/typedarray/Uint8Array#__get
  )
- (func $~lib/assemblyscript-json/decoder/JSONDecoder<model_near/__near_JSONHandler_Array_Array_FooBar>#isWhitespace (; 468 ;) (type $FUNCSIG$iii) (param $0 i32) (param $1 i32) (result i32)
+ (func $~lib/assemblyscript-json/decoder/JSONDecoder<model/__near_JSONHandler_Array_Array_FooBar>#isWhitespace (; 466 ;) (type $FUNCSIG$iii) (param $0 i32) (param $1 i32) (result i32)
   local.get $1
   i32.const 9
   i32.eq
@@ -26441,7 +24890,7 @@
    i32.eq
   end
  )
- (func $~lib/assemblyscript-json/decoder/JSONDecoder<model_near/__near_JSONHandler_Array_Array_FooBar>#readChar (; 469 ;) (type $FUNCSIG$ii) (param $0 i32) (result i32)
+ (func $~lib/assemblyscript-json/decoder/JSONDecoder<model/__near_JSONHandler_Array_Array_FooBar>#readChar (; 467 ;) (type $FUNCSIG$ii) (param $0 i32) (result i32)
   (local $1 i32)
   local.get $0
   i32.load offset=4
@@ -26475,24 +24924,24 @@
   local.get $1
   call $~lib/typedarray/Uint8Array#__get
  )
- (func $~lib/assemblyscript-json/decoder/JSONDecoder<model_near/__near_JSONHandler_Array_Array_FooBar>#skipWhitespace (; 470 ;) (type $FUNCSIG$vi) (param $0 i32)
+ (func $~lib/assemblyscript-json/decoder/JSONDecoder<model/__near_JSONHandler_Array_Array_FooBar>#skipWhitespace (; 468 ;) (type $FUNCSIG$vi) (param $0 i32)
   block $break|0
    loop $continue|0
     local.get $0
     local.get $0
-    call $~lib/assemblyscript-json/decoder/JSONDecoder<model_near/__near_JSONHandler_Array_Array_FooBar>#peekChar
-    call $~lib/assemblyscript-json/decoder/JSONDecoder<model_near/__near_JSONHandler_Array_Array_FooBar>#isWhitespace
+    call $~lib/assemblyscript-json/decoder/JSONDecoder<model/__near_JSONHandler_Array_Array_FooBar>#peekChar
+    call $~lib/assemblyscript-json/decoder/JSONDecoder<model/__near_JSONHandler_Array_Array_FooBar>#isWhitespace
     i32.eqz
     br_if $break|0
     local.get $0
-    call $~lib/assemblyscript-json/decoder/JSONDecoder<model_near/__near_JSONHandler_Array_Array_FooBar>#readChar
+    call $~lib/assemblyscript-json/decoder/JSONDecoder<model/__near_JSONHandler_Array_Array_FooBar>#readChar
     drop
     br $continue|0
    end
    unreachable
   end
  )
- (func $~lib/array/Array<~lib/array/Array<model_near/FooBar>>#push (; 471 ;) (type $FUNCSIG$iii) (param $0 i32) (param $1 i32) (result i32)
+ (func $~lib/array/Array<~lib/array/Array<model/FooBar>>#push (; 469 ;) (type $FUNCSIG$iii) (param $0 i32) (param $1 i32) (result i32)
   (local $2 i32)
   (local $3 i32)
   (local $4 i32)
@@ -26528,7 +24977,7 @@
   call $~lib/rt/stub/__release
   local.get $4
  )
- (func $model_near/__near_JSONHandler_Array_Array_FooBar#pushObject (; 472 ;) (type $FUNCSIG$iii) (param $0 i32) (param $1 i32) (result i32)
+ (func $model/__near_JSONHandler_Array_Array_FooBar#pushObject (; 470 ;) (type $FUNCSIG$iii) (param $0 i32) (param $1 i32) (result i32)
   (local $2 i32)
   (local $3 i32)
   local.get $1
@@ -26542,9 +24991,9 @@
   i32.load offset=4
   i32.load offset=4
   i32.const 0
-  call $model_near/__near_decode_Array_FooBar
+  call $main/__near_decode_Array_FooBar
   local.tee $2
-  call $~lib/array/Array<~lib/array/Array<model_near/FooBar>>#push
+  call $~lib/array/Array<~lib/array/Array<model/FooBar>>#push
   drop
   i32.const 0
   local.set $3
@@ -26554,13 +25003,13 @@
   call $~lib/rt/stub/__release
   local.get $3
  )
- (func $~lib/assemblyscript-json/decoder/JSONDecoder<model_near/__near_JSONHandler_Array_Array_FooBar>#readHexDigit (; 473 ;) (type $FUNCSIG$ii) (param $0 i32) (result i32)
+ (func $~lib/assemblyscript-json/decoder/JSONDecoder<model/__near_JSONHandler_Array_Array_FooBar>#readHexDigit (; 471 ;) (type $FUNCSIG$ii) (param $0 i32) (result i32)
   (local $1 i32)
   (local $2 i32)
   (local $3 i32)
   (local $4 i32)
   local.get $0
-  call $~lib/assemblyscript-json/decoder/JSONDecoder<model_near/__near_JSONHandler_Array_Array_FooBar>#readChar
+  call $~lib/assemblyscript-json/decoder/JSONDecoder<model/__near_JSONHandler_Array_Array_FooBar>#readChar
   local.set $1
   local.get $1
   global.get $~lib/assemblyscript-json/decoder/CHAR_0
@@ -26625,7 +25074,7 @@
   end
   i32.eqz
   if
-   i32.const 3336
+   i32.const 3320
    i32.const 2800
    i32.const 269
    i32.const 4
@@ -26638,7 +25087,7 @@
   call $~lib/rt/stub/__release
   local.get $3
  )
- (func $~lib/assemblyscript-json/decoder/JSONDecoder<model_near/__near_JSONHandler_Array_Array_FooBar>#readEscapedChar (; 474 ;) (type $FUNCSIG$ii) (param $0 i32) (result i32)
+ (func $~lib/assemblyscript-json/decoder/JSONDecoder<model/__near_JSONHandler_Array_Array_FooBar>#readEscapedChar (; 472 ;) (type $FUNCSIG$ii) (param $0 i32) (result i32)
   (local $1 i32)
   (local $2 i32)
   (local $3 i32)
@@ -26646,7 +25095,7 @@
   (local $5 i32)
   (local $6 i32)
   local.get $0
-  call $~lib/assemblyscript-json/decoder/JSONDecoder<model_near/__near_JSONHandler_Array_Array_FooBar>#readChar
+  call $~lib/assemblyscript-json/decoder/JSONDecoder<model/__near_JSONHandler_Array_Array_FooBar>#readChar
   local.set $1
   local.get $1
   i32.const 1072
@@ -26669,17 +25118,17 @@
    return
   end
   local.get $1
-  i32.const 3192
+  i32.const 3176
   i32.const 0
   call $~lib/string/String#charCodeAt
   i32.eq
   if
-   i32.const 3192
+   i32.const 3176
    call $~lib/rt/stub/__retain
    return
   end
   local.get $1
-  i32.const 3216
+  i32.const 3200
   i32.const 0
   call $~lib/string/String#charCodeAt
   i32.eq
@@ -26689,7 +25138,7 @@
    return
   end
   local.get $1
-  i32.const 3240
+  i32.const 3224
   i32.const 0
   call $~lib/string/String#charCodeAt
   i32.eq
@@ -26699,7 +25148,7 @@
    return
   end
   local.get $1
-  i32.const 3264
+  i32.const 3248
   i32.const 0
   call $~lib/string/String#charCodeAt
   i32.eq
@@ -26709,7 +25158,7 @@
    return
   end
   local.get $1
-  i32.const 3288
+  i32.const 3272
   i32.const 0
   call $~lib/string/String#charCodeAt
   i32.eq
@@ -26719,22 +25168,22 @@
    return
   end
   local.get $1
-  i32.const 3312
+  i32.const 3296
   i32.const 0
   call $~lib/string/String#charCodeAt
   i32.eq
   if
    local.get $0
-   call $~lib/assemblyscript-json/decoder/JSONDecoder<model_near/__near_JSONHandler_Array_Array_FooBar>#readHexDigit
+   call $~lib/assemblyscript-json/decoder/JSONDecoder<model/__near_JSONHandler_Array_Array_FooBar>#readHexDigit
    local.set $2
    local.get $0
-   call $~lib/assemblyscript-json/decoder/JSONDecoder<model_near/__near_JSONHandler_Array_Array_FooBar>#readHexDigit
+   call $~lib/assemblyscript-json/decoder/JSONDecoder<model/__near_JSONHandler_Array_Array_FooBar>#readHexDigit
    local.set $3
    local.get $0
-   call $~lib/assemblyscript-json/decoder/JSONDecoder<model_near/__near_JSONHandler_Array_Array_FooBar>#readHexDigit
+   call $~lib/assemblyscript-json/decoder/JSONDecoder<model/__near_JSONHandler_Array_Array_FooBar>#readHexDigit
    local.set $4
    local.get $0
-   call $~lib/assemblyscript-json/decoder/JSONDecoder<model_near/__near_JSONHandler_Array_Array_FooBar>#readHexDigit
+   call $~lib/assemblyscript-json/decoder/JSONDecoder<model/__near_JSONHandler_Array_Array_FooBar>#readHexDigit
    local.set $5
    local.get $2
    i32.const 4096
@@ -26757,7 +25206,7 @@
   i32.const 0
   i32.eqz
   if
-   i32.const 3392
+   i32.const 3376
    i32.const 1
    global.set $~lib/argc
    local.get $1
@@ -26781,21 +25230,21 @@
   call $~lib/rt/stub/__release
   local.get $4
  )
- (func $~lib/assemblyscript-json/decoder/JSONDecoder<model_near/__near_JSONHandler_Array_Array_FooBar>#readString (; 475 ;) (type $FUNCSIG$ii) (param $0 i32) (result i32)
+ (func $~lib/assemblyscript-json/decoder/JSONDecoder<model/__near_JSONHandler_Array_Array_FooBar>#readString (; 473 ;) (type $FUNCSIG$ii) (param $0 i32) (result i32)
   (local $1 i32)
   (local $2 i32)
   (local $3 i32)
   (local $4 i32)
   (local $5 i32)
   local.get $0
-  call $~lib/assemblyscript-json/decoder/JSONDecoder<model_near/__near_JSONHandler_Array_Array_FooBar>#readChar
+  call $~lib/assemblyscript-json/decoder/JSONDecoder<model/__near_JSONHandler_Array_Array_FooBar>#readChar
   i32.const 1072
   i32.const 0
   call $~lib/string/String#charCodeAt
   i32.eq
   i32.eqz
   if
-   i32.const 3040
+   i32.const 3024
    i32.const 2800
    i32.const 197
    i32.const 4
@@ -26812,14 +25261,14 @@
   local.set $2
   loop $loop|0
    local.get $0
-   call $~lib/assemblyscript-json/decoder/JSONDecoder<model_near/__near_JSONHandler_Array_Array_FooBar>#readChar
+   call $~lib/assemblyscript-json/decoder/JSONDecoder<model/__near_JSONHandler_Array_Array_FooBar>#readChar
    local.set $3
    local.get $3
    i32.const 32
    i32.ge_s
    i32.eqz
    if
-    i32.const 3120
+    i32.const 3104
     i32.const 2800
     i32.const 203
     i32.const 6
@@ -26897,7 +25346,7 @@
      end
      local.get $2
      local.get $0
-     call $~lib/assemblyscript-json/decoder/JSONDecoder<model_near/__near_JSONHandler_Array_Array_FooBar>#readEscapedChar
+     call $~lib/assemblyscript-json/decoder/JSONDecoder<model/__near_JSONHandler_Array_Array_FooBar>#readEscapedChar
      local.tee $4
      call $~lib/array/Array<~lib/string/String>#push
      drop
@@ -26913,16 +25362,16 @@
   end
   unreachable
  )
- (func $~lib/assemblyscript-json/decoder/JSONDecoder<model_near/__near_JSONHandler_Array_Array_FooBar>#parseKey (; 476 ;) (type $FUNCSIG$vi) (param $0 i32)
+ (func $~lib/assemblyscript-json/decoder/JSONDecoder<model/__near_JSONHandler_Array_Array_FooBar>#parseKey (; 474 ;) (type $FUNCSIG$vi) (param $0 i32)
   (local $1 i32)
   (local $2 i32)
   local.get $0
-  call $~lib/assemblyscript-json/decoder/JSONDecoder<model_near/__near_JSONHandler_Array_Array_FooBar>#skipWhitespace
+  call $~lib/assemblyscript-json/decoder/JSONDecoder<model/__near_JSONHandler_Array_Array_FooBar>#skipWhitespace
   local.get $0
   i32.load offset=4
   local.tee $1
   local.get $0
-  call $~lib/assemblyscript-json/decoder/JSONDecoder<model_near/__near_JSONHandler_Array_Array_FooBar>#readString
+  call $~lib/assemblyscript-json/decoder/JSONDecoder<model/__near_JSONHandler_Array_Array_FooBar>#readString
   local.set $2
   local.get $1
   i32.load
@@ -26930,16 +25379,16 @@
   local.get $2
   i32.store
   local.get $0
-  call $~lib/assemblyscript-json/decoder/JSONDecoder<model_near/__near_JSONHandler_Array_Array_FooBar>#skipWhitespace
+  call $~lib/assemblyscript-json/decoder/JSONDecoder<model/__near_JSONHandler_Array_Array_FooBar>#skipWhitespace
   local.get $0
-  call $~lib/assemblyscript-json/decoder/JSONDecoder<model_near/__near_JSONHandler_Array_Array_FooBar>#readChar
+  call $~lib/assemblyscript-json/decoder/JSONDecoder<model/__near_JSONHandler_Array_Array_FooBar>#readChar
   i32.const 1984
   i32.const 0
   call $~lib/string/String#charCodeAt
   i32.eq
   i32.eqz
   if
-   i32.const 3472
+   i32.const 3456
    i32.const 2800
    i32.const 159
    i32.const 4
@@ -26947,12 +25396,12 @@
    unreachable
   end
  )
- (func $~lib/assemblyscript-json/decoder/JSONDecoder<model_near/__near_JSONHandler_Array_Array_FooBar>#parseObject (; 477 ;) (type $FUNCSIG$ii) (param $0 i32) (result i32)
+ (func $~lib/assemblyscript-json/decoder/JSONDecoder<model/__near_JSONHandler_Array_Array_FooBar>#parseObject (; 475 ;) (type $FUNCSIG$ii) (param $0 i32) (result i32)
   (local $1 i32)
   (local $2 i32)
   (local $3 i32)
   local.get $0
-  call $~lib/assemblyscript-json/decoder/JSONDecoder<model_near/__near_JSONHandler_Array_Array_FooBar>#peekChar
+  call $~lib/assemblyscript-json/decoder/JSONDecoder<model/__near_JSONHandler_Array_Array_FooBar>#peekChar
   i32.const 2008
   i32.const 0
   call $~lib/string/String#charCodeAt
@@ -26987,19 +25436,19 @@
   local.get $0
   i32.load
   local.get $1
-  call $model_near/__near_JSONHandler_Array_Array_FooBar#pushObject
+  call $model/__near_JSONHandler_Array_Array_FooBar#pushObject
   if
    local.get $0
-   call $~lib/assemblyscript-json/decoder/JSONDecoder<model_near/__near_JSONHandler_Array_Array_FooBar>#readChar
+   call $~lib/assemblyscript-json/decoder/JSONDecoder<model/__near_JSONHandler_Array_Array_FooBar>#readChar
    drop
    local.get $0
-   call $~lib/assemblyscript-json/decoder/JSONDecoder<model_near/__near_JSONHandler_Array_Array_FooBar>#skipWhitespace
+   call $~lib/assemblyscript-json/decoder/JSONDecoder<model/__near_JSONHandler_Array_Array_FooBar>#skipWhitespace
    i32.const 1
    local.set $3
    block $break|0
     loop $continue|0
      local.get $0
-     call $~lib/assemblyscript-json/decoder/JSONDecoder<model_near/__near_JSONHandler_Array_Array_FooBar>#peekChar
+     call $~lib/assemblyscript-json/decoder/JSONDecoder<model/__near_JSONHandler_Array_Array_FooBar>#peekChar
      i32.const 2672
      i32.const 0
      call $~lib/string/String#charCodeAt
@@ -27010,14 +25459,14 @@
      i32.eqz
      if
       local.get $0
-      call $~lib/assemblyscript-json/decoder/JSONDecoder<model_near/__near_JSONHandler_Array_Array_FooBar>#readChar
+      call $~lib/assemblyscript-json/decoder/JSONDecoder<model/__near_JSONHandler_Array_Array_FooBar>#readChar
       i32.const 1048
       i32.const 0
       call $~lib/string/String#charCodeAt
       i32.eq
       i32.eqz
       if
-       i32.const 3000
+       i32.const 2984
        i32.const 2800
        i32.const 142
        i32.const 10
@@ -27029,23 +25478,23 @@
       local.set $3
      end
      local.get $0
-     call $~lib/assemblyscript-json/decoder/JSONDecoder<model_near/__near_JSONHandler_Array_Array_FooBar>#parseKey
+     call $~lib/assemblyscript-json/decoder/JSONDecoder<model/__near_JSONHandler_Array_Array_FooBar>#parseKey
      local.get $0
-     call $~lib/assemblyscript-json/decoder/JSONDecoder<model_near/__near_JSONHandler_Array_Array_FooBar>#parseValue
+     call $~lib/assemblyscript-json/decoder/JSONDecoder<model/__near_JSONHandler_Array_Array_FooBar>#parseValue
      drop
      br $continue|0
     end
     unreachable
    end
    local.get $0
-   call $~lib/assemblyscript-json/decoder/JSONDecoder<model_near/__near_JSONHandler_Array_Array_FooBar>#readChar
+   call $~lib/assemblyscript-json/decoder/JSONDecoder<model/__near_JSONHandler_Array_Array_FooBar>#readChar
    i32.const 2672
    i32.const 0
    call $~lib/string/String#charCodeAt
    i32.eq
    i32.eqz
    if
-    i32.const 3512
+    i32.const 3496
     i32.const 2800
     i32.const 149
     i32.const 6
@@ -27062,7 +25511,7 @@
   call $~lib/rt/stub/__release
   local.get $3
  )
- (func $model_near/__near_JSONHandler_Array_Array_FooBar#pushArray (; 478 ;) (type $FUNCSIG$iii) (param $0 i32) (param $1 i32) (result i32)
+ (func $model/__near_JSONHandler_Array_Array_FooBar#pushArray (; 476 ;) (type $FUNCSIG$iii) (param $0 i32) (param $1 i32) (result i32)
   (local $2 i32)
   (local $3 i32)
   local.get $1
@@ -27083,8 +25532,8 @@
   if
    i32.const 0
    i32.const 2888
-   i32.const 609
-   i32.const 8
+   i32.const 507
+   i32.const 10
    call $~lib/builtins/abort
    unreachable
   end
@@ -27112,9 +25561,9 @@
   i32.load offset=4
   i32.load offset=4
   i32.const 0
-  call $model_near/__near_decode_Array_FooBar
+  call $main/__near_decode_Array_FooBar
   local.tee $2
-  call $~lib/array/Array<~lib/array/Array<model_near/FooBar>>#push
+  call $~lib/array/Array<~lib/array/Array<model/FooBar>>#push
   drop
   i32.const 0
   local.set $3
@@ -27124,12 +25573,12 @@
   call $~lib/rt/stub/__release
   local.get $3
  )
- (func $~lib/assemblyscript-json/decoder/JSONDecoder<model_near/__near_JSONHandler_Array_Array_FooBar>#parseArray (; 479 ;) (type $FUNCSIG$ii) (param $0 i32) (result i32)
+ (func $~lib/assemblyscript-json/decoder/JSONDecoder<model/__near_JSONHandler_Array_Array_FooBar>#parseArray (; 477 ;) (type $FUNCSIG$ii) (param $0 i32) (result i32)
   (local $1 i32)
   (local $2 i32)
   (local $3 i32)
   local.get $0
-  call $~lib/assemblyscript-json/decoder/JSONDecoder<model_near/__near_JSONHandler_Array_Array_FooBar>#peekChar
+  call $~lib/assemblyscript-json/decoder/JSONDecoder<model/__near_JSONHandler_Array_Array_FooBar>#peekChar
   i32.const 2232
   i32.const 0
   call $~lib/string/String#charCodeAt
@@ -27164,19 +25613,19 @@
   local.get $0
   i32.load
   local.get $1
-  call $model_near/__near_JSONHandler_Array_Array_FooBar#pushArray
+  call $model/__near_JSONHandler_Array_Array_FooBar#pushArray
   if
    local.get $0
-   call $~lib/assemblyscript-json/decoder/JSONDecoder<model_near/__near_JSONHandler_Array_Array_FooBar>#readChar
+   call $~lib/assemblyscript-json/decoder/JSONDecoder<model/__near_JSONHandler_Array_Array_FooBar>#readChar
    drop
    local.get $0
-   call $~lib/assemblyscript-json/decoder/JSONDecoder<model_near/__near_JSONHandler_Array_Array_FooBar>#skipWhitespace
+   call $~lib/assemblyscript-json/decoder/JSONDecoder<model/__near_JSONHandler_Array_Array_FooBar>#skipWhitespace
    i32.const 1
    local.set $3
    block $break|0
     loop $continue|0
      local.get $0
-     call $~lib/assemblyscript-json/decoder/JSONDecoder<model_near/__near_JSONHandler_Array_Array_FooBar>#peekChar
+     call $~lib/assemblyscript-json/decoder/JSONDecoder<model/__near_JSONHandler_Array_Array_FooBar>#peekChar
      i32.const 2256
      i32.const 0
      call $~lib/string/String#charCodeAt
@@ -27187,14 +25636,14 @@
      i32.eqz
      if
       local.get $0
-      call $~lib/assemblyscript-json/decoder/JSONDecoder<model_near/__near_JSONHandler_Array_Array_FooBar>#readChar
+      call $~lib/assemblyscript-json/decoder/JSONDecoder<model/__near_JSONHandler_Array_Array_FooBar>#readChar
       i32.const 1048
       i32.const 0
       call $~lib/string/String#charCodeAt
       i32.eq
       i32.eqz
       if
-       i32.const 3000
+       i32.const 2984
        i32.const 2800
        i32.const 176
        i32.const 10
@@ -27206,21 +25655,21 @@
       local.set $3
      end
      local.get $0
-     call $~lib/assemblyscript-json/decoder/JSONDecoder<model_near/__near_JSONHandler_Array_Array_FooBar>#parseValue
+     call $~lib/assemblyscript-json/decoder/JSONDecoder<model/__near_JSONHandler_Array_Array_FooBar>#parseValue
      drop
      br $continue|0
     end
     unreachable
    end
    local.get $0
-   call $~lib/assemblyscript-json/decoder/JSONDecoder<model_near/__near_JSONHandler_Array_Array_FooBar>#readChar
+   call $~lib/assemblyscript-json/decoder/JSONDecoder<model/__near_JSONHandler_Array_Array_FooBar>#readChar
    i32.const 2256
    i32.const 0
    call $~lib/string/String#charCodeAt
    i32.eq
    i32.eqz
    if
-    i32.const 3576
+    i32.const 3592
     i32.const 2800
     i32.const 182
     i32.const 6
@@ -27237,11 +25686,11 @@
   call $~lib/rt/stub/__release
   local.get $3
  )
- (func $~lib/assemblyscript-json/decoder/JSONDecoder<model_near/__near_JSONHandler_Array_Array_FooBar>#parseString (; 480 ;) (type $FUNCSIG$ii) (param $0 i32) (result i32)
+ (func $~lib/assemblyscript-json/decoder/JSONDecoder<model/__near_JSONHandler_Array_Array_FooBar>#parseString (; 478 ;) (type $FUNCSIG$ii) (param $0 i32) (result i32)
   (local $1 i32)
   (local $2 i32)
   local.get $0
-  call $~lib/assemblyscript-json/decoder/JSONDecoder<model_near/__near_JSONHandler_Array_Array_FooBar>#peekChar
+  call $~lib/assemblyscript-json/decoder/JSONDecoder<model/__near_JSONHandler_Array_Array_FooBar>#peekChar
   i32.const 1072
   i32.const 0
   call $~lib/string/String#charCodeAt
@@ -27256,7 +25705,7 @@
   i32.load offset=4
   i32.load
   local.get $0
-  call $~lib/assemblyscript-json/decoder/JSONDecoder<model_near/__near_JSONHandler_Array_Array_FooBar>#readString
+  call $~lib/assemblyscript-json/decoder/JSONDecoder<model/__near_JSONHandler_Array_Array_FooBar>#readString
   local.tee $1
   call $~lib/assemblyscript-json/decoder/ThrowingJSONHandler#setString
   i32.const 1
@@ -27265,7 +25714,7 @@
   call $~lib/rt/stub/__release
   local.get $2
  )
- (func $~lib/assemblyscript-json/decoder/JSONDecoder<model_near/__near_JSONHandler_Array_Array_FooBar>#readAndAssert (; 481 ;) (type $FUNCSIG$vii) (param $0 i32) (param $1 i32)
+ (func $~lib/assemblyscript-json/decoder/JSONDecoder<model/__near_JSONHandler_Array_Array_FooBar>#readAndAssert (; 479 ;) (type $FUNCSIG$vii) (param $0 i32) (param $1 i32)
   (local $2 i32)
   (local $3 i32)
   (local $4 i32)
@@ -27286,15 +25735,15 @@
     local.get $2
     call $~lib/string/String#charCodeAt
     local.get $0
-    call $~lib/assemblyscript-json/decoder/JSONDecoder<model_near/__near_JSONHandler_Array_Array_FooBar>#readChar
+    call $~lib/assemblyscript-json/decoder/JSONDecoder<model/__near_JSONHandler_Array_Array_FooBar>#readChar
     i32.eq
     i32.eqz
     if
-     i32.const 3640
+     i32.const 3656
      local.get $1
      call $~lib/string/String.__concat
      local.tee $3
-     i32.const 3680
+     i32.const 3696
      call $~lib/string/String.__concat
      local.tee $4
      i32.const 2800
@@ -27318,9 +25767,9 @@
   local.get $1
   call $~lib/rt/stub/__release
  )
- (func $~lib/assemblyscript-json/decoder/JSONDecoder<model_near/__near_JSONHandler_Array_Array_FooBar>#parseBoolean (; 482 ;) (type $FUNCSIG$ii) (param $0 i32) (result i32)
+ (func $~lib/assemblyscript-json/decoder/JSONDecoder<model/__near_JSONHandler_Array_Array_FooBar>#parseBoolean (; 480 ;) (type $FUNCSIG$ii) (param $0 i32) (result i32)
   local.get $0
-  call $~lib/assemblyscript-json/decoder/JSONDecoder<model_near/__near_JSONHandler_Array_Array_FooBar>#peekChar
+  call $~lib/assemblyscript-json/decoder/JSONDecoder<model/__near_JSONHandler_Array_Array_FooBar>#peekChar
   i32.const 504
   i32.const 0
   call $~lib/string/String#charCodeAt
@@ -27328,7 +25777,7 @@
   if
    local.get $0
    global.get $~lib/assemblyscript-json/decoder/FALSE_STR
-   call $~lib/assemblyscript-json/decoder/JSONDecoder<model_near/__near_JSONHandler_Array_Array_FooBar>#readAndAssert
+   call $~lib/assemblyscript-json/decoder/JSONDecoder<model/__near_JSONHandler_Array_Array_FooBar>#readAndAssert
    local.get $0
    i32.load
    local.get $0
@@ -27340,7 +25789,7 @@
    return
   end
   local.get $0
-  call $~lib/assemblyscript-json/decoder/JSONDecoder<model_near/__near_JSONHandler_Array_Array_FooBar>#peekChar
+  call $~lib/assemblyscript-json/decoder/JSONDecoder<model/__near_JSONHandler_Array_Array_FooBar>#peekChar
   i32.const 480
   i32.const 0
   call $~lib/string/String#charCodeAt
@@ -27348,7 +25797,7 @@
   if
    local.get $0
    global.get $~lib/assemblyscript-json/decoder/TRUE_STR
-   call $~lib/assemblyscript-json/decoder/JSONDecoder<model_near/__near_JSONHandler_Array_Array_FooBar>#readAndAssert
+   call $~lib/assemblyscript-json/decoder/JSONDecoder<model/__near_JSONHandler_Array_Array_FooBar>#readAndAssert
    local.get $0
    i32.load
    local.get $0
@@ -27361,7 +25810,7 @@
   end
   i32.const 0
  )
- (func $~lib/assemblyscript-json/decoder/JSONDecoder<model_near/__near_JSONHandler_Array_Array_FooBar>#parseNumber (; 483 ;) (type $FUNCSIG$ii) (param $0 i32) (result i32)
+ (func $~lib/assemblyscript-json/decoder/JSONDecoder<model/__near_JSONHandler_Array_Array_FooBar>#parseNumber (; 481 ;) (type $FUNCSIG$ii) (param $0 i32) (result i32)
   (local $1 i64)
   (local $2 i64)
   (local $3 i32)
@@ -27371,8 +25820,8 @@
   i64.const 1
   local.set $2
   local.get $0
-  call $~lib/assemblyscript-json/decoder/JSONDecoder<model_near/__near_JSONHandler_Array_Array_FooBar>#peekChar
-  i32.const 3792
+  call $~lib/assemblyscript-json/decoder/JSONDecoder<model/__near_JSONHandler_Array_Array_FooBar>#peekChar
+  i32.const 3808
   i32.const 0
   call $~lib/string/String#charCodeAt
   i32.eq
@@ -27380,7 +25829,7 @@
    i64.const -1
    local.set $2
    local.get $0
-   call $~lib/assemblyscript-json/decoder/JSONDecoder<model_near/__near_JSONHandler_Array_Array_FooBar>#readChar
+   call $~lib/assemblyscript-json/decoder/JSONDecoder<model/__near_JSONHandler_Array_Array_FooBar>#readChar
    drop
   end
   i32.const 0
@@ -27389,11 +25838,11 @@
    loop $continue|0
     global.get $~lib/assemblyscript-json/decoder/CHAR_0
     local.get $0
-    call $~lib/assemblyscript-json/decoder/JSONDecoder<model_near/__near_JSONHandler_Array_Array_FooBar>#peekChar
+    call $~lib/assemblyscript-json/decoder/JSONDecoder<model/__near_JSONHandler_Array_Array_FooBar>#peekChar
     i32.le_s
     if (result i32)
      local.get $0
-     call $~lib/assemblyscript-json/decoder/JSONDecoder<model_near/__near_JSONHandler_Array_Array_FooBar>#peekChar
+     call $~lib/assemblyscript-json/decoder/JSONDecoder<model/__near_JSONHandler_Array_Array_FooBar>#peekChar
      global.get $~lib/assemblyscript-json/decoder/CHAR_9
      i32.le_s
     else     
@@ -27402,7 +25851,7 @@
     i32.eqz
     br_if $break|0
     local.get $0
-    call $~lib/assemblyscript-json/decoder/JSONDecoder<model_near/__near_JSONHandler_Array_Array_FooBar>#readChar
+    call $~lib/assemblyscript-json/decoder/JSONDecoder<model/__near_JSONHandler_Array_Array_FooBar>#readChar
     local.set $4
     local.get $1
     i64.const 10
@@ -27441,9 +25890,9 @@
   end
   i32.const 0
  )
- (func $~lib/assemblyscript-json/decoder/JSONDecoder<model_near/__near_JSONHandler_Array_Array_FooBar>#parseNull (; 484 ;) (type $FUNCSIG$ii) (param $0 i32) (result i32)
+ (func $~lib/assemblyscript-json/decoder/JSONDecoder<model/__near_JSONHandler_Array_Array_FooBar>#parseNull (; 482 ;) (type $FUNCSIG$ii) (param $0 i32) (result i32)
   local.get $0
-  call $~lib/assemblyscript-json/decoder/JSONDecoder<model_near/__near_JSONHandler_Array_Array_FooBar>#peekChar
+  call $~lib/assemblyscript-json/decoder/JSONDecoder<model/__near_JSONHandler_Array_Array_FooBar>#peekChar
   i32.const 536
   i32.const 0
   call $~lib/string/String#charCodeAt
@@ -27451,7 +25900,7 @@
   if
    local.get $0
    global.get $~lib/assemblyscript-json/decoder/NULL_STR
-   call $~lib/assemblyscript-json/decoder/JSONDecoder<model_near/__near_JSONHandler_Array_Array_FooBar>#readAndAssert
+   call $~lib/assemblyscript-json/decoder/JSONDecoder<model/__near_JSONHandler_Array_Array_FooBar>#readAndAssert
    local.get $0
    i32.load
    local.get $0
@@ -27463,53 +25912,53 @@
   end
   i32.const 0
  )
- (func $~lib/assemblyscript-json/decoder/JSONDecoder<model_near/__near_JSONHandler_Array_Array_FooBar>#parseValue (; 485 ;) (type $FUNCSIG$ii) (param $0 i32) (result i32)
+ (func $~lib/assemblyscript-json/decoder/JSONDecoder<model/__near_JSONHandler_Array_Array_FooBar>#parseValue (; 483 ;) (type $FUNCSIG$ii) (param $0 i32) (result i32)
   (local $1 i32)
   local.get $0
-  call $~lib/assemblyscript-json/decoder/JSONDecoder<model_near/__near_JSONHandler_Array_Array_FooBar>#skipWhitespace
+  call $~lib/assemblyscript-json/decoder/JSONDecoder<model/__near_JSONHandler_Array_Array_FooBar>#skipWhitespace
   local.get $0
-  call $~lib/assemblyscript-json/decoder/JSONDecoder<model_near/__near_JSONHandler_Array_Array_FooBar>#parseObject
+  call $~lib/assemblyscript-json/decoder/JSONDecoder<model/__near_JSONHandler_Array_Array_FooBar>#parseObject
   local.tee $1
   if (result i32)
    local.get $1
   else   
    local.get $0
-   call $~lib/assemblyscript-json/decoder/JSONDecoder<model_near/__near_JSONHandler_Array_Array_FooBar>#parseArray
+   call $~lib/assemblyscript-json/decoder/JSONDecoder<model/__near_JSONHandler_Array_Array_FooBar>#parseArray
   end
   local.tee $1
   if (result i32)
    local.get $1
   else   
    local.get $0
-   call $~lib/assemblyscript-json/decoder/JSONDecoder<model_near/__near_JSONHandler_Array_Array_FooBar>#parseString
+   call $~lib/assemblyscript-json/decoder/JSONDecoder<model/__near_JSONHandler_Array_Array_FooBar>#parseString
   end
   local.tee $1
   if (result i32)
    local.get $1
   else   
    local.get $0
-   call $~lib/assemblyscript-json/decoder/JSONDecoder<model_near/__near_JSONHandler_Array_Array_FooBar>#parseBoolean
+   call $~lib/assemblyscript-json/decoder/JSONDecoder<model/__near_JSONHandler_Array_Array_FooBar>#parseBoolean
   end
   local.tee $1
   if (result i32)
    local.get $1
   else   
    local.get $0
-   call $~lib/assemblyscript-json/decoder/JSONDecoder<model_near/__near_JSONHandler_Array_Array_FooBar>#parseNumber
+   call $~lib/assemblyscript-json/decoder/JSONDecoder<model/__near_JSONHandler_Array_Array_FooBar>#parseNumber
   end
   local.tee $1
   if (result i32)
    local.get $1
   else   
    local.get $0
-   call $~lib/assemblyscript-json/decoder/JSONDecoder<model_near/__near_JSONHandler_Array_Array_FooBar>#parseNull
+   call $~lib/assemblyscript-json/decoder/JSONDecoder<model/__near_JSONHandler_Array_Array_FooBar>#parseNull
   end
   local.set $1
   local.get $0
-  call $~lib/assemblyscript-json/decoder/JSONDecoder<model_near/__near_JSONHandler_Array_Array_FooBar>#skipWhitespace
+  call $~lib/assemblyscript-json/decoder/JSONDecoder<model/__near_JSONHandler_Array_Array_FooBar>#skipWhitespace
   local.get $1
  )
- (func $~lib/assemblyscript-json/decoder/JSONDecoder<model_near/__near_JSONHandler_Array_Array_FooBar>#deserialize (; 486 ;) (type $FUNCSIG$viii) (param $0 i32) (param $1 i32) (param $2 i32)
+ (func $~lib/assemblyscript-json/decoder/JSONDecoder<model/__near_JSONHandler_Array_Array_FooBar>#deserialize (; 484 ;) (type $FUNCSIG$viii) (param $0 i32) (param $1 i32) (param $2 i32)
   (local $3 i32)
   (local $4 i32)
   local.get $1
@@ -27553,12 +26002,12 @@
    i32.store offset=4
   end
   local.get $0
-  call $~lib/assemblyscript-json/decoder/JSONDecoder<model_near/__near_JSONHandler_Array_Array_FooBar>#parseValue
+  call $~lib/assemblyscript-json/decoder/JSONDecoder<model/__near_JSONHandler_Array_Array_FooBar>#parseValue
   i32.const 0
   i32.ne
   i32.eqz
   if
-   i32.const 3888
+   i32.const 3904
    i32.const 2800
    i32.const 100
    i32.const 4
@@ -27570,7 +26019,7 @@
   local.get $2
   call $~lib/rt/stub/__release
  )
- (func $model_near/__near_decode_Array_Array_FooBar (; 487 ;) (type $FUNCSIG$iiii) (param $0 i32) (param $1 i32) (param $2 i32) (result i32)
+ (func $model/__near_decode_Array_Array_FooBar (; 485 ;) (type $FUNCSIG$iiii) (param $0 i32) (param $1 i32) (param $2 i32) (result i32)
   (local $3 i32)
   (local $4 i32)
   (local $5 i32)
@@ -27589,7 +26038,7 @@
   if
    i32.const 0
    i32.const 0
-   call $~lib/array/Array<~lib/array/Array<model_near/FooBar>>#constructor
+   call $~lib/array/Array<~lib/array/Array<model/FooBar>>#constructor
    local.set $3
    local.get $2
    call $~lib/rt/stub/__release
@@ -27598,7 +26047,7 @@
   end
   i32.const 0
   local.get $2
-  call $model_near/__near_JSONHandler_Array_Array_FooBar#constructor
+  call $model/__near_JSONHandler_Array_Array_FooBar#constructor
   local.set $3
   local.get $3
   local.tee $4
@@ -27621,7 +26070,7 @@
   local.tee $5
   i32.const 0
   local.get $3
-  call $~lib/assemblyscript-json/decoder/JSONDecoder<model_near/__near_JSONHandler_Array_Array_FooBar>#constructor
+  call $~lib/assemblyscript-json/decoder/JSONDecoder<model/__near_JSONHandler_Array_Array_FooBar>#constructor
   local.set $4
   local.get $5
   i32.load offset=4
@@ -27632,7 +26081,7 @@
   i32.load offset=4
   local.get $0
   local.get $1
-  call $~lib/assemblyscript-json/decoder/JSONDecoder<model_near/__near_JSONHandler_Array_Array_FooBar>#deserialize
+  call $~lib/assemblyscript-json/decoder/JSONDecoder<model/__near_JSONHandler_Array_Array_FooBar>#deserialize
   local.get $2
   local.set $4
   local.get $3
@@ -27643,14 +26092,14 @@
   call $~lib/rt/stub/__release
   local.get $4
  )
- (func $model_near/__near_JSONHandler_AnotherContainerClass#pushArray (; 488 ;) (type $FUNCSIG$iii) (param $0 i32) (param $1 i32) (result i32)
+ (func $model/__near_JSONHandler_AnotherContainerClass#pushArray (; 486 ;) (type $FUNCSIG$iii) (param $0 i32) (param $1 i32) (result i32)
   (local $2 i32)
   (local $3 i32)
   local.get $1
   call $~lib/rt/stub/__retain
   drop
   local.get $1
-  i32.const 4664
+  i32.const 4408
   call $~lib/string/String.__eq
   if
    local.get $0
@@ -27662,7 +26111,7 @@
    i32.load offset=4
    i32.load offset=4
    i32.const 0
-   call $model_near/__near_decode_Array_Array_FooBar
+   call $model/__near_decode_Array_Array_FooBar
    local.set $3
    local.get $2
    i32.load
@@ -27684,12 +26133,12 @@
   call $~lib/rt/stub/__release
   local.get $3
  )
- (func $~lib/assemblyscript-json/decoder/JSONDecoder<model_near/__near_JSONHandler_AnotherContainerClass>#parseArray (; 489 ;) (type $FUNCSIG$ii) (param $0 i32) (result i32)
+ (func $~lib/assemblyscript-json/decoder/JSONDecoder<model/__near_JSONHandler_AnotherContainerClass>#parseArray (; 487 ;) (type $FUNCSIG$ii) (param $0 i32) (result i32)
   (local $1 i32)
   (local $2 i32)
   (local $3 i32)
   local.get $0
-  call $~lib/assemblyscript-json/decoder/JSONDecoder<model_near/__near_JSONHandler_AnotherContainerClass>#peekChar
+  call $~lib/assemblyscript-json/decoder/JSONDecoder<model/__near_JSONHandler_AnotherContainerClass>#peekChar
   i32.const 2232
   i32.const 0
   call $~lib/string/String#charCodeAt
@@ -27724,19 +26173,19 @@
   local.get $0
   i32.load
   local.get $1
-  call $model_near/__near_JSONHandler_AnotherContainerClass#pushArray
+  call $model/__near_JSONHandler_AnotherContainerClass#pushArray
   if
    local.get $0
-   call $~lib/assemblyscript-json/decoder/JSONDecoder<model_near/__near_JSONHandler_AnotherContainerClass>#readChar
+   call $~lib/assemblyscript-json/decoder/JSONDecoder<model/__near_JSONHandler_AnotherContainerClass>#readChar
    drop
    local.get $0
-   call $~lib/assemblyscript-json/decoder/JSONDecoder<model_near/__near_JSONHandler_AnotherContainerClass>#skipWhitespace
+   call $~lib/assemblyscript-json/decoder/JSONDecoder<model/__near_JSONHandler_AnotherContainerClass>#skipWhitespace
    i32.const 1
    local.set $3
    block $break|0
     loop $continue|0
      local.get $0
-     call $~lib/assemblyscript-json/decoder/JSONDecoder<model_near/__near_JSONHandler_AnotherContainerClass>#peekChar
+     call $~lib/assemblyscript-json/decoder/JSONDecoder<model/__near_JSONHandler_AnotherContainerClass>#peekChar
      i32.const 2256
      i32.const 0
      call $~lib/string/String#charCodeAt
@@ -27747,14 +26196,14 @@
      i32.eqz
      if
       local.get $0
-      call $~lib/assemblyscript-json/decoder/JSONDecoder<model_near/__near_JSONHandler_AnotherContainerClass>#readChar
+      call $~lib/assemblyscript-json/decoder/JSONDecoder<model/__near_JSONHandler_AnotherContainerClass>#readChar
       i32.const 1048
       i32.const 0
       call $~lib/string/String#charCodeAt
       i32.eq
       i32.eqz
       if
-       i32.const 3000
+       i32.const 2984
        i32.const 2800
        i32.const 176
        i32.const 10
@@ -27766,21 +26215,21 @@
       local.set $3
      end
      local.get $0
-     call $~lib/assemblyscript-json/decoder/JSONDecoder<model_near/__near_JSONHandler_AnotherContainerClass>#parseValue
+     call $~lib/assemblyscript-json/decoder/JSONDecoder<model/__near_JSONHandler_AnotherContainerClass>#parseValue
      drop
      br $continue|0
     end
     unreachable
    end
    local.get $0
-   call $~lib/assemblyscript-json/decoder/JSONDecoder<model_near/__near_JSONHandler_AnotherContainerClass>#readChar
+   call $~lib/assemblyscript-json/decoder/JSONDecoder<model/__near_JSONHandler_AnotherContainerClass>#readChar
    i32.const 2256
    i32.const 0
    call $~lib/string/String#charCodeAt
    i32.eq
    i32.eqz
    if
-    i32.const 3576
+    i32.const 3592
     i32.const 2800
     i32.const 182
     i32.const 6
@@ -27797,11 +26246,11 @@
   call $~lib/rt/stub/__release
   local.get $3
  )
- (func $~lib/assemblyscript-json/decoder/JSONDecoder<model_near/__near_JSONHandler_AnotherContainerClass>#parseString (; 490 ;) (type $FUNCSIG$ii) (param $0 i32) (result i32)
+ (func $~lib/assemblyscript-json/decoder/JSONDecoder<model/__near_JSONHandler_AnotherContainerClass>#parseString (; 488 ;) (type $FUNCSIG$ii) (param $0 i32) (result i32)
   (local $1 i32)
   (local $2 i32)
   local.get $0
-  call $~lib/assemblyscript-json/decoder/JSONDecoder<model_near/__near_JSONHandler_AnotherContainerClass>#peekChar
+  call $~lib/assemblyscript-json/decoder/JSONDecoder<model/__near_JSONHandler_AnotherContainerClass>#peekChar
   i32.const 1072
   i32.const 0
   call $~lib/string/String#charCodeAt
@@ -27816,7 +26265,7 @@
   i32.load offset=4
   i32.load
   local.get $0
-  call $~lib/assemblyscript-json/decoder/JSONDecoder<model_near/__near_JSONHandler_AnotherContainerClass>#readString
+  call $~lib/assemblyscript-json/decoder/JSONDecoder<model/__near_JSONHandler_AnotherContainerClass>#readString
   local.tee $1
   call $~lib/assemblyscript-json/decoder/ThrowingJSONHandler#setString
   i32.const 1
@@ -27825,7 +26274,7 @@
   call $~lib/rt/stub/__release
   local.get $2
  )
- (func $~lib/assemblyscript-json/decoder/JSONDecoder<model_near/__near_JSONHandler_AnotherContainerClass>#readAndAssert (; 491 ;) (type $FUNCSIG$vii) (param $0 i32) (param $1 i32)
+ (func $~lib/assemblyscript-json/decoder/JSONDecoder<model/__near_JSONHandler_AnotherContainerClass>#readAndAssert (; 489 ;) (type $FUNCSIG$vii) (param $0 i32) (param $1 i32)
   (local $2 i32)
   (local $3 i32)
   (local $4 i32)
@@ -27846,15 +26295,15 @@
     local.get $2
     call $~lib/string/String#charCodeAt
     local.get $0
-    call $~lib/assemblyscript-json/decoder/JSONDecoder<model_near/__near_JSONHandler_AnotherContainerClass>#readChar
+    call $~lib/assemblyscript-json/decoder/JSONDecoder<model/__near_JSONHandler_AnotherContainerClass>#readChar
     i32.eq
     i32.eqz
     if
-     i32.const 3640
+     i32.const 3656
      local.get $1
      call $~lib/string/String.__concat
      local.tee $3
-     i32.const 3680
+     i32.const 3696
      call $~lib/string/String.__concat
      local.tee $4
      i32.const 2800
@@ -27878,9 +26327,9 @@
   local.get $1
   call $~lib/rt/stub/__release
  )
- (func $~lib/assemblyscript-json/decoder/JSONDecoder<model_near/__near_JSONHandler_AnotherContainerClass>#parseBoolean (; 492 ;) (type $FUNCSIG$ii) (param $0 i32) (result i32)
+ (func $~lib/assemblyscript-json/decoder/JSONDecoder<model/__near_JSONHandler_AnotherContainerClass>#parseBoolean (; 490 ;) (type $FUNCSIG$ii) (param $0 i32) (result i32)
   local.get $0
-  call $~lib/assemblyscript-json/decoder/JSONDecoder<model_near/__near_JSONHandler_AnotherContainerClass>#peekChar
+  call $~lib/assemblyscript-json/decoder/JSONDecoder<model/__near_JSONHandler_AnotherContainerClass>#peekChar
   i32.const 504
   i32.const 0
   call $~lib/string/String#charCodeAt
@@ -27888,7 +26337,7 @@
   if
    local.get $0
    global.get $~lib/assemblyscript-json/decoder/FALSE_STR
-   call $~lib/assemblyscript-json/decoder/JSONDecoder<model_near/__near_JSONHandler_AnotherContainerClass>#readAndAssert
+   call $~lib/assemblyscript-json/decoder/JSONDecoder<model/__near_JSONHandler_AnotherContainerClass>#readAndAssert
    local.get $0
    i32.load
    local.get $0
@@ -27900,7 +26349,7 @@
    return
   end
   local.get $0
-  call $~lib/assemblyscript-json/decoder/JSONDecoder<model_near/__near_JSONHandler_AnotherContainerClass>#peekChar
+  call $~lib/assemblyscript-json/decoder/JSONDecoder<model/__near_JSONHandler_AnotherContainerClass>#peekChar
   i32.const 480
   i32.const 0
   call $~lib/string/String#charCodeAt
@@ -27908,7 +26357,7 @@
   if
    local.get $0
    global.get $~lib/assemblyscript-json/decoder/TRUE_STR
-   call $~lib/assemblyscript-json/decoder/JSONDecoder<model_near/__near_JSONHandler_AnotherContainerClass>#readAndAssert
+   call $~lib/assemblyscript-json/decoder/JSONDecoder<model/__near_JSONHandler_AnotherContainerClass>#readAndAssert
    local.get $0
    i32.load
    local.get $0
@@ -27921,7 +26370,7 @@
   end
   i32.const 0
  )
- (func $~lib/assemblyscript-json/decoder/JSONDecoder<model_near/__near_JSONHandler_AnotherContainerClass>#parseNumber (; 493 ;) (type $FUNCSIG$ii) (param $0 i32) (result i32)
+ (func $~lib/assemblyscript-json/decoder/JSONDecoder<model/__near_JSONHandler_AnotherContainerClass>#parseNumber (; 491 ;) (type $FUNCSIG$ii) (param $0 i32) (result i32)
   (local $1 i64)
   (local $2 i64)
   (local $3 i32)
@@ -27931,8 +26380,8 @@
   i64.const 1
   local.set $2
   local.get $0
-  call $~lib/assemblyscript-json/decoder/JSONDecoder<model_near/__near_JSONHandler_AnotherContainerClass>#peekChar
-  i32.const 3792
+  call $~lib/assemblyscript-json/decoder/JSONDecoder<model/__near_JSONHandler_AnotherContainerClass>#peekChar
+  i32.const 3808
   i32.const 0
   call $~lib/string/String#charCodeAt
   i32.eq
@@ -27940,7 +26389,7 @@
    i64.const -1
    local.set $2
    local.get $0
-   call $~lib/assemblyscript-json/decoder/JSONDecoder<model_near/__near_JSONHandler_AnotherContainerClass>#readChar
+   call $~lib/assemblyscript-json/decoder/JSONDecoder<model/__near_JSONHandler_AnotherContainerClass>#readChar
    drop
   end
   i32.const 0
@@ -27949,11 +26398,11 @@
    loop $continue|0
     global.get $~lib/assemblyscript-json/decoder/CHAR_0
     local.get $0
-    call $~lib/assemblyscript-json/decoder/JSONDecoder<model_near/__near_JSONHandler_AnotherContainerClass>#peekChar
+    call $~lib/assemblyscript-json/decoder/JSONDecoder<model/__near_JSONHandler_AnotherContainerClass>#peekChar
     i32.le_s
     if (result i32)
      local.get $0
-     call $~lib/assemblyscript-json/decoder/JSONDecoder<model_near/__near_JSONHandler_AnotherContainerClass>#peekChar
+     call $~lib/assemblyscript-json/decoder/JSONDecoder<model/__near_JSONHandler_AnotherContainerClass>#peekChar
      global.get $~lib/assemblyscript-json/decoder/CHAR_9
      i32.le_s
     else     
@@ -27962,7 +26411,7 @@
     i32.eqz
     br_if $break|0
     local.get $0
-    call $~lib/assemblyscript-json/decoder/JSONDecoder<model_near/__near_JSONHandler_AnotherContainerClass>#readChar
+    call $~lib/assemblyscript-json/decoder/JSONDecoder<model/__near_JSONHandler_AnotherContainerClass>#readChar
     local.set $4
     local.get $1
     i64.const 10
@@ -28001,14 +26450,14 @@
   end
   i32.const 0
  )
- (func $model_near/__near_JSONHandler_AnotherContainerClass#setNull (; 494 ;) (type $FUNCSIG$vii) (param $0 i32) (param $1 i32)
+ (func $model/__near_JSONHandler_AnotherContainerClass#setNull (; 492 ;) (type $FUNCSIG$vii) (param $0 i32) (param $1 i32)
   (local $2 i32)
   (local $3 i32)
   local.get $1
   call $~lib/rt/stub/__retain
   drop
   local.get $1
-  i32.const 4664
+  i32.const 4408
   call $~lib/string/String.__eq
   if
    local.get $0
@@ -28039,9 +26488,9 @@
   local.get $1
   call $~lib/rt/stub/__release
  )
- (func $~lib/assemblyscript-json/decoder/JSONDecoder<model_near/__near_JSONHandler_AnotherContainerClass>#parseNull (; 495 ;) (type $FUNCSIG$ii) (param $0 i32) (result i32)
+ (func $~lib/assemblyscript-json/decoder/JSONDecoder<model/__near_JSONHandler_AnotherContainerClass>#parseNull (; 493 ;) (type $FUNCSIG$ii) (param $0 i32) (result i32)
   local.get $0
-  call $~lib/assemblyscript-json/decoder/JSONDecoder<model_near/__near_JSONHandler_AnotherContainerClass>#peekChar
+  call $~lib/assemblyscript-json/decoder/JSONDecoder<model/__near_JSONHandler_AnotherContainerClass>#peekChar
   i32.const 536
   i32.const 0
   call $~lib/string/String#charCodeAt
@@ -28049,65 +26498,65 @@
   if
    local.get $0
    global.get $~lib/assemblyscript-json/decoder/NULL_STR
-   call $~lib/assemblyscript-json/decoder/JSONDecoder<model_near/__near_JSONHandler_AnotherContainerClass>#readAndAssert
+   call $~lib/assemblyscript-json/decoder/JSONDecoder<model/__near_JSONHandler_AnotherContainerClass>#readAndAssert
    local.get $0
    i32.load
    local.get $0
    i32.load offset=4
    i32.load
-   call $model_near/__near_JSONHandler_AnotherContainerClass#setNull
+   call $model/__near_JSONHandler_AnotherContainerClass#setNull
    i32.const 1
    return
   end
   i32.const 0
  )
- (func $~lib/assemblyscript-json/decoder/JSONDecoder<model_near/__near_JSONHandler_AnotherContainerClass>#parseValue (; 496 ;) (type $FUNCSIG$ii) (param $0 i32) (result i32)
+ (func $~lib/assemblyscript-json/decoder/JSONDecoder<model/__near_JSONHandler_AnotherContainerClass>#parseValue (; 494 ;) (type $FUNCSIG$ii) (param $0 i32) (result i32)
   (local $1 i32)
   local.get $0
-  call $~lib/assemblyscript-json/decoder/JSONDecoder<model_near/__near_JSONHandler_AnotherContainerClass>#skipWhitespace
+  call $~lib/assemblyscript-json/decoder/JSONDecoder<model/__near_JSONHandler_AnotherContainerClass>#skipWhitespace
   local.get $0
-  call $~lib/assemblyscript-json/decoder/JSONDecoder<model_near/__near_JSONHandler_AnotherContainerClass>#parseObject
+  call $~lib/assemblyscript-json/decoder/JSONDecoder<model/__near_JSONHandler_AnotherContainerClass>#parseObject
   local.tee $1
   if (result i32)
    local.get $1
   else   
    local.get $0
-   call $~lib/assemblyscript-json/decoder/JSONDecoder<model_near/__near_JSONHandler_AnotherContainerClass>#parseArray
+   call $~lib/assemblyscript-json/decoder/JSONDecoder<model/__near_JSONHandler_AnotherContainerClass>#parseArray
   end
   local.tee $1
   if (result i32)
    local.get $1
   else   
    local.get $0
-   call $~lib/assemblyscript-json/decoder/JSONDecoder<model_near/__near_JSONHandler_AnotherContainerClass>#parseString
+   call $~lib/assemblyscript-json/decoder/JSONDecoder<model/__near_JSONHandler_AnotherContainerClass>#parseString
   end
   local.tee $1
   if (result i32)
    local.get $1
   else   
    local.get $0
-   call $~lib/assemblyscript-json/decoder/JSONDecoder<model_near/__near_JSONHandler_AnotherContainerClass>#parseBoolean
+   call $~lib/assemblyscript-json/decoder/JSONDecoder<model/__near_JSONHandler_AnotherContainerClass>#parseBoolean
   end
   local.tee $1
   if (result i32)
    local.get $1
   else   
    local.get $0
-   call $~lib/assemblyscript-json/decoder/JSONDecoder<model_near/__near_JSONHandler_AnotherContainerClass>#parseNumber
+   call $~lib/assemblyscript-json/decoder/JSONDecoder<model/__near_JSONHandler_AnotherContainerClass>#parseNumber
   end
   local.tee $1
   if (result i32)
    local.get $1
   else   
    local.get $0
-   call $~lib/assemblyscript-json/decoder/JSONDecoder<model_near/__near_JSONHandler_AnotherContainerClass>#parseNull
+   call $~lib/assemblyscript-json/decoder/JSONDecoder<model/__near_JSONHandler_AnotherContainerClass>#parseNull
   end
   local.set $1
   local.get $0
-  call $~lib/assemblyscript-json/decoder/JSONDecoder<model_near/__near_JSONHandler_AnotherContainerClass>#skipWhitespace
+  call $~lib/assemblyscript-json/decoder/JSONDecoder<model/__near_JSONHandler_AnotherContainerClass>#skipWhitespace
   local.get $1
  )
- (func $~lib/assemblyscript-json/decoder/JSONDecoder<model_near/__near_JSONHandler_AnotherContainerClass>#deserialize (; 497 ;) (type $FUNCSIG$viii) (param $0 i32) (param $1 i32) (param $2 i32)
+ (func $~lib/assemblyscript-json/decoder/JSONDecoder<model/__near_JSONHandler_AnotherContainerClass>#deserialize (; 495 ;) (type $FUNCSIG$viii) (param $0 i32) (param $1 i32) (param $2 i32)
   (local $3 i32)
   (local $4 i32)
   local.get $1
@@ -28151,12 +26600,12 @@
    i32.store offset=4
   end
   local.get $0
-  call $~lib/assemblyscript-json/decoder/JSONDecoder<model_near/__near_JSONHandler_AnotherContainerClass>#parseValue
+  call $~lib/assemblyscript-json/decoder/JSONDecoder<model/__near_JSONHandler_AnotherContainerClass>#parseValue
   i32.const 0
   i32.ne
   i32.eqz
   if
-   i32.const 3888
+   i32.const 3904
    i32.const 2800
    i32.const 100
    i32.const 4
@@ -28168,7 +26617,7 @@
   local.get $2
   call $~lib/rt/stub/__release
  )
- (func $model_near/__near_decode_AnotherContainerClass (; 498 ;) (type $FUNCSIG$iiii) (param $0 i32) (param $1 i32) (param $2 i32) (result i32)
+ (func $model/__near_decode_AnotherContainerClass (; 496 ;) (type $FUNCSIG$iiii) (param $0 i32) (param $1 i32) (param $2 i32) (result i32)
   (local $3 i32)
   (local $4 i32)
   (local $5 i32)
@@ -28186,7 +26635,7 @@
   i32.eq
   if
    i32.const 0
-   call $model_near/AnotherContainerClass#constructor
+   call $model/AnotherContainerClass#constructor
    local.set $3
    local.get $2
    call $~lib/rt/stub/__release
@@ -28195,7 +26644,7 @@
   end
   i32.const 0
   local.get $2
-  call $model_near/__near_JSONHandler_AnotherContainerClass#constructor
+  call $model/__near_JSONHandler_AnotherContainerClass#constructor
   local.set $3
   local.get $3
   local.tee $4
@@ -28218,7 +26667,7 @@
   local.tee $5
   i32.const 0
   local.get $3
-  call $~lib/assemblyscript-json/decoder/JSONDecoder<model_near/__near_JSONHandler_AnotherContainerClass>#constructor
+  call $~lib/assemblyscript-json/decoder/JSONDecoder<model/__near_JSONHandler_AnotherContainerClass>#constructor
   local.set $4
   local.get $5
   i32.load offset=4
@@ -28229,7 +26678,7 @@
   i32.load offset=4
   local.get $0
   local.get $1
-  call $~lib/assemblyscript-json/decoder/JSONDecoder<model_near/__near_JSONHandler_AnotherContainerClass>#deserialize
+  call $~lib/assemblyscript-json/decoder/JSONDecoder<model/__near_JSONHandler_AnotherContainerClass>#deserialize
   local.get $2
   local.set $4
   local.get $3
@@ -28240,7 +26689,54 @@
   call $~lib/rt/stub/__release
   local.get $4
  )
- (func $main_near/__near_ArgsParser_unwrapFoobar#pushObject (; 499 ;) (type $FUNCSIG$iii) (param $0 i32) (param $1 i32) (result i32)
+ (func $model/AnotherContainerClass#decode (; 497 ;) (type $FUNCSIG$iiii) (param $0 i32) (param $1 i32) (param $2 i32) (result i32)
+  (local $3 i32)
+  local.get $1
+  call $~lib/rt/stub/__retain
+  drop
+  local.get $2
+  call $~lib/rt/stub/__retain
+  drop
+  local.get $1
+  local.get $2
+  local.get $0
+  call $model/__near_decode_AnotherContainerClass
+  call $~lib/rt/stub/__release
+  local.get $0
+  call $~lib/rt/stub/__retain
+  local.set $3
+  local.get $1
+  call $~lib/rt/stub/__release
+  local.get $2
+  call $~lib/rt/stub/__release
+  local.get $3
+ )
+ (func $model/AnotherContainerClass.decode (; 498 ;) (type $FUNCSIG$iii) (param $0 i32) (param $1 i32) (result i32)
+  (local $2 i32)
+  (local $3 i32)
+  local.get $0
+  call $~lib/rt/stub/__retain
+  drop
+  local.get $1
+  call $~lib/rt/stub/__retain
+  drop
+  i32.const 0
+  call $model/AnotherContainerClass#constructor
+  local.set $2
+  local.get $2
+  local.get $0
+  local.get $1
+  call $model/AnotherContainerClass#decode
+  call $~lib/rt/stub/__release
+  local.get $2
+  local.set $3
+  local.get $0
+  call $~lib/rt/stub/__release
+  local.get $1
+  call $~lib/rt/stub/__release
+  local.get $3
+ )
+ (func $main/__near_ArgsParser_unwrapFoobar#pushObject (; 499 ;) (type $FUNCSIG$iii) (param $0 i32) (param $1 i32) (result i32)
   (local $2 i32)
   (local $3 i32)
   local.get $1
@@ -28266,9 +26762,9 @@
    i32.eqz
    if
     i32.const 0
-    i32.const 4624
-    i32.const 201
-    i32.const 6
+    i32.const 3560
+    i32.const 177
+    i32.const 8
     call $~lib/builtins/abort
     unreachable
    end
@@ -28296,15 +26792,15 @@
    i32.eqz
    if
     i32.const 0
-    i32.const 4624
-    i32.const 205
-    i32.const 6
+    i32.const 3560
+    i32.const 181
+    i32.const 8
     call $~lib/builtins/abort
     unreachable
    end
   end
   local.get $1
-  i32.const 4792
+  i32.const 4536
   call $~lib/string/String.__eq
   if
    local.get $0
@@ -28314,8 +26810,7 @@
    local.get $0
    i32.load offset=4
    i32.load offset=4
-   i32.const 0
-   call $model_near/__near_decode_AnotherContainerClass
+   call $model/AnotherContainerClass.decode
    local.set $3
    local.get $2
    i32.load offset=12
@@ -28337,13 +26832,13 @@
   call $~lib/rt/stub/__release
   local.get $3
  )
- (func $~lib/assemblyscript-json/decoder/JSONDecoder<main_near/__near_ArgsParser_unwrapFoobar>#readHexDigit (; 500 ;) (type $FUNCSIG$ii) (param $0 i32) (result i32)
+ (func $~lib/assemblyscript-json/decoder/JSONDecoder<main/__near_ArgsParser_unwrapFoobar>#readHexDigit (; 500 ;) (type $FUNCSIG$ii) (param $0 i32) (result i32)
   (local $1 i32)
   (local $2 i32)
   (local $3 i32)
   (local $4 i32)
   local.get $0
-  call $~lib/assemblyscript-json/decoder/JSONDecoder<main_near/__near_ArgsParser_unwrapFoobar>#readChar
+  call $~lib/assemblyscript-json/decoder/JSONDecoder<main/__near_ArgsParser_unwrapFoobar>#readChar
   local.set $1
   local.get $1
   global.get $~lib/assemblyscript-json/decoder/CHAR_0
@@ -28408,7 +26903,7 @@
   end
   i32.eqz
   if
-   i32.const 3336
+   i32.const 3320
    i32.const 2800
    i32.const 269
    i32.const 4
@@ -28421,7 +26916,7 @@
   call $~lib/rt/stub/__release
   local.get $3
  )
- (func $~lib/assemblyscript-json/decoder/JSONDecoder<main_near/__near_ArgsParser_unwrapFoobar>#readEscapedChar (; 501 ;) (type $FUNCSIG$ii) (param $0 i32) (result i32)
+ (func $~lib/assemblyscript-json/decoder/JSONDecoder<main/__near_ArgsParser_unwrapFoobar>#readEscapedChar (; 501 ;) (type $FUNCSIG$ii) (param $0 i32) (result i32)
   (local $1 i32)
   (local $2 i32)
   (local $3 i32)
@@ -28429,7 +26924,7 @@
   (local $5 i32)
   (local $6 i32)
   local.get $0
-  call $~lib/assemblyscript-json/decoder/JSONDecoder<main_near/__near_ArgsParser_unwrapFoobar>#readChar
+  call $~lib/assemblyscript-json/decoder/JSONDecoder<main/__near_ArgsParser_unwrapFoobar>#readChar
   local.set $1
   local.get $1
   i32.const 1072
@@ -28452,17 +26947,17 @@
    return
   end
   local.get $1
-  i32.const 3192
+  i32.const 3176
   i32.const 0
   call $~lib/string/String#charCodeAt
   i32.eq
   if
-   i32.const 3192
+   i32.const 3176
    call $~lib/rt/stub/__retain
    return
   end
   local.get $1
-  i32.const 3216
+  i32.const 3200
   i32.const 0
   call $~lib/string/String#charCodeAt
   i32.eq
@@ -28472,7 +26967,7 @@
    return
   end
   local.get $1
-  i32.const 3240
+  i32.const 3224
   i32.const 0
   call $~lib/string/String#charCodeAt
   i32.eq
@@ -28482,7 +26977,7 @@
    return
   end
   local.get $1
-  i32.const 3264
+  i32.const 3248
   i32.const 0
   call $~lib/string/String#charCodeAt
   i32.eq
@@ -28492,7 +26987,7 @@
    return
   end
   local.get $1
-  i32.const 3288
+  i32.const 3272
   i32.const 0
   call $~lib/string/String#charCodeAt
   i32.eq
@@ -28502,22 +26997,22 @@
    return
   end
   local.get $1
-  i32.const 3312
+  i32.const 3296
   i32.const 0
   call $~lib/string/String#charCodeAt
   i32.eq
   if
    local.get $0
-   call $~lib/assemblyscript-json/decoder/JSONDecoder<main_near/__near_ArgsParser_unwrapFoobar>#readHexDigit
+   call $~lib/assemblyscript-json/decoder/JSONDecoder<main/__near_ArgsParser_unwrapFoobar>#readHexDigit
    local.set $2
    local.get $0
-   call $~lib/assemblyscript-json/decoder/JSONDecoder<main_near/__near_ArgsParser_unwrapFoobar>#readHexDigit
+   call $~lib/assemblyscript-json/decoder/JSONDecoder<main/__near_ArgsParser_unwrapFoobar>#readHexDigit
    local.set $3
    local.get $0
-   call $~lib/assemblyscript-json/decoder/JSONDecoder<main_near/__near_ArgsParser_unwrapFoobar>#readHexDigit
+   call $~lib/assemblyscript-json/decoder/JSONDecoder<main/__near_ArgsParser_unwrapFoobar>#readHexDigit
    local.set $4
    local.get $0
-   call $~lib/assemblyscript-json/decoder/JSONDecoder<main_near/__near_ArgsParser_unwrapFoobar>#readHexDigit
+   call $~lib/assemblyscript-json/decoder/JSONDecoder<main/__near_ArgsParser_unwrapFoobar>#readHexDigit
    local.set $5
    local.get $2
    i32.const 4096
@@ -28540,7 +27035,7 @@
   i32.const 0
   i32.eqz
   if
-   i32.const 3392
+   i32.const 3376
    i32.const 1
    global.set $~lib/argc
    local.get $1
@@ -28564,21 +27059,21 @@
   call $~lib/rt/stub/__release
   local.get $4
  )
- (func $~lib/assemblyscript-json/decoder/JSONDecoder<main_near/__near_ArgsParser_unwrapFoobar>#readString (; 502 ;) (type $FUNCSIG$ii) (param $0 i32) (result i32)
+ (func $~lib/assemblyscript-json/decoder/JSONDecoder<main/__near_ArgsParser_unwrapFoobar>#readString (; 502 ;) (type $FUNCSIG$ii) (param $0 i32) (result i32)
   (local $1 i32)
   (local $2 i32)
   (local $3 i32)
   (local $4 i32)
   (local $5 i32)
   local.get $0
-  call $~lib/assemblyscript-json/decoder/JSONDecoder<main_near/__near_ArgsParser_unwrapFoobar>#readChar
+  call $~lib/assemblyscript-json/decoder/JSONDecoder<main/__near_ArgsParser_unwrapFoobar>#readChar
   i32.const 1072
   i32.const 0
   call $~lib/string/String#charCodeAt
   i32.eq
   i32.eqz
   if
-   i32.const 3040
+   i32.const 3024
    i32.const 2800
    i32.const 197
    i32.const 4
@@ -28595,14 +27090,14 @@
   local.set $2
   loop $loop|0
    local.get $0
-   call $~lib/assemblyscript-json/decoder/JSONDecoder<main_near/__near_ArgsParser_unwrapFoobar>#readChar
+   call $~lib/assemblyscript-json/decoder/JSONDecoder<main/__near_ArgsParser_unwrapFoobar>#readChar
    local.set $3
    local.get $3
    i32.const 32
    i32.ge_s
    i32.eqz
    if
-    i32.const 3120
+    i32.const 3104
     i32.const 2800
     i32.const 203
     i32.const 6
@@ -28680,7 +27175,7 @@
      end
      local.get $2
      local.get $0
-     call $~lib/assemblyscript-json/decoder/JSONDecoder<main_near/__near_ArgsParser_unwrapFoobar>#readEscapedChar
+     call $~lib/assemblyscript-json/decoder/JSONDecoder<main/__near_ArgsParser_unwrapFoobar>#readEscapedChar
      local.tee $4
      call $~lib/array/Array<~lib/string/String>#push
      drop
@@ -28696,16 +27191,16 @@
   end
   unreachable
  )
- (func $~lib/assemblyscript-json/decoder/JSONDecoder<main_near/__near_ArgsParser_unwrapFoobar>#parseKey (; 503 ;) (type $FUNCSIG$vi) (param $0 i32)
+ (func $~lib/assemblyscript-json/decoder/JSONDecoder<main/__near_ArgsParser_unwrapFoobar>#parseKey (; 503 ;) (type $FUNCSIG$vi) (param $0 i32)
   (local $1 i32)
   (local $2 i32)
   local.get $0
-  call $~lib/assemblyscript-json/decoder/JSONDecoder<main_near/__near_ArgsParser_unwrapFoobar>#skipWhitespace
+  call $~lib/assemblyscript-json/decoder/JSONDecoder<main/__near_ArgsParser_unwrapFoobar>#skipWhitespace
   local.get $0
   i32.load offset=4
   local.tee $1
   local.get $0
-  call $~lib/assemblyscript-json/decoder/JSONDecoder<main_near/__near_ArgsParser_unwrapFoobar>#readString
+  call $~lib/assemblyscript-json/decoder/JSONDecoder<main/__near_ArgsParser_unwrapFoobar>#readString
   local.set $2
   local.get $1
   i32.load
@@ -28713,16 +27208,16 @@
   local.get $2
   i32.store
   local.get $0
-  call $~lib/assemblyscript-json/decoder/JSONDecoder<main_near/__near_ArgsParser_unwrapFoobar>#skipWhitespace
+  call $~lib/assemblyscript-json/decoder/JSONDecoder<main/__near_ArgsParser_unwrapFoobar>#skipWhitespace
   local.get $0
-  call $~lib/assemblyscript-json/decoder/JSONDecoder<main_near/__near_ArgsParser_unwrapFoobar>#readChar
+  call $~lib/assemblyscript-json/decoder/JSONDecoder<main/__near_ArgsParser_unwrapFoobar>#readChar
   i32.const 1984
   i32.const 0
   call $~lib/string/String#charCodeAt
   i32.eq
   i32.eqz
   if
-   i32.const 3472
+   i32.const 3456
    i32.const 2800
    i32.const 159
    i32.const 4
@@ -28730,12 +27225,12 @@
    unreachable
   end
  )
- (func $~lib/assemblyscript-json/decoder/JSONDecoder<main_near/__near_ArgsParser_unwrapFoobar>#parseObject (; 504 ;) (type $FUNCSIG$ii) (param $0 i32) (result i32)
+ (func $~lib/assemblyscript-json/decoder/JSONDecoder<main/__near_ArgsParser_unwrapFoobar>#parseObject (; 504 ;) (type $FUNCSIG$ii) (param $0 i32) (result i32)
   (local $1 i32)
   (local $2 i32)
   (local $3 i32)
   local.get $0
-  call $~lib/assemblyscript-json/decoder/JSONDecoder<main_near/__near_ArgsParser_unwrapFoobar>#peekChar
+  call $~lib/assemblyscript-json/decoder/JSONDecoder<main/__near_ArgsParser_unwrapFoobar>#peekChar
   i32.const 2008
   i32.const 0
   call $~lib/string/String#charCodeAt
@@ -28770,19 +27265,19 @@
   local.get $0
   i32.load
   local.get $1
-  call $main_near/__near_ArgsParser_unwrapFoobar#pushObject
+  call $main/__near_ArgsParser_unwrapFoobar#pushObject
   if
    local.get $0
-   call $~lib/assemblyscript-json/decoder/JSONDecoder<main_near/__near_ArgsParser_unwrapFoobar>#readChar
+   call $~lib/assemblyscript-json/decoder/JSONDecoder<main/__near_ArgsParser_unwrapFoobar>#readChar
    drop
    local.get $0
-   call $~lib/assemblyscript-json/decoder/JSONDecoder<main_near/__near_ArgsParser_unwrapFoobar>#skipWhitespace
+   call $~lib/assemblyscript-json/decoder/JSONDecoder<main/__near_ArgsParser_unwrapFoobar>#skipWhitespace
    i32.const 1
    local.set $3
    block $break|0
     loop $continue|0
      local.get $0
-     call $~lib/assemblyscript-json/decoder/JSONDecoder<main_near/__near_ArgsParser_unwrapFoobar>#peekChar
+     call $~lib/assemblyscript-json/decoder/JSONDecoder<main/__near_ArgsParser_unwrapFoobar>#peekChar
      i32.const 2672
      i32.const 0
      call $~lib/string/String#charCodeAt
@@ -28793,14 +27288,14 @@
      i32.eqz
      if
       local.get $0
-      call $~lib/assemblyscript-json/decoder/JSONDecoder<main_near/__near_ArgsParser_unwrapFoobar>#readChar
+      call $~lib/assemblyscript-json/decoder/JSONDecoder<main/__near_ArgsParser_unwrapFoobar>#readChar
       i32.const 1048
       i32.const 0
       call $~lib/string/String#charCodeAt
       i32.eq
       i32.eqz
       if
-       i32.const 3000
+       i32.const 2984
        i32.const 2800
        i32.const 142
        i32.const 10
@@ -28812,23 +27307,23 @@
       local.set $3
      end
      local.get $0
-     call $~lib/assemblyscript-json/decoder/JSONDecoder<main_near/__near_ArgsParser_unwrapFoobar>#parseKey
+     call $~lib/assemblyscript-json/decoder/JSONDecoder<main/__near_ArgsParser_unwrapFoobar>#parseKey
      local.get $0
-     call $~lib/assemblyscript-json/decoder/JSONDecoder<main_near/__near_ArgsParser_unwrapFoobar>#parseValue
+     call $~lib/assemblyscript-json/decoder/JSONDecoder<main/__near_ArgsParser_unwrapFoobar>#parseValue
      drop
      br $continue|0
     end
     unreachable
    end
    local.get $0
-   call $~lib/assemblyscript-json/decoder/JSONDecoder<main_near/__near_ArgsParser_unwrapFoobar>#readChar
+   call $~lib/assemblyscript-json/decoder/JSONDecoder<main/__near_ArgsParser_unwrapFoobar>#readChar
    i32.const 2672
    i32.const 0
    call $~lib/string/String#charCodeAt
    i32.eq
    i32.eqz
    if
-    i32.const 3512
+    i32.const 3496
     i32.const 2800
     i32.const 149
     i32.const 6
@@ -28845,7 +27340,7 @@
   call $~lib/rt/stub/__release
   local.get $3
  )
- (func $main_near/__near_ArgsParser_unwrapFoobar#pushArray (; 505 ;) (type $FUNCSIG$iii) (param $0 i32) (param $1 i32) (result i32)
+ (func $main/__near_ArgsParser_unwrapFoobar#pushArray (; 505 ;) (type $FUNCSIG$iii) (param $0 i32) (param $1 i32) (result i32)
   (local $2 i32)
   local.get $1
   call $~lib/rt/stub/__retain
@@ -28858,12 +27353,12 @@
   call $~lib/rt/stub/__release
   local.get $2
  )
- (func $~lib/assemblyscript-json/decoder/JSONDecoder<main_near/__near_ArgsParser_unwrapFoobar>#parseArray (; 506 ;) (type $FUNCSIG$ii) (param $0 i32) (result i32)
+ (func $~lib/assemblyscript-json/decoder/JSONDecoder<main/__near_ArgsParser_unwrapFoobar>#parseArray (; 506 ;) (type $FUNCSIG$ii) (param $0 i32) (result i32)
   (local $1 i32)
   (local $2 i32)
   (local $3 i32)
   local.get $0
-  call $~lib/assemblyscript-json/decoder/JSONDecoder<main_near/__near_ArgsParser_unwrapFoobar>#peekChar
+  call $~lib/assemblyscript-json/decoder/JSONDecoder<main/__near_ArgsParser_unwrapFoobar>#peekChar
   i32.const 2232
   i32.const 0
   call $~lib/string/String#charCodeAt
@@ -28898,19 +27393,19 @@
   local.get $0
   i32.load
   local.get $1
-  call $main_near/__near_ArgsParser_unwrapFoobar#pushArray
+  call $main/__near_ArgsParser_unwrapFoobar#pushArray
   if
    local.get $0
-   call $~lib/assemblyscript-json/decoder/JSONDecoder<main_near/__near_ArgsParser_unwrapFoobar>#readChar
+   call $~lib/assemblyscript-json/decoder/JSONDecoder<main/__near_ArgsParser_unwrapFoobar>#readChar
    drop
    local.get $0
-   call $~lib/assemblyscript-json/decoder/JSONDecoder<main_near/__near_ArgsParser_unwrapFoobar>#skipWhitespace
+   call $~lib/assemblyscript-json/decoder/JSONDecoder<main/__near_ArgsParser_unwrapFoobar>#skipWhitespace
    i32.const 1
    local.set $3
    block $break|0
     loop $continue|0
      local.get $0
-     call $~lib/assemblyscript-json/decoder/JSONDecoder<main_near/__near_ArgsParser_unwrapFoobar>#peekChar
+     call $~lib/assemblyscript-json/decoder/JSONDecoder<main/__near_ArgsParser_unwrapFoobar>#peekChar
      i32.const 2256
      i32.const 0
      call $~lib/string/String#charCodeAt
@@ -28921,14 +27416,14 @@
      i32.eqz
      if
       local.get $0
-      call $~lib/assemblyscript-json/decoder/JSONDecoder<main_near/__near_ArgsParser_unwrapFoobar>#readChar
+      call $~lib/assemblyscript-json/decoder/JSONDecoder<main/__near_ArgsParser_unwrapFoobar>#readChar
       i32.const 1048
       i32.const 0
       call $~lib/string/String#charCodeAt
       i32.eq
       i32.eqz
       if
-       i32.const 3000
+       i32.const 2984
        i32.const 2800
        i32.const 176
        i32.const 10
@@ -28940,21 +27435,21 @@
       local.set $3
      end
      local.get $0
-     call $~lib/assemblyscript-json/decoder/JSONDecoder<main_near/__near_ArgsParser_unwrapFoobar>#parseValue
+     call $~lib/assemblyscript-json/decoder/JSONDecoder<main/__near_ArgsParser_unwrapFoobar>#parseValue
      drop
      br $continue|0
     end
     unreachable
    end
    local.get $0
-   call $~lib/assemblyscript-json/decoder/JSONDecoder<main_near/__near_ArgsParser_unwrapFoobar>#readChar
+   call $~lib/assemblyscript-json/decoder/JSONDecoder<main/__near_ArgsParser_unwrapFoobar>#readChar
    i32.const 2256
    i32.const 0
    call $~lib/string/String#charCodeAt
    i32.eq
    i32.eqz
    if
-    i32.const 3576
+    i32.const 3592
     i32.const 2800
     i32.const 182
     i32.const 6
@@ -28971,11 +27466,11 @@
   call $~lib/rt/stub/__release
   local.get $3
  )
- (func $~lib/assemblyscript-json/decoder/JSONDecoder<main_near/__near_ArgsParser_unwrapFoobar>#parseString (; 507 ;) (type $FUNCSIG$ii) (param $0 i32) (result i32)
+ (func $~lib/assemblyscript-json/decoder/JSONDecoder<main/__near_ArgsParser_unwrapFoobar>#parseString (; 507 ;) (type $FUNCSIG$ii) (param $0 i32) (result i32)
   (local $1 i32)
   (local $2 i32)
   local.get $0
-  call $~lib/assemblyscript-json/decoder/JSONDecoder<main_near/__near_ArgsParser_unwrapFoobar>#peekChar
+  call $~lib/assemblyscript-json/decoder/JSONDecoder<main/__near_ArgsParser_unwrapFoobar>#peekChar
   i32.const 1072
   i32.const 0
   call $~lib/string/String#charCodeAt
@@ -28990,7 +27485,7 @@
   i32.load offset=4
   i32.load
   local.get $0
-  call $~lib/assemblyscript-json/decoder/JSONDecoder<main_near/__near_ArgsParser_unwrapFoobar>#readString
+  call $~lib/assemblyscript-json/decoder/JSONDecoder<main/__near_ArgsParser_unwrapFoobar>#readString
   local.tee $1
   call $~lib/assemblyscript-json/decoder/ThrowingJSONHandler#setString
   i32.const 1
@@ -28999,7 +27494,7 @@
   call $~lib/rt/stub/__release
   local.get $2
  )
- (func $~lib/assemblyscript-json/decoder/JSONDecoder<main_near/__near_ArgsParser_unwrapFoobar>#readAndAssert (; 508 ;) (type $FUNCSIG$vii) (param $0 i32) (param $1 i32)
+ (func $~lib/assemblyscript-json/decoder/JSONDecoder<main/__near_ArgsParser_unwrapFoobar>#readAndAssert (; 508 ;) (type $FUNCSIG$vii) (param $0 i32) (param $1 i32)
   (local $2 i32)
   (local $3 i32)
   (local $4 i32)
@@ -29020,15 +27515,15 @@
     local.get $2
     call $~lib/string/String#charCodeAt
     local.get $0
-    call $~lib/assemblyscript-json/decoder/JSONDecoder<main_near/__near_ArgsParser_unwrapFoobar>#readChar
+    call $~lib/assemblyscript-json/decoder/JSONDecoder<main/__near_ArgsParser_unwrapFoobar>#readChar
     i32.eq
     i32.eqz
     if
-     i32.const 3640
+     i32.const 3656
      local.get $1
      call $~lib/string/String.__concat
      local.tee $3
-     i32.const 3680
+     i32.const 3696
      call $~lib/string/String.__concat
      local.tee $4
      i32.const 2800
@@ -29052,9 +27547,9 @@
   local.get $1
   call $~lib/rt/stub/__release
  )
- (func $~lib/assemblyscript-json/decoder/JSONDecoder<main_near/__near_ArgsParser_unwrapFoobar>#parseBoolean (; 509 ;) (type $FUNCSIG$ii) (param $0 i32) (result i32)
+ (func $~lib/assemblyscript-json/decoder/JSONDecoder<main/__near_ArgsParser_unwrapFoobar>#parseBoolean (; 509 ;) (type $FUNCSIG$ii) (param $0 i32) (result i32)
   local.get $0
-  call $~lib/assemblyscript-json/decoder/JSONDecoder<main_near/__near_ArgsParser_unwrapFoobar>#peekChar
+  call $~lib/assemblyscript-json/decoder/JSONDecoder<main/__near_ArgsParser_unwrapFoobar>#peekChar
   i32.const 504
   i32.const 0
   call $~lib/string/String#charCodeAt
@@ -29062,7 +27557,7 @@
   if
    local.get $0
    global.get $~lib/assemblyscript-json/decoder/FALSE_STR
-   call $~lib/assemblyscript-json/decoder/JSONDecoder<main_near/__near_ArgsParser_unwrapFoobar>#readAndAssert
+   call $~lib/assemblyscript-json/decoder/JSONDecoder<main/__near_ArgsParser_unwrapFoobar>#readAndAssert
    local.get $0
    i32.load
    local.get $0
@@ -29074,7 +27569,7 @@
    return
   end
   local.get $0
-  call $~lib/assemblyscript-json/decoder/JSONDecoder<main_near/__near_ArgsParser_unwrapFoobar>#peekChar
+  call $~lib/assemblyscript-json/decoder/JSONDecoder<main/__near_ArgsParser_unwrapFoobar>#peekChar
   i32.const 480
   i32.const 0
   call $~lib/string/String#charCodeAt
@@ -29082,7 +27577,7 @@
   if
    local.get $0
    global.get $~lib/assemblyscript-json/decoder/TRUE_STR
-   call $~lib/assemblyscript-json/decoder/JSONDecoder<main_near/__near_ArgsParser_unwrapFoobar>#readAndAssert
+   call $~lib/assemblyscript-json/decoder/JSONDecoder<main/__near_ArgsParser_unwrapFoobar>#readAndAssert
    local.get $0
    i32.load
    local.get $0
@@ -29095,7 +27590,7 @@
   end
   i32.const 0
  )
- (func $~lib/assemblyscript-json/decoder/JSONDecoder<main_near/__near_ArgsParser_unwrapFoobar>#parseNumber (; 510 ;) (type $FUNCSIG$ii) (param $0 i32) (result i32)
+ (func $~lib/assemblyscript-json/decoder/JSONDecoder<main/__near_ArgsParser_unwrapFoobar>#parseNumber (; 510 ;) (type $FUNCSIG$ii) (param $0 i32) (result i32)
   (local $1 i64)
   (local $2 i64)
   (local $3 i32)
@@ -29105,8 +27600,8 @@
   i64.const 1
   local.set $2
   local.get $0
-  call $~lib/assemblyscript-json/decoder/JSONDecoder<main_near/__near_ArgsParser_unwrapFoobar>#peekChar
-  i32.const 3792
+  call $~lib/assemblyscript-json/decoder/JSONDecoder<main/__near_ArgsParser_unwrapFoobar>#peekChar
+  i32.const 3808
   i32.const 0
   call $~lib/string/String#charCodeAt
   i32.eq
@@ -29114,7 +27609,7 @@
    i64.const -1
    local.set $2
    local.get $0
-   call $~lib/assemblyscript-json/decoder/JSONDecoder<main_near/__near_ArgsParser_unwrapFoobar>#readChar
+   call $~lib/assemblyscript-json/decoder/JSONDecoder<main/__near_ArgsParser_unwrapFoobar>#readChar
    drop
   end
   i32.const 0
@@ -29123,11 +27618,11 @@
    loop $continue|0
     global.get $~lib/assemblyscript-json/decoder/CHAR_0
     local.get $0
-    call $~lib/assemblyscript-json/decoder/JSONDecoder<main_near/__near_ArgsParser_unwrapFoobar>#peekChar
+    call $~lib/assemblyscript-json/decoder/JSONDecoder<main/__near_ArgsParser_unwrapFoobar>#peekChar
     i32.le_s
     if (result i32)
      local.get $0
-     call $~lib/assemblyscript-json/decoder/JSONDecoder<main_near/__near_ArgsParser_unwrapFoobar>#peekChar
+     call $~lib/assemblyscript-json/decoder/JSONDecoder<main/__near_ArgsParser_unwrapFoobar>#peekChar
      global.get $~lib/assemblyscript-json/decoder/CHAR_9
      i32.le_s
     else     
@@ -29136,7 +27631,7 @@
     i32.eqz
     br_if $break|0
     local.get $0
-    call $~lib/assemblyscript-json/decoder/JSONDecoder<main_near/__near_ArgsParser_unwrapFoobar>#readChar
+    call $~lib/assemblyscript-json/decoder/JSONDecoder<main/__near_ArgsParser_unwrapFoobar>#readChar
     local.set $4
     local.get $1
     i64.const 10
@@ -29175,14 +27670,14 @@
   end
   i32.const 0
  )
- (func $main_near/__near_ArgsParser_unwrapFoobar#setNull (; 511 ;) (type $FUNCSIG$vii) (param $0 i32) (param $1 i32)
+ (func $main/__near_ArgsParser_unwrapFoobar#setNull (; 511 ;) (type $FUNCSIG$vii) (param $0 i32) (param $1 i32)
   (local $2 i32)
   (local $3 i32)
   local.get $1
   call $~lib/rt/stub/__retain
   drop
   local.get $1
-  i32.const 4792
+  i32.const 4536
   call $~lib/string/String.__eq
   if
    local.get $0
@@ -29212,9 +27707,9 @@
   local.get $1
   call $~lib/rt/stub/__release
  )
- (func $~lib/assemblyscript-json/decoder/JSONDecoder<main_near/__near_ArgsParser_unwrapFoobar>#parseNull (; 512 ;) (type $FUNCSIG$ii) (param $0 i32) (result i32)
+ (func $~lib/assemblyscript-json/decoder/JSONDecoder<main/__near_ArgsParser_unwrapFoobar>#parseNull (; 512 ;) (type $FUNCSIG$ii) (param $0 i32) (result i32)
   local.get $0
-  call $~lib/assemblyscript-json/decoder/JSONDecoder<main_near/__near_ArgsParser_unwrapFoobar>#peekChar
+  call $~lib/assemblyscript-json/decoder/JSONDecoder<main/__near_ArgsParser_unwrapFoobar>#peekChar
   i32.const 536
   i32.const 0
   call $~lib/string/String#charCodeAt
@@ -29222,65 +27717,65 @@
   if
    local.get $0
    global.get $~lib/assemblyscript-json/decoder/NULL_STR
-   call $~lib/assemblyscript-json/decoder/JSONDecoder<main_near/__near_ArgsParser_unwrapFoobar>#readAndAssert
+   call $~lib/assemblyscript-json/decoder/JSONDecoder<main/__near_ArgsParser_unwrapFoobar>#readAndAssert
    local.get $0
    i32.load
    local.get $0
    i32.load offset=4
    i32.load
-   call $main_near/__near_ArgsParser_unwrapFoobar#setNull
+   call $main/__near_ArgsParser_unwrapFoobar#setNull
    i32.const 1
    return
   end
   i32.const 0
  )
- (func $~lib/assemblyscript-json/decoder/JSONDecoder<main_near/__near_ArgsParser_unwrapFoobar>#parseValue (; 513 ;) (type $FUNCSIG$ii) (param $0 i32) (result i32)
+ (func $~lib/assemblyscript-json/decoder/JSONDecoder<main/__near_ArgsParser_unwrapFoobar>#parseValue (; 513 ;) (type $FUNCSIG$ii) (param $0 i32) (result i32)
   (local $1 i32)
   local.get $0
-  call $~lib/assemblyscript-json/decoder/JSONDecoder<main_near/__near_ArgsParser_unwrapFoobar>#skipWhitespace
+  call $~lib/assemblyscript-json/decoder/JSONDecoder<main/__near_ArgsParser_unwrapFoobar>#skipWhitespace
   local.get $0
-  call $~lib/assemblyscript-json/decoder/JSONDecoder<main_near/__near_ArgsParser_unwrapFoobar>#parseObject
+  call $~lib/assemblyscript-json/decoder/JSONDecoder<main/__near_ArgsParser_unwrapFoobar>#parseObject
   local.tee $1
   if (result i32)
    local.get $1
   else   
    local.get $0
-   call $~lib/assemblyscript-json/decoder/JSONDecoder<main_near/__near_ArgsParser_unwrapFoobar>#parseArray
+   call $~lib/assemblyscript-json/decoder/JSONDecoder<main/__near_ArgsParser_unwrapFoobar>#parseArray
   end
   local.tee $1
   if (result i32)
    local.get $1
   else   
    local.get $0
-   call $~lib/assemblyscript-json/decoder/JSONDecoder<main_near/__near_ArgsParser_unwrapFoobar>#parseString
+   call $~lib/assemblyscript-json/decoder/JSONDecoder<main/__near_ArgsParser_unwrapFoobar>#parseString
   end
   local.tee $1
   if (result i32)
    local.get $1
   else   
    local.get $0
-   call $~lib/assemblyscript-json/decoder/JSONDecoder<main_near/__near_ArgsParser_unwrapFoobar>#parseBoolean
+   call $~lib/assemblyscript-json/decoder/JSONDecoder<main/__near_ArgsParser_unwrapFoobar>#parseBoolean
   end
   local.tee $1
   if (result i32)
    local.get $1
   else   
    local.get $0
-   call $~lib/assemblyscript-json/decoder/JSONDecoder<main_near/__near_ArgsParser_unwrapFoobar>#parseNumber
+   call $~lib/assemblyscript-json/decoder/JSONDecoder<main/__near_ArgsParser_unwrapFoobar>#parseNumber
   end
   local.tee $1
   if (result i32)
    local.get $1
   else   
    local.get $0
-   call $~lib/assemblyscript-json/decoder/JSONDecoder<main_near/__near_ArgsParser_unwrapFoobar>#parseNull
+   call $~lib/assemblyscript-json/decoder/JSONDecoder<main/__near_ArgsParser_unwrapFoobar>#parseNull
   end
   local.set $1
   local.get $0
-  call $~lib/assemblyscript-json/decoder/JSONDecoder<main_near/__near_ArgsParser_unwrapFoobar>#skipWhitespace
+  call $~lib/assemblyscript-json/decoder/JSONDecoder<main/__near_ArgsParser_unwrapFoobar>#skipWhitespace
   local.get $1
  )
- (func $~lib/assemblyscript-json/decoder/JSONDecoder<main_near/__near_ArgsParser_unwrapFoobar>#deserialize (; 514 ;) (type $FUNCSIG$viii) (param $0 i32) (param $1 i32) (param $2 i32)
+ (func $~lib/assemblyscript-json/decoder/JSONDecoder<main/__near_ArgsParser_unwrapFoobar>#deserialize (; 514 ;) (type $FUNCSIG$viii) (param $0 i32) (param $1 i32) (param $2 i32)
   (local $3 i32)
   (local $4 i32)
   local.get $1
@@ -29324,12 +27819,12 @@
    i32.store offset=4
   end
   local.get $0
-  call $~lib/assemblyscript-json/decoder/JSONDecoder<main_near/__near_ArgsParser_unwrapFoobar>#parseValue
+  call $~lib/assemblyscript-json/decoder/JSONDecoder<main/__near_ArgsParser_unwrapFoobar>#parseValue
   i32.const 0
   i32.ne
   i32.eqz
   if
-   i32.const 3888
+   i32.const 3904
    i32.const 2800
    i32.const 100
    i32.const 4
@@ -29341,7 +27836,7 @@
   local.get $2
   call $~lib/rt/stub/__release
  )
- (func $main/unwrapFoobar (; 515 ;) (type $FUNCSIG$ii) (param $0 i32) (result i32)
+ (func $main/wrapped_unwrapFoobar (; 515 ;) (type $FUNCSIG$ii) (param $0 i32) (result i32)
   (local $1 i32)
   (local $2 i32)
   local.get $0
@@ -29350,10 +27845,10 @@
   local.get $0
   i32.load
   i32.const 0
-  call $~lib/array/Array<~lib/array/Array<model_near/FooBar>>#__get
+  call $~lib/array/Array<~lib/array/Array<model/FooBar>>#__get
   local.tee $1
   i32.const 0
-  call $~lib/array/Array<model_near/FooBar>#__get
+  call $~lib/array/Array<model/FooBar>#__get
   local.set $2
   local.get $1
   call $~lib/rt/stub/__release
@@ -29361,7 +27856,7 @@
   call $~lib/rt/stub/__release
   local.get $2
  )
- (func $main_near/unwrapFoobar (; 516 ;) (type $FUNCSIG$v)
+ (func $main/unwrapFoobar (; 516 ;) (type $FUNCSIG$v)
   (local $0 i32)
   (local $1 i32)
   (local $2 i32)
@@ -29382,7 +27877,7 @@
   call $~lib/rt/stub/__retain
   local.set $0
   i32.const 0
-  call $main_near/__near_ArgsParser_unwrapFoobar#constructor
+  call $main/__near_ArgsParser_unwrapFoobar#constructor
   local.set $1
   local.get $1
   local.tee $2
@@ -29405,7 +27900,7 @@
   local.tee $3
   i32.const 0
   local.get $1
-  call $~lib/assemblyscript-json/decoder/JSONDecoder<main_near/__near_ArgsParser_unwrapFoobar>#constructor
+  call $~lib/assemblyscript-json/decoder/JSONDecoder<main/__near_ArgsParser_unwrapFoobar>#constructor
   local.set $2
   local.get $3
   i32.load offset=4
@@ -29416,10 +27911,10 @@
   i32.load offset=4
   local.get $0
   i32.const 0
-  call $~lib/assemblyscript-json/decoder/JSONDecoder<main_near/__near_ArgsParser_unwrapFoobar>#deserialize
+  call $~lib/assemblyscript-json/decoder/JSONDecoder<main/__near_ArgsParser_unwrapFoobar>#deserialize
   local.get $1
   i32.load offset=12
-  call $main/unwrapFoobar
+  call $main/wrapped_unwrapFoobar
   local.set $2
   i32.const 0
   call $~lib/assemblyscript-json/encoder/JSONEncoder#constructor
@@ -29428,15 +27923,11 @@
   i32.const 0
   i32.ne
   if
-   local.get $3
-   i32.const 0
-   call $~lib/assemblyscript-json/encoder/JSONEncoder#pushObject
-   drop
    local.get $2
    local.get $3
-   call $model_near/__near_encode_FooBar
-   local.get $3
-   call $~lib/assemblyscript-json/encoder/JSONEncoder#popObject
+   i32.const 0
+   call $model/FooBar#encode
+   call $~lib/rt/stub/__release
   else   
    local.get $3
    i32.const 0
@@ -29450,7 +27941,7 @@
   local.get $4
   call $~lib/typedarray/Uint8Array#get:buffer
   local.tee $5
-  call $main_near/return_value
+  call $~lib/near-runtime-ts/imports/return_value
   local.get $0
   call $~lib/rt/stub/__release
   local.get $1
@@ -29465,7 +27956,7 @@
   call $~lib/rt/stub/__release
  )
  (func $test/unwrapFoobar (; 517 ;) (type $FUNCSIG$v)
-  call $main_near/unwrapFoobar
+  call $main/unwrapFoobar
  )
  (func $start (; 518 ;) (type $FUNCSIG$v)
   global.get $~lib/heap/__heap_base

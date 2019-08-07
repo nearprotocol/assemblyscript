@@ -1,4 +1,3 @@
-//@nearfile
 import * as main from "./main";
 import * as model from "./model";
 import { near, base64 } from "near-runtime-ts";
