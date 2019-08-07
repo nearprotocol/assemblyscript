@@ -28,7 +28,8 @@ import {
   FieldDeclaration,
   Statement,
   Node,
-  NamedTypeNode
+  NamedTypeNode,
+  SourceKind
 } from "assemblyscript";
 import { Transformer } from "./transformer";
 
@@ -49,6 +50,10 @@ function hasNearDecorator(stmt: Source): boolean {
 
 function toString(node: Node): string {
   return ASTBuilder.build(node);
+}
+
+function isEntry(source: Source): boolean {
+  return source.sourceKind == SourceKind.USER_ENTRY;
 }
 
 function isReference(type: TypeNode): boolean {
@@ -556,15 +561,15 @@ class NEARBindingsBuilder extends Transformer {
 
     this.sb.push(`@global
       export function __near_decode_${encodedTypeName}(
-          buffer: Uint8Array, state: DecoderState | null, value: ${typeName} = null):${typeName} {
+          buffer: Uint8Array, state: DecoderState | null, value: ${typeName} | null = null):${typeName} {
         if (value == null) {
           value = new ${typeName}();
         }
-        let handler = new __near_JSONHandler_${encodedTypeName}(value);
+        let handler = new __near_JSONHandler_${encodedTypeName}(value!);
         handler.buffer = buffer;
         handler.decoder = new JSONDecoder<__near_JSONHandler_${encodedTypeName}>(handler);
         handler.decoder.deserialize(buffer, state);
-        return value;
+        return value!;
       }\n`);
   }
 
@@ -614,7 +619,7 @@ class NEARBindingsBuilder extends Transformer {
               encoder.setNull(${fieldExpr});
             };`);
       } else if (fieldTypeName == "u128") {
-        this.sb.push(`if (${sourceExpr} != null) {
+        this.sb.push(`if (<${fieldTypeName}>null != ${sourceExpr}) {
               encoder.setString(${fieldExpr}, ${sourceExpr}.toString());
             } else {
               encoder.setNull(${fieldExpr});
@@ -668,7 +673,7 @@ class NEARBindingsBuilder extends Transformer {
         if (
           stmt instanceof FunctionDeclaration &&
           (stmt.is(CommonFlags.EXPORT) || stmt.is(CommonFlags.MODULE_EXPORT)) &&
-          !source.isEntry
+          !isEntry(source)
         ) {
           funcDeclarations.get(source)!.push(stmt);
         }
@@ -681,7 +686,7 @@ class NEARBindingsBuilder extends Transformer {
       if (!(node instanceof FunctionDeclaration)) return node;
       if (
         !(node.is(CommonFlags.MODULE_EXPORT) || node.is(CommonFlags.EXPORT)) ||
-        node.range.source.isEntry
+        isEntry(node.range.source)
       )
         return node;
       node.flags = node.is(CommonFlags.MODULE_EXPORT)
@@ -723,14 +728,14 @@ import { JSONDecoder, ThrowingJSONHandler, DecoderState } from "assemblyscript-j
     return this;
   }
 
-  private _encoder(encoder: JSONEncoder, name: string): JSONEncoder {
+  private _encoder(encoder: JSONEncoder, name: string | null): JSONEncoder {
     encoder.pushObject(name);
     __near_encode_${className}(this, encoder);
     encoder.popObject();
     return encoder;
   }
 
-  encode(_encoder: JSONEncoder | null = null, name: string = ""): JSONEncoder {
+  encode(_encoder: JSONEncoder | null = null, name: string | null = ""): JSONEncoder {
     let encoder = _encoder != null ? _encoder : new JSONEncoder();
     return this._encoder(encoder!, name);
   }
@@ -758,43 +763,11 @@ import { JSONDecoder, ThrowingJSONHandler, DecoderState } from "assemblyscript-j
       let sourceText = newSource(source);
       this.parser.parseFile(
         sourceText,
-        (source.isEntry ? "" : "./") + source.normalizedPath,
-        source.isEntry
+        (isEntry(source) ? "" : "./") + source.normalizedPath,
+        isEntry(source)
       );
     });
 
-    debugger;
-
-    //     this.copyImports(source);
-    //     // this.visitFile(file);
-
-    //     this.exportedClasses.forEach(c => {
-    //       this.generateEncodeFunction(c.);
-    //       this.generateDecodeFunction(c.type);
-    //     });
-
-    //     let allExported = <Element[]>this.exportedFunctions.filter(e => e.is(CommonFlags.MODULE_EXPORT));
-    //     let allImportsStr = allExported.map(c => `${c.name} as wrapped_${c.name}`).join(", ");
-    //     // let preamble = this.nearFile.split("/").length > 1 ? ".." : ".";
-
-    //     this.sb = [`import { storage, near, base64, return_value } from "near-runtime-ts";
-    // import { JSONEncoder } from "assemblyscript-json";
-    // import { JSONDecoder, ThrowingJSONHandler, DecoderState } from "assemblyscript-json";
-    // `,
-    // // allImportsStr.length > 0 ? `import {${allImportsStr}} from "${preamble}/${source.normalizedPath.replace(".ts", "")}";`  : ""
-    //     ].concat(this.sb);
-
-    //     for (let [key, value] of this.classRanges) {
-    //       let injections = this.classInjections.get(key);
-    //       if (injections) {
-    //         let str = value.toString();
-    //         let bracketIndex = str.lastIndexOf("}");
-    //         let classText = str.substring(0, bracketIndex) + `\n${injections}\n}`;
-    //         this.sb.push(classText);
-    //       }
-    //     }
-    //     var sourceText = this.sb.join("\n");
-    //     this.parser.parseFile(sourceText, source.normalizedPath, source.isEntry);
   }
 
   private copyImports(mainSource: Source): void {

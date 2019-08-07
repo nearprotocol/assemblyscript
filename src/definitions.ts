@@ -666,7 +666,7 @@ export class NEARBindingsBuilder extends ExportsWalker {
 
   build(): string {
     let mainSources = this.program.sources
-      .filter(s => s.isEntry && !s.normalizedPath.startsWith("~lib"));
+      .filter(s => s.sourceKind == SourceKind.USER_ENTRY && !s.normalizedPath.startsWith("~lib"));
     assert(mainSources.length == 1);
     let mainSource = mainSources[0];
     this.copyImports(mainSource);

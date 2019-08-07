@@ -1052,7 +1052,7 @@
   if
    i32.const 776
    i32.const 832
-   i32.const 127
+   i32.const 131
    i32.const 44
    call $~lib/builtins/abort
    unreachable
@@ -3795,6 +3795,7 @@
   call $~lib/rt/stub/__release
  )
  (func $~lib/assemblyscript-json/encoder/JSONEncoder#writeKey (; 61 ;) (type $FUNCSIG$vii) (param $0 i32) (param $1 i32)
+  (local $2 i32)
   local.get $1
   call $~lib/rt/stub/__retain
   drop
@@ -3832,6 +3833,12 @@
   if
    local.get $0
    local.get $1
+   local.tee $2
+   if (result i32)
+    local.get $2
+   else    
+    unreachable
+   end
    call $~lib/assemblyscript-json/encoder/JSONEncoder#writeString
    local.get $0
    i32.const 1984
@@ -4340,7 +4347,7 @@
   if
    i32.const 776
    i32.const 832
-   i32.const 121
+   i32.const 125
    i32.const 44
    call $~lib/builtins/abort
    unreachable
@@ -5996,11 +6003,11 @@
    i32.const 2360
    call $~lib/assemblyscript-json/encoder/JSONEncoder#setNull
   end
-  local.get $0
-  i32.load offset=48
+  i32.const 0
   call $~lib/rt/stub/__retain
   local.set $5
-  i32.const 0
+  local.get $0
+  i32.load offset=48
   call $~lib/rt/stub/__retain
   local.set $4
   local.get $5
@@ -9380,6 +9387,12 @@
   end
   i32.const 0
   local.get $2
+  local.tee $3
+  if (result i32)
+   local.get $3
+  else   
+   unreachable
+  end
   call $main/__near_JSONHandler_Array_string#constructor
   local.set $3
   local.get $3
@@ -9416,12 +9429,21 @@
   local.get $1
   call $~lib/assemblyscript-json/decoder/JSONDecoder<main/__near_JSONHandler_Array_string>#deserialize
   local.get $2
+  local.tee $4
+  if (result i32)
+   local.get $4
+  else   
+   unreachable
+  end
+  call $~lib/rt/stub/__retain
   local.set $4
   local.get $3
   call $~lib/rt/stub/__release
   local.get $0
   call $~lib/rt/stub/__release
   local.get $1
+  call $~lib/rt/stub/__release
+  local.get $2
   call $~lib/rt/stub/__release
   local.get $4
  )
@@ -10600,6 +10622,12 @@
   end
   i32.const 0
   local.get $2
+  local.tee $3
+  if (result i32)
+   local.get $3
+  else   
+   unreachable
+  end
   call $model/__near_JSONHandler_Array_Array_string#constructor
   local.set $3
   local.get $3
@@ -10636,12 +10664,21 @@
   local.get $1
   call $~lib/assemblyscript-json/decoder/JSONDecoder<model/__near_JSONHandler_Array_Array_string>#deserialize
   local.get $2
+  local.tee $4
+  if (result i32)
+   local.get $4
+  else   
+   unreachable
+  end
+  call $~lib/rt/stub/__retain
   local.set $4
   local.get $3
   call $~lib/rt/stub/__release
   local.get $0
   call $~lib/rt/stub/__release
   local.get $1
+  call $~lib/rt/stub/__release
+  local.get $2
   call $~lib/rt/stub/__release
   local.get $4
  )
@@ -11934,6 +11971,12 @@
   end
   i32.const 0
   local.get $2
+  local.tee $3
+  if (result i32)
+   local.get $3
+  else   
+   unreachable
+  end
   call $model/__near_JSONHandler_Array_u32#constructor
   local.set $3
   local.get $3
@@ -11970,12 +12013,21 @@
   local.get $1
   call $~lib/assemblyscript-json/decoder/JSONDecoder<model/__near_JSONHandler_Array_u32>#deserialize
   local.get $2
+  local.tee $4
+  if (result i32)
+   local.get $4
+  else   
+   unreachable
+  end
+  call $~lib/rt/stub/__retain
   local.set $4
   local.get $3
   call $~lib/rt/stub/__release
   local.get $0
   call $~lib/rt/stub/__release
   local.get $1
+  call $~lib/rt/stub/__release
+  local.get $2
   call $~lib/rt/stub/__release
   local.get $4
  )
@@ -13219,6 +13271,12 @@
   end
   i32.const 0
   local.get $2
+  local.tee $3
+  if (result i32)
+   local.get $3
+  else   
+   unreachable
+  end
   call $model/__near_JSONHandler_Array_i32#constructor
   local.set $3
   local.get $3
@@ -13255,12 +13313,21 @@
   local.get $1
   call $~lib/assemblyscript-json/decoder/JSONDecoder<model/__near_JSONHandler_Array_i32>#deserialize
   local.get $2
+  local.tee $4
+  if (result i32)
+   local.get $4
+  else   
+   unreachable
+  end
+  call $~lib/rt/stub/__retain
   local.set $4
   local.get $3
   call $~lib/rt/stub/__release
   local.get $0
   call $~lib/rt/stub/__release
   local.get $1
+  call $~lib/rt/stub/__release
+  local.get $2
   call $~lib/rt/stub/__release
   local.get $4
  )
@@ -14580,6 +14647,12 @@
   end
   i32.const 0
   local.get $2
+  local.tee $3
+  if (result i32)
+   local.get $3
+  else   
+   unreachable
+  end
   call $model/__near_JSONHandler_Array_Uint8Array#constructor
   local.set $3
   local.get $3
@@ -14616,12 +14689,21 @@
   local.get $1
   call $~lib/assemblyscript-json/decoder/JSONDecoder<model/__near_JSONHandler_Array_Uint8Array>#deserialize
   local.get $2
+  local.tee $4
+  if (result i32)
+   local.get $4
+  else   
+   unreachable
+  end
+  call $~lib/rt/stub/__retain
   local.set $4
   local.get $3
   call $~lib/rt/stub/__release
   local.get $0
   call $~lib/rt/stub/__release
   local.get $1
+  call $~lib/rt/stub/__release
+  local.get $2
   call $~lib/rt/stub/__release
   local.get $4
  )
@@ -15555,6 +15637,12 @@
   end
   i32.const 0
   local.get $2
+  local.tee $3
+  if (result i32)
+   local.get $3
+  else   
+   unreachable
+  end
   call $model/__near_JSONHandler_FooBar#constructor
   local.set $3
   local.get $3
@@ -15591,12 +15679,21 @@
   local.get $1
   call $~lib/assemblyscript-json/decoder/JSONDecoder<model/__near_JSONHandler_FooBar>#deserialize
   local.get $2
+  local.tee $4
+  if (result i32)
+   local.get $4
+  else   
+   unreachable
+  end
+  call $~lib/rt/stub/__retain
   local.set $4
   local.get $3
   call $~lib/rt/stub/__release
   local.get $0
   call $~lib/rt/stub/__release
   local.get $1
+  call $~lib/rt/stub/__release
+  local.get $2
   call $~lib/rt/stub/__release
   local.get $4
  )
@@ -17960,6 +18057,12 @@
   end
   i32.const 0
   local.get $2
+  local.tee $3
+  if (result i32)
+   local.get $3
+  else   
+   unreachable
+  end
   call $main/__near_JSONHandler_Array_FooBar#constructor
   local.set $3
   local.get $3
@@ -17996,12 +18099,21 @@
   local.get $1
   call $~lib/assemblyscript-json/decoder/JSONDecoder<main/__near_JSONHandler_Array_FooBar>#deserialize
   local.get $2
+  local.tee $4
+  if (result i32)
+   local.get $4
+  else   
+   unreachable
+  end
+  call $~lib/rt/stub/__retain
   local.set $4
   local.get $3
   call $~lib/rt/stub/__release
   local.get $0
   call $~lib/rt/stub/__release
   local.get $1
+  call $~lib/rt/stub/__release
+  local.get $2
   call $~lib/rt/stub/__release
   local.get $4
  )
@@ -22112,6 +22224,12 @@
   end
   i32.const 0
   local.get $2
+  local.tee $3
+  if (result i32)
+   local.get $3
+  else   
+   unreachable
+  end
   call $model/__near_JSONHandler_ContainerClass#constructor
   local.set $3
   local.get $3
@@ -22148,12 +22266,21 @@
   local.get $1
   call $~lib/assemblyscript-json/decoder/JSONDecoder<model/__near_JSONHandler_ContainerClass>#deserialize
   local.get $2
+  local.tee $4
+  if (result i32)
+   local.get $4
+  else   
+   unreachable
+  end
+  call $~lib/rt/stub/__retain
   local.set $4
   local.get $3
   call $~lib/rt/stub/__release
   local.get $0
   call $~lib/rt/stub/__release
   local.get $1
+  call $~lib/rt/stub/__release
+  local.get $2
   call $~lib/rt/stub/__release
   local.get $4
  )
@@ -26047,6 +26174,12 @@
   end
   i32.const 0
   local.get $2
+  local.tee $3
+  if (result i32)
+   local.get $3
+  else   
+   unreachable
+  end
   call $model/__near_JSONHandler_Array_Array_FooBar#constructor
   local.set $3
   local.get $3
@@ -26083,12 +26216,21 @@
   local.get $1
   call $~lib/assemblyscript-json/decoder/JSONDecoder<model/__near_JSONHandler_Array_Array_FooBar>#deserialize
   local.get $2
+  local.tee $4
+  if (result i32)
+   local.get $4
+  else   
+   unreachable
+  end
+  call $~lib/rt/stub/__retain
   local.set $4
   local.get $3
   call $~lib/rt/stub/__release
   local.get $0
   call $~lib/rt/stub/__release
   local.get $1
+  call $~lib/rt/stub/__release
+  local.get $2
   call $~lib/rt/stub/__release
   local.get $4
  )
@@ -26644,6 +26786,12 @@
   end
   i32.const 0
   local.get $2
+  local.tee $3
+  if (result i32)
+   local.get $3
+  else   
+   unreachable
+  end
   call $model/__near_JSONHandler_AnotherContainerClass#constructor
   local.set $3
   local.get $3
@@ -26680,12 +26828,21 @@
   local.get $1
   call $~lib/assemblyscript-json/decoder/JSONDecoder<model/__near_JSONHandler_AnotherContainerClass>#deserialize
   local.get $2
+  local.tee $4
+  if (result i32)
+   local.get $4
+  else   
+   unreachable
+  end
+  call $~lib/rt/stub/__retain
   local.set $4
   local.get $3
   call $~lib/rt/stub/__release
   local.get $0
   call $~lib/rt/stub/__release
   local.get $1
+  call $~lib/rt/stub/__release
+  local.get $2
   call $~lib/rt/stub/__release
   local.get $4
  )
