@@ -12,7 +12,7 @@
   },
   "dependencies": {
     "@protobufjs/utf8": "^1.1.0",
-    "binaryen": "84.0.0-nightly.20190522",
+    "binaryen": "87.0.0-nightly.20190716",
     "glob": "^7.1.4",
     "long": "^4.0.0",
     "near-runtime-ts": "file:../near-runtime-ts",
@@ -20,19 +20,19 @@
     "source-map-support": "^0.5.12"
   },
   "devDependencies": {
-    "@types/node": "^11.13.14",
+    "@types/node": "^12.6.6",
     "assemblyscript-json": "github:nearprotocol/assemblyscript-json",
     "bignum": "github:MaxGraey/bignum.wasm",
     "browser-process-hrtime": "^1.0.0",
     "diff": "^4.0.1",
+    "ts-loader": "^6.0.4",
     "prettier": "^1.15.3",
-    "ts-loader": "^5.4.5",
     "ts-node": "^6.2.0",
-    "tslint": "^5.17.0",
+    "tslint": "^5.18.0",
     "typedoc-plugin-external-module-name": "^2.1.0",
-    "typescript": "^3.5.1",
-    "webpack": "^4.33.0",
-    "webpack-cli": "^3.3.4"
+    "typescript": "^3.5.3",
+    "webpack": "^4.35.3",
+    "webpack-cli": "^3.3.6"
   },
   "main": "index.js",
   "types": "index.d.ts",
@@ -57,7 +57,7 @@
     "test:compiler": "node tests/compiler",
     "test:packages": "cd tests/packages && npm run test",
     "test:bindgen": "cd tests/near-bindgen && ./test.sh",
-    "make": "npm run clean && npm run build && npm test",
+    "make": "npm run clean && npm test && npm run build && npm test",
     "all": "npm run check && npm run make",
     "docs": "typedoc --tsconfig tsconfig-docs.json --mode modules --name \"AssemblyScript Compiler API\" --out ./docs/api --ignoreCompilerErrors --excludeNotExported --excludePrivate --excludeExternals --exclude **/std/** --includeDeclarations --readme src/README.md"
   },
