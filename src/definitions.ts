@@ -1,3 +1,4 @@
+// tslint:disable: all
 /**
  * Definition builders for WebIDL and TypeScript.
  * @module definitions
@@ -38,7 +39,7 @@ import {
 import { Source, NodeKind, ImportStatement, DeclarationStatement, ExportStatement, Range } from "./ast";
 
 /** Walker base class. */
-abstract class ExportsWalker {
+export abstract class ExportsWalker {
 
   /** Program reference. */
   program: Program;
@@ -186,7 +187,6 @@ export class NEARBindingsBuilder extends ExportsWalker {
   nearFile: string;
 
   static build(program: Program, nearFile?: string): string {
-    debugger;
     return new NEARBindingsBuilder(program, false, nearFile).build();
   }
 

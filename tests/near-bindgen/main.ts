@@ -1,7 +1,8 @@
+//@nearfile
 // These imports need to be copied properly
 import { storage, context, ContractPromise, near } from "near-runtime-ts";
-import { FooBar, ContainerClass, AnotherContainerClass } from "./model_near";
-import { PromiseArgs, MyCallbackResult, MyContractPromiseResult } from "./model_near";
+import { FooBar, ContainerClass, AnotherContainerClass } from "./model";
+import { PromiseArgs, MyCallbackResult, MyContractPromiseResult } from "./model";
 
 export function doNothing(): void {
 

@@ -1,0 +1,12 @@
+{
+    "extends": "../node_modules/assemblyscript/std/portable.json",
+    "compilerOptions": {
+      "outDir": "../dist",
+      "noLib": true,
+      "inlineSourceMap": true,
+      "inlineSources": true
+    },
+    
+    // "exclude": ["assemblyscript/src/**/*.ts"]
+  }
+  

@@ -1,8 +1,8 @@
-
-import * as main from "./main_near";
-import * as model from "./model_near";
+//@nearfile
+import * as main from "./main";
+import * as model from "./model";
 import { near, base64 } from "near-runtime-ts";
-import { FooBar } from "./model_near";
+import { FooBar } from "./model";
 import { u128 } from "bignum";
 
 @external("env", "log")
@@ -20,7 +20,7 @@ export function runTest(): void {
     original.uint8arrays[0] = base64.decode("aGVsbG8sIHdvcmxkIQ==");
     original.uint8arrays[1] = base64.decode("aGVsbG8sIHdvcmxkIQ==");
     
-    let encoded = original.encode();
+    let encoded = original.encode().serialize();
     let decoded = FooBar.decode(encoded);
 
     assert(original.foo == decoded.foo);

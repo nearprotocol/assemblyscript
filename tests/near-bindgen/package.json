@@ -9,7 +9,8 @@
   "author": "",
   "license": "MIT",
   "dependencies": {
-    "assemblyscript-json": "file:../../../../c/assemblyscript-json",
+    "assemblyscript": "file:../..",
+    "assemblyscript-json": "file:../../../assemblyscript-json",
     "bignum": "github:MaxGraey/bignum.wasm",
     "near-runtime-ts": "file:../../../near-runtime-ts"
   },
