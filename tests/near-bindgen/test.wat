@@ -9379,11 +9379,22 @@
    i32.const 0
    i32.const 0
    call $~lib/array/Array<~lib/string/String>#constructor
-   local.set $3
+   local.tee $3
+   local.tee $4
    local.get $2
-   call $~lib/rt/stub/__release
-   local.get $3
+   local.tee $5
+   i32.ne
+   if
+    local.get $4
+    call $~lib/rt/stub/__retain
+    drop
+    local.get $5
+    call $~lib/rt/stub/__release
+   end
+   local.get $4
    local.set $2
+   local.get $3
+   call $~lib/rt/stub/__release
   end
   i32.const 0
   local.get $2
@@ -10614,11 +10625,22 @@
    i32.const 0
    i32.const 0
    call $~lib/array/Array<~lib/array/Array<~lib/string/String>>#constructor
-   local.set $3
+   local.tee $3
+   local.tee $4
    local.get $2
-   call $~lib/rt/stub/__release
-   local.get $3
+   local.tee $5
+   i32.ne
+   if
+    local.get $4
+    call $~lib/rt/stub/__retain
+    drop
+    local.get $5
+    call $~lib/rt/stub/__release
+   end
+   local.get $4
    local.set $2
+   local.get $3
+   call $~lib/rt/stub/__release
   end
   i32.const 0
   local.get $2
@@ -11963,11 +11985,22 @@
    i32.const 0
    i32.const 0
    call $~lib/array/Array<u32>#constructor
-   local.set $3
+   local.tee $3
+   local.tee $4
    local.get $2
-   call $~lib/rt/stub/__release
-   local.get $3
+   local.tee $5
+   i32.ne
+   if
+    local.get $4
+    call $~lib/rt/stub/__retain
+    drop
+    local.get $5
+    call $~lib/rt/stub/__release
+   end
+   local.get $4
    local.set $2
+   local.get $3
+   call $~lib/rt/stub/__release
   end
   i32.const 0
   local.get $2
@@ -13263,11 +13296,22 @@
    i32.const 0
    i32.const 0
    call $~lib/array/Array<i32>#constructor
-   local.set $3
+   local.tee $3
+   local.tee $4
    local.get $2
-   call $~lib/rt/stub/__release
-   local.get $3
+   local.tee $5
+   i32.ne
+   if
+    local.get $4
+    call $~lib/rt/stub/__retain
+    drop
+    local.get $5
+    call $~lib/rt/stub/__release
+   end
+   local.get $4
    local.set $2
+   local.get $3
+   call $~lib/rt/stub/__release
   end
   i32.const 0
   local.get $2
@@ -14639,11 +14683,22 @@
    i32.const 0
    i32.const 0
    call $~lib/array/Array<~lib/typedarray/Uint8Array>#constructor
-   local.set $3
+   local.tee $3
+   local.tee $4
    local.get $2
-   call $~lib/rt/stub/__release
-   local.get $3
+   local.tee $5
+   i32.ne
+   if
+    local.get $4
+    call $~lib/rt/stub/__retain
+    drop
+    local.get $5
+    call $~lib/rt/stub/__release
+   end
+   local.get $4
    local.set $2
+   local.get $3
+   call $~lib/rt/stub/__release
   end
   i32.const 0
   local.get $2
@@ -15629,11 +15684,22 @@
   if
    i32.const 0
    call $model/FooBar#constructor
-   local.set $3
+   local.tee $3
+   local.tee $4
    local.get $2
-   call $~lib/rt/stub/__release
-   local.get $3
+   local.tee $5
+   i32.ne
+   if
+    local.get $4
+    call $~lib/rt/stub/__retain
+    drop
+    local.get $5
+    call $~lib/rt/stub/__release
+   end
+   local.get $4
    local.set $2
+   local.get $3
+   call $~lib/rt/stub/__release
   end
   i32.const 0
   local.get $2
@@ -15722,6 +15788,7 @@
  (func $model/FooBar.decode (; 285 ;) (type $FUNCSIG$iii) (param $0 i32) (param $1 i32) (result i32)
   (local $2 i32)
   (local $3 i32)
+  (local $4 i32)
   local.get $0
   call $~lib/rt/stub/__retain
   drop
@@ -15730,19 +15797,23 @@
   drop
   i32.const 0
   call $model/FooBar#constructor
-  local.set $2
-  local.get $2
+  local.tee $2
+  call $~lib/rt/stub/__retain
+  local.set $3
+  local.get $3
   local.get $0
   local.get $1
   call $model/FooBar#decode
   call $~lib/rt/stub/__release
+  local.get $3
+  local.set $4
   local.get $2
-  local.set $3
+  call $~lib/rt/stub/__release
   local.get $0
   call $~lib/rt/stub/__release
   local.get $1
   call $~lib/rt/stub/__release
-  local.get $3
+  local.get $4
  )
  (func $test/runTest (; 286 ;) (type $FUNCSIG$v)
   (local $0 i32)
@@ -18049,11 +18120,22 @@
    i32.const 0
    i32.const 0
    call $~lib/array/Array<model/FooBar>#constructor
-   local.set $3
+   local.tee $3
+   local.tee $4
    local.get $2
-   call $~lib/rt/stub/__release
-   local.get $3
+   local.tee $5
+   i32.ne
+   if
+    local.get $4
+    call $~lib/rt/stub/__retain
+    drop
+    local.get $5
+    call $~lib/rt/stub/__release
+   end
+   local.get $4
    local.set $2
+   local.get $3
+   call $~lib/rt/stub/__release
   end
   i32.const 0
   local.get $2
@@ -22216,11 +22298,22 @@
   if
    i32.const 0
    call $model/ContainerClass#constructor
-   local.set $3
+   local.tee $3
+   local.tee $4
    local.get $2
-   call $~lib/rt/stub/__release
-   local.get $3
+   local.tee $5
+   i32.ne
+   if
+    local.get $4
+    call $~lib/rt/stub/__retain
+    drop
+    local.get $5
+    call $~lib/rt/stub/__release
+   end
+   local.get $4
    local.set $2
+   local.get $3
+   call $~lib/rt/stub/__release
   end
   i32.const 0
   local.get $2
@@ -22309,6 +22402,7 @@
  (func $model/ContainerClass.decode (; 412 ;) (type $FUNCSIG$iii) (param $0 i32) (param $1 i32) (result i32)
   (local $2 i32)
   (local $3 i32)
+  (local $4 i32)
   local.get $0
   call $~lib/rt/stub/__retain
   drop
@@ -22317,19 +22411,23 @@
   drop
   i32.const 0
   call $model/ContainerClass#constructor
-  local.set $2
-  local.get $2
+  local.tee $2
+  call $~lib/rt/stub/__retain
+  local.set $3
+  local.get $3
   local.get $0
   local.get $1
   call $model/ContainerClass#decode
   call $~lib/rt/stub/__release
+  local.get $3
+  local.set $4
   local.get $2
-  local.set $3
+  call $~lib/rt/stub/__release
   local.get $0
   call $~lib/rt/stub/__release
   local.get $1
   call $~lib/rt/stub/__release
-  local.get $3
+  local.get $4
  )
  (func $main/__near_ArgsParser_rewrapFoobar#pushObject (; 413 ;) (type $FUNCSIG$iii) (param $0 i32) (param $1 i32) (result i32)
   (local $2 i32)
@@ -26166,11 +26264,22 @@
    i32.const 0
    i32.const 0
    call $~lib/array/Array<~lib/array/Array<model/FooBar>>#constructor
-   local.set $3
+   local.tee $3
+   local.tee $4
    local.get $2
-   call $~lib/rt/stub/__release
-   local.get $3
+   local.tee $5
+   i32.ne
+   if
+    local.get $4
+    call $~lib/rt/stub/__retain
+    drop
+    local.get $5
+    call $~lib/rt/stub/__release
+   end
+   local.get $4
    local.set $2
+   local.get $3
+   call $~lib/rt/stub/__release
   end
   i32.const 0
   local.get $2
@@ -26778,11 +26887,22 @@
   if
    i32.const 0
    call $model/AnotherContainerClass#constructor
-   local.set $3
+   local.tee $3
+   local.tee $4
    local.get $2
-   call $~lib/rt/stub/__release
-   local.get $3
+   local.tee $5
+   i32.ne
+   if
+    local.get $4
+    call $~lib/rt/stub/__retain
+    drop
+    local.get $5
+    call $~lib/rt/stub/__release
+   end
+   local.get $4
    local.set $2
+   local.get $3
+   call $~lib/rt/stub/__release
   end
   i32.const 0
   local.get $2
@@ -26871,6 +26991,7 @@
  (func $model/AnotherContainerClass.decode (; 498 ;) (type $FUNCSIG$iii) (param $0 i32) (param $1 i32) (result i32)
   (local $2 i32)
   (local $3 i32)
+  (local $4 i32)
   local.get $0
   call $~lib/rt/stub/__retain
   drop
@@ -26879,19 +27000,23 @@
   drop
   i32.const 0
   call $model/AnotherContainerClass#constructor
-  local.set $2
-  local.get $2
+  local.tee $2
+  call $~lib/rt/stub/__retain
+  local.set $3
+  local.get $3
   local.get $0
   local.get $1
   call $model/AnotherContainerClass#decode
   call $~lib/rt/stub/__release
+  local.get $3
+  local.set $4
   local.get $2
-  local.set $3
+  call $~lib/rt/stub/__release
   local.get $0
   call $~lib/rt/stub/__release
   local.get $1
   call $~lib/rt/stub/__release
-  local.get $3
+  local.get $4
  )
  (func $main/__near_ArgsParser_unwrapFoobar#pushObject (; 499 ;) (type $FUNCSIG$iii) (param $0 i32) (param $1 i32) (result i32)
   (local $2 i32)

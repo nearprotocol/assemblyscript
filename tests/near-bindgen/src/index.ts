@@ -563,7 +563,7 @@ class NEARBindingsBuilder extends Transformer {
       export function __near_decode_${encodedTypeName}(
           buffer: Uint8Array, state: DecoderState | null, value: ${typeName} | null = null):${typeName} {
         if (value == null) {
-          value = new ${typeName}();
+          value =  instantiate<${typeName}>(); // Allocate without constructor
         }
         let handler = new __near_JSONHandler_${encodedTypeName}(value!);
         handler.buffer = buffer;
@@ -718,7 +718,7 @@ import { JSONDecoder, ThrowingJSONHandler, DecoderState } from "assemblyscript-j
           let className = toString(stmt.name);
           str += `
   static decode(json: Uint8Array, state: DecoderState | null = null): ${className} {
-    let value = new ${className}();
+    let value = instantiate<${className}>(); // Allocate without constructor
     value.decode(json, state);
     return value;
   }
