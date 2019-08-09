@@ -74,7 +74,7 @@ import {
   Node,
   Parser,
   NodeKind
-} from "assemblyscript";
+} from "../..";
 
 import { AbstractVisitor, Writer } from "./visitor";
 

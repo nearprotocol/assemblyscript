@@ -4,18 +4,22 @@
   "description": "Tests for near bindings",
   "main": "test.js",
   "scripts": {
-    "build": "tsc -p ./src && asc test.ts --validate --transform ./dist/index.js --runtime stub --binaryFile test.wasm --textFile test.wat",
+    "buildBindings": "cd ../../bindings && tsc",
+    "build": "npm run buildBindings && ../../bin/asc test.ts --validate --runtime stub --binaryFile test.wasm --textFile test.wat",
     "test": "node test.js"
   },
   "author": "",
   "license": "MIT",
   "dependencies": {
-    "assemblyscript": "file:../..",
     "assemblyscript-json": "github:WebAssemblyOS/assemblyscript-json#near_dist",
     "bignum": "github:MaxGraey/bignum.wasm",
-    "near-runtime-ts": "github:willemneal/near-runtime-ts#near_dist"
+    "near-runtime-ts": "github:willemneal/near-runtime-ts#near_dist",
+    "ts-node": "^8.3.0",
+    "typescript": "^3.5.3"
   },
   "devDependencies": {
-    "prettier": "^1.18.2"
+    "prettier": "^1.18.2",
+    "webpack": "^4.39.1",
+    "webpack-cli": "^3.3.6"
   }
 }

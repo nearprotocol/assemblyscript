@@ -1,5 +1,5 @@
 // import { Transform } from "assemblyscript/cli/transform";
-import { Parser, ExportsWalker, Program, Node } from "assemblyscript";
+import { Parser, ExportsWalker, Program, Node } from "../..";
 import { BaseVisitor } from './base';
 import { DefaultWriter, Writer } from './visitor';
 

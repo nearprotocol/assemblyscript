@@ -30,7 +30,7 @@ import {
   Node,
   NamedTypeNode,
   SourceKind
-} from "assemblyscript";
+} from "../..";
 import { Transformer } from "./transformer";
 
 import { ASTBuilder } from "./sourceBuilder";
@@ -52,8 +52,18 @@ function toString(node: Node): string {
   return ASTBuilder.build(node);
 }
 
-function isEntry(source: Source): boolean {
-  return source.sourceKind == SourceKind.USER_ENTRY;
+function isEntry(source: Source| Node): boolean {
+  let _source = (source instanceof Node) ? source.range.source : source;
+  return _source.sourceKind == SourceKind.USER_ENTRY;
+}
+
+function isArrayType(type: TypeNode | ClassDeclaration): boolean {
+  return !!(
+    type instanceof NamedTypeNode &&
+    toString(type).startsWith("Array") &&
+    type.typeArguments &&
+    type.typeArguments.length > 0
+  );
 }
 
 function isReference(type: TypeNode): boolean {
@@ -145,17 +155,18 @@ class NEARBindingsBuilder extends Transformer {
   //   this.exportedFunctions.push(element);
   // }
 
-  private generateArgsParser(element: FunctionDeclaration): void {
-    var signature = element.signature;
-    let name = toString(element.name);
+  private generateArgsParser(node: FunctionDeclaration): void {
+    var signature = node.signature;
+    let name = toString(node.name);
     var args: SimpleField[] = signature.parameters.map(param => {
       return { name: toString(param.name), type: param.type };
     });
-    args
-      .filter(arg => this.isArrayType(arg.type))
+    args.filter(arg => isArrayType(arg.type))
       .forEach(field => this.generateDecodeFunction(field.type));
+
+    let _export = isEntry(node) ? "" : "export ";
     this.sb.push(`
-      export class __near_ArgsParser_${name} extends ThrowingJSONHandler {
+      ${_export}class __near_ArgsParser_${name} extends ThrowingJSONHandler {
           buffer: Uint8Array;
           decoder: JSONDecoder<__near_ArgsParser_${name}>;
           handledRoot: boolean = false;`);
@@ -176,7 +187,7 @@ class NEARBindingsBuilder extends Transformer {
     let signature = element.signature;
     let params = signature.parameters;
     let returnType = signature.returnType;
-    if (this.isArrayType(returnType)) {
+    if (isArrayType(returnType)) {
       this.generateEncodeFunction(returnType);
     }
     let name = element.name.symbol;
@@ -263,7 +274,7 @@ class NEARBindingsBuilder extends Transformer {
       }`);
     this.generatePushHandler(
       valuePrefix,
-      nonBasicFields.filter(field => !this.isArrayType(field.type))
+      nonBasicFields.filter(field => !isArrayType(field.type))
     );
     this.sb.push(`
           return super.pushObject(name);
@@ -272,7 +283,7 @@ class NEARBindingsBuilder extends Transformer {
         pushArray(name: string): bool {`);
     this.generatePushHandler(
       valuePrefix,
-      nonBasicFields.filter(field => this.isArrayType(field.type))
+      nonBasicFields.filter(field => isArrayType(field.type))
     );
     this.sb.push(`
           return super.pushArray(name);
@@ -326,7 +337,7 @@ class NEARBindingsBuilder extends Transformer {
   private generatePushHandler(valuePrefix: string, fields: SimpleField[]) {
     fields.forEach(field => {
       if (!(this.typeName(field.type) in this.typeMapping)) {
-        if (this.isArrayType(field.type)) {
+        if (isArrayType(field.type)) {
           this.sb.push(`if (name == "${field.name}") {
               ${valuePrefix}${field.name} = __near_decode_${this.encodeType(
             field.type
@@ -419,11 +430,11 @@ class NEARBindingsBuilder extends Transformer {
     //   return;
     // }
 
-    if (this.isArrayType(type)) {
+    if (isArrayType(type)) {
       let arrayType = <NamedTypeNode>type;
       let typeArg = arrayType.typeArguments![0];
       // Array
-      if (this.isArrayType(typeArg)) {
+      if (isArrayType(typeArg)) {
         this.generateEncodeFunction(typeArg);
       }
 
@@ -492,7 +503,7 @@ class NEARBindingsBuilder extends Transformer {
           this.value = value_;
         }
       `);
-    if (this.isArrayType(type)) {
+    if (isArrayType(type)) {
       this.generateArrayHandlerMethods(
         "this.value",
         (<NamedTypeNode>type).typeArguments![0]
@@ -545,11 +556,11 @@ class NEARBindingsBuilder extends Transformer {
     //   return;
     // }
     this.generateHandler(type);
-    if (this.isArrayType(type)) {
+    if (isArrayType(type)) {
       assert(type instanceof NamedTypeNode);
       let arrayElementType = (<NamedTypeNode>type).typeArguments![0];
       // Array
-      if (this.isArrayType(arrayElementType) || !isReference(<TypeNode>type)) {
+      if (isArrayType(arrayElementType) || !isReference(<TypeNode>type)) {
         this.generateDecodeFunction(arrayElementType);
       }
     } else {
@@ -582,8 +593,8 @@ class NEARBindingsBuilder extends Transformer {
     var setterType = this.typeMapping[fieldTypeName];
     if (!setterType) {
       // Object / array
-      let pushType = this.isArrayType(fieldType) ? "Array" : "Object";
-      if (this.isArrayType(fieldType)) {
+      let pushType = isArrayType(fieldType) ? "Array" : "Object";
+      if (isArrayType(fieldType)) {
         this.sb.push(`if (${sourceExpr} != null) {
               encoder.push${pushType}(${fieldExpr});
               __near_encode_${this.encodeType(
@@ -634,15 +645,6 @@ class NEARBindingsBuilder extends Transformer {
     }
   }
 
-  private isArrayType(type: TypeNode | ClassDeclaration): boolean {
-    return !!(
-      type instanceof NamedTypeNode &&
-      toString(type).startsWith("Array") &&
-      type.typeArguments &&
-      type.typeArguments.length > 0
-    );
-  }
-
   private getFields(type: TypeNode | ClassDeclaration): SimpleField[] {
     let _class =
       type instanceof ClassDeclaration
@@ -672,9 +674,7 @@ class NEARBindingsBuilder extends Transformer {
           classDeclarations.get(source)!.push(stmt);
         if (
           stmt instanceof FunctionDeclaration &&
-          (stmt.is(CommonFlags.EXPORT) || stmt.is(CommonFlags.MODULE_EXPORT)) &&
-          !isEntry(source)
-        ) {
+          (stmt.is(CommonFlags.EXPORT) || stmt.is(CommonFlags.MODULE_EXPORT))) {
           funcDeclarations.get(source)!.push(stmt);
         }
       });
@@ -685,9 +685,7 @@ class NEARBindingsBuilder extends Transformer {
     let funcRename = (node: Node): Node => {
       if (!(node instanceof FunctionDeclaration)) return node;
       if (
-        !(node.is(CommonFlags.MODULE_EXPORT) || node.is(CommonFlags.EXPORT)) ||
-        isEntry(node.range.source)
-      )
+        !(node.is(CommonFlags.MODULE_EXPORT) || node.is(CommonFlags.EXPORT)))
         return node;
       node.flags = node.is(CommonFlags.MODULE_EXPORT)
         ? node.flags ^ CommonFlags.MODULE_EXPORT

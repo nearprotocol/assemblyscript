@@ -80,6 +80,7 @@
     "package-lock.json",
     "README.md",
     "std/",
-    "tsconfig-base.json"
+    "tsconfig-base.json",
+    "bindings/dist/"
   ]
 }
