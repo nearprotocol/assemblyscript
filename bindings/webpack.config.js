@@ -1,20 +1,35 @@
-
 const path = require("path");
-const fs = require("fs");
-const webpack = require("webpack");
 
-// Build the C-like library
-module.exports = {
-  entry: [ "./dist/index.js" ],
+// Build the transformer
+let config = {
+  entry: "./src/index.ts" ,
+  module: {
+    rules: [
+      {
+        test: /\.ts$/,
+        use: "ts-loader",
+        exclude: /node_modules/
+      }
+    ]
+  },
+  resolve: {
+    extensions: [ ".ts", ".js" ]
+  },
   output: {
     filename: "transformerBundle.js",
     path: path.resolve(__dirname, "dist"),
-    library: "assemblyscript",
+    library: "transformer",
     libraryTarget: "umd",
     globalObject: "typeof self !== 'undefined' ? self : this"
   },
-  devtool: "source-map",
-  performance: {
-    hints : false
+  node: {
+    fs: 'empty'
   }
 };
+
+module.exports = (env, argv) => {
+  if (argv.mode == "development") {
+    config.devtool = 'source-map';
+  }
+  return config;
+}

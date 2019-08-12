@@ -1,27 +1,7 @@
 // tslint:disable: no-void-expression as-types as-variables
-
 import {
   Source,
-  ExportsWalker,
-  Class,
-  Range,
-  Program,
-  Global,
-  Enum,
-  CommonFlags,
-  Interface,
-  Field,
-  Element,
-  Type,
-  ImportStatement,
   NodeKind,
-  DeclarationStatement,
-  Function,
-  TypeKind,
-  Parser,
-  CommentNode,
-  CommentKind,
-  File,
   ClassDeclaration,
   FunctionDeclaration,
   TypeNode,
@@ -30,10 +10,12 @@ import {
   Node,
   NamedTypeNode,
   SourceKind
-} from "../..";
-import { Transformer } from "./transformer";
+} from "../../src/ast";
+import { CommonFlags } from "../../src/common";
+import { Parser } from "./parser";
 
 import { ASTBuilder } from "./sourceBuilder";
+import { BaseVisitor } from "./base";
 
 interface SimpleField {
   name: string;
@@ -52,18 +34,22 @@ function toString(node: Node): string {
   return ASTBuilder.build(node);
 }
 
-function isEntry(source: Source| Node): boolean {
-  let _source = (source instanceof Node) ? source.range.source : source;
+function isEntry(source: Source | Node): boolean {
+  let _source = <Source>((source.kind == NodeKind.SOURCE) ? source : source.range.source);
   return _source.sourceKind == SourceKind.USER_ENTRY;
 }
 
 function isArrayType(type: TypeNode | ClassDeclaration): boolean {
   return !!(
-    type instanceof NamedTypeNode &&
+    (type.kind == NodeKind.NAMEDTYPE) &&
     toString(type).startsWith("Array") &&
-    type.typeArguments &&
-    type.typeArguments.length > 0
+    (<NamedTypeNode>type).typeArguments &&
+    (<NamedTypeNode>type).typeArguments!.length > 0
   );
+}
+
+function isClass(type: Node): boolean {
+  return type.kind == NodeKind.CLASSDECLARATION;
 }
 
 function isReference(type: TypeNode): boolean {
@@ -82,7 +68,7 @@ function isReference(type: TypeNode): boolean {
 }
 
 // TODO: Extract this into separate module, preferrable pluggable
-class NEARBindingsBuilder extends Transformer {
+class NEARBindingsBuilder extends BaseVisitor {
   private typeMapping: { [key: string]: string } = {
     i32: "Integer",
     u32: "Integer",
@@ -97,20 +83,13 @@ class NEARBindingsBuilder extends Transformer {
   private nonNullableTypes = ["i32", "u32", "i64", "u64", "bool"];
 
   private sb: string[] = [];
-  private generatedEncodeFunctions = new Set<string>();
-  private generatedDecodeFunctions = new Set<string>();
+  static generatedEncodeFunctions = new Set<string>();
+  static generatedDecodeFunctions = new Set<string>();
   private exportedClasses: Map<string, ClassDeclaration> = new Map();
-  private exportedFunctions: Function[] = [];
-  classInjections = new Map<string, string>();
-  classRanges = new Map<string, Range>();
   generatedArgParserFunctions: Set<string> = new Set();
 
-  static build(parser: Parser, source: Source[]): void {
-    new NEARBindingsBuilder(parser).build(source);
-  }
-
-  constructor(parser: Parser) {
-    super(parser);
+  static build(parser: Parser, source: Source): string {
+    return (new NEARBindingsBuilder().build(source));
   }
 
   static nearFiles(parser: Parser): Source[] {
@@ -121,39 +100,23 @@ class NEARBindingsBuilder extends Transformer {
 
   visitClassDeclaration(node: ClassDeclaration): void {
     if (this.exportedClasses.has(toString(node.name))) return;
-    this.classRanges.set(toString(node.name), node.range);
-    // if (!node.is(CommonFlags.MODULE_EXPORT)){
-    //   return;
-    // }
+    this.generateDecodeFunction(node);
+    this.generateEncodeFunction(node);
     this.exportedClasses.set(toString(node.name), node);
   }
 
-  // visitFunctionDeclaration(node: FunctionDeclaration): void {
-  //   if (!node.is(CommonFlags.MODULE_EXPORT)) {
-  //     return;
-  //   }
-  //   this.generateArgsParser(node);
-  //   this.generateWrapperFunction(node);
-  //   this.exportedFunctions.push(node);
-
-  // }
-
-  // visitClass(name: string, element: Class): void {
-  //   this.classRanges.set(element.name, element.declaration.range);
-  //   if (!element.is(CommonFlags.MODULE_EXPORT)) {
-  //     return;
-  //   }
-  //   this.exportedClasses.push(element);
-  // }
-
-  // visitFunction(name: string, element: Function): void {
-  //   if (!element.is(CommonFlags.MODULE_EXPORT)) {
-  //     return;
-  //   }
-  //   this.generateArgsParser(element);
-  //   this.generateWrapperFunction(element);
-  //   this.exportedFunctions.push(element);
-  // }
+  visitFunctionDeclaration(node: FunctionDeclaration): void {
+    if (!(node.is(CommonFlags.EXPORT)  || (node.is(CommonFlags.MODULE_EXPORT)))) {
+      return;
+    }
+    this.generateArgsParser(node);
+    this.generateWrapperFunction(node);
+    node.flags = node.flags ^
+      (node.is(CommonFlags.MODULE_EXPORT) ? CommonFlags.MODULE_EXPORT
+                                            : CommonFlags.EXPORT);
+    node.name.symbol = "wrapped_" + node.name.symbol;
+    node.name.text = "wrapped_" + node.name.text;
+  }
 
   private generateArgsParser(node: FunctionDeclaration): void {
     var signature = node.signature;
@@ -412,18 +375,18 @@ class NEARBindingsBuilder extends Transformer {
   }
 
   private generateEncodeFunction(type: TypeNode | ClassDeclaration) {
-    if (type instanceof TypeNode && !isReference(type)) {
+    if (!isClass(type) && !isReference(<TypeNode>type)) {
       return;
     }
     let typeName = this.typeName(type);
     let encodedTypeName = this.encodeType(typeName);
     if (
-      this.generatedEncodeFunctions.has(encodedTypeName) ||
+      NEARBindingsBuilder.generatedEncodeFunctions.has(encodedTypeName) ||
       typeName in this.typeMapping
     ) {
       return;
     }
-    this.generatedEncodeFunctions.add(encodedTypeName);
+    NEARBindingsBuilder.generatedEncodeFunctions.add(encodedTypeName);
 
     // let methodName = `__near_encode_${encodedTypeName}`;
     // if (this.tryUsingImport(type, methodName)) {
@@ -472,23 +435,6 @@ class NEARBindingsBuilder extends Transformer {
     // this.classInjections.set(type.classReference.name, injections);
   }
 
-  // private tryUsingImport(type: Type, methodName: string): bool {
-  //   let sourcesWithExport = this.program.sources.filter(source =>
-  //     this.getExports(source).filter(d => d.name.text == methodName).length > 0);
-
-  //   if (sourcesWithExport.length == 0) {
-  //     return false;
-  //   }
-
-  //   if (sourcesWithExport.length > 1) {
-  //     // tslint:disable-next-line: deprecation
-  //     console.log(`WARN: more than one file exporting ${methodName}: ${sourcesWithExport.map(s => s.normalizedPath)}`);
-  //   }
-  //   let importPath = sourcesWithExport[0].normalizedPath.replace(".ts", "");
-  //   this.sb.push(`import { ${methodName} } from "./${importPath}";`);
-  //   return true;
-  // }
-
   private generateHandler(type: TypeNode | ClassDeclaration) {
     let typeName = this.encodeType(type);
     this.sb
@@ -526,9 +472,10 @@ class NEARBindingsBuilder extends Transformer {
   }
 
   private typeName(type: TypeNode | ClassDeclaration): string {
-    if (type instanceof TypeNode) {
+    if (!isClass(type)) {
       return ASTBuilder.build(type);
     }
+    type = <ClassDeclaration>(type);
     let className = toString(type.name);
     if (type.isGeneric) {
       className += "<" + type.typeParameters!.map(toString).join(", ") + ">";
@@ -537,19 +484,19 @@ class NEARBindingsBuilder extends Transformer {
   }
 
   private generateDecodeFunction(type: TypeNode | ClassDeclaration) {
-    if (type instanceof TypeNode && !isReference(type)) {
+    if (!isClass(type) && !isReference(<TypeNode>type)) {
       return;
     }
 
     var typeName = this.typeName(type);
     var encodedTypeName = this.encodeType(typeName);
     if (
-      this.generatedDecodeFunctions.has(encodedTypeName) ||
+      NEARBindingsBuilder.generatedDecodeFunctions.has(encodedTypeName) ||
       typeName in this.typeMapping
     ) {
       return;
     }
-    this.generatedDecodeFunctions.add(encodedTypeName);
+    NEARBindingsBuilder.generatedDecodeFunctions.add(encodedTypeName);
 
     // var methodName = `__near_decode_${encodedTypeName}`;
     // if (this.tryUsingImport(type, methodName)) {
@@ -557,7 +504,7 @@ class NEARBindingsBuilder extends Transformer {
     // }
     this.generateHandler(type);
     if (isArrayType(type)) {
-      assert(type instanceof NamedTypeNode);
+      assert(type.kind == NodeKind.NAMEDTYPE);
       let arrayElementType = (<NamedTypeNode>type).typeArguments![0];
       // Array
       if (isArrayType(arrayElementType) || !isReference(<TypeNode>type)) {
@@ -646,16 +593,15 @@ class NEARBindingsBuilder extends Transformer {
   }
 
   private getFields(type: TypeNode | ClassDeclaration): SimpleField[] {
-    let _class =
-      type instanceof ClassDeclaration
+    let _class = <ClassDeclaration> ((isClass(type))
         ? type
-        : this.exportedClasses.get(toString(type));
+        : this.exportedClasses.get(toString(type)));
     if (_class == null) {
       return [];
     }
 
     return _class.members
-      .filter(member => member instanceof FieldDeclaration)
+      .filter(member => member.kind == NodeKind.FIELDDECLARATION)
       .map(
         (param: FieldDeclaration): SimpleField => {
           return { name: toString(param.name), type: param.type! };
@@ -663,57 +609,18 @@ class NEARBindingsBuilder extends Transformer {
       );
   }
 
-  build(sources: Source[]): void {
-    let classDeclarations: Map<Source, ClassDeclaration[]> = new Map();
-    let funcDeclarations: Map<Source, FunctionDeclaration[]> = new Map();
-    sources.forEach(source => {
-      classDeclarations.set(source, []);
-      funcDeclarations.set(source, []);
-      source.statements.forEach(stmt => {
-        if (stmt instanceof ClassDeclaration)
-          classDeclarations.get(source)!.push(stmt);
-        if (
-          stmt instanceof FunctionDeclaration &&
-          (stmt.is(CommonFlags.EXPORT) || stmt.is(CommonFlags.MODULE_EXPORT))) {
-          funcDeclarations.get(source)!.push(stmt);
-        }
-      });
-    });
-
-    let funcsToWrap: FunctionDeclaration[] = [];
-
-    let funcRename = (node: Node): Node => {
-      if (!(node instanceof FunctionDeclaration)) return node;
-      if (
-        !(node.is(CommonFlags.MODULE_EXPORT) || node.is(CommonFlags.EXPORT)))
-        return node;
-      node.flags = node.is(CommonFlags.MODULE_EXPORT)
-        ? node.flags ^ CommonFlags.MODULE_EXPORT
-        : node.flags ^ CommonFlags.EXPORT;
-      node.name.symbol = "wrapped_" + node.name.symbol;
-      node.name.text = "wrapped_" + node.name.text;
-      return node;
-    };
-
-    let newSource = (source: Source): string => {
+  build(source: Source): string {
       this.sb = [
         `import { storage, near, base64, return_value } from "near-runtime-ts";
 import { JSONEncoder } from "assemblyscript-json";
 import { JSONDecoder, ThrowingJSONHandler, DecoderState } from "assemblyscript-json";`
       ];
-      funcDeclarations.get(source)!.forEach(func => {
-        this.generateArgsParser(func);
-        this.generateWrapperFunction(func);
-      });
-      classDeclarations.get(source)!.forEach(_class => {
-        this.generateDecodeFunction(_class);
-        this.generateEncodeFunction(_class);
-      });
+      this.visit(source);
       let sourceText = source.statements.map(stmt => {
-        let str = ASTBuilder.build(stmt, funcRename);
-        if (stmt instanceof ClassDeclaration) {
+        let str = ASTBuilder.build(stmt);
+        if (isClass(stmt)) {
           str = str.slice(0, str.lastIndexOf("}"));
-          let className = toString(stmt.name);
+          let className = toString((<ClassDeclaration>stmt).name);
           str += `
   static decode(json: Uint8Array, state: DecoderState | null = null): ${className} {
     let value = instantiate<${className}>(); // Allocate without constructor
@@ -751,58 +658,28 @@ import { JSONDecoder, ThrowingJSONHandler, DecoderState } from "assemblyscript-j
       });
 
       return this.sb.concat(sourceText).join("\n");
-    };
-    sources.forEach(source => {
-      this.parser.donelog.delete(source.internalPath);
-      this.parser.seenlog.delete(source.internalPath);
-      this.parser.program.sources = this.parser.program.sources.filter(
-        _source => _source !== source
-      );
-      let sourceText = newSource(source);
-      this.parser.parseFile(
-        sourceText,
-        (isEntry(source) ? "" : "./") + source.normalizedPath,
-        isEntry(source)
-      );
-    });
+    }
 
-  }
-
-  private copyImports(mainSource: Source): void {
-    this.getImports(mainSource).forEach(statement => {
-      if (statement.declarations) {
-        let declarationsStr = statement
-          .declarations!.map(
-            declaration =>
-              `${declaration.foreignName.text} as ${declaration.name.text}`
-          )
-          .join(",");
-        this.sb.push(
-          `import {${declarationsStr}} from "${statement.path.value}";`
-        );
-      }
-    });
-  }
-
-  private getImports(source: Source): ImportStatement[] {
-    return <ImportStatement[]>(
-      source.statements.filter(statement => statement.kind == NodeKind.IMPORT)
-    );
-  }
-
-  private getExports(source: Source): DeclarationStatement[] {
-    let declarations = <DeclarationStatement[]>(
-      source.statements.filter(
-        statement =>
-          statement.kind == NodeKind.FUNCTIONDECLARATION ||
-          statement.kind == NodeKind.CLASSDECLARATION
-      )
-    );
-    return declarations.filter(d => d.is(CommonFlags.EXPORT));
-  }
 }
 
 export function afterParse(parser: Parser): void {
   let files = NEARBindingsBuilder.nearFiles(parser);
-  NEARBindingsBuilder.build(parser, files);
+  files.forEach(source => {
+    // Remove from logs in parser
+    parser.donelog.delete(source.internalPath);
+    parser.seenlog.delete(source.internalPath);
+    // Remove from programs sources
+    parser.program.sources = parser.program.sources.filter(
+      (_source: Source) => _source !== source
+    );
+    // Build new Source
+    let sourceText = NEARBindingsBuilder.build(parser, source);
+    // Parses file and any new imports added to the source
+    parser.parseFile(
+      sourceText,
+      (isEntry(source) ? "" : "./") + source.normalizedPath,
+      isEntry(source)
+    );
+  });
+
 }

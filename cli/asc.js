@@ -22,6 +22,7 @@ const optionsUtil = require("./util/options");
 const mkdirp = require("./util/mkdirp");
 const EOL = process.platform === "win32" ? "\r\n" : "\n";
 const SEP = process.platform === "win32" ? "\\" : "/";
+const nearBindings = require("../bindings/dist/transformerBundle.js");
 
 // global.Binaryen = require("../lib/binaryen");
 
@@ -209,7 +210,7 @@ exports.main = function main(argv, options, callback) {
   const baseDir = args.baseDir ? path.resolve(args.baseDir) : ".";
 
   // Set up transforms
-  const transforms = [require("../bindings/dist/index.js")];
+  const transforms = [nearBindings];
   //Add near's bindings by default
   if (args.transform) {
     args.transform.forEach(transform =>
@@ -792,27 +793,6 @@ exports.main = function main(argv, options, callback) {
           tsd = assemblyscript.buildTSD(program);
         });
         writeStdout(tsd);
-        hasStdout = true;
-      }
-      hasOutput = true;
-    }
-
-    // TODO: Make these generators pluggable?
-    // Write NEAR bindings
-    if (args.nearFile != null) {
-      let nearBindings;
-      if (args.nearFile.length) {
-        stats.emitCount++;
-        stats.emitTime += measure(() => {
-          nearBindings = assemblyscript.buildNEAR(program, args.nearFile);
-        });
-        writeFile(args.nearFile, nearBindings, baseDir);
-      } else if (!hasStdout) {
-        stats.emitCount++;
-        stats.emitTime += measure(() => {
-          nearBindings = assemblyscript.buildNEAR(program);
-        });
-        writeStdout(nearBindings);
         hasStdout = true;
       }
       hasOutput = true;

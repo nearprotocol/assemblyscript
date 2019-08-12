@@ -72,16 +72,16 @@ import {
   DecoratorNode,
   ParameterNode,
   Node,
-  Parser,
-  NodeKind
-} from "../..";
+  NodeKind,
+  Expression
+} from "../../src/ast";
 
 import { AbstractVisitor, Writer } from "./visitor";
 
 export class BaseVisitor extends AbstractVisitor<Node> {
   depth: number = 0;
 
-  constructor(protected parser: Parser, protected writer: Writer<Node>) {
+  constructor(writer?: Writer<Node>) {
     super(writer);
   }
 
@@ -328,19 +328,6 @@ export class BaseVisitor extends AbstractVisitor<Node> {
     }
   }
 
-  // /** Visits each node in an array if array exists. */
-  // visitArray(array: Node[] | null): void {
-  //   if (array) {
-  //     array.map(node => {
-  //       if (node) this.visit(node);
-  //     });
-  //   }
-  // }
-
-  start(): void {
-    this.visit(this.parser.program.sources);
-  }
-
   visitSource(node: Source): void {
     for (const stmt of node.statements) {
       this.depth++;
@@ -379,7 +366,7 @@ export class BaseVisitor extends AbstractVisitor<Node> {
   visitIdentifierExpression(node: IdentifierExpression): void {}
 
   visitArrayLiteralExpression(node: ArrayLiteralExpression): void {
-    node.elementExpressions.map(e => {
+    node.elementExpressions.map((e: Expression): void => {
       if (e) this.visit(e);
     });
   }
@@ -739,6 +726,5 @@ export class BaseVisitor extends AbstractVisitor<Node> {
     if (node.initializer) this.visit(node.initializer);
     this.visit(node.type);
   }
-
 
 }

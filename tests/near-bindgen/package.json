@@ -4,8 +4,9 @@
   "description": "Tests for near bindings",
   "main": "test.js",
   "scripts": {
-    "buildBindings": "cd ../../bindings && tsc",
-    "build": "npm run buildBindings && ../../bin/asc test.ts --validate --runtime stub --binaryFile test.wasm --textFile test.wat",
+    "build:bindings": "cd ../../bindings && webpack --mode=production",
+    "build:as": "../../bin/asc test.ts --validate --runtime stub --binaryFile test.wasm --textFile test.wat",
+    "build": "npm run build:bindings && npm run build:as",
     "test": "node test.js"
   },
   "author": "",

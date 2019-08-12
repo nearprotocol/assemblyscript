@@ -1,22 +1,102 @@
-import { DeclarationStatement, Node, NodeKind, Source, NamedTypeNode, FunctionTypeNode, TypeParameterNode, IdentifierExpression, AssertionExpression, BinaryExpression, CallExpression, ClassExpression, CommaExpression, ElementAccessExpression, FunctionExpression, InstanceOfExpression, LiteralExpression, NewExpression, ParenthesizedExpression, PropertyAccessExpression, TernaryExpression, UnaryPostfixExpression, UnaryPrefixExpression, BlockStatement, BreakStatement, ContinueStatement, DoStatement, EmptyStatement, ExportStatement, ExportDefaultStatement, ExportImportStatement, ExpressionStatement, ForStatement, IfStatement, ImportStatement, ReturnStatement, SwitchStatement, ThrowStatement, TryStatement, VariableStatement, WhileStatement, ClassDeclaration, EnumDeclaration, EnumValueDeclaration, FieldDeclaration, FunctionDeclaration, ImportDeclaration, IndexSignatureDeclaration, InterfaceDeclaration, MethodDeclaration, NamespaceDeclaration, TypeDeclaration, VariableDeclaration, DecoratorNode, ExportMember, ParameterNode, SwitchCase, TypeNode, TypeName, ArrayLiteralExpression, Expression, ObjectLiteralExpression, indent, AssertionKind, operatorTokenToString, LiteralKind, FloatLiteralExpression, IntegerLiteralExpression, StringLiteralExpression, RegexpLiteralExpression, CharCode, UnaryExpression, Statement, CommonFlags, ArrowKind, isTypeOmitted, ParameterKind } from "../..";
+import {
+  DeclarationStatement,
+  Node,
+  NodeKind,
+  Source,
+  NamedTypeNode,
+  FunctionTypeNode,
+  TypeParameterNode,
+  IdentifierExpression,
+  AssertionExpression,
+  BinaryExpression,
+  CallExpression,
+  ClassExpression,
+  CommaExpression,
+  ElementAccessExpression,
+  FunctionExpression,
+  InstanceOfExpression,
+  LiteralExpression,
+  NewExpression,
+  ParenthesizedExpression,
+  PropertyAccessExpression,
+  TernaryExpression,
+  UnaryPostfixExpression,
+  UnaryPrefixExpression,
+  BlockStatement,
+  BreakStatement,
+  ContinueStatement,
+  DoStatement,
+  EmptyStatement,
+  ExportStatement,
+  ExportDefaultStatement,
+  ExportImportStatement,
+  ExpressionStatement,
+  ForStatement,
+  IfStatement,
+  ImportStatement,
+  ReturnStatement,
+  SwitchStatement,
+  ThrowStatement,
+  TryStatement,
+  VariableStatement,
+  WhileStatement,
+  ClassDeclaration,
+  EnumDeclaration,
+  EnumValueDeclaration,
+  FieldDeclaration,
+  FunctionDeclaration,
+  ImportDeclaration,
+  IndexSignatureDeclaration,
+  InterfaceDeclaration,
+  MethodDeclaration,
+  NamespaceDeclaration,
+  TypeDeclaration,
+  VariableDeclaration,
+  DecoratorNode,
+  ExportMember,
+  ParameterNode,
+  SwitchCase,
+  TypeNode,
+  TypeName,
+  ArrayLiteralExpression,
+  Expression,
+  ObjectLiteralExpression,
+  AssertionKind,
+  LiteralKind,
+  FloatLiteralExpression,
+  IntegerLiteralExpression,
+  StringLiteralExpression,
+  RegexpLiteralExpression,
+  UnaryExpression,
+  Statement,
+  ArrowKind,
+  isTypeOmitted,
+  ParameterKind
+} from "../../src/ast";
 
+import "../../std/portable/index";
+import "../../src/glue/js/float";
+import "../../src/glue/js/i64";
+
+import { CommonFlags } from "../../src/common";
+
+import { indent, CharCode } from "../../src/util";
+
+import {  operatorTokenToString, } from "../../src/tokenizer";
 /** An AST builder. */
 export class ASTBuilder {
 
   /** Rebuilds the textual source from the specified AST, as far as possible. */
-  static build(node: Node, transformer: (node: Node) => Node = (x) => x): string {
-    var builder = new ASTBuilder(transformer);
+  static build(node: Node): string {
+    var builder = new ASTBuilder();
     builder.visitNode(node);
     return builder.finish();
   }
 
-  constructor(private transformer: (node: Node) => Node) {}
-
   private sb: string[] = [];
   private indentLevel: i32 = 0;
 
-  visitNode(_node: Node): void {
-    var node = this.transformer(_node);
+  visitNode(node: Node): void {
     switch (node.kind) {
       case NodeKind.SOURCE: {
         this.visitSource(<Source>node);
