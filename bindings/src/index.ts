@@ -668,6 +668,9 @@ export function afterParse(parser: Parser): void {
     );
     // Build new Source
     let sourceText = NEARBindingsBuilder.build(parser, source);
+    if (DEV){
+     console.log(source.normalizedPath +"\n" + sourceText + "\n\n\n\n\n\n\n\n\n");
+    }
     // Parses file and any new imports added to the source
     parser.parseFile(
       sourceText,
