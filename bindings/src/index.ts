@@ -270,7 +270,7 @@ class NEARBindingsBuilder extends BaseVisitor {
       matchingFields.forEach(field => {
         // tslint:disable-next-line: as-variables
         let fieldTypeName = this.typeName(field.type);
-        if (setterType == "string" && fieldTypeName != "string") {
+        if (setterType == "String" && fieldTypeName != "string") {
           if (fieldTypeName == "Uint8Array") {
             this.sb.push(`if (name == "${field.name}") {
                 ${valuePrefix}${field.name} = base64.decode(value);
