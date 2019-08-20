@@ -1,5 +1,8 @@
 //@nearfile out
-import { u128 } from "bignum";
+// import { u128 as _u128 } from 'bignum';
+
+// export class u128 extends _u128 {}
+
 
 export class FooBar {
     foo: i32 = 0;
@@ -12,7 +15,7 @@ export class FooBar {
     arr: Array<Array<string>>;
     u32Arr: u32[];
     i32Arr: i32[];
-    u128Val: u128;
+    // u128Val: u128;
     uint8arrays: Array<Uint8Array>;
     // TODO: Fix u64 arrays
     // u64Arr: u64[];
@@ -44,4 +47,8 @@ export class MyContractPromiseResult {
 export class MyCallbackResult {
     rs: MyContractPromiseResult[];
     n: string;
+}
+
+export class Generic<T> {
+    value: T;
 }

@@ -2,7 +2,7 @@ import * as main from "./main";
 import * as model from "./model";
 import { base64 } from "near-runtime-ts";
 import { FooBar } from "./model";
-import { u128 } from "bignum";
+// import { u128 } from "./model";
 
 //@ts-ignore
 @external("env", "log")
@@ -15,7 +15,7 @@ export function runTest(): void {
     original.flag = true;
     original.baz = "foo";
     original.uint8array = base64.decode("aGVsbG8sIHdvcmxkIQ==");
-    original.u128Val = new u128(128);
+    // original.u128Val = new u128(128);
     original.uint8arrays = Array.create<Uint8Array>(2);
     original.uint8arrays[0] = base64.decode("aGVsbG8sIHdvcmxkIQ==");
     original.uint8arrays[1] = base64.decode("aGVsbG8sIHdvcmxkIQ==");
