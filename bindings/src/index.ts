@@ -9,7 +9,8 @@ import {
   Statement,
   Node,
   NamedTypeNode,
-  SourceKind
+  SourceKind,
+  DeclarationStatement
 } from "../../src/ast";
 import { CommonFlags } from "../../src/common";
 import { Parser } from "./mockTypes";
@@ -53,6 +54,10 @@ function isClass(type: Node): boolean {
   return type.kind == NodeKind.CLASSDECLARATION;
 }
 
+function isField(mem: DeclarationStatement){
+  return mem.kind == NodeKind.FIELDDECLARATION;
+}
+
 function isReference(type: TypeNode): boolean {
   let simpleTypes = [
     "i32",
@@ -80,6 +85,7 @@ class NEARBindingsBuilder extends BaseVisitor {
     Uint8Array: "String",
     u128: "String"
   };
+  
 
   private nonNullableTypes = ["i32", "u32", "i64", "u64", "bool"];
 
@@ -627,7 +633,7 @@ class NEARBindingsBuilder extends BaseVisitor {
 
   private _encoder(encoder: JSONEncoder, name: string | null): JSONEncoder {
     encoder.pushObject(name);
-    __near_encode_${className}(this, encoder);
+    ${createEncodeStatements(<ClassDeclaration>stmt).join("\n    ")}
     encoder.popObject();
     return encoder;
   }
@@ -652,6 +658,16 @@ class NEARBindingsBuilder extends BaseVisitor {
       return this.sb.concat(sourceText).join("\n");
     }
 
+}
+
+function createEncodeStatements(_class: ClassDeclaration): string[] {
+  return _class.members.filter(isField).map(
+    (field: FieldDeclaration): string  => {
+      let T = toString(field.type!);
+      let name = toString(field.name);
+      return `encode<${T}>(encoder, this.${name}, "${name}");`;
+    }
+  )
 }
 
 export function afterParse(parser: Parser, writeFile: FileWriter, baseDir: string): void {
