@@ -2,7 +2,7 @@ import * as main from "./main";
 import * as model from "./model";
 import { base64 } from "near-runtime-ts";
 import { FooBar } from "./model";
-// import { u128 } from "./model";
+// import { u128 } from "bignum";
 
 //@ts-ignore
 @external("env", "log")
