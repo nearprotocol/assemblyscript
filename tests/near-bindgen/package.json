@@ -4,7 +4,7 @@
   "description": "Tests for near bindings",
   "main": "test.js",
   "scripts": {
-    "build:as": "../../bin/asc assembly/test.ts --validate --runtime stub --binaryFile out/test.wasm --textFile out/test.wat",
+    "build:as": "../../bin/asc assembly/test.ts --validate --runtime stub --binaryFile out/test.wasm --textFile out/test.wat --runPasses dce",
     "build": "npm run build:as",
     "test": "node --experimental-wasm-bigint ./test.js"
   },
