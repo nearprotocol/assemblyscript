@@ -5868,8 +5868,21 @@ export class Compiler extends DiagnosticEmitter {
           }
           let resolvedTypeArguments = new Array<Type>(numTypeParameters);
           for (let i = 0; i < numTypeParameters; ++i) {
-            let inferredType = assert(inferredTypes.get(typeParameterNodes[i].name.text)); // TODO
-            resolvedTypeArguments[i] = inferredType;
+            let name = typeParameterNodes[i].name.text;
+            if (inferredTypes.has(name)) {
+              let inferredType = inferredTypes.get(name);
+              if (inferredType) {
+                resolvedTypeArguments[i] = inferredType;
+                continue;
+              }
+            }
+            // unused template, e.g. `function test<T>(): void {...}` called as `test()`
+            // invalid because the type is effectively unknown inside the function body
+            this.error(
+              DiagnosticCode.Type_argument_expected,
+              expression.expression.range.atEnd
+            );
+            return this.module.unreachable();
           }
           instance = this.resolver.resolveFunction(
             prototype,
@@ -7871,16 +7884,14 @@ export class Compiler extends DiagnosticEmitter {
     //   this.b = Y
     //   return this
     // }
+    var allocExpr = this.makeAllocation(classInstance);
+    if (classInstance.type.isManaged) allocExpr = this.makeRetain(allocExpr);
     stmts.push(
       module.if(
         module.unary(nativeSizeType == NativeType.I64 ? UnaryOp.EqzI64 : UnaryOp.EqzI32,
           module.local_get(0, nativeSizeType)
         ),
-        module.local_set(0,
-          this.makeRetain(
-            this.makeAllocation(classInstance)
-          )
-        )
+        module.local_set(0, allocExpr)
       )
     );
     if (baseClass) {
