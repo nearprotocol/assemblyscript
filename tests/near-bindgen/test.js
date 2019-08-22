@@ -128,10 +128,10 @@ async function loadModule(path) {
     const module = await loadModule('./out/test.wasm');
     debugger
     await module.runTest();
-//     assert.deepEqual(await module.convertFoobars({ foobars: [] }), []);
-//     assert.deepEqual(await module.convertFoobars({
-//         foobars: [{ foo: -12345, bar: 123, flag: true, baz: "bazinga" }] }),
-//         [{ foobar: { foo: -12345, bar: 123, u64Val: "64", i64Val: "-64", flag: true, baz: "bazinga", uint8array: null, arr: null, u32Arr: null, i32Arr: null, u128Val: null, uint8arrays: null }}]);
+    assert.deepEqual(await module.convertFoobars({ foobars: [] }), []);
+    assert.deepEqual(await module.convertFoobars({
+        foobars: [{ foo: -12345, bar: 123, flag: true, baz: "bazinga" }] }),
+        [{ foobar: { foo: -12345, bar: 123, u64Val: "64", i64Val: "-64", flag: true, baz: "bazinga", uint8array: null, arr: null, u32Arr: null, i32Arr: null, u128Val: null, uint8arrays: null }}]);
 //     assert.deepEqual(await module.convertFoobars({
 //         foobars: [{ arr: [["1", "2"], ["3"]]  }] }),
 //         [{ foobar: { foo: 0, bar: 1, u64Val: "64", i64Val: "-64", flag: false, baz: '123', uint8array: null, arr: [["1", "2"], ["3"]], u32Arr: null, i32Arr: null, u128Val: null, uint8arrays: null }}]);

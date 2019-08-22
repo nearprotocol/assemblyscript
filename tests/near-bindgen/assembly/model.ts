@@ -5,7 +5,7 @@ import {logging} from "near-runtime-ts";
 // export class u128 extends _u128 {}
 
 
-export class FooBar<T> {
+export class FooBar {
     foo: i32 = 0;
     bar: u32 = 1;
     u64Val: u64 = 64;
@@ -20,37 +20,36 @@ export class FooBar<T> {
     uint8arrays: Array<Uint8Array>;
     // TODO: Fix u64 arrays
     u64Arr: u64[];
-    generic: T
 }
 
-// export class ContainerClass {
-//     foobar: FooBar
-// }
+export class ContainerClass {
+    foobar: FooBar
+}
 
-// export class AnotherContainerClass {
-//     foobars: Array<Array<FooBar>>
-// }
+export class AnotherContainerClass {
+    foobars: Array<Array<FooBar>>
+}
 
-// export class PromiseArgs {
-//     receiver: string;
-//     methodName: string;
-//     args: PromiseArgs;
-//     balance: i32;
-//     callback: string;
-//     callbackArgs: PromiseArgs;
-//     callbackBalance: i32;
-// }
+export class PromiseArgs {
+    receiver: string;
+    methodName: string;
+    args: PromiseArgs;
+    balance: i32;
+    callback: string;
+    callbackArgs: PromiseArgs;
+    callbackBalance: i32;
+}
 
-// export class MyContractPromiseResult {
-//     ok: bool;
-//     r: MyCallbackResult;
-// }
+export class MyContractPromiseResult {
+    ok: bool;
+    r: MyCallbackResult;
+}
 
-// export class MyCallbackResult {
-//     rs: MyContractPromiseResult[];
-//     n: string;
-// }
+export class MyCallbackResult {
+    rs: MyContractPromiseResult[];
+    n: string;
+}
 
-// export class Generic<T> {
-//     value: T;
-// }
+export class Generic<T> {
+    value: T;
+}

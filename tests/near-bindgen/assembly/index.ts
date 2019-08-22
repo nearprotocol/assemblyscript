@@ -8,19 +8,24 @@ import { JSONDecoder, ThrowingJSONHandler, DecoderState } from "assemblyscript-j
 
 type Usize = u64;
 //@ts-ignore
+@global
 @external("env", "read_register")
 declare function read_register(register_id: Usize, ptr: Usize): void;
 //@ts-ignore
+@global
 @external("env", "register_len")
 declare function register_len(register_id: Usize): Usize;
 
 //@ts-ignore
+@global
 @external("env", "input")
 declare function input(register_id: Usize): void;
 //@ts-ignore
+@global
 @external("env", "value_return")
 declare function value_return(value_len: Usize, value_ptr: Usize): void;
 //@ts-ignore
+@global
 @external("env", "panic")
 declare function panic(): void;
 
@@ -203,10 +208,10 @@ class ArrayHandler<T> extends ThrowingJSONHandler {
   }
 
   pushObject(name: string): bool {
-    if (!this.handledRoot) {
-      this.handledRoot = true;
-      return true;
-    }
+    // if (!this.handledRoot) {
+    //   this.handledRoot = true;
+    //   return true;
+    // }
     // assert(name == null || name.length ==0, "name should be null.")
     if (isReference<T>()){
       let buffer = this.buffer;
