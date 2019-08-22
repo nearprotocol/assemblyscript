@@ -306,9 +306,16 @@ class NEARBindingsBuilder extends BaseVisitor {
     fields.forEach(field => {
       if (!(this.typeName(field.type) in this.typeMapping)) {
         this.sb.push(
-        `if (name == "${field.name}") {
-          ${valuePrefix}${field.name} = decode<${toString(field.type)}>(this.buffer, this.decoder.state);
-          return false;
+        `if (name == "${field.name}") {`);
+          if (isArrayType(field.type)) {
+            this.sb.push(
+`          ${valuePrefix}${field.name} = ArrayHandler.decode<${toString(field.type)}>(this.buffer, this.decoder.state)`);
+          }else {
+            this.sb.push(
+`          ${valuePrefix}${field.name} = decode<${toString(field.type)}>(this.buffer, this.decoder.state)`);
+          }
+        this.sb.push(
+`          return false;
         }`);
       }
     });
