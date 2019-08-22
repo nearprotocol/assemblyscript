@@ -1,4 +1,4 @@
-//@nearfile
+//@nearfile out
 // These imports need to be copied properly
 import { storage, context, ContractPromise, logging, util } from "near-runtime-ts";
 import { FooBar, ContainerClass, AnotherContainerClass } from "./model";
