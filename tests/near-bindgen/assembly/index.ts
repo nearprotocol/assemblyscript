@@ -7,47 +7,58 @@ import { JSONDecoder, ThrowingJSONHandler, DecoderState } from "assemblyscript-j
 
 
 type Usize = u64;
-
+//@ts-ignore
 @external("env", "read_register")
-declare function read_register(register_id: u, ptr: Usize): void;
+declare function read_register(register_id: Usize, ptr: Usize): void;
+//@ts-ignore
 @external("env", "register_len")
 declare function register_len(register_id: Usize): Usize;
 
+//@ts-ignore
 @external("env", "input")
 declare function input(register_id: Usize): void;
+//@ts-ignore
 @external("env", "value_return")
 declare function value_return(value_len: Usize, value_ptr: Usize): void;
+//@ts-ignore
 @external("env", "panic")
 declare function panic(): void;
 
+//@ts-ignore
 @global
 function encode<T>(encoder: JSONEncoder, value: T, name: string | null = ""): JSONEncoder {
-  let t: T;
   if (isBoolean<T>()){
+    //@ts-ignore
     encoder.setBoolean(name, value);
   } else if (isInteger<T>()) {
     if (value instanceof i64 || value instanceof u64) {
+      //@ts-ignore
       encoder.setString(name, value.toString());
     } else {
     //@ts-ignore
       encoder.setInteger(name, value);
     }
+    //@ts-ignore
   } else if (value == <T>null){
     encoder.setNull(name);
   } else if (isString<T>()) {
+    //@ts-ignore
     encoder.setString(name, value);
   } else if (isReference<T>()) {
     if (isArrayLike<T>(value)){
-      if (t instanceof Uint8Array){
+      if (value instanceof Uint8Array) {
+        //@ts-ignore
         encoder.setString(name, base64.encode(<Uint8Array> value));
       } else {
         encoder.pushArray(name);
-        for (let i: i32 = 0; i < value.length; i++){
+        for (let i: i32 = 0; i < value.length; i++) {
+          //@ts-ignore
           encode(encoder, value[i], null);
         }
-        encoder.popArray()
+        encoder.popArray();
       }
     } else {
+      //@ts-ignore
       value.encode(encoder, name);
     }
   } else {
@@ -60,20 +71,40 @@ function encode<T>(encoder: JSONEncoder, value: T, name: string | null = ""): JS
 
 class PrimitiveHandler<T> extends ThrowingJSONHandler  {
   value: T;
+  decoder:  JSONDecoder<PrimitiveHandler<T>>;
+
+  constructor(){
+    super();
+    this.decoder = new JSONDecoder<PrimitiveHandler<T>>(this);
+  }
 
   static String: PrimitiveHandler<string>  = new PrimitiveHandler<string>();
   static Boolean: PrimitiveHandler<bool> = new PrimitiveHandler<bool>();
-  static Integer: PrimitiveHandler<u64> = new PrimitiveHandler<u64>();
+  static U64: PrimitiveHandler<u64> = new PrimitiveHandler<u64>();
+  static I64: PrimitiveHandler<i64> = new PrimitiveHandler<i64>();
+  static U32: PrimitiveHandler<u32> = new PrimitiveHandler<u32>();
+  static I32: PrimitiveHandler<i32> = new PrimitiveHandler<i32>();
 
   decode(buffer: Uint8Array, state: DecoderState | null): T {
-    let decoder = new JSONDecoder<PrimitiveHandler<T>>(this);
-    decoder.deserialize(buffer, state);
+    this.decoder.deserialize(buffer, state);
+    //@ts-ignore
     return this.value;
   }
 
   setString(name: string, value: string): void {
-    if (isString<T>()){
-      this.value = changetype<T>(value);
+    if (isString<T>()) {
+      //@ts-ignore
+      this.value = <T>(value);
+      return;
+    }
+    if (this.value instanceof u64) {
+      //@ts-ignore
+      this.value = <T>U64.parseInt(value);
+      return;
+    }
+    if (this.value instanceof i64) {
+      //@ts-ignore
+      this.value =  <T>I64.parseInt(value);
       return;
     }
     super.setString(name, value);
@@ -81,7 +112,8 @@ class PrimitiveHandler<T> extends ThrowingJSONHandler  {
 
   setBoolean(name: string, value: bool): void {
     if (isBoolean<T>()){
-      this.value = changetype<T>(value);
+      //@ts-ignore
+      this.value = <T>(value);
       return;
     }
     super.setBoolean(name, value);
@@ -89,15 +121,17 @@ class PrimitiveHandler<T> extends ThrowingJSONHandler  {
 
   setNull(name: string): void {
     if (isString<T>()) {
-      this.value = changetype<T>(null);
+      //@ts-ignore
+      this.value = <T>(null);
       return;
     }
     super.setNull(name);
   }
 
   setInteger(name: string, value: i64): void {
-    if (isInteger<T>()){
-      this.value = changetype<T>(value);
+    if (isInteger<T>()) {
+      //@ts-ignore
+      this.value = <T>(value);
       return;
     }
     super.setInteger(name, value);
@@ -108,6 +142,7 @@ class PrimitiveHandler<T> extends ThrowingJSONHandler  {
 @global
 class ArrayHandler<T> extends ThrowingJSONHandler {
   firstArrayPush: boolean = true;
+  handledRoot: boolean = false;
   constructor(public value: Array<T>,
               public buffer: Uint8Array,
               public state: DecoderState | null) {
@@ -126,6 +161,7 @@ class ArrayHandler<T> extends ThrowingJSONHandler {
 
   setString(name: string, value: string): void {
     if (isString<T>()){
+      //@ts-ignore
       this.value.push(<string>value);
       return;
     }
@@ -141,6 +177,7 @@ class ArrayHandler<T> extends ThrowingJSONHandler {
 
   setBoolean(name: string, value: bool): void {
     if (isBoolean<T>()){
+      //@ts-ignore
       this.value.push(<bool>value)
       return;
     }
@@ -149,6 +186,7 @@ class ArrayHandler<T> extends ThrowingJSONHandler {
 
   setNull(name: string): void {
     if (isNullable<T>()) {
+      //@ts-ignore
       this.value.push(<T>null);
       return;
     }
@@ -157,6 +195,7 @@ class ArrayHandler<T> extends ThrowingJSONHandler {
 
   setInteger(name: string, value: i64): void {
     if (isInteger<T>()){
+      //@ts-ignore
       this.value.push(<T>value);
       return;
     }
@@ -164,6 +203,10 @@ class ArrayHandler<T> extends ThrowingJSONHandler {
   }
 
   pushObject(name: string): bool {
+    if (!this.handledRoot) {
+      this.handledRoot = true;
+      return true;
+    }
     // assert(name == null || name.length ==0, "name should be null.")
     if (isReference<T>()){
       let buffer = this.buffer;
@@ -187,12 +230,11 @@ class ArrayHandler<T> extends ThrowingJSONHandler {
     } 
     return super.pushArray(name);
   }
-
-
 }
 
+//@ts-ignore
 @global
-function decode<T>(buffer: Uint8Array, state: DecoderState | null): T {
+function decode<T>(buffer: Uint8Array, state: DecoderState | null = null): T {
   if (isString<T>()){
     //@ts-ignore
     return PrimitiveHandler.String.decode(buffer, state);
@@ -203,7 +245,7 @@ function decode<T>(buffer: Uint8Array, state: DecoderState | null): T {
   }
   if (isInteger<T>()) {
     //@ts-ignore
-    return PrimitiveHandler.Integer.decode(buffer, state);
+    return <T>PrimitiveHandler.U64.decode(buffer, state);
   }
   assert(isReference<T>(), "type must be an integer, boolean, string, object, or array");
   var value: T;
@@ -215,7 +257,7 @@ function decode<T>(buffer: Uint8Array, state: DecoderState | null): T {
     }
     return ArrayHandler.decode<T>(buffer, state);
   } else {
-    value = instantiate<T>();
+    let value = instantiate<T>();
     //@ts-ignore
     return value.decode(buffer, state);
   }

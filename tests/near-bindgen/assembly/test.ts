@@ -10,7 +10,7 @@ import { FooBar } from "./model";
 
 export function runTest(): void {
     logging.log("starting test");
-    let original = new FooBar();
+    let original = new FooBar<u32>();
     original.u32Arr = [42, 11];
     original.foo = 321;
     original.bar = 123;
@@ -18,23 +18,25 @@ export function runTest(): void {
     original.baz = "foo";
     original.uint8array = base64.decode("aGVsbG8sIHdvcmxkIQ==");
     // original.u128Val = new u128(128);
+    original.arr = [["Hello"], ["World"]];
     original.uint8arrays = Array.create<Uint8Array>(2);
     original.uint8arrays[0] = base64.decode("aGVsbG8sIHdvcmxkIQ==");
     original.uint8arrays[1] = base64.decode("aGVsbG8sIHdvcmxkIQ==");
+    original.generic = 42;
     let encoder = original.encode();
     logging.log(encoder.toString());
     // logging.log("hasntoehuasoetnuhasoentuhaseontuh")
     //@ts-ignore
     let encoded = encoder.serialize();
     //@ts-ignore
-    let decoded = FooBar.decode(encoded);
-
+    let decoded: FooBar<u32> = decode<FooBar<u32>>(encoded);
+    logging.log(decoded.toString());
     assert(original.foo == decoded.foo);
     assert(original.bar == decoded.bar);
     // assert(original.u32Arr == decoded.u32Arr);
     assert(base64.encode(original.uint8array) == base64.encode(decoded.uint8array));
     assert(base64.encode(original.uint8arrays[0]) == base64.encode(decoded.uint8arrays[0]));
-
+    assert(original.arr[0][0] == "Hello");
     // logging.log(testArrays.toString());
     // assert(original.uint8arrays == decoded.uint8arrays);
 }

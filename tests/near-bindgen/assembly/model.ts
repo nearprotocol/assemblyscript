@@ -5,7 +5,7 @@ import {logging} from "near-runtime-ts";
 // export class u128 extends _u128 {}
 
 
-export class FooBar {
+export class FooBar<T> {
     foo: i32 = 0;
     bar: u32 = 1;
     u64Val: u64 = 64;
@@ -20,6 +20,7 @@ export class FooBar {
     uint8arrays: Array<Uint8Array>;
     // TODO: Fix u64 arrays
     u64Arr: u64[];
+    generic: T
 }
 
 // export class ContainerClass {
