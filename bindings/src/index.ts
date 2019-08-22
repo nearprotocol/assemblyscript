@@ -55,7 +55,7 @@ function isClass(type: Node): boolean {
   return type.kind == NodeKind.CLASSDECLARATION;
 }
 
-function isField(mem: DeclarationStatement){
+function isField(mem: DeclarationStatement) {
   return mem.kind == NodeKind.FIELDDECLARATION;
 }
 
@@ -68,7 +68,6 @@ function isReference(type: TypeNode): boolean {
     "i64",
     "u64",
     "Uint8Array",
-    "u128",
     "boolean"
   ];
   return !simpleTypes.includes(toString(type));
@@ -84,9 +83,7 @@ class NEARBindingsBuilder extends BaseVisitor {
     string: "String",
     bool: "Boolean",
     Uint8Array: "String",
-    u128: "String"
   };
-  
 
   private nonNullableTypes = ["i32", "u32", "i64", "u64", "bool", "boolean"];
 
@@ -107,8 +104,6 @@ class NEARBindingsBuilder extends BaseVisitor {
   visitClassDeclaration(node: ClassDeclaration): void {
     if (this.exportedClasses.has(toString(node.name))) return;
     this.generateHandler(node);
-    // this.generateDecodeFunction(node);
-    // this.generateEncodeFunction(node);
     this.exportedClasses.set(toString(node.name), node);
   }
 
@@ -134,8 +129,6 @@ class NEARBindingsBuilder extends BaseVisitor {
         isGeneric: node.typeParameters != null && node.typeParameters.some(T => toString(T) == toString(type))
        };
     });
-    // args.filter(arg => isArrayType(arg.type))
-    //   .forEach(field => this.generateDecodeFunction(field.type));
 
     let _export = isEntry(node) ? "" : "export ";
     this.sb.push(`
@@ -203,7 +196,7 @@ class NEARBindingsBuilder extends BaseVisitor {
     fields: SimpleField[]
   ): void {
     var fieldsWithTypes = (types: string[]): SimpleField[] =>
-      fields.filter(field => 
+      fields.filter(field =>
             types.indexOf(this.typeName(field.type)) != -1 || field.isGeneric);
 
     this.generateBasicSetterHandlers(
@@ -216,7 +209,7 @@ class NEARBindingsBuilder extends BaseVisitor {
       valuePrefix,
       "String",
       "string",
-      fieldsWithTypes(["string", "i64", "u64", "Uint8Array", "u128"])
+      fieldsWithTypes(["string", "i64", "u64", "Uint8Array"])
     );
     this.generateBasicSetterHandlers(
       valuePrefix,
@@ -297,12 +290,6 @@ class NEARBindingsBuilder extends BaseVisitor {
                 ${valuePrefix}${field.name} = base64.decode(value);
                 return;
               }`);
-          } else if (fieldTypeName == "u128") {
-            this.sb.push(`
-            if (name == "${field.name}") {
-                ${valuePrefix}${field.name} = u128.fromString(value);
-                return;
-              }`);
           } else {
             let className = this.typeName(field.type) === "u64" ? "U64" : "I64";
             this.sb.push(`
@@ -333,7 +320,7 @@ class NEARBindingsBuilder extends BaseVisitor {
   private generatePushHandler(valuePrefix: string, fields: SimpleField[]) {
     fields.forEach(field => {
       if (!(this.typeName(field.type) in this.typeMapping)) {
-        let referenceCheck = field.isGeneric ? ` && isReference<${this.typeName(field.type)}>()`: "";
+        let referenceCheck = field.isGeneric ? ` && isReference<${this.typeName(field.type)}>()` : "";
         this.sb.push(
 `       if (name == "${field.name}"${referenceCheck}) {
           ${valuePrefix}${field.name} = decode<${toString(field.type)}>(this.buffer, this.decoder.state);
@@ -343,9 +330,8 @@ class NEARBindingsBuilder extends BaseVisitor {
     });
   }
 
-
   private generateHandler(type: TypeNode | ClassDeclaration) {
-    if (isArrayType(type)){
+    if (isArrayType(type)) {
       return;
     }
     let typeName = this.typeName(type);
@@ -361,12 +347,10 @@ class NEARBindingsBuilder extends BaseVisitor {
           this.value = value_;
         }
       `);
-    
+
     this.generateHandlerMethods("this.value.", this.getFields(type));
-    
     this.sb.push("}\n");
   }
-
 
   private typeName(type: TypeNode | ClassDeclaration): string {
     if (!isClass(type)) {
@@ -379,111 +363,6 @@ class NEARBindingsBuilder extends BaseVisitor {
     }
     return className;
   }
-
-  // private generateDecodeFunction(type: TypeNode | ClassDeclaration) {
-  //   if (!isClass(type) && !isReference(<TypeNode>type)) {
-  //     return;
-  //   }
-
-  //   var typeName = this.typeName(type);
-  //   var encodedTypeName = this.encodeType(typeName);
-  //   if (
-  //     NEARBindingsBuilder.generatedDecodeFunctions.has(encodedTypeName) ||
-  //     typeName in this.typeMapping
-  //   ) {
-  //     return;
-  //   }
-  //   NEARBindingsBuilder.generatedDecodeFunctions.add(encodedTypeName);
-
-  //   this.generateHandler(type);
-  //   if (isArrayType(type)) {
-  //     assert(type.kind == NodeKind.NAMEDTYPE);
-  //     let arrayElementType = (<NamedTypeNode>type).typeArguments![0];
-  //     // Array
-  //     if (isArrayType(arrayElementType) || !isReference(<TypeNode>type)) {
-  //       this.generateDecodeFunction(arrayElementType);
-  //     }
-  //   } else {
-  //     // Object
-  //     this.getFields(type).forEach(field => {
-  //       this.generateDecodeFunction(field.type!);
-  //     });
-  //   }
-
-  //   this.sb.push(`@global
-  //     export function __near_decode_${encodedTypeName}(
-  //         buffer: Uint8Array, state: DecoderState | null, value: ${typeName} | null = null):${typeName} {
-  //       if (value == null) {
-  //         value =  instantiate<${typeName}>(); // Allocate without constructor
-  //       }
-  //       let handler = new __near_JSONHandler_${encodedTypeName}(value!);
-  //       handler.buffer = buffer;
-  //       handler.decoder = new JSONDecoder<__near_JSONHandler_${encodedTypeName}>(handler);
-  //       handler.decoder.deserialize(buffer, state);
-  //       return value!;
-  //     }\n`);
-  // }
-
-  // private generateFieldEncoder(
-  //   fieldType: TypeNode,
-  //   fieldExpr: string,
-  //   sourceExpr: string
-  // ) {
-  //   var fieldTypeName = this.typeName(fieldType);
-  //   var setterType = this.typeMapping[fieldTypeName];
-  //   if (!setterType) {
-  //     // Object / array
-  //     let pushType = isArrayType(fieldType) ? "Array" : "Object";
-  //     if (isArrayType(fieldType)) {
-  //       this.sb.push(`if (${sourceExpr} != null) {
-  //             encoder.push${pushType}(${fieldExpr});
-  //             __near_encode_${this.encodeType(
-  //               fieldType
-  //             )}(${sourceExpr}, encoder);
-  //             encoder.pop${pushType}();
-  //           } else {
-  //             encoder.setNull(${fieldExpr});
-  //           }`);
-  //     } else {
-  //       this.sb.push(`if (${sourceExpr} != null) {
-  //             ${sourceExpr}.encode(encoder, ${fieldExpr});
-  //           } else {
-  //             encoder.setNull(${fieldExpr});
-  //           }`);
-  //     }
-  //   } else {
-  //     // Basic types
-  //     if (this.nonNullableTypes.indexOf(fieldTypeName) != -1) {
-  //       if (["i64", "u64"].indexOf(fieldTypeName) != -1) {
-  //         this.sb.push(
-  //           `encoder.set${setterType}(${fieldExpr}, ${sourceExpr}.toString());`
-  //         );
-  //       } else {
-  //         this.sb.push(
-  //           `encoder.set${setterType}(${fieldExpr}, ${sourceExpr});`
-  //         );
-  //       }
-  //     } else if (fieldTypeName == "Uint8Array") {
-  //       this.sb.push(`if (${sourceExpr} != null) {
-  //             encoder.setString(${fieldExpr}, base64.encode(${sourceExpr}));
-  //           } else {
-  //             encoder.setNull(${fieldExpr});
-  //           };`);
-  //     } else if (fieldTypeName == "u128") {
-  //       this.sb.push(`if (<${fieldTypeName}>null != ${sourceExpr}) {
-  //             encoder.setString(${fieldExpr}, ${sourceExpr}.toString());
-  //           } else {
-  //             encoder.setNull(${fieldExpr});
-  //           };`);
-  //     } else {
-  //       this.sb.push(`if (${sourceExpr} != null) {
-  //             encoder.set${setterType}(${fieldExpr}, ${sourceExpr});
-  //           } else {
-  //             encoder.setNull(${fieldExpr});
-  //           }`);
-  //     }
-  //   }
-  // }
 
   private getFields(type: TypeNode | ClassDeclaration): SimpleField[] {
     let _class = <ClassDeclaration> ((isClass(type))
@@ -511,7 +390,7 @@ class NEARBindingsBuilder extends BaseVisitor {
           let _class = <ClassDeclaration> stmt;
           str = str.slice(0, str.lastIndexOf("}"));
           let fields = _class.members.filter(isField).map((field: FieldDeclaration) => field);
-          if (fields.some(field => field.type == null)){
+          if (fields.some(field => field.type == null)) {
             throw new Error("All Fields must have explict type declaration.");
           }
           let className = this.typeName(_class);
@@ -547,9 +426,9 @@ class NEARBindingsBuilder extends BaseVisitor {
     return this.encode().serialize();
   }
 
-  toString(): string {
+  toJSON(): string {
     return this.encode().toString();
-  }  
+  }
 }`;
         }
         return str;
@@ -567,7 +446,7 @@ function createEncodeStatements(_class: ClassDeclaration): string[] {
       let name = toString(field.name);
       return `encode<${T}>(encoder, this.${name}, "${name}");`;
     }
-  )
+  );
 }
 // TODO: Make work for non-simple generics e.g. field: Array<T>
 function isGeneric(_class: ClassDeclaration, field: FieldDeclaration): boolean {
@@ -580,7 +459,7 @@ function isGeneric(_class: ClassDeclaration, field: FieldDeclaration): boolean {
 export function afterParse(parser: Parser, writeFile: FileWriter, baseDir: string): void {
   let files = NEARBindingsBuilder.nearFiles(parser);
   files.forEach(source => {
-    let writeOut = source.text.substr(0, source.text.indexOf('\n')).endsWith("out");
+    let writeOut = source.text.substr(0, source.text.indexOf("\n")).endsWith("out");
     // Remove from logs in parser
     parser.donelog.delete(source.internalPath);
     parser.seenlog.delete(source.internalPath);

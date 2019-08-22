@@ -2,7 +2,7 @@ import * as main from "./main";
 // import * as model from "./model";
 import { base64, logging } from "near-runtime-ts";
 import { FooBar } from "./model";
-// import { u128 } from "bignum";
+import { u128 } from "bignum";
 
 //@ts-ignore
 // @external("env", "log_utf8")
@@ -17,7 +17,7 @@ export function runTest(): void {
     original.flag = true;
     original.baz = "foo";
     original.uint8array = base64.decode("aGVsbG8sIHdvcmxkIQ==");
-    // original.u128Val = new u128(128);
+    original.u128Val = new u128(128);
     original.arr = [["Hello"], ["World"]];
     original.uint8arrays = Array.create<Uint8Array>(2);
     original.uint8arrays[0] = base64.decode("aGVsbG8sIHdvcmxkIQ==");
@@ -29,7 +29,7 @@ export function runTest(): void {
     let encoded = encoder.serialize();
     //@ts-ignore
     let decoded: FooBar = decode<FooBar>(encoded);
-    logging.log(decoded.toString());
+    logging.log(decoded.toJSON());
     assert(original.foo == decoded.foo);
     assert(original.bar == decoded.bar);
     // assert(original.u32Arr == decoded.u32Arr);
@@ -45,17 +45,17 @@ export function convertFoobars(): void {
     main.convertFoobars();
 }
 
-// export function getStringArrayLength(): void {
-//     //@ts-ignore will be converted when parsed
-//     main.getStringArrayLength();
-// }
+export function getStringArrayLength(): void {
+    //@ts-ignore will be converted when parsed
+    main.getStringArrayLength();
+}
 
-// export function rewrapFoobar(): void {
-//     //@ts-ignore will be converted when parsed
-//     main.rewrapFoobar();
-// }
+export function rewrapFoobar(): void {
+    //@ts-ignore will be converted when parsed
+    main.rewrapFoobar();
+}
 
-// export function unwrapFoobar(): void {
-//     //@ts-ignore will be converted when parsed
-//     main.unwrapFoobar();
-// }
+export function unwrapFoobar(): void {
+    //@ts-ignore will be converted when parsed
+    main.unwrapFoobar();
+}
