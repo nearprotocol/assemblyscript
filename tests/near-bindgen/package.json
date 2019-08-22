@@ -12,7 +12,7 @@
   "license": "MIT",
   "dependencies": {
     "assemblyscript-json": "github:WebAssemblyOS/assemblyscript-json#near_dist",
-    "bignum": "github:MaxGraey/bignum.wasm",
+    "bignum": "github:WebAssemblyOS/bignum.wasm#near_dist",
     "near-runtime-ts": "github:nearprotocol/near-runtime-ts#staging"
   }
 }

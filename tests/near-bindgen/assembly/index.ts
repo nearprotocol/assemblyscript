@@ -1,5 +1,5 @@
 
-import { storage, near, base64, base58 } from 'near-runtime-ts';
+import { storage, near, base64, base58, logging } from 'near-runtime-ts';
 import { JSONEncoder } from "assemblyscript-json";
 import { JSONDecoder, ThrowingJSONHandler, DecoderState } from "assemblyscript-json";
 // Runtime functions
@@ -37,6 +37,7 @@ function encode<T>(encoder: JSONEncoder, value: T, name: string | null = ""): JS
     encoder.setBoolean(name, value);
   } else if (isInteger<T>()) {
     if (value instanceof i64 || value instanceof u64) {
+      logging.log(value.toString())
       //@ts-ignore
       encoder.setString(name, value.toString());
     } else {
