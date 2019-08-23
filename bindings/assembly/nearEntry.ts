@@ -176,6 +176,17 @@ class ArrayHandler<T> extends ThrowingJSONHandler {
       this.value.push(base64.decode(value));
       return;
     }
+    //@ts-ignore
+    if (item instanceof u64) {
+      //@ts-ignore
+      this.value.push(<T>U64.parseInt(value));
+      return;
+    }
+    if (item instanceof i64) {
+      //@ts-ignore
+      this.value.push(<T>I64.parseInt(value));
+      return;
+    }
     super.setString(name, value);
   }
 

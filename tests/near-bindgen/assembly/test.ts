@@ -11,6 +11,7 @@ import { u128 } from "bignum";
 export function runTest(): void {
     logging.log("starting test");
     let original = new FooBar();
+    logging.log("u64 = " + original.u64Val.toString())
     original.u32Arr = [42, 11];
     original.foo = 321;
     original.bar = 123;
@@ -22,6 +23,7 @@ export function runTest(): void {
     original.uint8arrays = Array.create<Uint8Array>(2);
     original.uint8arrays[0] = base64.decode("aGVsbG8sIHdvcmxkIQ==");
     original.uint8arrays[1] = base64.decode("aGVsbG8sIHdvcmxkIQ==");
+    original.u64Arr =  [10000000000, 100000000000];
     let encoder = original.encode();
     logging.log(encoder.toString());
     // logging.log("hasntoehuasoetnuhasoentuhaseontuh")
@@ -36,6 +38,7 @@ export function runTest(): void {
     assert(base64.encode(original.uint8array) == base64.encode(decoded.uint8array));
     assert(base64.encode(original.uint8arrays[0]) == base64.encode(decoded.uint8arrays[0]));
     assert(original.arr[0][0] == "Hello");
+    assert(original.u64Arr[0] == decoded.u64Arr[0]);
     // logging.log(testArrays.toString());
     // assert(original.uint8arrays == decoded.uint8arrays);
 }
