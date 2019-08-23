@@ -5,7 +5,7 @@
   "main": "test.js",
   "scripts": {
     "build:as": "../../bin/asc assembly/test.ts --validate --runtime stub --binaryFile out/test.wasm --textFile out/test.wat --runPasses dce --debug",
-    "build": "npm run build:as -- --lib ./assembly/index.ts",
+    "build": "npm run build:as",
     "test": "node --experimental-wasm-bigint ./test.js"
   },
   "author": "",
