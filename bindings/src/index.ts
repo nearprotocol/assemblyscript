@@ -240,7 +240,7 @@ export { __wrapper_${name} as ${name} }
          ${setter}
           return;
          }`);
-        }else {
+        } else {
           this.sb.push(
 `        ${setter}
          return;`);
