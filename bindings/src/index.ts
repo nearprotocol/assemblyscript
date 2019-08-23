@@ -113,9 +113,8 @@ class NEARBindingsBuilder extends BaseVisitor {
     }
     this.generateArgsParser(node);
     this.generateWrapperFunction(node);
+    // Change function to not be an export
     node.flags = node.flags ^ CommonFlags.EXPORT;
-    node.name.symbol = "wrapped_" + node.name.symbol;
-    node.name.text = "wrapped_" + node.name.text;
     this.wrappedFuncs.add(toString(node.name));
   }
 
@@ -133,14 +132,14 @@ class NEARBindingsBuilder extends BaseVisitor {
 
     let _export = isEntry(node) ? "" : "export ";
     this.sb.push(`
-      ${_export}class __near_ArgsParser_${name} extends ThrowingJSONHandler {
-          buffer: Uint8Array;
-          decoder: JSONDecoder<__near_ArgsParser_${name}>;
-          handledRoot: boolean = false;`);
+${_export}class __near_ArgsParser_${name} extends ThrowingJSONHandler {
+  buffer: Uint8Array;
+  decoder: JSONDecoder<__near_ArgsParser_${name}>;
+  handledRoot: boolean = false;`);
     if (args.length > 0) {
       args.forEach(arg => {
         this.sb.push(
-          `__near_param_${arg.name}: ${this.typeName(arg.type)};`
+`  __near_param_${arg.name}: ${this.typeName(arg.type)};`
         );
       });
       this.generateHandlerMethods("this.__near_param_", args);
@@ -150,12 +149,17 @@ class NEARBindingsBuilder extends BaseVisitor {
     this.sb.push(`}`);
   }
 
+  /* 
+  Create a wrapper function that will be export in the function's place.
+  */
   private generateWrapperFunction(element: FunctionDeclaration) {
     let signature = element.signature;
     let params = signature.parameters;
     let returnType = signature.returnType;
     let name = element.name.symbol;
-    this.sb.push(`export function ${name}(): void {
+    this.sb.push(`
+//@ts-ignore
+function __wrapper_${name}(): void {
   // Reading input bytes.
   input(0);
   let json_len = register_len(0);
@@ -170,26 +174,30 @@ class NEARBindingsBuilder extends BaseVisitor {
   handler.decoder = new JSONDecoder<__near_ArgsParser_${name}>(handler);
   handler.decoder.deserialize(json);`);
     if (toString(returnType) !== "void") {
-      this.sb.push(`let result: ${toString(returnType)} = wrapped_${name}(`);
+      this.sb.push(
+`  let result: ${toString(returnType)} = ${name}(`);
     } else {
-      this.sb.push(`wrapped_${name}(`);
+      this.sb.push(
+`  ${name}(`);
     }
     if (params.length > 0) {
-      this.sb.push(
+      this.sb[this.sb.length - 1] += (
         params
           .map(paramName => `handler.__near_param_${paramName.name.symbol}`)
-          .join(",")
+          .join(", ")
       );
     }
-    this.sb.push(");");
+    this.sb[this.sb.length - 1] += ");";
     if (toString(returnType) !== "void") {
       this.sb.push(`
-          let encoder = new JSONEncoder();
-          let val = encode<${toString(returnType)}>(encoder, result).serialize();
-          value_return(val.byteLength, <usize>val.buffer);
-        `);
+  let encoder = new JSONEncoder();
+  let val = encode<${toString(returnType)}>(encoder, result).serialize();
+  value_return(val.byteLength, <usize>val.buffer);`);
     }
-    this.sb.push(`}`);
+    this.sb.push(`}
+
+export { __wrapper_${name} as ${name} }
+`);
   }
 
   private generateHandlerMethods(
@@ -221,54 +229,55 @@ class NEARBindingsBuilder extends BaseVisitor {
 
     var nonBasicFields = fields.filter(field => isReference(field.type) || field.isGeneric);
 
-    this.sb.push("setNull(name: string): void {");
+    this.sb.push(`  setNull(name: string): void {`);
     nonBasicFields.forEach(field => {
       this.sb.push(
-`      if (name == "${field.name}") {`);
+`    if (name == "${field.name}") {`);
       let setter = `${valuePrefix}${field.name} = <${this.typeName(field.type)}>null`;
       if (field.isGeneric) {
         this.sb.push(
-`         if (isNullable<${this.typeName(field.type)}>()){
-             ${setter}
-             return;
-          }`);
+`       if (isNullable<${this.typeName(field.type)}>()){
+         ${setter}
+          return;
+         }`);
         }else {
           this.sb.push(
-`         ${setter}
-           return;`);
+`        ${setter}
+         return;`);
         }
       this.sb.push(
 `      }`);
     });
     this.sb.push(`
-        super.setNull(name);
-      }`);
+    super.setNull(name);
+  }`);
 
     this.sb.push(`
-        pushObject(name: string): bool {`);
-    this.sb.push(`if (!this.handledRoot) {
-        assert(name == null || name.length == 0);
-        this.handledRoot = true;
-        return true;
-      } else {
-        assert(name != null || name.length != 0);
-      }`);
+  pushObject(name: string): bool {`);
+    this.sb.push(
+    `if (!this.handledRoot) {
+      assert(name == null || name.length == 0);
+      this.handledRoot = true;
+      return true;
+    } else {
+      assert(name != null || name.length != 0);
+    }`);
     this.generatePushHandler(
       valuePrefix,
       nonBasicFields.filter(field => !isArrayType(field.type))
     );
     this.sb.push(`
-          return super.pushObject(name);
-        }`);
+    return super.pushObject(name);
+  }`);
     this.sb.push(`
-        pushArray(name: string): bool {`);
+  pushArray(name: string): bool {`);
     this.generatePushHandler(
       valuePrefix,
       nonBasicFields.filter(field => isArrayType(field.type))
     );
     this.sb.push(`
-          return super.pushArray(name);
-        }`);
+    return super.pushArray(name);
+  }`);
   }
 
   private generateBasicSetterHandlers(
@@ -279,42 +288,42 @@ class NEARBindingsBuilder extends BaseVisitor {
   ) {
     if (matchingFields.length > 0) {
       this.sb.push(
-        `set${setterType}(name: string, value: ${setterValueType}): void {`
+`  set${setterType}(name: string, value: ${setterValueType}): void {`
       );
       matchingFields.forEach(field => {
         // tslint:disable-next-line: as-variables
         let fieldTypeName = this.typeName(field.type);
         if (setterType == "String" && fieldTypeName != "string") {
           if (fieldTypeName == "Uint8Array") {
-            this.sb.push(`
-            if (name == "${field.name}") {
-                ${valuePrefix}${field.name} = base64.decode(value);
-                return;
-              }`);
+            this.sb.push(
+`    if (name == "${field.name}") {
+       ${valuePrefix}${field.name} = base64.decode(value);
+       return;
+     }`);
           } else {
             let className = this.typeName(field.type) === "u64" ? "U64" : "I64";
-            this.sb.push(`
-            if (name == "${field.name}") {
-                ${valuePrefix}${field.name} = ${field.isGeneric ? "<" + toString(field.type) + ">" : ""}${className}.parseInt(value);
-                return;
-              }`);
+            this.sb.push(
+`    if (name == "${field.name}") {
+      ${valuePrefix}${field.name} = ${field.isGeneric ? "<" + toString(field.type) + ">" : ""}${className}.parseInt(value);
+      return;
+     }`);
           }
         } else {
           this.sb.push(
-            `if (name == "${field.name}") {
-              ${valuePrefix}${field.name} = <${fieldTypeName}>value;
-              return;
-            }`);
+`    if (name == "${field.name}") {
+      ${valuePrefix}${field.name} = <${fieldTypeName}>value;
+      return;
+     }`);
         }
         if (field.isGeneric) {
           this.sb.push(
-            `assert(is${setterType}<${fieldTypeName}>(), "${field.name} is not a ${setterType}")`);
+`    assert(is${setterType}<${fieldTypeName}>(), "${field.name} is not a ${setterType}")`);
         }
       });
 
-      this.sb.push(`
-          super.set${setterType}(name, value);
-        }`);
+      this.sb.push(
+`    super.set${setterType}(name, value);
+    }`);
     }
   }
 
@@ -338,15 +347,15 @@ class NEARBindingsBuilder extends BaseVisitor {
     let typeName = this.typeName(type);
     this.sb
       .push(`export class __near_JSONHandler_${typeName} extends ThrowingJSONHandler {
-        buffer: Uint8Array;
-        decoder: JSONDecoder<__near_JSONHandler_${typeName}>;
-        handledRoot: boolean = false;
-        value: ${this.typeName(type)};
+  buffer: Uint8Array;
+  decoder: JSONDecoder<__near_JSONHandler_${typeName}>;
+  handledRoot: boolean = false;
+  value: ${this.typeName(type)};
 
-        constructor(value_: ${this.typeName(type)}) {
-          super();
-          this.value = value_;
-        }
+  constructor(value_: ${this.typeName(type)}) {
+    super();
+    this.value = value_;
+  }
       `);
 
     this.generateHandlerMethods("this.value.", this.getFields(type));

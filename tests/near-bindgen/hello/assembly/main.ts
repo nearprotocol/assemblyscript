@@ -1,9 +1,10 @@
 // @nearfile out
+// tslint:disable as-variables
 import { context, storage, ContractPromise, near, logging } from "near-runtime-ts";
 
 import { PromiseArgs, InputPromiseArgs, MyCallbackResult, MyContractPromiseResult } from "./model";
+import { u128  } from './u128';
 
-import { u128 } from "bignum";
 
 export function hello(name: string): string {
 
@@ -145,37 +146,46 @@ export function callPromise(args: PromiseArgs): void {
   let promise = ContractPromise.create(
       args.receiver,
       args.methodName,
-      inputArgs.encode(),
+      //@ts-ignore
+      // tslint:disable-next-line: no-unsafe-any
+      inputArgs.serialize(),
       new u128(args.balance));
   if (args.callback) {
     inputArgs.args = args.callbackArgs;
-    let callbackBalance = args.callbackBalance as u64;
+    let callbackBalance = new u128(args.callbackBalance as u64);
     promise = promise.then(
         args.callback,
-        inputArgs.encode(),
-        new u128(callbackBalance));
+        "Method name", //TODO
+        //@ts-ignore
+        // tslint:disable-next-line: no-unsafe-any
+        inputArgs.serialize(),
+        //@ts-ignore
+        // tslint:disable-next-line: no-unsafe-any
+        callbackBalance
+    );
   }
   promise.returnAsResult();
 }
 
-export function callbackWithName(args: PromiseArgs): MyCallbackResult {
-  let contractResults = ContractPromise.getResults();
-  let allRes = Array.create<MyContractPromiseResult>(contractResults.length);
-  for (let i = 0; i < contractResults.length; ++i) {
-    allRes[i] = new MyContractPromiseResult();
-    allRes[i].ok = contractResults[i].success;
-    if (allRes[i].ok && contractResults[i].buffer != null && contractResults[i].buffer.length > 0) {
-      allRes[i].r = MyCallbackResult.decode(contractResults[i].buffer);
-    }
-  }
-  let result: MyCallbackResult = {
-    rs: allRes,
-    n: context.contractName,
-  };
-  let bytes = result.encode();
-  storage.setBytes("lastResult", bytes);
-  return result;
-}
+// export function callbackWithName(args: PromiseArgs): MyCallbackResult {
+//   let contractResults = ContractPromise.getResults();
+//   let allRes = Array.create<MyContractPromiseResult>(contractResults.length);
+//   for (let i = 0; i < contractResults.length; ++i) {
+//     let res = contractResults[i];
+//     allRes[i] = new MyContractPromiseResult();
+//     allRes[i].ok = res.success;
+//     if (allRes[i].ok && res.buffer != null && res.buffer.length > 0) {
+//       allRes[i].r = decode<MyCallbackResult>(res.buffer);
+//     }
+//   }
+//   let result: MyCallbackResult = {
+//     rs: allRes,
+//     n: context.contractName,
+//   };
+//   let bytes = result.serialize();
+//   storage.setBytes("lastResult", bytes);
+//   return result;
+// }
 
 export function getLastResult(): MyCallbackResult {
   return MyCallbackResult.decode(storage.getBytes("lastResult"));
