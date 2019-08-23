@@ -37,7 +37,6 @@ function encode<T>(encoder: JSONEncoder, value: T, name: string | null = ""): JS
     encoder.setBoolean(name, value);
   } else if (isInteger<T>()) {
     if (value instanceof i64 || value instanceof u64) {
-      logging.log(value.toString())
       //@ts-ignore
       encoder.setString(name, value.toString());
     } else {

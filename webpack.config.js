@@ -63,7 +63,7 @@ const bin = {
       BUNDLE_LIBRARY: (() => {
         const libDir = path.join(__dirname, "std", "assembly");
         const libFiles = require("glob").sync("**/!(*.d).ts", { cwd: libDir });
-        const lib = {};
+        const lib = {"nearEntry": bundleFile(path.join(__dirname, "bindings", "assembly", "nearEntry.ts"))};
         libFiles.forEach(file => lib[file.replace(/\.ts$/, "")] = bundleFile(path.join(libDir, file)));
         return lib;
       })(),

@@ -30,7 +30,7 @@ function isComment(stmt: Statement): boolean {
 }
 
 function hasNearDecorator(stmt: Source): boolean {
-  return stmt.text.startsWith("//@nearfile");
+  return stmt.text.includes("@nearfile");
 }
 
 function toString(node: Node): string {
@@ -88,10 +88,8 @@ class NEARBindingsBuilder extends BaseVisitor {
   private nonNullableTypes = ["i32", "u32", "i64", "u64", "bool", "boolean"];
 
   private sb: string[] = [];
-  static generatedEncodeFunctions = new Set<string>();
-  static generatedDecodeFunctions = new Set<string>();
   private exportedClasses: Map<string, ClassDeclaration> = new Map();
-  generatedArgParserFunctions: Set<string> = new Set();
+  wrappedFuncs: Set<string> = new Set();
 
   static build(parser: Parser, source: Source): string {
     return (new NEARBindingsBuilder().build(source));
@@ -108,14 +106,17 @@ class NEARBindingsBuilder extends BaseVisitor {
   }
 
   visitFunctionDeclaration(node: FunctionDeclaration): void {
-    if (!(node.is(CommonFlags.EXPORT))) {
-      return;
+    if (this.wrappedFuncs.has(toString(node.name))
+        || !(node.is(CommonFlags.EXPORT))) {
+        super.visitFunctionDeclaration(node);
+        return;
     }
     this.generateArgsParser(node);
     this.generateWrapperFunction(node);
     node.flags = node.flags ^ CommonFlags.EXPORT;
     node.name.symbol = "wrapped_" + node.name.symbol;
     node.name.text = "wrapped_" + node.name.text;
+    this.wrappedFuncs.add(toString(node.name));
   }
 
   private generateArgsParser(node: FunctionDeclaration): void {
@@ -410,16 +411,12 @@ class NEARBindingsBuilder extends BaseVisitor {
     return this;
   }
 
-  private _encoder(encoder: JSONEncoder, name: string | null): JSONEncoder {
+  encode(_encoder: JSONEncoder | null = null, name: string | null = ""): JSONEncoder {
+    let encoder = (_encoder != null ? _encoder : new JSONEncoder())!;
     encoder.pushObject(name);
     ${createEncodeStatements(_class).join("\n    ")}
     encoder.popObject();
-    return encoder;
-  }
-
-  encode(_encoder: JSONEncoder | null = null, name: string | null = ""): JSONEncoder {
-    let encoder = _encoder != null ? _encoder : new JSONEncoder();
-    return this._encoder(encoder!, name);
+    return encoder
   }
 
   serialize(): Uint8Array {
@@ -459,7 +456,7 @@ function isGeneric(_class: ClassDeclaration, field: FieldDeclaration): boolean {
 export function afterParse(parser: Parser, writeFile: FileWriter, baseDir: string): void {
   let files = NEARBindingsBuilder.nearFiles(parser);
   files.forEach(source => {
-    let writeOut = source.text.substr(0, source.text.indexOf("\n")).endsWith("out");
+    let writeOut = source.text.substr(0, source.text.indexOf("\n")).includes("out");
     // Remove from logs in parser
     parser.donelog.delete(source.internalPath);
     parser.seenlog.delete(source.internalPath);
