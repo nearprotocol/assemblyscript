@@ -12,16 +12,16 @@
   },
   "dependencies": {
     "@protobufjs/utf8": "^1.1.0",
-    "assemblyscript-json": "github:WebAssemblyOS/assemblyscript-json#near_dist",
-    "bignum": "github:WebAssemblyOS/bignum.wasm#near_dist",
     "binaryen": "87.0.0-nightly.20190716",
     "glob": "^7.1.4",
     "long": "^4.0.0",
-    "near-runtime-ts": "github:nearprotocol/near-runtime-ts#staging",
     "opencollective-postinstall": "^2.0.0",
     "source-map-support": "^0.5.12"
   },
   "devDependencies": {
+    "bignum": "github:WebAssemblyOS/bignum.wasm#near_dist",
+    "assemblyscript-json": "github:WebAssemblyOS/assemblyscript-json#near_dist",
+    "near-runtime-ts": "github:nearprotocol/near-runtime-ts#staging",
     "@types/node": "^12.6.6",
     "browser-process-hrtime": "^1.0.0",
     "diff": "^4.0.1",
