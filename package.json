@@ -82,6 +82,7 @@
     "README.md",
     "std/",
     "tsconfig-base.json",
-    "bindings/dist/"
+    "bindings/dist/",
+    "bindings/assembly/nearEntry.ts"
   ]
 }
