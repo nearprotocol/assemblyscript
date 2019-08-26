@@ -63,13 +63,10 @@ function isReference(type: TypeNode): boolean {
   let simpleTypes = [
     "i32",
     "u32",
-    "string",
     "bool",
     "i64",
     "u64",
-    "Uint8Array",
     "boolean",
-    "u128"
   ];
   return !simpleTypes.includes(toString(type));
 }

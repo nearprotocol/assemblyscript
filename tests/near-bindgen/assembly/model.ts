@@ -21,6 +21,12 @@ export class FooBar {
     u64Arr: u64[];
 }
 
+export class Nullables {
+    str: string;
+    u128: u128;
+    uint8Array: Uint8Array;
+}
+
 export class ContainerClass {
     foobar: FooBar
 }
