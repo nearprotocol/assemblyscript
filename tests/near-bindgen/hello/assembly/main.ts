@@ -3,7 +3,7 @@
 import { context, storage, ContractPromise, near, logging } from "near-runtime-ts";
 
 import { PromiseArgs, InputPromiseArgs, MyCallbackResult, MyContractPromiseResult } from "./model";
-import { u128  } from './u128';
+import { u128  } from 'bignum';
 
 
 export function hello(name: string): string {

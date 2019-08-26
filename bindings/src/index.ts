@@ -68,7 +68,8 @@ function isReference(type: TypeNode): boolean {
     "i64",
     "u64",
     "Uint8Array",
-    "boolean"
+    "boolean",
+    "u128"
   ];
   return !simpleTypes.includes(toString(type));
 }
@@ -218,7 +219,7 @@ export { __wrapper_${name} as ${name} }
       valuePrefix,
       "String",
       "string",
-      fieldsWithTypes(["string", "i64", "u64", "Uint8Array"])
+      fieldsWithTypes(["string", "i64", "u64", "Uint8Array", "u128"])
     );
     this.generateBasicSetterHandlers(
       valuePrefix,
@@ -299,6 +300,12 @@ export { __wrapper_${name} as ${name} }
 `    if (name == "${field.name}") {
        ${valuePrefix}${field.name} = base64.decode(value);
        return;
+     }`);
+          } else if (fieldTypeName === "u128") {
+            this.sb.push(
+`    if (name == "${field.name}") {
+      ${valuePrefix}${field.name} = u128.fromString(value);
+      return;
      }`);
           } else {
             let className = this.typeName(field.type) === "u64" ? "U64" : "I64";
