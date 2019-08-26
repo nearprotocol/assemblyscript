@@ -2,6 +2,7 @@
 import { storage, near, base64, base58, logging } from 'near-runtime-ts';
 import { JSONEncoder } from "assemblyscript-json";
 import { JSONDecoder, ThrowingJSONHandler, DecoderState } from "assemblyscript-json";
+import { u128 } from "bignum";
 // Runtime functions
 // tslint:disable: no-unsafe-any
 
@@ -63,9 +64,13 @@ function encode<T>(encoder: JSONEncoder, value: T, name: string | null = ""): JS
         }
         encoder.popArray();
       }
-    } else {
-      //@ts-ignore
-      value.encode(encoder, name);
+    } else { // Is an object
+      if (value instanceof u128){
+        encoder.setString(name, value.toString());
+      } else {
+        //@ts-ignore
+        value.encode(encoder, name);
+      }
     }
   } else {
     throw new Error("Encoding failed");
@@ -143,6 +148,35 @@ class PrimitiveHandler<T> extends ThrowingJSONHandler  {
 
 }
 
+function decodeString(buffer: Uint8Array, state: DecoderState | null ): string {
+  return PrimitiveHandler.String.decode(buffer, state);
+}
+function decodeInt<T>(buffer: Uint8Array, state: DecoderState | null ): T {
+  let val: T;
+  //@ts-ignore
+  if (val instanceof u32) {
+    //@ts-ignore
+    return PrimitiveHandler.U32.decode(buffer, state);
+  } 
+  //@ts-ignore
+  if (val instanceof i32) {
+    //@ts-ignore
+    return PrimitiveHandler.I32.decode(buffer, state);
+  } 
+  //@ts-ignore
+  if (val instanceof u64) {
+    //@ts-ignore
+    return PrimitiveHandler.U64.decode(buffer, state);
+  } 
+  //@ts-ignore
+  if (val instanceof i64) {
+    //@ts-ignore
+    return PrimitiveHandler.I64.decode(buffer, state);
+  }
+  //@ts-ignore
+  return val;
+}
+
 @global
 class ArrayHandler<T> extends ThrowingJSONHandler {
   firstArrayPush: boolean = true;
@@ -182,6 +216,7 @@ class ArrayHandler<T> extends ThrowingJSONHandler {
       this.value.push(<T>U64.parseInt(value));
       return;
     }
+    //@ts-ignore
     if (item instanceof i64) {
       //@ts-ignore
       this.value.push(<T>I64.parseInt(value));
@@ -260,7 +295,7 @@ function decode<T>(buffer: Uint8Array, state: DecoderState | null = null): T {
   }
   if (isInteger<T>()) {
     //@ts-ignore
-    return <T>PrimitiveHandler.U64.decode(buffer, state);
+    return decodeInt<T>(buffer, state);
   }
   assert(isReference<T>(), "type must be an integer, boolean, string, object, or array");
   var value: T;
@@ -272,6 +307,11 @@ function decode<T>(buffer: Uint8Array, state: DecoderState | null = null): T {
     }
     return ArrayHandler.decode<T>(buffer, state);
   } else {
+    //@ts-ignore
+    if (value instanceof u128) {
+      //@ts-ignore
+      return u128.fromString(decodeString(buffer, state));
+    }
     let value = instantiate<T>();
     //@ts-ignore
     return value.decode(buffer, state);
