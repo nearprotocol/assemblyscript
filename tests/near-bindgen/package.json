@@ -5,14 +5,13 @@
   "main": "test.js",
   "scripts": {
     "build:as": "../../bin/asc assembly/test.ts --validate --runtime stub --binaryFile out/test.wasm --textFile out/test.wat --runPasses dce --debug",
-    "build": "npm run build:as",
+    "build:hello": "../../bin/asc assembly/hello/main.ts --validate --runtime stub --binaryFile out/hello.wasm --textFile out/hello.wat --runPasses dce --debug",
+    "build": "npm run build:as && npm run build:hello",
     "test": "node --experimental-wasm-bigint ./test.js"
   },
   "author": "",
   "license": "MIT",
   "dependencies": {
-    "assemblyscript-json": "github:WebAssemblyOS/assemblyscript-json#near_dist",
-    "bignum": "github:WebAssemblyOS/bignum.wasm#near_dist",
     "near-runtime-ts": "github:nearprotocol/near-runtime-ts#staging"
   }
 }
