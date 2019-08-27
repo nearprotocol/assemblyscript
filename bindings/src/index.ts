@@ -10,7 +10,8 @@ import {
   Node,
   NamedTypeNode,
   SourceKind,
-  DeclarationStatement
+  DeclarationStatement,
+  TypeName
 } from "../../src/ast";
 import { CommonFlags } from "../../src/common";
 import { Parser } from "./mockTypes";
@@ -147,13 +148,15 @@ ${_export}class __near_ArgsParser_${name} extends ThrowingJSONHandler {
     this.sb.push(`}`);
   }
 
-  /* 
+  /*
   Create a wrapper function that will be export in the function's place.
   */
   private generateWrapperFunction(element: FunctionDeclaration) {
     let signature = element.signature;
     let params = signature.parameters;
     let returnType = signature.returnType;
+    let returnTypeName = toString(returnType).split("|").filter(name => name.trim() !== "null").join("|");
+    let hasNull = toString(returnType).includes("null");
     let name = element.name.symbol;
     this.sb.push(`
 //@ts-ignore
@@ -165,12 +168,15 @@ function __wrapper_${name}(): void {
     panic();
   }
   let json = new Uint8Array(json_len as u32);
-  read_register(0, <usize>json.buffer);
+  read_register(0, <usize>json.buffer);`);
 
-  let handler = new __near_ArgsParser_${name}();
+    if (params.length > 0 ) {
+      this.sb.push(
+` let handler = new __near_ArgsParser_${name}();
   handler.buffer = json;
   handler.decoder = new JSONDecoder<__near_ArgsParser_${name}>(handler);
   handler.decoder.deserialize(json);`);
+    }
     if (toString(returnType) !== "void") {
       this.sb.push(
 `  let result: ${toString(returnType)} = ${name}(`);
@@ -189,7 +195,12 @@ function __wrapper_${name}(): void {
     if (toString(returnType) !== "void") {
       this.sb.push(`
   let encoder = new JSONEncoder();
-  let val = encode<${toString(returnType)}>(encoder, result).serialize();
+  if (result == null) {
+    encoder.setNull(null);
+  } else {
+    encode<${returnTypeName}>(encoder, result${hasNull ? "!" : ""}, null);
+  }
+  let val: Uint8Array = encoder.serialize();
   value_return(val.byteLength, <usize>val.buffer);`);
     }
     this.sb.push(`}

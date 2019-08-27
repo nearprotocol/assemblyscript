@@ -51,3 +51,7 @@ export function callbackWithName(args: PromiseArgs): MyCallbackResult {
     storage.setBytes("lastResult", bytes);
     return result;
 }
+
+export function stringOrNull(): string | null {
+    return null;
+}

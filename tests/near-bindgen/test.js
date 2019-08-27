@@ -141,6 +141,7 @@ async function loadModule(path) {
         {"foobars":[[{"foo":123,"bar":1,"u64Val":"4294967297","i64Val":"-64","flag":false,"baz":"123","uint8array":null,"arr":null,"u32Arr":null,"i32Arr":null,"u128Val":null,"uint8arrays":null, "u64Arr":null}]]});
     assert.deepEqual(await module.unwrapFoobar({ container: { foobars: [[{ foo: 123 }]] } }),
         {"foo":123,"bar":1,"u64Val":"4294967297","i64Val":"-64","flag":false,"baz":"123","uint8array":null,"arr":null,"u32Arr":null,"i32Arr":null,"u128Val":null,"uint8arrays":null, u64Arr: null});
+    assert.deepEqual(await module.stringOrNull(), null)
 })().catch(e => {
     console.error('Error during test execution:', e);
     if (e.code == 'ERR_ASSERTION') {
