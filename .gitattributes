@@ -1,5 +1,6 @@
 bin/* text eol=lf
 dist/* binary
+bindings/dist/* binary
 scripts/*.sh eol=lf
 lib/binaryen.js binary
 tests/compiler/std/string-encoding.ts eol=lf
