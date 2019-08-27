@@ -8,6 +8,8 @@ export class PromiseArgs {
     callback: string;
     callbackArgs: PromiseArgs;
     callbackBalance: i32;
+    isbool: bool;
+    str: string;
 }
 
 export class InputPromiseArgs {

@@ -61,3 +61,7 @@ export function unwrapFoobar(): void {
     //@ts-ignore will be converted when parsed
     main.unwrapFoobar();
 }
+
+export function stringOrNull(): void {
+    main.stringOrNull();
+}
