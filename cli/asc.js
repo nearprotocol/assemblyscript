@@ -212,7 +212,7 @@ exports.main = function main(argv, options, callback) {
   const baseDir = args.baseDir ? path.resolve(args.baseDir) : ".";
 
   // Set up transforms
-  const transforms = [nearBindings];
+  const transforms = args.notNear ? [] :  [nearBindings];
   //Add near's bindings by default
   if (args.transform) {
     args.transform.forEach(transform =>

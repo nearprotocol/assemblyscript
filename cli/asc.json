@@ -259,5 +259,10 @@
     "description": "List files to be compiled and exit.",
     "type": "b",
     "default": false
+  },
+  "notNear": {
+    "description": "Prevent the instrumentation of the binding code for near",
+    "type": "b",
+    "default": false
   }
 }
