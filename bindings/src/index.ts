@@ -26,12 +26,20 @@ interface SimpleField {
   isGeneric: boolean;
 }
 
+function returnsVoid(node: FunctionDeclaration): boolean {
+  return toString(node.signature.returnType) === "void";
+}
+
+function numOfParameters(node: FunctionDeclaration): number {
+  return node.signature.parameters.length;
+}
+
 function isComment(stmt: Statement): boolean {
   return stmt.kind == NodeKind.COMMENT;
 }
 
 function hasNearDecorator(stmt: Source): boolean {
-  return stmt.text.includes("@nearfile");
+  return stmt.text.includes("@nearfile") || isEntry(stmt);
 }
 
 function toString(node: Node): string {
@@ -105,12 +113,17 @@ class NEARBindingsBuilder extends BaseVisitor {
   }
 
   visitFunctionDeclaration(node: FunctionDeclaration): void {
-    if (this.wrappedFuncs.has(toString(node.name))
-        || !(node.is(CommonFlags.EXPORT))) {
+    if (!isEntry(node)
+        || this.wrappedFuncs.has(toString(node.name))
+        || !node.is(CommonFlags.EXPORT)
+        || (numOfParameters(node) == 0 && returnsVoid(node))
+        ) {
         super.visitFunctionDeclaration(node);
         return;
     }
-    this.generateArgsParser(node);
+    if (numOfParameters(node) > 0){
+      this.generateArgsParser(node);
+    }
     this.generateWrapperFunction(node);
     // Change function to not be an export
     node.flags = node.flags ^ CommonFlags.EXPORT;
@@ -129,9 +142,8 @@ class NEARBindingsBuilder extends BaseVisitor {
        };
     });
 
-    let _export = isEntry(node) ? "" : "export ";
     this.sb.push(`
-${_export}class __near_ArgsParser_${name} extends ThrowingJSONHandler {
+export class __near_ArgsParser_${name} extends ThrowingJSONHandler {
   buffer: Uint8Array;
   decoder: JSONDecoder<__near_ArgsParser_${name}>;
   handledRoot: boolean = false;`);
@@ -151,28 +163,27 @@ ${_export}class __near_ArgsParser_${name} extends ThrowingJSONHandler {
   /*
   Create a wrapper function that will be export in the function's place.
   */
-  private generateWrapperFunction(element: FunctionDeclaration) {
-    let signature = element.signature;
+  private generateWrapperFunction(func: FunctionDeclaration) {
+    let signature = func.signature;
     let params = signature.parameters;
     let returnType = signature.returnType;
     let returnTypeName = toString(returnType).split("|").filter(name => name.trim() !== "null").join("|");
     let hasNull = toString(returnType).includes("null");
-    let name = element.name.symbol;
+    let name = func.name.symbol;
     this.sb.push(`
 //@ts-ignore
-function __wrapper_${name}(): void {
-  // Reading input bytes.
+function __wrapper_${name}(): void {`);
+   if (params.length > 0){
+     this.sb.push(
+`  // Reading input bytes.
   input(0);
   let json_len = register_len(0);
   if (json_len == U32.MAX_VALUE) {
     panic();
   }
   let json = new Uint8Array(json_len as u32);
-  read_register(0, <usize>json.buffer);`);
-
-    if (params.length > 0 ) {
-      this.sb.push(
-` let handler = new __near_ArgsParser_${name}();
+  read_register(0, <usize>json.buffer);
+  let handler = new __near_ArgsParser_${name}();
   handler.buffer = json;
   handler.decoder = new JSONDecoder<__near_ArgsParser_${name}>(handler);
   handler.decoder.deserialize(json);`);
