@@ -206,7 +206,7 @@ function __wrapper_${name}(): void {`);
     if (toString(returnType) !== "void") {
       this.sb.push(`
   let encoder = new JSONEncoder();
-  if (result == null) {
+  if ((isString<${returnTypeName}>() || isNullable<${returnTypeName}>()) && result == null) {
     encoder.setNull(null);
   } else {
     encode<${returnTypeName}>(encoder, result${hasNull ? "!" : ""}, null);

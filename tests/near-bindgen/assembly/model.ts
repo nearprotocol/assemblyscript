@@ -8,6 +8,7 @@ export class FooBar {
     foo: i32 = 0;
     bar: u32 = 1;
     u64Val: u64 = 4294967297;
+    u64_zero: u64;
     i64Val: i64 = -64;
     flag: bool;
     baz: string = "123";
