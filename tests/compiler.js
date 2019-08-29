@@ -91,7 +91,7 @@ tests.forEach(filename => {
   const stderr = asc.createMemoryStream(chunk => process.stderr.write(chunk.toString().replace(/^(?!$)/mg, "  ")));
   stderr.isTTY = true;
 
-  var asc_flags = [];
+  var asc_flags = ["--notNear"];
   var v8_flags = "";
   var v8_no_flags = "";
   var missing_features = [];
