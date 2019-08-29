@@ -33,6 +33,7 @@ export function runTest(): void {
     assert(base64.encode(original.uint8arrays[0]) == base64.encode(decoded.uint8arrays[0]));
     assert(original.arr[0][0] == "Hello");
     assert(original.u64Arr[0] == decoded.u64Arr[0]);
+    assert(original.u64_zero == decoded.u64_zero);
 
     const nullable = new Nullables();
     //@ts-ignore
