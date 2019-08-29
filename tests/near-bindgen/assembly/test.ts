@@ -1,6 +1,7 @@
+//out
 import * as main from "./main";
 import { base64, logging } from "near-runtime-ts";
-import { FooBar, Nullables } from './model';
+import { FooBar, Nullables, ContainerClass, AnotherContainerClass } from './model';
 import { u128 } from "bignum";
 
 export function runTest(): void {
@@ -42,26 +43,24 @@ export function runTest(): void {
     logging.log("Test Passed");
 }
 
-export function convertFoobars(): void {
+export function convertFoobars(foobars: Array<FooBar>): Array<ContainerClass> {
     //@ts-ignore will be converted when parsed
-    main.convertFoobars();
+    return main.convertFoobars(foobars);
 }
 
-export function getStringArrayLength(): void {
+export function getStringArrayLength(arr: string[]): i32 {
     //@ts-ignore will be converted when parsed
-    main.getStringArrayLength();
+    return main.getStringArrayLength(arr);
+}
+export function rewrapFoobar(container: ContainerClass): AnotherContainerClass {
+    return main.rewrapFoobar(container);
 }
 
-export function rewrapFoobar(): void {
+export function unwrapFoobar(container: AnotherContainerClass): FooBar {
     //@ts-ignore will be converted when parsed
-    main.rewrapFoobar();
+    return main.unwrapFoobar(container);
 }
 
-export function unwrapFoobar(): void {
-    //@ts-ignore will be converted when parsed
-    main.unwrapFoobar();
-}
-
-export function stringOrNull(): void {
-    main.stringOrNull();
+export function stringOrNull(): string | null {
+    return main.stringOrNull();
 }
