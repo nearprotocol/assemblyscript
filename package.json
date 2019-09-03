@@ -20,8 +20,8 @@
   },
   "devDependencies": {
     "bignum": "github:WebAssemblyOS/bignum.wasm#near_dist",
-    "assemblyscript-json": "github:WebAssemblyOS/assemblyscript-json#near_dist",
-    "near-runtime-ts": "github:nearprotocol/near-runtime-ts#staging",
+    "assemblyscript-json": "github:nearprotocol/assemblyscript-json",
+    "near-runtime-ts": "github:nearprotocol/near-runtime-ts",
     "@types/node": "^12.6.6",
     "browser-process-hrtime": "^1.0.0",
     "diff": "^4.0.1",
