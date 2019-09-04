@@ -143,7 +143,7 @@ class NEARBindingsBuilder extends BaseVisitor {
     });
 
     this.sb.push(`
-export class __near_ArgsParser_${name} extends ThrowingJSONHandler {
+class __near_ArgsParser_${name} extends ThrowingJSONHandler {
   buffer: Uint8Array;
   decoder: JSONDecoder<__near_ArgsParser_${name}>;
   handledRoot: boolean = false;`);

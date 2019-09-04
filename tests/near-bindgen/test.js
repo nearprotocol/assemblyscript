@@ -51,6 +51,9 @@ async function loadModule(path) {
     let inputJson = null;
     let outputJson = null;
     let module;
+    let mem = { get U8() {
+                  return new Uint8Array(module.memory.buffer);
+    }}
     module = loader.instantiateBuffer(fs.readFileSync(path), {
         env: {
             abort(msg, file, line, column) {
@@ -99,14 +102,14 @@ async function loadModule(path) {
 
     function copyToPtr(fromBuf, toPtr) {
         for (let i = 0; i < fromBuf.length; i++) {
-            module.I8[toPtr + i] = fromBuf[i];
+            mem.U8[toPtr + i] = fromBuf[i];
         }
     }
 
     function readBuffer(valLen, valPtr) {
         const result = new Uint8Array(valLen);
         for (let i = 0; i < valLen; i++) {
-            result[i] = module.I8[valPtr + i];
+            result[i] = mem.U8[valPtr + i];
         }
 
         return result;
