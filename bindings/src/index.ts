@@ -11,7 +11,8 @@ import {
   NamedTypeNode,
   SourceKind,
   DeclarationStatement,
-  TypeName
+  TypeName,
+  ParameterNode
 } from "../../src/ast";
 import { CommonFlags } from "../../src/common";
 import { Parser } from "./mockTypes";
@@ -121,9 +122,9 @@ class NEARBindingsBuilder extends BaseVisitor {
         super.visitFunctionDeclaration(node);
         return;
     }
-    if (numOfParameters(node) > 0){
-      this.generateArgsParser(node);
-    }
+    // if (numOfParameters(node) > 0){
+    //   this.generateArgsParser(node);
+    // }
     this.generateWrapperFunction(node);
     // Change function to not be an export
     node.flags = node.flags ^ CommonFlags.EXPORT;
@@ -183,10 +184,8 @@ function __wrapper_${name}(): void {`);
   }
   let json = new Uint8Array(json_len as u32);
   read_register(0, <usize>json.buffer);
-  let handler = new __near_ArgsParser_${name}();
-  handler.buffer = json;
-  handler.decoder = new JSONDecoder<__near_ArgsParser_${name}>(handler);
-  handler.decoder.deserialize(json);`);
+  const obj: Obj = JSON.parse(json);
+  `);
     }
     if (toString(returnType) !== "void") {
       this.sb.push(
@@ -198,7 +197,7 @@ function __wrapper_${name}(): void {`);
     if (params.length > 0) {
       this.sb[this.sb.length - 1] += (
         params
-          .map(paramName => `handler.__near_param_${paramName.name.symbol}`)
+          .map((param) => createDecodeStatement(param))
           .join(", ")
       );
     }
@@ -431,20 +430,19 @@ export { __wrapper_${name} as ${name} }
           }
           let className = this.typeName(_class);
           str += `
-  static decode(json: Uint8Array, state: DecoderState | null = null): ${className} {
+  static decode(json: Uint8Array): ${className} {
     let value = instantiate<${className}>(); // Allocate without constructor
-    value.decode(json, state);
+    value.decode(JSON.parse(json));
     return value;
   }
 
-  decode(json: Uint8Array, state: DecoderState | null): ${className} {
-    let handler: __near_JSONHandler_${className} = new __near_JSONHandler_${className}(this);
-    handler.buffer = json;
-    let decoder = new JSONDecoder<__near_JSONHandler_${className}>(handler);
-    handler.decoder = decoder;
-    decoder.deserialize(json, state);
+  decode(json: Obj): ${className} {
+    let obj: Obj = json;
+    ${createDecodeStatements(_class)}
     return this;
   }
+
+  
 
   encode(_encoder: JSONEncoder | null = null, name: string | null = ""): JSONEncoder {
     let encoder = (_encoder != null ? _encoder : new JSONEncoder())!;
@@ -468,6 +466,20 @@ export { __wrapper_${name} as ${name} }
 
       return this.sb.concat(sourceText).join("\n");
     }
+
+}
+
+function createDecodeStatements(_class: ClassDeclaration): string {
+  let res = _class.members.filter(isField).map(    
+    (field: FieldDeclaration): string  => createDecodeStatement(field, `this.${toString(field.name)} = `)
+  ).join(";\n    ");
+  return res + (res.length>0 ? ";": "")
+}
+
+function createDecodeStatement(field: FieldDeclaration | ParameterNode, setterPrefix: string = ""): string {
+  let T = toString(field.type!);
+  let name = toString(field.name);
+  return `${setterPrefix}decode<${T}>(obj, "${name}")`;
 
 }
 

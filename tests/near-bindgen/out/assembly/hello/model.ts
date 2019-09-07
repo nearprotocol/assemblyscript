@@ -1,4 +1,4 @@
-import { storage, near, base64 } from "near-runtime-ts";
+import { base64 } from "near-runtime-ts";
 import { JSONEncoder } from "assemblyscript-json";
 import { JSONDecoder, ThrowingJSONHandler, DecoderState } from "assemblyscript-json";
 
@@ -253,20 +253,27 @@ export class PromiseArgs {
   callbackBalance: i32;
   callbackGas: i32;
 
-  static decode(json: Uint8Array, state: DecoderState | null = null): PromiseArgs {
+  static decode(json: Uint8Array): PromiseArgs {
     let value = instantiate<PromiseArgs>(); // Allocate without constructor
-    value.decode(json, state);
+    value.decode(JSON.parse(json));
     return value;
   }
 
-  decode(json: Uint8Array, state: DecoderState | null): PromiseArgs {
-    let handler: __near_JSONHandler_PromiseArgs = new __near_JSONHandler_PromiseArgs(this);
-    handler.buffer = json;
-    let decoder = new JSONDecoder<__near_JSONHandler_PromiseArgs>(handler);
-    handler.decoder = decoder;
-    decoder.deserialize(json, state);
+  decode(json: Obj): PromiseArgs {
+    let obj: Obj = json;
+    this.receiver = decode<string>(obj, "receiver");
+    this.methodName = decode<string>(obj, "methodName");
+    this.args = decode<PromiseArgs>(obj, "args");
+    this.gas = decode<i32>(obj, "gas");
+    this.balance = decode<i32>(obj, "balance");
+    this.callback = decode<string>(obj, "callback");
+    this.callbackArgs = decode<PromiseArgs>(obj, "callbackArgs");
+    this.callbackBalance = decode<i32>(obj, "callbackBalance");
+    this.callbackGas = decode<i32>(obj, "callbackGas");
     return this;
   }
+
+  
 
   encode(_encoder: JSONEncoder | null = null, name: string | null = ""): JSONEncoder {
     let encoder = (_encoder != null ? _encoder : new JSONEncoder())!;
@@ -295,20 +302,19 @@ export class PromiseArgs {
 export class InputPromiseArgs {
   args: PromiseArgs;
 
-  static decode(json: Uint8Array, state: DecoderState | null = null): InputPromiseArgs {
+  static decode(json: Uint8Array): InputPromiseArgs {
     let value = instantiate<InputPromiseArgs>(); // Allocate without constructor
-    value.decode(json, state);
+    value.decode(JSON.parse(json));
     return value;
   }
 
-  decode(json: Uint8Array, state: DecoderState | null): InputPromiseArgs {
-    let handler: __near_JSONHandler_InputPromiseArgs = new __near_JSONHandler_InputPromiseArgs(this);
-    handler.buffer = json;
-    let decoder = new JSONDecoder<__near_JSONHandler_InputPromiseArgs>(handler);
-    handler.decoder = decoder;
-    decoder.deserialize(json, state);
+  decode(json: Obj): InputPromiseArgs {
+    let obj: Obj = json;
+    this.args = decode<PromiseArgs>(obj, "args");
     return this;
   }
+
+  
 
   encode(_encoder: JSONEncoder | null = null, name: string | null = ""): JSONEncoder {
     let encoder = (_encoder != null ? _encoder : new JSONEncoder())!;
@@ -330,20 +336,20 @@ export class MyContractPromiseResult {
   ok: bool;
   r: MyCallbackResult;
 
-  static decode(json: Uint8Array, state: DecoderState | null = null): MyContractPromiseResult {
+  static decode(json: Uint8Array): MyContractPromiseResult {
     let value = instantiate<MyContractPromiseResult>(); // Allocate without constructor
-    value.decode(json, state);
+    value.decode(JSON.parse(json));
     return value;
   }
 
-  decode(json: Uint8Array, state: DecoderState | null): MyContractPromiseResult {
-    let handler: __near_JSONHandler_MyContractPromiseResult = new __near_JSONHandler_MyContractPromiseResult(this);
-    handler.buffer = json;
-    let decoder = new JSONDecoder<__near_JSONHandler_MyContractPromiseResult>(handler);
-    handler.decoder = decoder;
-    decoder.deserialize(json, state);
+  decode(json: Obj): MyContractPromiseResult {
+    let obj: Obj = json;
+    this.ok = decode<bool>(obj, "ok");
+    this.r = decode<MyCallbackResult>(obj, "r");
     return this;
   }
+
+  
 
   encode(_encoder: JSONEncoder | null = null, name: string | null = ""): JSONEncoder {
     let encoder = (_encoder != null ? _encoder : new JSONEncoder())!;
@@ -366,20 +372,20 @@ export class MyCallbackResult {
   rs: Array<MyContractPromiseResult>;
   n: string;
 
-  static decode(json: Uint8Array, state: DecoderState | null = null): MyCallbackResult {
+  static decode(json: Uint8Array): MyCallbackResult {
     let value = instantiate<MyCallbackResult>(); // Allocate without constructor
-    value.decode(json, state);
+    value.decode(JSON.parse(json));
     return value;
   }
 
-  decode(json: Uint8Array, state: DecoderState | null): MyCallbackResult {
-    let handler: __near_JSONHandler_MyCallbackResult = new __near_JSONHandler_MyCallbackResult(this);
-    handler.buffer = json;
-    let decoder = new JSONDecoder<__near_JSONHandler_MyCallbackResult>(handler);
-    handler.decoder = decoder;
-    decoder.deserialize(json, state);
+  decode(json: Obj): MyCallbackResult {
+    let obj: Obj = json;
+    this.rs = decode<Array<MyContractPromiseResult>>(obj, "rs");
+    this.n = decode<string>(obj, "n");
     return this;
   }
+
+  
 
   encode(_encoder: JSONEncoder | null = null, name: string | null = ""): JSONEncoder {
     let encoder = (_encoder != null ? _encoder : new JSONEncoder())!;

@@ -1,43 +1,7 @@
-import { storage, near, base64 } from "near-runtime-ts";
+import { base64 } from "near-runtime-ts";
 import { JSONEncoder } from "assemblyscript-json";
 import { JSONDecoder, ThrowingJSONHandler, DecoderState } from "assemblyscript-json";
 
-
-class __near_ArgsParser_convertFoobars extends ThrowingJSONHandler {
-  buffer: Uint8Array;
-  decoder: JSONDecoder<__near_ArgsParser_convertFoobars>;
-  handledRoot: boolean = false;
-  __near_param_foobars: Array<FooBar>;
-  setNull(name: string): void {
-    if (name == "foobars") {
-        this.__near_param_foobars = <Array<FooBar>>null
-         return;
-      }
-
-    super.setNull(name);
-  }
-
-  pushObject(name: string): bool {
-if (!this.handledRoot) {
-      assert(name == null || name.length == 0);
-      this.handledRoot = true;
-      return true;
-    } else {
-      assert(name != null || name.length != 0);
-    }
-
-    return super.pushObject(name);
-  }
-
-  pushArray(name: string): bool {
-       if (name == "foobars") {
-          this.__near_param_foobars = decode<Array<FooBar>>(this.buffer, this.decoder.state);
-          return false;
-        }
-
-    return super.pushArray(name);
-  }
-}
 
 //@ts-ignore
 function __wrapper_convertFoobars(): void {
@@ -49,11 +13,9 @@ function __wrapper_convertFoobars(): void {
   }
   let json = new Uint8Array(json_len as u32);
   read_register(0, <usize>json.buffer);
-  let handler = new __near_ArgsParser_convertFoobars();
-  handler.buffer = json;
-  handler.decoder = new JSONDecoder<__near_ArgsParser_convertFoobars>(handler);
-  handler.decoder.deserialize(json);
-  let result: Array<ContainerClass> = convertFoobars(handler.__near_param_foobars);
+  const obj: Obj = JSON.parse(json);
+  
+  let result: Array<ContainerClass> = convertFoobars(decode<Array<FooBar>>(obj, "foobars"));
 
   let encoder = new JSONEncoder();
   if ((isString<Array<ContainerClass>>() || isNullable<Array<ContainerClass>>()) && result == null) {
@@ -68,42 +30,6 @@ function __wrapper_convertFoobars(): void {
 export { __wrapper_convertFoobars as convertFoobars }
 
 
-class __near_ArgsParser_getStringArrayLength extends ThrowingJSONHandler {
-  buffer: Uint8Array;
-  decoder: JSONDecoder<__near_ArgsParser_getStringArrayLength>;
-  handledRoot: boolean = false;
-  __near_param_arr: Array<string>;
-  setNull(name: string): void {
-    if (name == "arr") {
-        this.__near_param_arr = <Array<string>>null
-         return;
-      }
-
-    super.setNull(name);
-  }
-
-  pushObject(name: string): bool {
-if (!this.handledRoot) {
-      assert(name == null || name.length == 0);
-      this.handledRoot = true;
-      return true;
-    } else {
-      assert(name != null || name.length != 0);
-    }
-
-    return super.pushObject(name);
-  }
-
-  pushArray(name: string): bool {
-       if (name == "arr") {
-          this.__near_param_arr = decode<Array<string>>(this.buffer, this.decoder.state);
-          return false;
-        }
-
-    return super.pushArray(name);
-  }
-}
-
 //@ts-ignore
 function __wrapper_getStringArrayLength(): void {
   // Reading input bytes.
@@ -114,11 +40,9 @@ function __wrapper_getStringArrayLength(): void {
   }
   let json = new Uint8Array(json_len as u32);
   read_register(0, <usize>json.buffer);
-  let handler = new __near_ArgsParser_getStringArrayLength();
-  handler.buffer = json;
-  handler.decoder = new JSONDecoder<__near_ArgsParser_getStringArrayLength>(handler);
-  handler.decoder.deserialize(json);
-  let result: i32 = getStringArrayLength(handler.__near_param_arr);
+  const obj: Obj = JSON.parse(json);
+  
+  let result: i32 = getStringArrayLength(decode<Array<string>>(obj, "arr"));
 
   let encoder = new JSONEncoder();
   if ((isString<i32>() || isNullable<i32>()) && result == null) {
@@ -133,42 +57,6 @@ function __wrapper_getStringArrayLength(): void {
 export { __wrapper_getStringArrayLength as getStringArrayLength }
 
 
-class __near_ArgsParser_rewrapFoobar extends ThrowingJSONHandler {
-  buffer: Uint8Array;
-  decoder: JSONDecoder<__near_ArgsParser_rewrapFoobar>;
-  handledRoot: boolean = false;
-  __near_param_container: ContainerClass;
-  setNull(name: string): void {
-    if (name == "container") {
-        this.__near_param_container = <ContainerClass>null
-         return;
-      }
-
-    super.setNull(name);
-  }
-
-  pushObject(name: string): bool {
-if (!this.handledRoot) {
-      assert(name == null || name.length == 0);
-      this.handledRoot = true;
-      return true;
-    } else {
-      assert(name != null || name.length != 0);
-    }
-       if (name == "container") {
-          this.__near_param_container = decode<ContainerClass>(this.buffer, this.decoder.state);
-          return false;
-        }
-
-    return super.pushObject(name);
-  }
-
-  pushArray(name: string): bool {
-
-    return super.pushArray(name);
-  }
-}
-
 //@ts-ignore
 function __wrapper_rewrapFoobar(): void {
   // Reading input bytes.
@@ -179,11 +67,9 @@ function __wrapper_rewrapFoobar(): void {
   }
   let json = new Uint8Array(json_len as u32);
   read_register(0, <usize>json.buffer);
-  let handler = new __near_ArgsParser_rewrapFoobar();
-  handler.buffer = json;
-  handler.decoder = new JSONDecoder<__near_ArgsParser_rewrapFoobar>(handler);
-  handler.decoder.deserialize(json);
-  let result: AnotherContainerClass = rewrapFoobar(handler.__near_param_container);
+  const obj: Obj = JSON.parse(json);
+  
+  let result: AnotherContainerClass = rewrapFoobar(decode<ContainerClass>(obj, "container"));
 
   let encoder = new JSONEncoder();
   if ((isString<AnotherContainerClass>() || isNullable<AnotherContainerClass>()) && result == null) {
@@ -198,42 +84,6 @@ function __wrapper_rewrapFoobar(): void {
 export { __wrapper_rewrapFoobar as rewrapFoobar }
 
 
-class __near_ArgsParser_unwrapFoobar extends ThrowingJSONHandler {
-  buffer: Uint8Array;
-  decoder: JSONDecoder<__near_ArgsParser_unwrapFoobar>;
-  handledRoot: boolean = false;
-  __near_param_container: AnotherContainerClass;
-  setNull(name: string): void {
-    if (name == "container") {
-        this.__near_param_container = <AnotherContainerClass>null
-         return;
-      }
-
-    super.setNull(name);
-  }
-
-  pushObject(name: string): bool {
-if (!this.handledRoot) {
-      assert(name == null || name.length == 0);
-      this.handledRoot = true;
-      return true;
-    } else {
-      assert(name != null || name.length != 0);
-    }
-       if (name == "container") {
-          this.__near_param_container = decode<AnotherContainerClass>(this.buffer, this.decoder.state);
-          return false;
-        }
-
-    return super.pushObject(name);
-  }
-
-  pushArray(name: string): bool {
-
-    return super.pushArray(name);
-  }
-}
-
 //@ts-ignore
 function __wrapper_unwrapFoobar(): void {
   // Reading input bytes.
@@ -244,11 +94,9 @@ function __wrapper_unwrapFoobar(): void {
   }
   let json = new Uint8Array(json_len as u32);
   read_register(0, <usize>json.buffer);
-  let handler = new __near_ArgsParser_unwrapFoobar();
-  handler.buffer = json;
-  handler.decoder = new JSONDecoder<__near_ArgsParser_unwrapFoobar>(handler);
-  handler.decoder.deserialize(json);
-  let result: FooBar = unwrapFoobar(handler.__near_param_container);
+  const obj: Obj = JSON.parse(json);
+  
+  let result: FooBar = unwrapFoobar(decode<AnotherContainerClass>(obj, "container"));
 
   let encoder = new JSONEncoder();
   if ((isString<FooBar>() || isNullable<FooBar>()) && result == null) {
@@ -311,7 +159,9 @@ export function runTest(): void {
   const encoder = original.encode();
   logging.log("Before: " + encoder.toString());
   const encoded = encoder.serialize();
-  let decoded: FooBar = decode<FooBar>(encoded);
+  let obj = JSON.parse(encoded);
+  logging.log(obj.keys.join(", "));
+  let decoded: FooBar = decode<FooBar>(obj);
   logging.log("After: " + decoded.toJSON());
   assert(original.foo == decoded.foo);
   assert(original.bar == decoded.bar);
@@ -321,7 +171,7 @@ export function runTest(): void {
   assert(original.u64Arr[0] == decoded.u64Arr[0]);
   assert(original.u64_zero == decoded.u64_zero);
   const nullable = new Nullables();
-  const nullable2 = decode<Nullables>(nullable.serialize());
+  const nullable2 = decode<Nullables>(JSON.parse(nullable.serialize()));
   assert(nullable2.str == null);
   assert(nullable2.u128 == <u128>null);
   assert(nullable2.uint8Array == null);

@@ -1,46 +1,7 @@
-import { storage, near, base64 } from "near-runtime-ts";
+import { base64 } from "near-runtime-ts";
 import { JSONEncoder } from "assemblyscript-json";
 import { JSONDecoder, ThrowingJSONHandler, DecoderState } from "assemblyscript-json";
 
-
-class __near_ArgsParser_hello extends ThrowingJSONHandler {
-  buffer: Uint8Array;
-  decoder: JSONDecoder<__near_ArgsParser_hello>;
-  handledRoot: boolean = false;
-  __near_param_name: string;
-  setString(name: string, value: string): void {
-    if (name == "name") {
-      this.__near_param_name = <string>value;
-      return;
-     }
-    super.setString(name, value);
-    }
-  setNull(name: string): void {
-    if (name == "name") {
-        this.__near_param_name = <string>null
-         return;
-      }
-
-    super.setNull(name);
-  }
-
-  pushObject(name: string): bool {
-if (!this.handledRoot) {
-      assert(name == null || name.length == 0);
-      this.handledRoot = true;
-      return true;
-    } else {
-      assert(name != null || name.length != 0);
-    }
-
-    return super.pushObject(name);
-  }
-
-  pushArray(name: string): bool {
-
-    return super.pushArray(name);
-  }
-}
 
 //@ts-ignore
 function __wrapper_hello(): void {
@@ -52,11 +13,9 @@ function __wrapper_hello(): void {
   }
   let json = new Uint8Array(json_len as u32);
   read_register(0, <usize>json.buffer);
-  let handler = new __near_ArgsParser_hello();
-  handler.buffer = json;
-  handler.decoder = new JSONDecoder<__near_ArgsParser_hello>(handler);
-  handler.decoder.deserialize(json);
-  let result: string = hello(handler.__near_param_name);
+  const obj: Obj = JSON.parse(json);
+  
+  let result: string = hello(decode<string>(obj, "name"));
 
   let encoder = new JSONEncoder();
   if ((isString<string>() || isNullable<string>()) && result == null) {
@@ -71,54 +30,6 @@ function __wrapper_hello(): void {
 export { __wrapper_hello as hello }
 
 
-class __near_ArgsParser_setKeyValue extends ThrowingJSONHandler {
-  buffer: Uint8Array;
-  decoder: JSONDecoder<__near_ArgsParser_setKeyValue>;
-  handledRoot: boolean = false;
-  __near_param_key: string;
-  __near_param_value: string;
-  setString(name: string, value: string): void {
-    if (name == "key") {
-      this.__near_param_key = <string>value;
-      return;
-     }
-    if (name == "value") {
-      this.__near_param_value = <string>value;
-      return;
-     }
-    super.setString(name, value);
-    }
-  setNull(name: string): void {
-    if (name == "key") {
-        this.__near_param_key = <string>null
-         return;
-      }
-    if (name == "value") {
-        this.__near_param_value = <string>null
-         return;
-      }
-
-    super.setNull(name);
-  }
-
-  pushObject(name: string): bool {
-if (!this.handledRoot) {
-      assert(name == null || name.length == 0);
-      this.handledRoot = true;
-      return true;
-    } else {
-      assert(name != null || name.length != 0);
-    }
-
-    return super.pushObject(name);
-  }
-
-  pushArray(name: string): bool {
-
-    return super.pushArray(name);
-  }
-}
-
 //@ts-ignore
 function __wrapper_setKeyValue(): void {
   // Reading input bytes.
@@ -129,54 +40,13 @@ function __wrapper_setKeyValue(): void {
   }
   let json = new Uint8Array(json_len as u32);
   read_register(0, <usize>json.buffer);
-  let handler = new __near_ArgsParser_setKeyValue();
-  handler.buffer = json;
-  handler.decoder = new JSONDecoder<__near_ArgsParser_setKeyValue>(handler);
-  handler.decoder.deserialize(json);
-  setKeyValue(handler.__near_param_key, handler.__near_param_value);
+  const obj: Obj = JSON.parse(json);
+  
+  setKeyValue(decode<string>(obj, "key"), decode<string>(obj, "value"));
 }
 
 export { __wrapper_setKeyValue as setKeyValue }
 
-
-class __near_ArgsParser_getValueByKey extends ThrowingJSONHandler {
-  buffer: Uint8Array;
-  decoder: JSONDecoder<__near_ArgsParser_getValueByKey>;
-  handledRoot: boolean = false;
-  __near_param_key: string;
-  setString(name: string, value: string): void {
-    if (name == "key") {
-      this.__near_param_key = <string>value;
-      return;
-     }
-    super.setString(name, value);
-    }
-  setNull(name: string): void {
-    if (name == "key") {
-        this.__near_param_key = <string>null
-         return;
-      }
-
-    super.setNull(name);
-  }
-
-  pushObject(name: string): bool {
-if (!this.handledRoot) {
-      assert(name == null || name.length == 0);
-      this.handledRoot = true;
-      return true;
-    } else {
-      assert(name != null || name.length != 0);
-    }
-
-    return super.pushObject(name);
-  }
-
-  pushArray(name: string): bool {
-
-    return super.pushArray(name);
-  }
-}
 
 //@ts-ignore
 function __wrapper_getValueByKey(): void {
@@ -188,11 +58,9 @@ function __wrapper_getValueByKey(): void {
   }
   let json = new Uint8Array(json_len as u32);
   read_register(0, <usize>json.buffer);
-  let handler = new __near_ArgsParser_getValueByKey();
-  handler.buffer = json;
-  handler.decoder = new JSONDecoder<__near_ArgsParser_getValueByKey>(handler);
-  handler.decoder.deserialize(json);
-  let result: string = getValueByKey(handler.__near_param_key);
+  const obj: Obj = JSON.parse(json);
+  
+  let result: string = getValueByKey(decode<string>(obj, "key"));
 
   let encoder = new JSONEncoder();
   if ((isString<string>() || isNullable<string>()) && result == null) {
@@ -207,45 +75,6 @@ function __wrapper_getValueByKey(): void {
 export { __wrapper_getValueByKey as getValueByKey }
 
 
-class __near_ArgsParser_setValue extends ThrowingJSONHandler {
-  buffer: Uint8Array;
-  decoder: JSONDecoder<__near_ArgsParser_setValue>;
-  handledRoot: boolean = false;
-  __near_param_value: string;
-  setString(name: string, value: string): void {
-    if (name == "value") {
-      this.__near_param_value = <string>value;
-      return;
-     }
-    super.setString(name, value);
-    }
-  setNull(name: string): void {
-    if (name == "value") {
-        this.__near_param_value = <string>null
-         return;
-      }
-
-    super.setNull(name);
-  }
-
-  pushObject(name: string): bool {
-if (!this.handledRoot) {
-      assert(name == null || name.length == 0);
-      this.handledRoot = true;
-      return true;
-    } else {
-      assert(name != null || name.length != 0);
-    }
-
-    return super.pushObject(name);
-  }
-
-  pushArray(name: string): bool {
-
-    return super.pushArray(name);
-  }
-}
-
 //@ts-ignore
 function __wrapper_setValue(): void {
   // Reading input bytes.
@@ -256,11 +85,9 @@ function __wrapper_setValue(): void {
   }
   let json = new Uint8Array(json_len as u32);
   read_register(0, <usize>json.buffer);
-  let handler = new __near_ArgsParser_setValue();
-  handler.buffer = json;
-  handler.decoder = new JSONDecoder<__near_ArgsParser_setValue>(handler);
-  handler.decoder.deserialize(json);
-  let result: string = setValue(handler.__near_param_value);
+  const obj: Obj = JSON.parse(json);
+  
+  let result: string = setValue(decode<string>(obj, "value"));
 
   let encoder = new JSONEncoder();
   if ((isString<string>() || isNullable<string>()) && result == null) {
@@ -326,41 +153,6 @@ function __wrapper_benchmark(): void {
 export { __wrapper_benchmark as benchmark }
 
 
-class __near_ArgsParser_benchmark_storage extends ThrowingJSONHandler {
-  buffer: Uint8Array;
-  decoder: JSONDecoder<__near_ArgsParser_benchmark_storage>;
-  handledRoot: boolean = false;
-  __near_param_n: i32;
-  setInteger(name: string, value: i64): void {
-    if (name == "n") {
-      this.__near_param_n = <i32>value;
-      return;
-     }
-    super.setInteger(name, value);
-    }
-  setNull(name: string): void {
-
-    super.setNull(name);
-  }
-
-  pushObject(name: string): bool {
-if (!this.handledRoot) {
-      assert(name == null || name.length == 0);
-      this.handledRoot = true;
-      return true;
-    } else {
-      assert(name != null || name.length != 0);
-    }
-
-    return super.pushObject(name);
-  }
-
-  pushArray(name: string): bool {
-
-    return super.pushArray(name);
-  }
-}
-
 //@ts-ignore
 function __wrapper_benchmark_storage(): void {
   // Reading input bytes.
@@ -371,11 +163,9 @@ function __wrapper_benchmark_storage(): void {
   }
   let json = new Uint8Array(json_len as u32);
   read_register(0, <usize>json.buffer);
-  let handler = new __near_ArgsParser_benchmark_storage();
-  handler.buffer = json;
-  handler.decoder = new JSONDecoder<__near_ArgsParser_benchmark_storage>(handler);
-  handler.decoder.deserialize(json);
-  let result: string = benchmark_storage(handler.__near_param_n);
+  const obj: Obj = JSON.parse(json);
+  
+  let result: string = benchmark_storage(decode<i32>(obj, "n"));
 
   let encoder = new JSONEncoder();
   if ((isString<string>() || isNullable<string>()) && result == null) {
@@ -390,41 +180,6 @@ function __wrapper_benchmark_storage(): void {
 export { __wrapper_benchmark_storage as benchmark_storage }
 
 
-class __near_ArgsParser_limited_storage extends ThrowingJSONHandler {
-  buffer: Uint8Array;
-  decoder: JSONDecoder<__near_ArgsParser_limited_storage>;
-  handledRoot: boolean = false;
-  __near_param_max_storage: u64;
-  setString(name: string, value: string): void {
-    if (name == "max_storage") {
-      this.__near_param_max_storage = U64.parseInt(value);
-      return;
-     }
-    super.setString(name, value);
-    }
-  setNull(name: string): void {
-
-    super.setNull(name);
-  }
-
-  pushObject(name: string): bool {
-if (!this.handledRoot) {
-      assert(name == null || name.length == 0);
-      this.handledRoot = true;
-      return true;
-    } else {
-      assert(name != null || name.length != 0);
-    }
-
-    return super.pushObject(name);
-  }
-
-  pushArray(name: string): bool {
-
-    return super.pushArray(name);
-  }
-}
-
 //@ts-ignore
 function __wrapper_limited_storage(): void {
   // Reading input bytes.
@@ -435,11 +190,9 @@ function __wrapper_limited_storage(): void {
   }
   let json = new Uint8Array(json_len as u32);
   read_register(0, <usize>json.buffer);
-  let handler = new __near_ArgsParser_limited_storage();
-  handler.buffer = json;
-  handler.decoder = new JSONDecoder<__near_ArgsParser_limited_storage>(handler);
-  handler.decoder.deserialize(json);
-  let result: string = limited_storage(handler.__near_param_max_storage);
+  const obj: Obj = JSON.parse(json);
+  
+  let result: string = limited_storage(decode<u64>(obj, "max_storage"));
 
   let encoder = new JSONEncoder();
   if ((isString<string>() || isNullable<string>()) && result == null) {
@@ -454,41 +207,6 @@ function __wrapper_limited_storage(): void {
 export { __wrapper_limited_storage as limited_storage }
 
 
-class __near_ArgsParser_benchmark_sum_n extends ThrowingJSONHandler {
-  buffer: Uint8Array;
-  decoder: JSONDecoder<__near_ArgsParser_benchmark_sum_n>;
-  handledRoot: boolean = false;
-  __near_param_n: i32;
-  setInteger(name: string, value: i64): void {
-    if (name == "n") {
-      this.__near_param_n = <i32>value;
-      return;
-     }
-    super.setInteger(name, value);
-    }
-  setNull(name: string): void {
-
-    super.setNull(name);
-  }
-
-  pushObject(name: string): bool {
-if (!this.handledRoot) {
-      assert(name == null || name.length == 0);
-      this.handledRoot = true;
-      return true;
-    } else {
-      assert(name != null || name.length != 0);
-    }
-
-    return super.pushObject(name);
-  }
-
-  pushArray(name: string): bool {
-
-    return super.pushArray(name);
-  }
-}
-
 //@ts-ignore
 function __wrapper_benchmark_sum_n(): void {
   // Reading input bytes.
@@ -499,11 +217,9 @@ function __wrapper_benchmark_sum_n(): void {
   }
   let json = new Uint8Array(json_len as u32);
   read_register(0, <usize>json.buffer);
-  let handler = new __near_ArgsParser_benchmark_sum_n();
-  handler.buffer = json;
-  handler.decoder = new JSONDecoder<__near_ArgsParser_benchmark_sum_n>(handler);
-  handler.decoder.deserialize(json);
-  let result: string = benchmark_sum_n(handler.__near_param_n);
+  const obj: Obj = JSON.parse(json);
+  
+  let result: string = benchmark_sum_n(decode<i32>(obj, "n"));
 
   let encoder = new JSONEncoder();
   if ((isString<string>() || isNullable<string>()) && result == null) {
@@ -535,45 +251,6 @@ function __wrapper_returnHiWithLogs(): void {
 export { __wrapper_returnHiWithLogs as returnHiWithLogs }
 
 
-class __near_ArgsParser_testSetRemove extends ThrowingJSONHandler {
-  buffer: Uint8Array;
-  decoder: JSONDecoder<__near_ArgsParser_testSetRemove>;
-  handledRoot: boolean = false;
-  __near_param_value: string;
-  setString(name: string, value: string): void {
-    if (name == "value") {
-      this.__near_param_value = <string>value;
-      return;
-     }
-    super.setString(name, value);
-    }
-  setNull(name: string): void {
-    if (name == "value") {
-        this.__near_param_value = <string>null
-         return;
-      }
-
-    super.setNull(name);
-  }
-
-  pushObject(name: string): bool {
-if (!this.handledRoot) {
-      assert(name == null || name.length == 0);
-      this.handledRoot = true;
-      return true;
-    } else {
-      assert(name != null || name.length != 0);
-    }
-
-    return super.pushObject(name);
-  }
-
-  pushArray(name: string): bool {
-
-    return super.pushArray(name);
-  }
-}
-
 //@ts-ignore
 function __wrapper_testSetRemove(): void {
   // Reading input bytes.
@@ -584,55 +261,13 @@ function __wrapper_testSetRemove(): void {
   }
   let json = new Uint8Array(json_len as u32);
   read_register(0, <usize>json.buffer);
-  let handler = new __near_ArgsParser_testSetRemove();
-  handler.buffer = json;
-  handler.decoder = new JSONDecoder<__near_ArgsParser_testSetRemove>(handler);
-  handler.decoder.deserialize(json);
-  testSetRemove(handler.__near_param_value);
+  const obj: Obj = JSON.parse(json);
+  
+  testSetRemove(decode<string>(obj, "value"));
 }
 
 export { __wrapper_testSetRemove as testSetRemove }
 
-
-class __near_ArgsParser_insertStrings extends ThrowingJSONHandler {
-  buffer: Uint8Array;
-  decoder: JSONDecoder<__near_ArgsParser_insertStrings>;
-  handledRoot: boolean = false;
-  __near_param_from: i32;
-  __near_param_to: i32;
-  setInteger(name: string, value: i64): void {
-    if (name == "from") {
-      this.__near_param_from = <i32>value;
-      return;
-     }
-    if (name == "to") {
-      this.__near_param_to = <i32>value;
-      return;
-     }
-    super.setInteger(name, value);
-    }
-  setNull(name: string): void {
-
-    super.setNull(name);
-  }
-
-  pushObject(name: string): bool {
-if (!this.handledRoot) {
-      assert(name == null || name.length == 0);
-      this.handledRoot = true;
-      return true;
-    } else {
-      assert(name != null || name.length != 0);
-    }
-
-    return super.pushObject(name);
-  }
-
-  pushArray(name: string): bool {
-
-    return super.pushArray(name);
-  }
-}
 
 //@ts-ignore
 function __wrapper_insertStrings(): void {
@@ -644,55 +279,13 @@ function __wrapper_insertStrings(): void {
   }
   let json = new Uint8Array(json_len as u32);
   read_register(0, <usize>json.buffer);
-  let handler = new __near_ArgsParser_insertStrings();
-  handler.buffer = json;
-  handler.decoder = new JSONDecoder<__near_ArgsParser_insertStrings>(handler);
-  handler.decoder.deserialize(json);
-  insertStrings(handler.__near_param_from, handler.__near_param_to);
+  const obj: Obj = JSON.parse(json);
+  
+  insertStrings(decode<i32>(obj, "from"), decode<i32>(obj, "to"));
 }
 
 export { __wrapper_insertStrings as insertStrings }
 
-
-class __near_ArgsParser_deleteStrings extends ThrowingJSONHandler {
-  buffer: Uint8Array;
-  decoder: JSONDecoder<__near_ArgsParser_deleteStrings>;
-  handledRoot: boolean = false;
-  __near_param_from: i32;
-  __near_param_to: i32;
-  setInteger(name: string, value: i64): void {
-    if (name == "from") {
-      this.__near_param_from = <i32>value;
-      return;
-     }
-    if (name == "to") {
-      this.__near_param_to = <i32>value;
-      return;
-     }
-    super.setInteger(name, value);
-    }
-  setNull(name: string): void {
-
-    super.setNull(name);
-  }
-
-  pushObject(name: string): bool {
-if (!this.handledRoot) {
-      assert(name == null || name.length == 0);
-      this.handledRoot = true;
-      return true;
-    } else {
-      assert(name != null || name.length != 0);
-    }
-
-    return super.pushObject(name);
-  }
-
-  pushArray(name: string): bool {
-
-    return super.pushArray(name);
-  }
-}
 
 //@ts-ignore
 function __wrapper_deleteStrings(): void {
@@ -704,50 +297,13 @@ function __wrapper_deleteStrings(): void {
   }
   let json = new Uint8Array(json_len as u32);
   read_register(0, <usize>json.buffer);
-  let handler = new __near_ArgsParser_deleteStrings();
-  handler.buffer = json;
-  handler.decoder = new JSONDecoder<__near_ArgsParser_deleteStrings>(handler);
-  handler.decoder.deserialize(json);
-  deleteStrings(handler.__near_param_from, handler.__near_param_to);
+  const obj: Obj = JSON.parse(json);
+  
+  deleteStrings(decode<i32>(obj, "from"), decode<i32>(obj, "to"));
 }
 
 export { __wrapper_deleteStrings as deleteStrings }
 
-
-class __near_ArgsParser_recurse extends ThrowingJSONHandler {
-  buffer: Uint8Array;
-  decoder: JSONDecoder<__near_ArgsParser_recurse>;
-  handledRoot: boolean = false;
-  __near_param_n: i32;
-  setInteger(name: string, value: i64): void {
-    if (name == "n") {
-      this.__near_param_n = <i32>value;
-      return;
-     }
-    super.setInteger(name, value);
-    }
-  setNull(name: string): void {
-
-    super.setNull(name);
-  }
-
-  pushObject(name: string): bool {
-if (!this.handledRoot) {
-      assert(name == null || name.length == 0);
-      this.handledRoot = true;
-      return true;
-    } else {
-      assert(name != null || name.length != 0);
-    }
-
-    return super.pushObject(name);
-  }
-
-  pushArray(name: string): bool {
-
-    return super.pushArray(name);
-  }
-}
 
 //@ts-ignore
 function __wrapper_recurse(): void {
@@ -759,11 +315,9 @@ function __wrapper_recurse(): void {
   }
   let json = new Uint8Array(json_len as u32);
   read_register(0, <usize>json.buffer);
-  let handler = new __near_ArgsParser_recurse();
-  handler.buffer = json;
-  handler.decoder = new JSONDecoder<__near_ArgsParser_recurse>(handler);
-  handler.decoder.deserialize(json);
-  let result: i32 = recurse(handler.__near_param_n);
+  const obj: Obj = JSON.parse(json);
+  
+  let result: i32 = recurse(decode<i32>(obj, "n"));
 
   let encoder = new JSONEncoder();
   if ((isString<i32>() || isNullable<i32>()) && result == null) {
@@ -778,42 +332,6 @@ function __wrapper_recurse(): void {
 export { __wrapper_recurse as recurse }
 
 
-class __near_ArgsParser_callPromise extends ThrowingJSONHandler {
-  buffer: Uint8Array;
-  decoder: JSONDecoder<__near_ArgsParser_callPromise>;
-  handledRoot: boolean = false;
-  __near_param_args: PromiseArgs;
-  setNull(name: string): void {
-    if (name == "args") {
-        this.__near_param_args = <PromiseArgs>null
-         return;
-      }
-
-    super.setNull(name);
-  }
-
-  pushObject(name: string): bool {
-if (!this.handledRoot) {
-      assert(name == null || name.length == 0);
-      this.handledRoot = true;
-      return true;
-    } else {
-      assert(name != null || name.length != 0);
-    }
-       if (name == "args") {
-          this.__near_param_args = decode<PromiseArgs>(this.buffer, this.decoder.state);
-          return false;
-        }
-
-    return super.pushObject(name);
-  }
-
-  pushArray(name: string): bool {
-
-    return super.pushArray(name);
-  }
-}
-
 //@ts-ignore
 function __wrapper_callPromise(): void {
   // Reading input bytes.
@@ -824,51 +342,13 @@ function __wrapper_callPromise(): void {
   }
   let json = new Uint8Array(json_len as u32);
   read_register(0, <usize>json.buffer);
-  let handler = new __near_ArgsParser_callPromise();
-  handler.buffer = json;
-  handler.decoder = new JSONDecoder<__near_ArgsParser_callPromise>(handler);
-  handler.decoder.deserialize(json);
-  callPromise(handler.__near_param_args);
+  const obj: Obj = JSON.parse(json);
+  
+  callPromise(decode<PromiseArgs>(obj, "args"));
 }
 
 export { __wrapper_callPromise as callPromise }
 
-
-class __near_ArgsParser_callbackWithName extends ThrowingJSONHandler {
-  buffer: Uint8Array;
-  decoder: JSONDecoder<__near_ArgsParser_callbackWithName>;
-  handledRoot: boolean = false;
-  __near_param_args: PromiseArgs;
-  setNull(name: string): void {
-    if (name == "args") {
-        this.__near_param_args = <PromiseArgs>null
-         return;
-      }
-
-    super.setNull(name);
-  }
-
-  pushObject(name: string): bool {
-if (!this.handledRoot) {
-      assert(name == null || name.length == 0);
-      this.handledRoot = true;
-      return true;
-    } else {
-      assert(name != null || name.length != 0);
-    }
-       if (name == "args") {
-          this.__near_param_args = decode<PromiseArgs>(this.buffer, this.decoder.state);
-          return false;
-        }
-
-    return super.pushObject(name);
-  }
-
-  pushArray(name: string): bool {
-
-    return super.pushArray(name);
-  }
-}
 
 //@ts-ignore
 function __wrapper_callbackWithName(): void {
@@ -880,11 +360,9 @@ function __wrapper_callbackWithName(): void {
   }
   let json = new Uint8Array(json_len as u32);
   read_register(0, <usize>json.buffer);
-  let handler = new __near_ArgsParser_callbackWithName();
-  handler.buffer = json;
-  handler.decoder = new JSONDecoder<__near_ArgsParser_callbackWithName>(handler);
-  handler.decoder.deserialize(json);
-  let result: MyCallbackResult = callbackWithName(handler.__near_param_args);
+  const obj: Obj = JSON.parse(json);
+  
+  let result: MyCallbackResult = callbackWithName(decode<PromiseArgs>(obj, "args"));
 
   let encoder = new JSONEncoder();
   if ((isString<MyCallbackResult>() || isNullable<MyCallbackResult>()) && result == null) {

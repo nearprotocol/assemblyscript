@@ -1,4 +1,4 @@
-import { storage, near, base64 } from "near-runtime-ts";
+import { base64 } from "near-runtime-ts";
 import { JSONEncoder } from "assemblyscript-json";
 import { JSONDecoder, ThrowingJSONHandler, DecoderState } from "assemblyscript-json";
 
@@ -566,20 +566,32 @@ export class FooBar {
   uint8arrays: Array<Uint8Array>;
   u64Arr: Array<u64>;
 
-  static decode(json: Uint8Array, state: DecoderState | null = null): FooBar {
+  static decode(json: Uint8Array): FooBar {
     let value = instantiate<FooBar>(); // Allocate without constructor
-    value.decode(json, state);
+    value.decode(JSON.parse(json));
     return value;
   }
 
-  decode(json: Uint8Array, state: DecoderState | null): FooBar {
-    let handler: __near_JSONHandler_FooBar = new __near_JSONHandler_FooBar(this);
-    handler.buffer = json;
-    let decoder = new JSONDecoder<__near_JSONHandler_FooBar>(handler);
-    handler.decoder = decoder;
-    decoder.deserialize(json, state);
+  decode(json: Obj): FooBar {
+    let obj: Obj = json;
+    this.foo = decode<i32>(obj, "foo");
+    this.bar = decode<u32>(obj, "bar");
+    this.u64Val = decode<u64>(obj, "u64Val");
+    this.u64_zero = decode<u64>(obj, "u64_zero");
+    this.i64Val = decode<i64>(obj, "i64Val");
+    this.flag = decode<bool>(obj, "flag");
+    this.baz = decode<string>(obj, "baz");
+    this.uint8array = decode<Uint8Array>(obj, "uint8array");
+    this.arr = decode<Array<Array<string>>>(obj, "arr");
+    this.u32Arr = decode<Array<u32>>(obj, "u32Arr");
+    this.i32Arr = decode<Array<i32>>(obj, "i32Arr");
+    this.u128Val = decode<u128>(obj, "u128Val");
+    this.uint8arrays = decode<Array<Uint8Array>>(obj, "uint8arrays");
+    this.u64Arr = decode<Array<u64>>(obj, "u64Arr");
     return this;
   }
+
+  
 
   encode(_encoder: JSONEncoder | null = null, name: string | null = ""): JSONEncoder {
     let encoder = (_encoder != null ? _encoder : new JSONEncoder())!;
@@ -615,20 +627,21 @@ export class Nullables {
   u128: u128;
   uint8Array: Uint8Array;
 
-  static decode(json: Uint8Array, state: DecoderState | null = null): Nullables {
+  static decode(json: Uint8Array): Nullables {
     let value = instantiate<Nullables>(); // Allocate without constructor
-    value.decode(json, state);
+    value.decode(JSON.parse(json));
     return value;
   }
 
-  decode(json: Uint8Array, state: DecoderState | null): Nullables {
-    let handler: __near_JSONHandler_Nullables = new __near_JSONHandler_Nullables(this);
-    handler.buffer = json;
-    let decoder = new JSONDecoder<__near_JSONHandler_Nullables>(handler);
-    handler.decoder = decoder;
-    decoder.deserialize(json, state);
+  decode(json: Obj): Nullables {
+    let obj: Obj = json;
+    this.str = decode<string>(obj, "str");
+    this.u128 = decode<u128>(obj, "u128");
+    this.uint8Array = decode<Uint8Array>(obj, "uint8Array");
     return this;
   }
+
+  
 
   encode(_encoder: JSONEncoder | null = null, name: string | null = ""): JSONEncoder {
     let encoder = (_encoder != null ? _encoder : new JSONEncoder())!;
@@ -651,20 +664,19 @@ export class Nullables {
 export class ContainerClass {
   foobar: FooBar;
 
-  static decode(json: Uint8Array, state: DecoderState | null = null): ContainerClass {
+  static decode(json: Uint8Array): ContainerClass {
     let value = instantiate<ContainerClass>(); // Allocate without constructor
-    value.decode(json, state);
+    value.decode(JSON.parse(json));
     return value;
   }
 
-  decode(json: Uint8Array, state: DecoderState | null): ContainerClass {
-    let handler: __near_JSONHandler_ContainerClass = new __near_JSONHandler_ContainerClass(this);
-    handler.buffer = json;
-    let decoder = new JSONDecoder<__near_JSONHandler_ContainerClass>(handler);
-    handler.decoder = decoder;
-    decoder.deserialize(json, state);
+  decode(json: Obj): ContainerClass {
+    let obj: Obj = json;
+    this.foobar = decode<FooBar>(obj, "foobar");
     return this;
   }
+
+  
 
   encode(_encoder: JSONEncoder | null = null, name: string | null = ""): JSONEncoder {
     let encoder = (_encoder != null ? _encoder : new JSONEncoder())!;
@@ -685,20 +697,19 @@ export class ContainerClass {
 export class AnotherContainerClass {
   foobars: Array<Array<FooBar>>;
 
-  static decode(json: Uint8Array, state: DecoderState | null = null): AnotherContainerClass {
+  static decode(json: Uint8Array): AnotherContainerClass {
     let value = instantiate<AnotherContainerClass>(); // Allocate without constructor
-    value.decode(json, state);
+    value.decode(JSON.parse(json));
     return value;
   }
 
-  decode(json: Uint8Array, state: DecoderState | null): AnotherContainerClass {
-    let handler: __near_JSONHandler_AnotherContainerClass = new __near_JSONHandler_AnotherContainerClass(this);
-    handler.buffer = json;
-    let decoder = new JSONDecoder<__near_JSONHandler_AnotherContainerClass>(handler);
-    handler.decoder = decoder;
-    decoder.deserialize(json, state);
+  decode(json: Obj): AnotherContainerClass {
+    let obj: Obj = json;
+    this.foobars = decode<Array<Array<FooBar>>>(obj, "foobars");
     return this;
   }
+
+  
 
   encode(_encoder: JSONEncoder | null = null, name: string | null = ""): JSONEncoder {
     let encoder = (_encoder != null ? _encoder : new JSONEncoder())!;
@@ -725,20 +736,25 @@ export class PromiseArgs {
   callbackArgs: PromiseArgs;
   callbackBalance: i32;
 
-  static decode(json: Uint8Array, state: DecoderState | null = null): PromiseArgs {
+  static decode(json: Uint8Array): PromiseArgs {
     let value = instantiate<PromiseArgs>(); // Allocate without constructor
-    value.decode(json, state);
+    value.decode(JSON.parse(json));
     return value;
   }
 
-  decode(json: Uint8Array, state: DecoderState | null): PromiseArgs {
-    let handler: __near_JSONHandler_PromiseArgs = new __near_JSONHandler_PromiseArgs(this);
-    handler.buffer = json;
-    let decoder = new JSONDecoder<__near_JSONHandler_PromiseArgs>(handler);
-    handler.decoder = decoder;
-    decoder.deserialize(json, state);
+  decode(json: Obj): PromiseArgs {
+    let obj: Obj = json;
+    this.receiver = decode<string>(obj, "receiver");
+    this.methodName = decode<string>(obj, "methodName");
+    this.args = decode<PromiseArgs>(obj, "args");
+    this.balance = decode<i32>(obj, "balance");
+    this.callback = decode<string>(obj, "callback");
+    this.callbackArgs = decode<PromiseArgs>(obj, "callbackArgs");
+    this.callbackBalance = decode<i32>(obj, "callbackBalance");
     return this;
   }
+
+  
 
   encode(_encoder: JSONEncoder | null = null, name: string | null = ""): JSONEncoder {
     let encoder = (_encoder != null ? _encoder : new JSONEncoder())!;
@@ -766,20 +782,20 @@ export class MyContractPromiseResult {
   ok: bool;
   r: MyCallbackResult;
 
-  static decode(json: Uint8Array, state: DecoderState | null = null): MyContractPromiseResult {
+  static decode(json: Uint8Array): MyContractPromiseResult {
     let value = instantiate<MyContractPromiseResult>(); // Allocate without constructor
-    value.decode(json, state);
+    value.decode(JSON.parse(json));
     return value;
   }
 
-  decode(json: Uint8Array, state: DecoderState | null): MyContractPromiseResult {
-    let handler: __near_JSONHandler_MyContractPromiseResult = new __near_JSONHandler_MyContractPromiseResult(this);
-    handler.buffer = json;
-    let decoder = new JSONDecoder<__near_JSONHandler_MyContractPromiseResult>(handler);
-    handler.decoder = decoder;
-    decoder.deserialize(json, state);
+  decode(json: Obj): MyContractPromiseResult {
+    let obj: Obj = json;
+    this.ok = decode<bool>(obj, "ok");
+    this.r = decode<MyCallbackResult>(obj, "r");
     return this;
   }
+
+  
 
   encode(_encoder: JSONEncoder | null = null, name: string | null = ""): JSONEncoder {
     let encoder = (_encoder != null ? _encoder : new JSONEncoder())!;
@@ -802,20 +818,20 @@ export class MyCallbackResult {
   rs: Array<MyContractPromiseResult>;
   n: string;
 
-  static decode(json: Uint8Array, state: DecoderState | null = null): MyCallbackResult {
+  static decode(json: Uint8Array): MyCallbackResult {
     let value = instantiate<MyCallbackResult>(); // Allocate without constructor
-    value.decode(json, state);
+    value.decode(JSON.parse(json));
     return value;
   }
 
-  decode(json: Uint8Array, state: DecoderState | null): MyCallbackResult {
-    let handler: __near_JSONHandler_MyCallbackResult = new __near_JSONHandler_MyCallbackResult(this);
-    handler.buffer = json;
-    let decoder = new JSONDecoder<__near_JSONHandler_MyCallbackResult>(handler);
-    handler.decoder = decoder;
-    decoder.deserialize(json, state);
+  decode(json: Obj): MyCallbackResult {
+    let obj: Obj = json;
+    this.rs = decode<Array<MyContractPromiseResult>>(obj, "rs");
+    this.n = decode<string>(obj, "n");
     return this;
   }
+
+  
 
   encode(_encoder: JSONEncoder | null = null, name: string | null = ""): JSONEncoder {
     let encoder = (_encoder != null ? _encoder : new JSONEncoder())!;
@@ -837,20 +853,19 @@ export class MyCallbackResult {
 export class Generic<T> {
   value: T;
 
-  static decode(json: Uint8Array, state: DecoderState | null = null): Generic<T> {
+  static decode(json: Uint8Array): Generic<T> {
     let value = instantiate<Generic<T>>(); // Allocate without constructor
-    value.decode(json, state);
+    value.decode(JSON.parse(json));
     return value;
   }
 
-  decode(json: Uint8Array, state: DecoderState | null): Generic<T> {
-    let handler: __near_JSONHandler_Generic<T> = new __near_JSONHandler_Generic<T>(this);
-    handler.buffer = json;
-    let decoder = new JSONDecoder<__near_JSONHandler_Generic<T>>(handler);
-    handler.decoder = decoder;
-    decoder.deserialize(json, state);
+  decode(json: Obj): Generic<T> {
+    let obj: Obj = json;
+    this.value = decode<T>(obj, "value");
     return this;
   }
+
+  
 
   encode(_encoder: JSONEncoder | null = null, name: string | null = ""): JSONEncoder {
     let encoder = (_encoder != null ? _encoder : new JSONEncoder())!;
