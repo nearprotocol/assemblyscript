@@ -4851,7 +4851,7 @@ declare module 'assemblyscript/src/index' {
 	export * from 'assemblyscript/src/resolver';
 	export * from 'assemblyscript/src/tokenizer';
 	export * from 'assemblyscript/src/types';
-	export * from 'assemblyscript/src/util';
+	export * from 'assemblyscript/src/util/index';
 
 }
 declare module 'assemblyscript/src/extra/ast' {
@@ -5648,3 +5648,95 @@ declare function i64_is_f64(value: I64): bool;
 declare function i64_to_f32(value: I64): f64;
 declare function i64_to_f64(value: I64): f64;
 declare function i64_to_string(value: I64, unsigned?: bool): string;
+
+declare module 'assemblyscript/std/assembly/shared/feature' {
+	/** Indicates specific features to activate. */
+	export const enum Feature {
+	    /** No additional features. */
+	    NONE = 0,
+	    /** Sign extension operations. */
+	    SIGN_EXTENSION = 1,
+	    /** Mutable global imports and exports. */
+	    MUTABLE_GLOBAL = 2,
+	    /** Bulk memory operations. */
+	    BULK_MEMORY = 4,
+	    /** SIMD types and operations. */
+	    SIMD = 8,
+	    /** Threading and atomic operations. */
+	    THREADS = 16
+	}
+
+}
+declare module 'assemblyscript/std/assembly/shared/target' {
+	/** Compilation target. */
+	export enum Target {
+	    /** WebAssembly with 32-bit pointers. */
+	    WASM32 = 0,
+	    /** WebAssembly with 64-bit pointers. Experimental and not supported by any runtime yet. */
+	    WASM64 = 1,
+	    /** Portable. */
+	    JS = 2
+	}
+
+}
+declare module 'assemblyscript/std/assembly/shared/typeinfo' {
+	/** Runtime type information data structure. */
+	export class Typeinfo {
+	    /** Flags describing the shape of this class type. */
+	    flags: TypeinfoFlags;
+	    /** Base class id or `0` if none. */
+	    base: u32;
+	}
+	/** Runtime type information flags. */
+	export const enum TypeinfoFlags {
+	    /** No specific flags. */
+	    NONE = 0,
+	    /** Type is an `ArrayBufferView`. */
+	    ARRAYBUFFERVIEW = 1,
+	    /** Type is an `Array`. */
+	    ARRAY = 2,
+	    /** Type is a `Set`. */
+	    SET = 4,
+	    /** Type is a `Map`. */
+	    MAP = 8,
+	    /** Type is inherently acyclic. */
+	    ACYCLIC = 16,
+	    /** Value alignment of 1 byte. */
+	    VALUE_ALIGN_0 = 32,
+	    /** Value alignment of 2 bytes. */
+	    VALUE_ALIGN_1 = 64,
+	    /** Value alignment of 4 bytes. */
+	    VALUE_ALIGN_2 = 128,
+	    /** Value alignment of 8 bytes. */
+	    VALUE_ALIGN_3 = 256,
+	    /** Value alignment of 16 bytes. */
+	    VALUE_ALIGN_4 = 512,
+	    /** Value is a signed type. */
+	    VALUE_SIGNED = 1024,
+	    /** Value is a float type. */
+	    VALUE_FLOAT = 2048,
+	    /** Value type is nullable. */
+	    VALUE_NULLABLE = 4096,
+	    /** Value type is managed. */
+	    VALUE_MANAGED = 8192,
+	    /** Key alignment of 1 byte. */
+	    KEY_ALIGN_0 = 16384,
+	    /** Key alignment of 2 bytes. */
+	    KEY_ALIGN_1 = 32768,
+	    /** Key alignment of 4 bytes. */
+	    KEY_ALIGN_2 = 65536,
+	    /** Key alignment of 8 bytes. */
+	    KEY_ALIGN_3 = 131072,
+	    /** Key alignment of 16 bytes. */
+	    KEY_ALIGN_4 = 262144,
+	    /** Key is a signed type. */
+	    KEY_SIGNED = 524288,
+	    /** Key is a float type. */
+	    KEY_FLOAT = 1048576,
+	    /** Key type is nullable. */
+	    KEY_NULLABLE = 2097152,
+	    /** Key type is managed. */
+	    KEY_MANAGED = 4194304
+	}
+
+}

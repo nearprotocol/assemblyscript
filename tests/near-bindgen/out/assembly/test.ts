@@ -123,6 +123,32 @@ function __wrapper_stringOrNull(): void {
 
 export { __wrapper_stringOrNull as stringOrNull }
 
+
+//@ts-ignore
+function __wrapper_stringAliasTest(): void {
+  // Reading input bytes.
+  input(0);
+  let json_len = register_len(0);
+  if (json_len == U32.MAX_VALUE) {
+    panic();
+  }
+  let json = new Uint8Array(json_len as u32);
+  read_register(0, <usize>json.buffer);
+  const obj: Obj = JSON.parse(json);
+  let result: StringAlias = stringAliasTest(decode<StringAlias>(obj, "str"));
+
+  let encoder = new JSONEncoder();
+  if ((isString<StringAlias>() || isNullable<StringAlias>()) && result == null) {
+    encoder.setNull(null);
+  } else {
+    encode<StringAlias>(encoder, result, null);
+  }
+  let val: Uint8Array = encoder.serialize();
+  value_return(val.byteLength, <usize>val.buffer);
+}
+
+export { __wrapper_stringAliasTest as stringAliasTest }
+
 import * as main from "./main"
 import {
   base64,
@@ -186,4 +212,8 @@ function unwrapFoobar(container: AnotherContainerClass): FooBar {
 }
 function stringOrNull(): string | null {
   return main.stringOrNull();
+}
+type StringAlias = string
+function stringAliasTest(str: StringAlias): StringAlias {
+  return str + " World";
 }

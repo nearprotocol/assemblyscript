@@ -66,3 +66,9 @@ export function unwrapFoobar(container: AnotherContainerClass): FooBar {
 export function stringOrNull(): string | null {
     return main.stringOrNull();
 }
+
+type StringAlias = string;
+
+export function stringAliasTest(str: StringAlias): StringAlias {
+    return str + " World"
+}
