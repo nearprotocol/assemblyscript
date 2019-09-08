@@ -14,7 +14,6 @@ function __wrapper_convertFoobars(): void {
   let json = new Uint8Array(json_len as u32);
   read_register(0, <usize>json.buffer);
   const obj: Obj = JSON.parse(json);
-  
   let result: Array<ContainerClass> = convertFoobars(decode<Array<FooBar>>(obj, "foobars"));
 
   let encoder = new JSONEncoder();
@@ -41,7 +40,6 @@ function __wrapper_getStringArrayLength(): void {
   let json = new Uint8Array(json_len as u32);
   read_register(0, <usize>json.buffer);
   const obj: Obj = JSON.parse(json);
-  
   let result: i32 = getStringArrayLength(decode<Array<string>>(obj, "arr"));
 
   let encoder = new JSONEncoder();
@@ -68,7 +66,6 @@ function __wrapper_rewrapFoobar(): void {
   let json = new Uint8Array(json_len as u32);
   read_register(0, <usize>json.buffer);
   const obj: Obj = JSON.parse(json);
-  
   let result: AnotherContainerClass = rewrapFoobar(decode<ContainerClass>(obj, "container"));
 
   let encoder = new JSONEncoder();
@@ -95,7 +92,6 @@ function __wrapper_unwrapFoobar(): void {
   let json = new Uint8Array(json_len as u32);
   read_register(0, <usize>json.buffer);
   const obj: Obj = JSON.parse(json);
-  
   let result: FooBar = unwrapFoobar(decode<AnotherContainerClass>(obj, "container"));
 
   let encoder = new JSONEncoder();
@@ -160,9 +156,8 @@ export function runTest(): void {
   logging.log("Before: " + encoder.toString());
   const encoded = encoder.serialize();
   let obj = JSON.parse(encoded);
-  logging.log(obj.keys.join(", "));
   let decoded: FooBar = decode<FooBar>(obj);
-  logging.log("After: " + decoded.toJSON());
+  logging.log("After:  " + decoded.toJSON());
   assert(original.foo == decoded.foo);
   assert(original.bar == decoded.bar);
   assert(base64.encode(original.uint8array) == base64.encode(decoded.uint8array));

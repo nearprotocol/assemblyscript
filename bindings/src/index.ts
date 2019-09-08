@@ -109,7 +109,6 @@ class NEARBindingsBuilder extends BaseVisitor {
 
   visitClassDeclaration(node: ClassDeclaration): void {
     if (this.exportedClasses.has(toString(node.name))) return;
-    this.generateHandler(node);
     this.exportedClasses.set(toString(node.name), node);
   }
 
@@ -129,36 +128,6 @@ class NEARBindingsBuilder extends BaseVisitor {
     // Change function to not be an export
     node.flags = node.flags ^ CommonFlags.EXPORT;
     this.wrappedFuncs.add(toString(node.name));
-  }
-
-  private generateArgsParser(node: FunctionDeclaration): void {
-    var signature = node.signature;
-    let name = toString(node.name);
-    var args: SimpleField[] = signature.parameters.map(param => {
-      let name = toString(param.name);
-      let type = param.type;
-      return { name,
-        type,
-        isGeneric: node.typeParameters != null && node.typeParameters.some(T => toString(T) == toString(type))
-       };
-    });
-
-    this.sb.push(`
-class __near_ArgsParser_${name} extends ThrowingJSONHandler {
-  buffer: Uint8Array;
-  decoder: JSONDecoder<__near_ArgsParser_${name}>;
-  handledRoot: boolean = false;`);
-    if (args.length > 0) {
-      args.forEach(arg => {
-        this.sb.push(
-`  __near_param_${arg.name}: ${this.typeName(arg.type)};`
-        );
-      });
-      this.generateHandlerMethods("this.__near_param_", args);
-    } else {
-      this.generateHandlerMethods("this.__near_param_", []);
-    }
-    this.sb.push(`}`);
   }
 
   /*
@@ -184,8 +153,7 @@ function __wrapper_${name}(): void {`);
   }
   let json = new Uint8Array(json_len as u32);
   read_register(0, <usize>json.buffer);
-  const obj: Obj = JSON.parse(json);
-  `);
+  const obj: Obj = JSON.parse(json);`);
     }
     if (toString(returnType) !== "void") {
       this.sb.push(
@@ -218,175 +186,7 @@ function __wrapper_${name}(): void {`);
 export { __wrapper_${name} as ${name} }
 `);
   }
-
-  private generateHandlerMethods(
-    valuePrefix: string,
-    fields: SimpleField[]
-  ): void {
-    var fieldsWithTypes = (types: string[]): SimpleField[] =>
-      fields.filter(field =>
-            types.indexOf(this.typeName(field.type)) != -1 || field.isGeneric);
-
-    this.generateBasicSetterHandlers(
-      valuePrefix,
-      "Integer",
-      "i64",
-      fieldsWithTypes(["i32", "u32"])
-    );
-    this.generateBasicSetterHandlers(
-      valuePrefix,
-      "String",
-      "string",
-      fieldsWithTypes(["string", "i64", "u64", "Uint8Array", "u128"])
-    );
-    this.generateBasicSetterHandlers(
-      valuePrefix,
-      "Boolean",
-      "bool",
-      fieldsWithTypes(["bool"])
-    );
-
-    var nonBasicFields = fields.filter(field => isReference(field.type) || field.isGeneric);
-
-    this.sb.push(`  setNull(name: string): void {`);
-    nonBasicFields.forEach(field => {
-      this.sb.push(
-`    if (name == "${field.name}") {`);
-      let setter = `${valuePrefix}${field.name} = <${this.typeName(field.type)}>null`;
-      if (field.isGeneric) {
-        this.sb.push(
-`       if (isNullable<${this.typeName(field.type)}>()){
-         ${setter}
-          return;
-         }`);
-        } else {
-          this.sb.push(
-`        ${setter}
-         return;`);
-        }
-      this.sb.push(
-`      }`);
-    });
-    this.sb.push(`
-    super.setNull(name);
-  }`);
-
-    this.sb.push(`
-  pushObject(name: string): bool {`);
-    this.sb.push(
-    `if (!this.handledRoot) {
-      assert(name == null || name.length == 0);
-      this.handledRoot = true;
-      return true;
-    } else {
-      assert(name != null || name.length != 0);
-    }`);
-    this.generatePushHandler(
-      valuePrefix,
-      nonBasicFields.filter(field => !isArrayType(field.type))
-    );
-    this.sb.push(`
-    return super.pushObject(name);
-  }`);
-    this.sb.push(`
-  pushArray(name: string): bool {`);
-    this.generatePushHandler(
-      valuePrefix,
-      nonBasicFields.filter(field => isArrayType(field.type))
-    );
-    this.sb.push(`
-    return super.pushArray(name);
-  }`);
-  }
-
-  private generateBasicSetterHandlers(
-    valuePrefix: string,
-    setterType: string,
-    setterValueType: string,
-    matchingFields: SimpleField[]
-  ) {
-    if (matchingFields.length > 0) {
-      this.sb.push(
-`  set${setterType}(name: string, value: ${setterValueType}): void {`
-      );
-      matchingFields.forEach(field => {
-        // tslint:disable-next-line: as-variables
-        let fieldTypeName = this.typeName(field.type);
-        if (setterType == "String" && fieldTypeName != "string") {
-          if (fieldTypeName == "Uint8Array") {
-            this.sb.push(
-`    if (name == "${field.name}") {
-       ${valuePrefix}${field.name} = base64.decode(value);
-       return;
-     }`);
-          } else if (fieldTypeName === "u128") {
-            this.sb.push(
-`    if (name == "${field.name}") {
-      ${valuePrefix}${field.name} = u128.fromString(value);
-      return;
-     }`);
-          } else {
-            let className = this.typeName(field.type) === "u64" ? "U64" : "I64";
-            this.sb.push(
-`    if (name == "${field.name}") {
-      ${valuePrefix}${field.name} = ${field.isGeneric ? "<" + toString(field.type) + ">" : ""}${className}.parseInt(value);
-      return;
-     }`);
-          }
-        } else {
-          this.sb.push(
-`    if (name == "${field.name}") {
-      ${valuePrefix}${field.name} = <${fieldTypeName}>value;
-      return;
-     }`);
-        }
-        if (field.isGeneric) {
-          this.sb.push(
-`    assert(is${setterType}<${fieldTypeName}>(), "${field.name} is not a ${setterType}")`);
-        }
-      });
-
-      this.sb.push(
-`    super.set${setterType}(name, value);
-    }`);
-    }
-  }
-
-  private generatePushHandler(valuePrefix: string, fields: SimpleField[]) {
-    fields.forEach(field => {
-      if (!(this.typeName(field.type) in this.typeMapping)) {
-        let referenceCheck = field.isGeneric ? ` && isReference<${this.typeName(field.type)}>()` : "";
-        this.sb.push(
-`       if (name == "${field.name}"${referenceCheck}) {
-          ${valuePrefix}${field.name} = decode<${toString(field.type)}>(this.buffer, this.decoder.state);
-          return false;
-        }`);
-      }
-    });
-  }
-
-  private generateHandler(type: TypeNode | ClassDeclaration) {
-    if (isArrayType(type)) {
-      return;
-    }
-    let typeName = this.typeName(type);
-    this.sb
-      .push(`export class __near_JSONHandler_${typeName} extends ThrowingJSONHandler {
-  buffer: Uint8Array;
-  decoder: JSONDecoder<__near_JSONHandler_${typeName}>;
-  handledRoot: boolean = false;
-  value: ${this.typeName(type)};
-
-  constructor(value_: ${this.typeName(type)}) {
-    super();
-    this.value = value_;
-  }
-      `);
-
-    this.generateHandlerMethods("this.value.", this.getFields(type));
-    this.sb.push("}\n");
-  }
-
+  
   private typeName(type: TypeNode | ClassDeclaration): string {
     if (!isClass(type)) {
       return ASTBuilder.build(type);
@@ -436,13 +236,10 @@ export { __wrapper_${name} as ${name} }
     return value;
   }
 
-  decode(json: Obj): ${className} {
-    let obj: Obj = json;
-    ${createDecodeStatements(_class)}
+  decode(obj: Obj): ${className} {
+    ${createDecodeStatements(_class).join("\n    ")}
     return this;
   }
-
-  
 
   encode(_encoder: JSONEncoder | null = null, name: string | null = ""): JSONEncoder {
     let encoder = (_encoder != null ? _encoder : new JSONEncoder())!;
@@ -469,11 +266,11 @@ export { __wrapper_${name} as ${name} }
 
 }
 
-function createDecodeStatements(_class: ClassDeclaration): string {
-  let res = _class.members.filter(isField).map(    
-    (field: FieldDeclaration): string  => createDecodeStatement(field, `this.${toString(field.name)} = `)
-  ).join(";\n    ");
-  return res + (res.length>0 ? ";": "")
+function createDecodeStatements(_class: ClassDeclaration): string[] {
+  return _class.members.filter(isField).map((field: FieldDeclaration): string  => {
+    const name = toString(field.name);
+    return createDecodeStatement(field, `this.${name} = obj.has("${name}") ? `) + `: this.${name};`
+  })
 }
 
 function createDecodeStatement(field: FieldDeclaration | ParameterNode, setterPrefix: string = ""): string {

@@ -259,17 +259,16 @@ export class PromiseArgs {
     return value;
   }
 
-  decode(json: Obj): PromiseArgs {
-    let obj: Obj = json;
-    this.receiver = decode<string>(obj, "receiver");
-    this.methodName = decode<string>(obj, "methodName");
-    this.args = decode<PromiseArgs>(obj, "args");
-    this.gas = decode<i32>(obj, "gas");
-    this.balance = decode<i32>(obj, "balance");
-    this.callback = decode<string>(obj, "callback");
-    this.callbackArgs = decode<PromiseArgs>(obj, "callbackArgs");
-    this.callbackBalance = decode<i32>(obj, "callbackBalance");
-    this.callbackGas = decode<i32>(obj, "callbackGas");
+  decode(obj: Obj): PromiseArgs {
+    this.receiver = obj.has("receiver") ? decode<string>(obj, "receiver"): this.receiver;
+    this.methodName = obj.has("methodName") ? decode<string>(obj, "methodName"): this.methodName;
+    this.args = obj.has("args") ? decode<PromiseArgs>(obj, "args"): this.args;
+    this.gas = obj.has("gas") ? decode<i32>(obj, "gas"): this.gas;
+    this.balance = obj.has("balance") ? decode<i32>(obj, "balance"): this.balance;
+    this.callback = obj.has("callback") ? decode<string>(obj, "callback"): this.callback;
+    this.callbackArgs = obj.has("callbackArgs") ? decode<PromiseArgs>(obj, "callbackArgs"): this.callbackArgs;
+    this.callbackBalance = obj.has("callbackBalance") ? decode<i32>(obj, "callbackBalance"): this.callbackBalance;
+    this.callbackGas = obj.has("callbackGas") ? decode<i32>(obj, "callbackGas"): this.callbackGas;
     return this;
   }
 
@@ -308,9 +307,8 @@ export class InputPromiseArgs {
     return value;
   }
 
-  decode(json: Obj): InputPromiseArgs {
-    let obj: Obj = json;
-    this.args = decode<PromiseArgs>(obj, "args");
+  decode(obj: Obj): InputPromiseArgs {
+    this.args = obj.has("args") ? decode<PromiseArgs>(obj, "args"): this.args;
     return this;
   }
 
@@ -342,10 +340,9 @@ export class MyContractPromiseResult {
     return value;
   }
 
-  decode(json: Obj): MyContractPromiseResult {
-    let obj: Obj = json;
-    this.ok = decode<bool>(obj, "ok");
-    this.r = decode<MyCallbackResult>(obj, "r");
+  decode(obj: Obj): MyContractPromiseResult {
+    this.ok = obj.has("ok") ? decode<bool>(obj, "ok"): this.ok;
+    this.r = obj.has("r") ? decode<MyCallbackResult>(obj, "r"): this.r;
     return this;
   }
 
@@ -378,10 +375,9 @@ export class MyCallbackResult {
     return value;
   }
 
-  decode(json: Obj): MyCallbackResult {
-    let obj: Obj = json;
-    this.rs = decode<Array<MyContractPromiseResult>>(obj, "rs");
-    this.n = decode<string>(obj, "n");
+  decode(obj: Obj): MyCallbackResult {
+    this.rs = obj.has("rs") ? decode<Array<MyContractPromiseResult>>(obj, "rs"): this.rs;
+    this.n = obj.has("n") ? decode<string>(obj, "n"): this.n;
     return this;
   }
 

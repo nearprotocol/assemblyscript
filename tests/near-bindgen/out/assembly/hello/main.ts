@@ -14,7 +14,6 @@ function __wrapper_hello(): void {
   let json = new Uint8Array(json_len as u32);
   read_register(0, <usize>json.buffer);
   const obj: Obj = JSON.parse(json);
-  
   let result: string = hello(decode<string>(obj, "name"));
 
   let encoder = new JSONEncoder();
@@ -41,7 +40,6 @@ function __wrapper_setKeyValue(): void {
   let json = new Uint8Array(json_len as u32);
   read_register(0, <usize>json.buffer);
   const obj: Obj = JSON.parse(json);
-  
   setKeyValue(decode<string>(obj, "key"), decode<string>(obj, "value"));
 }
 
@@ -59,7 +57,6 @@ function __wrapper_getValueByKey(): void {
   let json = new Uint8Array(json_len as u32);
   read_register(0, <usize>json.buffer);
   const obj: Obj = JSON.parse(json);
-  
   let result: string = getValueByKey(decode<string>(obj, "key"));
 
   let encoder = new JSONEncoder();
@@ -86,7 +83,6 @@ function __wrapper_setValue(): void {
   let json = new Uint8Array(json_len as u32);
   read_register(0, <usize>json.buffer);
   const obj: Obj = JSON.parse(json);
-  
   let result: string = setValue(decode<string>(obj, "value"));
 
   let encoder = new JSONEncoder();
@@ -164,7 +160,6 @@ function __wrapper_benchmark_storage(): void {
   let json = new Uint8Array(json_len as u32);
   read_register(0, <usize>json.buffer);
   const obj: Obj = JSON.parse(json);
-  
   let result: string = benchmark_storage(decode<i32>(obj, "n"));
 
   let encoder = new JSONEncoder();
@@ -191,7 +186,6 @@ function __wrapper_limited_storage(): void {
   let json = new Uint8Array(json_len as u32);
   read_register(0, <usize>json.buffer);
   const obj: Obj = JSON.parse(json);
-  
   let result: string = limited_storage(decode<u64>(obj, "max_storage"));
 
   let encoder = new JSONEncoder();
@@ -218,7 +212,6 @@ function __wrapper_benchmark_sum_n(): void {
   let json = new Uint8Array(json_len as u32);
   read_register(0, <usize>json.buffer);
   const obj: Obj = JSON.parse(json);
-  
   let result: string = benchmark_sum_n(decode<i32>(obj, "n"));
 
   let encoder = new JSONEncoder();
@@ -262,7 +255,6 @@ function __wrapper_testSetRemove(): void {
   let json = new Uint8Array(json_len as u32);
   read_register(0, <usize>json.buffer);
   const obj: Obj = JSON.parse(json);
-  
   testSetRemove(decode<string>(obj, "value"));
 }
 
@@ -280,7 +272,6 @@ function __wrapper_insertStrings(): void {
   let json = new Uint8Array(json_len as u32);
   read_register(0, <usize>json.buffer);
   const obj: Obj = JSON.parse(json);
-  
   insertStrings(decode<i32>(obj, "from"), decode<i32>(obj, "to"));
 }
 
@@ -298,7 +289,6 @@ function __wrapper_deleteStrings(): void {
   let json = new Uint8Array(json_len as u32);
   read_register(0, <usize>json.buffer);
   const obj: Obj = JSON.parse(json);
-  
   deleteStrings(decode<i32>(obj, "from"), decode<i32>(obj, "to"));
 }
 
@@ -316,7 +306,6 @@ function __wrapper_recurse(): void {
   let json = new Uint8Array(json_len as u32);
   read_register(0, <usize>json.buffer);
   const obj: Obj = JSON.parse(json);
-  
   let result: i32 = recurse(decode<i32>(obj, "n"));
 
   let encoder = new JSONEncoder();
@@ -343,7 +332,6 @@ function __wrapper_callPromise(): void {
   let json = new Uint8Array(json_len as u32);
   read_register(0, <usize>json.buffer);
   const obj: Obj = JSON.parse(json);
-  
   callPromise(decode<PromiseArgs>(obj, "args"));
 }
 
@@ -361,7 +349,6 @@ function __wrapper_callbackWithName(): void {
   let json = new Uint8Array(json_len as u32);
   read_register(0, <usize>json.buffer);
   const obj: Obj = JSON.parse(json);
-  
   let result: MyCallbackResult = callbackWithName(decode<PromiseArgs>(obj, "args"));
 
   let encoder = new JSONEncoder();

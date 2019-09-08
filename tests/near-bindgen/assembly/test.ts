@@ -25,10 +25,9 @@ export function runTest(): void {
     //@ts-ignore
     const encoded = encoder.serialize();
     let obj = JSON.parse(encoded);
-    logging.log(obj.keys.join(", "));
     //@ts-ignore
     let decoded: FooBar = decode<FooBar>(obj);
-    logging.log("After: "+ decoded.toJSON());
+    logging.log("After:  "+ decoded.toJSON());
     assert(original.foo == decoded.foo);
     assert(original.bar == decoded.bar);
     assert(base64.encode(original.uint8array) == base64.encode(decoded.uint8array));

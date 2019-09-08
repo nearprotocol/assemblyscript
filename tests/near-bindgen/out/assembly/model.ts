@@ -572,22 +572,21 @@ export class FooBar {
     return value;
   }
 
-  decode(json: Obj): FooBar {
-    let obj: Obj = json;
-    this.foo = decode<i32>(obj, "foo");
-    this.bar = decode<u32>(obj, "bar");
-    this.u64Val = decode<u64>(obj, "u64Val");
-    this.u64_zero = decode<u64>(obj, "u64_zero");
-    this.i64Val = decode<i64>(obj, "i64Val");
-    this.flag = decode<bool>(obj, "flag");
-    this.baz = decode<string>(obj, "baz");
-    this.uint8array = decode<Uint8Array>(obj, "uint8array");
-    this.arr = decode<Array<Array<string>>>(obj, "arr");
-    this.u32Arr = decode<Array<u32>>(obj, "u32Arr");
-    this.i32Arr = decode<Array<i32>>(obj, "i32Arr");
-    this.u128Val = decode<u128>(obj, "u128Val");
-    this.uint8arrays = decode<Array<Uint8Array>>(obj, "uint8arrays");
-    this.u64Arr = decode<Array<u64>>(obj, "u64Arr");
+  decode(obj: Obj): FooBar {
+    this.foo = obj.has("foo") ? decode<i32>(obj, "foo"): this.foo;
+    this.bar = obj.has("bar") ? decode<u32>(obj, "bar"): this.bar;
+    this.u64Val = obj.has("u64Val") ? decode<u64>(obj, "u64Val"): this.u64Val;
+    this.u64_zero = obj.has("u64_zero") ? decode<u64>(obj, "u64_zero"): this.u64_zero;
+    this.i64Val = obj.has("i64Val") ? decode<i64>(obj, "i64Val"): this.i64Val;
+    this.flag = obj.has("flag") ? decode<bool>(obj, "flag"): this.flag;
+    this.baz = obj.has("baz") ? decode<string>(obj, "baz"): this.baz;
+    this.uint8array = obj.has("uint8array") ? decode<Uint8Array>(obj, "uint8array"): this.uint8array;
+    this.arr = obj.has("arr") ? decode<Array<Array<string>>>(obj, "arr"): this.arr;
+    this.u32Arr = obj.has("u32Arr") ? decode<Array<u32>>(obj, "u32Arr"): this.u32Arr;
+    this.i32Arr = obj.has("i32Arr") ? decode<Array<i32>>(obj, "i32Arr"): this.i32Arr;
+    this.u128Val = obj.has("u128Val") ? decode<u128>(obj, "u128Val"): this.u128Val;
+    this.uint8arrays = obj.has("uint8arrays") ? decode<Array<Uint8Array>>(obj, "uint8arrays"): this.uint8arrays;
+    this.u64Arr = obj.has("u64Arr") ? decode<Array<u64>>(obj, "u64Arr"): this.u64Arr;
     return this;
   }
 
@@ -633,11 +632,10 @@ export class Nullables {
     return value;
   }
 
-  decode(json: Obj): Nullables {
-    let obj: Obj = json;
-    this.str = decode<string>(obj, "str");
-    this.u128 = decode<u128>(obj, "u128");
-    this.uint8Array = decode<Uint8Array>(obj, "uint8Array");
+  decode(obj: Obj): Nullables {
+    this.str = obj.has("str") ? decode<string>(obj, "str"): this.str;
+    this.u128 = obj.has("u128") ? decode<u128>(obj, "u128"): this.u128;
+    this.uint8Array = obj.has("uint8Array") ? decode<Uint8Array>(obj, "uint8Array"): this.uint8Array;
     return this;
   }
 
@@ -670,9 +668,8 @@ export class ContainerClass {
     return value;
   }
 
-  decode(json: Obj): ContainerClass {
-    let obj: Obj = json;
-    this.foobar = decode<FooBar>(obj, "foobar");
+  decode(obj: Obj): ContainerClass {
+    this.foobar = obj.has("foobar") ? decode<FooBar>(obj, "foobar"): this.foobar;
     return this;
   }
 
@@ -703,9 +700,8 @@ export class AnotherContainerClass {
     return value;
   }
 
-  decode(json: Obj): AnotherContainerClass {
-    let obj: Obj = json;
-    this.foobars = decode<Array<Array<FooBar>>>(obj, "foobars");
+  decode(obj: Obj): AnotherContainerClass {
+    this.foobars = obj.has("foobars") ? decode<Array<Array<FooBar>>>(obj, "foobars"): this.foobars;
     return this;
   }
 
@@ -742,15 +738,14 @@ export class PromiseArgs {
     return value;
   }
 
-  decode(json: Obj): PromiseArgs {
-    let obj: Obj = json;
-    this.receiver = decode<string>(obj, "receiver");
-    this.methodName = decode<string>(obj, "methodName");
-    this.args = decode<PromiseArgs>(obj, "args");
-    this.balance = decode<i32>(obj, "balance");
-    this.callback = decode<string>(obj, "callback");
-    this.callbackArgs = decode<PromiseArgs>(obj, "callbackArgs");
-    this.callbackBalance = decode<i32>(obj, "callbackBalance");
+  decode(obj: Obj): PromiseArgs {
+    this.receiver = obj.has("receiver") ? decode<string>(obj, "receiver"): this.receiver;
+    this.methodName = obj.has("methodName") ? decode<string>(obj, "methodName"): this.methodName;
+    this.args = obj.has("args") ? decode<PromiseArgs>(obj, "args"): this.args;
+    this.balance = obj.has("balance") ? decode<i32>(obj, "balance"): this.balance;
+    this.callback = obj.has("callback") ? decode<string>(obj, "callback"): this.callback;
+    this.callbackArgs = obj.has("callbackArgs") ? decode<PromiseArgs>(obj, "callbackArgs"): this.callbackArgs;
+    this.callbackBalance = obj.has("callbackBalance") ? decode<i32>(obj, "callbackBalance"): this.callbackBalance;
     return this;
   }
 
@@ -788,10 +783,9 @@ export class MyContractPromiseResult {
     return value;
   }
 
-  decode(json: Obj): MyContractPromiseResult {
-    let obj: Obj = json;
-    this.ok = decode<bool>(obj, "ok");
-    this.r = decode<MyCallbackResult>(obj, "r");
+  decode(obj: Obj): MyContractPromiseResult {
+    this.ok = obj.has("ok") ? decode<bool>(obj, "ok"): this.ok;
+    this.r = obj.has("r") ? decode<MyCallbackResult>(obj, "r"): this.r;
     return this;
   }
 
@@ -824,10 +818,9 @@ export class MyCallbackResult {
     return value;
   }
 
-  decode(json: Obj): MyCallbackResult {
-    let obj: Obj = json;
-    this.rs = decode<Array<MyContractPromiseResult>>(obj, "rs");
-    this.n = decode<string>(obj, "n");
+  decode(obj: Obj): MyCallbackResult {
+    this.rs = obj.has("rs") ? decode<Array<MyContractPromiseResult>>(obj, "rs"): this.rs;
+    this.n = obj.has("n") ? decode<string>(obj, "n"): this.n;
     return this;
   }
 
@@ -859,9 +852,8 @@ export class Generic<T> {
     return value;
   }
 
-  decode(json: Obj): Generic<T> {
-    let obj: Obj = json;
-    this.value = decode<T>(obj, "value");
+  decode(obj: Obj): Generic<T> {
+    this.value = obj.has("value") ? decode<T>(obj, "value"): this.value;
     return this;
   }
 
