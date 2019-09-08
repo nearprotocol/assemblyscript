@@ -24,9 +24,8 @@ export function runTest(): void {
     logging.log("Before: " + encoder.toString());
     //@ts-ignore
     const encoded = encoder.serialize();
-    let obj = JSON.parse(encoded);
     //@ts-ignore
-    let decoded: FooBar = decode<FooBar>(obj);
+    let decoded: FooBar = decode<FooBar>(encoded);
     logging.log("After:  "+ decoded.toJSON());
     assert(original.foo == decoded.foo);
     assert(original.bar == decoded.bar);
@@ -38,7 +37,7 @@ export function runTest(): void {
 
     const nullable = new Nullables();
     //@ts-ignore
-    const nullable2 = decode<Nullables>(JSON.parse(nullable.serialize()));
+    const nullable2 = decode<Nullables>(nullable.serialize());
     assert(nullable2.str == null);
     assert(nullable2.u128 == <u128> null);
     assert(nullable2.uint8Array == null);

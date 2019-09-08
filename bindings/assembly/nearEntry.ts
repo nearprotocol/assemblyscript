@@ -328,7 +328,7 @@ function decodeArray<T>(val: Value, name: string): Array<T> {
   let res = new Array<T>();
   let arr = (<Arr>val)._arr;
   for (let i: i32 = 0; i < arr.length; i++){
-    let item: T = decode<T>(arr[i]);
+    let item: T = decode<T, Value>(arr[i]);
     res.push(item);
   }
   return res;
@@ -337,7 +337,8 @@ function decodeArray<T>(val: Value, name: string): Array<T> {
 
 //@ts-ignore
 @global
-function decode<T>(buffer: Value, name: string = ""): T {
+function decode<T, V = Uint8Array>(buf: V, name: string = ""): T {
+  let buffer = <Value>(buf instanceof Uint8Array ? JSON.parse(buf) : buf);
   let val: Value;
   if (buffer instanceof Obj && name != ""){
     const obj: Obj = <Obj>buffer;
@@ -399,5 +400,5 @@ function decode<T>(buffer: Value, name: string = ""): T {
   assert(val instanceof Obj, "Value with Key: " +  name + " with type " + nameof<T>()  + " is not an object or null")
   value = instantiate<T>();
   //@ts-ignore
-  return value.decode(<Obj>val);
+  return value.decode<Obj>(<Obj>val);
 }

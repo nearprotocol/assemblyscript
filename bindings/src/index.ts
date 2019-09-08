@@ -232,11 +232,21 @@ export { __wrapper_${name} as ${name} }
           str += `
   static decode(json: Uint8Array): ${className} {
     let value = instantiate<${className}>(); // Allocate without constructor
-    value.decode(JSON.parse(json));
-    return value;
+    return value.decode<Uint8Array>(json);
   }
 
-  decode(obj: Obj): ${className} {
+  decode<V = Uint8Array>(buf: V): ${className} {
+    let json: Obj;
+    if (buf instanceof Uint8Array) {
+      json = JSON.parse(buf);
+    }else {
+      assert(buf instanceof Obj, "argument must be Uint8Array or Json Object");
+      json = <Obj> buf;
+    }
+    return this._decode(json);
+  }
+
+  private _decode(obj: Obj): ${className} {
     ${createDecodeStatements(_class).join("\n    ")}
     return this;
   }
@@ -276,7 +286,7 @@ function createDecodeStatements(_class: ClassDeclaration): string[] {
 function createDecodeStatement(field: FieldDeclaration | ParameterNode, setterPrefix: string = ""): string {
   let T = toString(field.type!);
   let name = toString(field.name);
-  return `${setterPrefix}decode<${T}>(obj, "${name}")`;
+  return `${setterPrefix}decode<${T}, Obj>(obj, "${name}")`;
 
 }
 
