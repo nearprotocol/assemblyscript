@@ -26,25 +26,35 @@ export class FooBar {
 
   static decode(json: Uint8Array): FooBar {
     let value = instantiate<FooBar>(); // Allocate without constructor
-    value.decode(JSON.parse(json));
-    return value;
+    return value.decode<Uint8Array>(json);
   }
 
-  decode(obj: Obj): FooBar {
-    this.foo = obj.has("foo") ? decode<i32>(obj, "foo"): this.foo;
-    this.bar = obj.has("bar") ? decode<u32>(obj, "bar"): this.bar;
-    this.u64Val = obj.has("u64Val") ? decode<u64>(obj, "u64Val"): this.u64Val;
-    this.u64_zero = obj.has("u64_zero") ? decode<u64>(obj, "u64_zero"): this.u64_zero;
-    this.i64Val = obj.has("i64Val") ? decode<i64>(obj, "i64Val"): this.i64Val;
-    this.flag = obj.has("flag") ? decode<bool>(obj, "flag"): this.flag;
-    this.baz = obj.has("baz") ? decode<string>(obj, "baz"): this.baz;
-    this.uint8array = obj.has("uint8array") ? decode<Uint8Array>(obj, "uint8array"): this.uint8array;
-    this.arr = obj.has("arr") ? decode<Array<Array<string>>>(obj, "arr"): this.arr;
-    this.u32Arr = obj.has("u32Arr") ? decode<Array<u32>>(obj, "u32Arr"): this.u32Arr;
-    this.i32Arr = obj.has("i32Arr") ? decode<Array<i32>>(obj, "i32Arr"): this.i32Arr;
-    this.u128Val = obj.has("u128Val") ? decode<u128>(obj, "u128Val"): this.u128Val;
-    this.uint8arrays = obj.has("uint8arrays") ? decode<Array<Uint8Array>>(obj, "uint8arrays"): this.uint8arrays;
-    this.u64Arr = obj.has("u64Arr") ? decode<Array<u64>>(obj, "u64Arr"): this.u64Arr;
+  decode<V = Uint8Array>(buf: V): FooBar {
+    let json: Obj;
+    if (buf instanceof Uint8Array) {
+      json = JSON.parse(buf);
+    }else {
+      assert(buf instanceof Obj, "argument must be Uint8Array or Json Object");
+      json = <Obj> buf;
+    }
+    return this._decode(json);
+  }
+
+  private _decode(obj: Obj): FooBar {
+    this.foo = obj.has("foo") ? decode<i32, Obj>(obj, "foo"): this.foo;
+    this.bar = obj.has("bar") ? decode<u32, Obj>(obj, "bar"): this.bar;
+    this.u64Val = obj.has("u64Val") ? decode<u64, Obj>(obj, "u64Val"): this.u64Val;
+    this.u64_zero = obj.has("u64_zero") ? decode<u64, Obj>(obj, "u64_zero"): this.u64_zero;
+    this.i64Val = obj.has("i64Val") ? decode<i64, Obj>(obj, "i64Val"): this.i64Val;
+    this.flag = obj.has("flag") ? decode<bool, Obj>(obj, "flag"): this.flag;
+    this.baz = obj.has("baz") ? decode<string, Obj>(obj, "baz"): this.baz;
+    this.uint8array = obj.has("uint8array") ? decode<Uint8Array, Obj>(obj, "uint8array"): this.uint8array;
+    this.arr = obj.has("arr") ? decode<Array<Array<string>>, Obj>(obj, "arr"): this.arr;
+    this.u32Arr = obj.has("u32Arr") ? decode<Array<u32>, Obj>(obj, "u32Arr"): this.u32Arr;
+    this.i32Arr = obj.has("i32Arr") ? decode<Array<i32>, Obj>(obj, "i32Arr"): this.i32Arr;
+    this.u128Val = obj.has("u128Val") ? decode<u128, Obj>(obj, "u128Val"): this.u128Val;
+    this.uint8arrays = obj.has("uint8arrays") ? decode<Array<Uint8Array>, Obj>(obj, "uint8arrays"): this.uint8arrays;
+    this.u64Arr = obj.has("u64Arr") ? decode<Array<u64>, Obj>(obj, "u64Arr"): this.u64Arr;
     return this;
   }
 
@@ -84,14 +94,24 @@ export class Nullables {
 
   static decode(json: Uint8Array): Nullables {
     let value = instantiate<Nullables>(); // Allocate without constructor
-    value.decode(JSON.parse(json));
-    return value;
+    return value.decode<Uint8Array>(json);
   }
 
-  decode(obj: Obj): Nullables {
-    this.str = obj.has("str") ? decode<string>(obj, "str"): this.str;
-    this.u128 = obj.has("u128") ? decode<u128>(obj, "u128"): this.u128;
-    this.uint8Array = obj.has("uint8Array") ? decode<Uint8Array>(obj, "uint8Array"): this.uint8Array;
+  decode<V = Uint8Array>(buf: V): Nullables {
+    let json: Obj;
+    if (buf instanceof Uint8Array) {
+      json = JSON.parse(buf);
+    }else {
+      assert(buf instanceof Obj, "argument must be Uint8Array or Json Object");
+      json = <Obj> buf;
+    }
+    return this._decode(json);
+  }
+
+  private _decode(obj: Obj): Nullables {
+    this.str = obj.has("str") ? decode<string, Obj>(obj, "str"): this.str;
+    this.u128 = obj.has("u128") ? decode<u128, Obj>(obj, "u128"): this.u128;
+    this.uint8Array = obj.has("uint8Array") ? decode<Uint8Array, Obj>(obj, "uint8Array"): this.uint8Array;
     return this;
   }
 
@@ -118,12 +138,22 @@ export class ContainerClass {
 
   static decode(json: Uint8Array): ContainerClass {
     let value = instantiate<ContainerClass>(); // Allocate without constructor
-    value.decode(JSON.parse(json));
-    return value;
+    return value.decode<Uint8Array>(json);
   }
 
-  decode(obj: Obj): ContainerClass {
-    this.foobar = obj.has("foobar") ? decode<FooBar>(obj, "foobar"): this.foobar;
+  decode<V = Uint8Array>(buf: V): ContainerClass {
+    let json: Obj;
+    if (buf instanceof Uint8Array) {
+      json = JSON.parse(buf);
+    }else {
+      assert(buf instanceof Obj, "argument must be Uint8Array or Json Object");
+      json = <Obj> buf;
+    }
+    return this._decode(json);
+  }
+
+  private _decode(obj: Obj): ContainerClass {
+    this.foobar = obj.has("foobar") ? decode<FooBar, Obj>(obj, "foobar"): this.foobar;
     return this;
   }
 
@@ -148,12 +178,22 @@ export class AnotherContainerClass {
 
   static decode(json: Uint8Array): AnotherContainerClass {
     let value = instantiate<AnotherContainerClass>(); // Allocate without constructor
-    value.decode(JSON.parse(json));
-    return value;
+    return value.decode<Uint8Array>(json);
   }
 
-  decode(obj: Obj): AnotherContainerClass {
-    this.foobars = obj.has("foobars") ? decode<Array<Array<FooBar>>>(obj, "foobars"): this.foobars;
+  decode<V = Uint8Array>(buf: V): AnotherContainerClass {
+    let json: Obj;
+    if (buf instanceof Uint8Array) {
+      json = JSON.parse(buf);
+    }else {
+      assert(buf instanceof Obj, "argument must be Uint8Array or Json Object");
+      json = <Obj> buf;
+    }
+    return this._decode(json);
+  }
+
+  private _decode(obj: Obj): AnotherContainerClass {
+    this.foobars = obj.has("foobars") ? decode<Array<Array<FooBar>>, Obj>(obj, "foobars"): this.foobars;
     return this;
   }
 
@@ -184,18 +224,28 @@ export class PromiseArgs {
 
   static decode(json: Uint8Array): PromiseArgs {
     let value = instantiate<PromiseArgs>(); // Allocate without constructor
-    value.decode(JSON.parse(json));
-    return value;
+    return value.decode<Uint8Array>(json);
   }
 
-  decode(obj: Obj): PromiseArgs {
-    this.receiver = obj.has("receiver") ? decode<string>(obj, "receiver"): this.receiver;
-    this.methodName = obj.has("methodName") ? decode<string>(obj, "methodName"): this.methodName;
-    this.args = obj.has("args") ? decode<PromiseArgs>(obj, "args"): this.args;
-    this.balance = obj.has("balance") ? decode<i32>(obj, "balance"): this.balance;
-    this.callback = obj.has("callback") ? decode<string>(obj, "callback"): this.callback;
-    this.callbackArgs = obj.has("callbackArgs") ? decode<PromiseArgs>(obj, "callbackArgs"): this.callbackArgs;
-    this.callbackBalance = obj.has("callbackBalance") ? decode<i32>(obj, "callbackBalance"): this.callbackBalance;
+  decode<V = Uint8Array>(buf: V): PromiseArgs {
+    let json: Obj;
+    if (buf instanceof Uint8Array) {
+      json = JSON.parse(buf);
+    }else {
+      assert(buf instanceof Obj, "argument must be Uint8Array or Json Object");
+      json = <Obj> buf;
+    }
+    return this._decode(json);
+  }
+
+  private _decode(obj: Obj): PromiseArgs {
+    this.receiver = obj.has("receiver") ? decode<string, Obj>(obj, "receiver"): this.receiver;
+    this.methodName = obj.has("methodName") ? decode<string, Obj>(obj, "methodName"): this.methodName;
+    this.args = obj.has("args") ? decode<PromiseArgs, Obj>(obj, "args"): this.args;
+    this.balance = obj.has("balance") ? decode<i32, Obj>(obj, "balance"): this.balance;
+    this.callback = obj.has("callback") ? decode<string, Obj>(obj, "callback"): this.callback;
+    this.callbackArgs = obj.has("callbackArgs") ? decode<PromiseArgs, Obj>(obj, "callbackArgs"): this.callbackArgs;
+    this.callbackBalance = obj.has("callbackBalance") ? decode<i32, Obj>(obj, "callbackBalance"): this.callbackBalance;
     return this;
   }
 
@@ -227,13 +277,23 @@ export class MyContractPromiseResult {
 
   static decode(json: Uint8Array): MyContractPromiseResult {
     let value = instantiate<MyContractPromiseResult>(); // Allocate without constructor
-    value.decode(JSON.parse(json));
-    return value;
+    return value.decode<Uint8Array>(json);
   }
 
-  decode(obj: Obj): MyContractPromiseResult {
-    this.ok = obj.has("ok") ? decode<bool>(obj, "ok"): this.ok;
-    this.r = obj.has("r") ? decode<MyCallbackResult>(obj, "r"): this.r;
+  decode<V = Uint8Array>(buf: V): MyContractPromiseResult {
+    let json: Obj;
+    if (buf instanceof Uint8Array) {
+      json = JSON.parse(buf);
+    }else {
+      assert(buf instanceof Obj, "argument must be Uint8Array or Json Object");
+      json = <Obj> buf;
+    }
+    return this._decode(json);
+  }
+
+  private _decode(obj: Obj): MyContractPromiseResult {
+    this.ok = obj.has("ok") ? decode<bool, Obj>(obj, "ok"): this.ok;
+    this.r = obj.has("r") ? decode<MyCallbackResult, Obj>(obj, "r"): this.r;
     return this;
   }
 
@@ -260,13 +320,23 @@ export class MyCallbackResult {
 
   static decode(json: Uint8Array): MyCallbackResult {
     let value = instantiate<MyCallbackResult>(); // Allocate without constructor
-    value.decode(JSON.parse(json));
-    return value;
+    return value.decode<Uint8Array>(json);
   }
 
-  decode(obj: Obj): MyCallbackResult {
-    this.rs = obj.has("rs") ? decode<Array<MyContractPromiseResult>>(obj, "rs"): this.rs;
-    this.n = obj.has("n") ? decode<string>(obj, "n"): this.n;
+  decode<V = Uint8Array>(buf: V): MyCallbackResult {
+    let json: Obj;
+    if (buf instanceof Uint8Array) {
+      json = JSON.parse(buf);
+    }else {
+      assert(buf instanceof Obj, "argument must be Uint8Array or Json Object");
+      json = <Obj> buf;
+    }
+    return this._decode(json);
+  }
+
+  private _decode(obj: Obj): MyCallbackResult {
+    this.rs = obj.has("rs") ? decode<Array<MyContractPromiseResult>, Obj>(obj, "rs"): this.rs;
+    this.n = obj.has("n") ? decode<string, Obj>(obj, "n"): this.n;
     return this;
   }
 
@@ -292,12 +362,22 @@ export class Generic<T> {
 
   static decode(json: Uint8Array): Generic<T> {
     let value = instantiate<Generic<T>>(); // Allocate without constructor
-    value.decode(JSON.parse(json));
-    return value;
+    return value.decode<Uint8Array>(json);
   }
 
-  decode(obj: Obj): Generic<T> {
-    this.value = obj.has("value") ? decode<T>(obj, "value"): this.value;
+  decode<V = Uint8Array>(buf: V): Generic<T> {
+    let json: Obj;
+    if (buf instanceof Uint8Array) {
+      json = JSON.parse(buf);
+    }else {
+      assert(buf instanceof Obj, "argument must be Uint8Array or Json Object");
+      json = <Obj> buf;
+    }
+    return this._decode(json);
+  }
+
+  private _decode(obj: Obj): Generic<T> {
+    this.value = obj.has("value") ? decode<T, Obj>(obj, "value"): this.value;
     return this;
   }
 

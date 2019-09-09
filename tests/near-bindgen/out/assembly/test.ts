@@ -14,7 +14,7 @@ function __wrapper_convertFoobars(): void {
   let json = new Uint8Array(json_len as u32);
   read_register(0, <usize>json.buffer);
   const obj: Obj = JSON.parse(json);
-  let result: Array<ContainerClass> = convertFoobars(decode<Array<FooBar>>(obj, "foobars"));
+  let result: Array<ContainerClass> = convertFoobars(decode<Array<FooBar>, Obj>(obj, "foobars"));
 
   let encoder = new JSONEncoder();
   if ((isString<Array<ContainerClass>>() || isNullable<Array<ContainerClass>>()) && result == null) {
@@ -40,7 +40,7 @@ function __wrapper_getStringArrayLength(): void {
   let json = new Uint8Array(json_len as u32);
   read_register(0, <usize>json.buffer);
   const obj: Obj = JSON.parse(json);
-  let result: i32 = getStringArrayLength(decode<Array<string>>(obj, "arr"));
+  let result: i32 = getStringArrayLength(decode<Array<string>, Obj>(obj, "arr"));
 
   let encoder = new JSONEncoder();
   if ((isString<i32>() || isNullable<i32>()) && result == null) {
@@ -66,7 +66,7 @@ function __wrapper_rewrapFoobar(): void {
   let json = new Uint8Array(json_len as u32);
   read_register(0, <usize>json.buffer);
   const obj: Obj = JSON.parse(json);
-  let result: AnotherContainerClass = rewrapFoobar(decode<ContainerClass>(obj, "container"));
+  let result: AnotherContainerClass = rewrapFoobar(decode<ContainerClass, Obj>(obj, "container"));
 
   let encoder = new JSONEncoder();
   if ((isString<AnotherContainerClass>() || isNullable<AnotherContainerClass>()) && result == null) {
@@ -92,7 +92,7 @@ function __wrapper_unwrapFoobar(): void {
   let json = new Uint8Array(json_len as u32);
   read_register(0, <usize>json.buffer);
   const obj: Obj = JSON.parse(json);
-  let result: FooBar = unwrapFoobar(decode<AnotherContainerClass>(obj, "container"));
+  let result: FooBar = unwrapFoobar(decode<AnotherContainerClass, Obj>(obj, "container"));
 
   let encoder = new JSONEncoder();
   if ((isString<FooBar>() || isNullable<FooBar>()) && result == null) {
@@ -135,7 +135,7 @@ function __wrapper_stringAliasTest(): void {
   let json = new Uint8Array(json_len as u32);
   read_register(0, <usize>json.buffer);
   const obj: Obj = JSON.parse(json);
-  let result: StringAlias = stringAliasTest(decode<StringAlias>(obj, "str"));
+  let result: StringAlias = stringAliasTest(decode<StringAlias, Obj>(obj, "str"));
 
   let encoder = new JSONEncoder();
   if ((isString<StringAlias>() || isNullable<StringAlias>()) && result == null) {
@@ -181,8 +181,7 @@ export function runTest(): void {
   const encoder = original.encode();
   logging.log("Before: " + encoder.toString());
   const encoded = encoder.serialize();
-  let obj = JSON.parse(encoded);
-  let decoded: FooBar = decode<FooBar>(obj);
+  let decoded: FooBar = decode<FooBar>(encoded);
   logging.log("After:  " + decoded.toJSON());
   assert(original.foo == decoded.foo);
   assert(original.bar == decoded.bar);
@@ -192,7 +191,7 @@ export function runTest(): void {
   assert(original.u64Arr[0] == decoded.u64Arr[0]);
   assert(original.u64_zero == decoded.u64_zero);
   const nullable = new Nullables();
-  const nullable2 = decode<Nullables>(JSON.parse(nullable.serialize()));
+  const nullable2 = decode<Nullables>(nullable.serialize());
   assert(nullable2.str == null);
   assert(nullable2.u128 == <u128>null);
   assert(nullable2.uint8Array == null);

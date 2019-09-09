@@ -162,11 +162,11 @@ class Obj extends Value {
   }
 
   toString(): string {
-    let objs: string[] = []
+    let objs: string[] = [];
     for (let i: i32 = 0; i < this.keys.length; i++){
       objs.push("\"" +this.keys[i]+"\":"+ this._obj.get(this.keys[i]).toString());
     }
-    return "{"+ objs.join(",") + "}"
+    return "{"+ objs.join(",") + "}";
   }
 
   has(key: string): bool {
@@ -254,11 +254,12 @@ class Handler extends ThrowingJSONHandler {
 
 @global()
 class JSON {
-  // private static handler: Handler = new Handler();
+  private static handler: Handler = new Handler();
+  private static decoder: JSONDecoder<Handler> = new JSONDecoder<Handler>(JSON.handler);
   static parse(str: Uint8Array ): Obj {
-    let decoder = new JSONDecoder<Handler>(new Handler());
-    decoder.deserialize(str);
-    let res = decoder.handler.peek as Obj;
+    JSON.decoder.deserialize(str);
+    let res = JSON.decoder.handler.peek as Obj;
+    JSON.decoder.handler.reset();
     return res;
   }
 }
@@ -315,12 +316,11 @@ function encode<T>(encoder: JSONEncoder, value: T, name: string | null = ""): JS
   return encoder;
 }
 
+//@ts-ignore
 @inline
 function getStr(val: Value, name: String): string {
   assert(val instanceof Str, "Value with Key: "+ name +" is not a string or null");
   return (<Str>val)._str;
-  
-  
 }
 
 function decodeArray<T>(val: Value, name: string): Array<T> {
