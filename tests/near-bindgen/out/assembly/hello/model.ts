@@ -42,28 +42,32 @@ export class PromiseArgs {
     return this;
   }
 
-  encode(_encoder: JSONEncoder | null = null, name: string | null = ""): JSONEncoder {
+  _encode(name: string | null = "", _encoder: JSONEncoder | null = null): JSONEncoder {
     let encoder = (_encoder != null ? _encoder : new JSONEncoder())!;
     encoder.pushObject(name);
-    encode<string>(encoder, this.receiver, "receiver");
-    encode<string>(encoder, this.methodName, "methodName");
-    encode<PromiseArgs>(encoder, this.args, "args");
-    encode<i32>(encoder, this.gas, "gas");
-    encode<i32>(encoder, this.balance, "balance");
-    encode<string>(encoder, this.callback, "callback");
-    encode<PromiseArgs>(encoder, this.callbackArgs, "callbackArgs");
-    encode<i32>(encoder, this.callbackBalance, "callbackBalance");
-    encode<i32>(encoder, this.callbackGas, "callbackGas");
+    encode<string, JSONEncoder>(this.receiver, "receiver", encoder);
+    encode<string, JSONEncoder>(this.methodName, "methodName", encoder);
+    encode<PromiseArgs, JSONEncoder>(this.args, "args", encoder);
+    encode<i32, JSONEncoder>(this.gas, "gas", encoder);
+    encode<i32, JSONEncoder>(this.balance, "balance", encoder);
+    encode<string, JSONEncoder>(this.callback, "callback", encoder);
+    encode<PromiseArgs, JSONEncoder>(this.callbackArgs, "callbackArgs", encoder);
+    encode<i32, JSONEncoder>(this.callbackBalance, "callbackBalance", encoder);
+    encode<i32, JSONEncoder>(this.callbackGas, "callbackGas", encoder);
     encoder.popObject();
-    return encoder
+    return encoder;
+  }
+
+  encode(): Uint8Array {
+    return this._encode().serialize();
   }
 
   serialize(): Uint8Array {
-    return this.encode().serialize();
+    return this.encode();
   }
 
   toJSON(): string {
-    return this.encode().toString();
+    return this._encode().toString();
   }
 }
 export class InputPromiseArgs {
@@ -90,20 +94,24 @@ export class InputPromiseArgs {
     return this;
   }
 
-  encode(_encoder: JSONEncoder | null = null, name: string | null = ""): JSONEncoder {
+  _encode(name: string | null = "", _encoder: JSONEncoder | null = null): JSONEncoder {
     let encoder = (_encoder != null ? _encoder : new JSONEncoder())!;
     encoder.pushObject(name);
-    encode<PromiseArgs>(encoder, this.args, "args");
+    encode<PromiseArgs, JSONEncoder>(this.args, "args", encoder);
     encoder.popObject();
-    return encoder
+    return encoder;
+  }
+
+  encode(): Uint8Array {
+    return this._encode().serialize();
   }
 
   serialize(): Uint8Array {
-    return this.encode().serialize();
+    return this.encode();
   }
 
   toJSON(): string {
-    return this.encode().toString();
+    return this._encode().toString();
   }
 }
 export class MyContractPromiseResult {
@@ -132,21 +140,25 @@ export class MyContractPromiseResult {
     return this;
   }
 
-  encode(_encoder: JSONEncoder | null = null, name: string | null = ""): JSONEncoder {
+  _encode(name: string | null = "", _encoder: JSONEncoder | null = null): JSONEncoder {
     let encoder = (_encoder != null ? _encoder : new JSONEncoder())!;
     encoder.pushObject(name);
-    encode<bool>(encoder, this.ok, "ok");
-    encode<MyCallbackResult>(encoder, this.r, "r");
+    encode<bool, JSONEncoder>(this.ok, "ok", encoder);
+    encode<MyCallbackResult, JSONEncoder>(this.r, "r", encoder);
     encoder.popObject();
-    return encoder
+    return encoder;
+  }
+
+  encode(): Uint8Array {
+    return this._encode().serialize();
   }
 
   serialize(): Uint8Array {
-    return this.encode().serialize();
+    return this.encode();
   }
 
   toJSON(): string {
-    return this.encode().toString();
+    return this._encode().toString();
   }
 }
 export class MyCallbackResult {
@@ -175,20 +187,24 @@ export class MyCallbackResult {
     return this;
   }
 
-  encode(_encoder: JSONEncoder | null = null, name: string | null = ""): JSONEncoder {
+  _encode(name: string | null = "", _encoder: JSONEncoder | null = null): JSONEncoder {
     let encoder = (_encoder != null ? _encoder : new JSONEncoder())!;
     encoder.pushObject(name);
-    encode<Array<MyContractPromiseResult>>(encoder, this.rs, "rs");
-    encode<string>(encoder, this.n, "n");
+    encode<Array<MyContractPromiseResult>, JSONEncoder>(this.rs, "rs", encoder);
+    encode<string, JSONEncoder>(this.n, "n", encoder);
     encoder.popObject();
-    return encoder
+    return encoder;
+  }
+
+  encode(): Uint8Array {
+    return this._encode().serialize();
   }
 
   serialize(): Uint8Array {
-    return this.encode().serialize();
+    return this.encode();
   }
 
   toJSON(): string {
-    return this.encode().toString();
+    return this._encode().toString();
   }
 }

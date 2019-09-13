@@ -146,8 +146,9 @@ export function callPromise(args: PromiseArgs): void {
       args.receiver,
       args.methodName,
       inputArgs.encode().serialize(),
-      args.gas,
-      new u128(args.balance));
+      new u128(args.balance),
+      args.gas
+      );
   if (args.callback) {
     inputArgs.args = args.callbackArgs;
     let callbackBalance = args.callbackBalance as u64;
@@ -156,8 +157,8 @@ export function callPromise(args: PromiseArgs): void {
         context.contractName,
         args.callback,
         inputArgs.encode().serialize(),
+        new u128(callbackBalance),
         args.callbackGas,
-        new u128(callbackBalance)
     );
   }
   promise.returnAsResult();
@@ -168,9 +169,9 @@ export function callbackWithName(args: PromiseArgs): MyCallbackResult {
   let allRes = Array.create<MyContractPromiseResult>(contractResults.length);
   for (let i = 0; i < contractResults.length; ++i) {
     allRes[i] = new MyContractPromiseResult();
-    allRes[i].ok = (contractResults[i].status == 1);
+    allRes[i].ok = (contractResults[i].success);
     if (allRes[i].ok && contractResults[i].buffer != null && contractResults[i].buffer.length > 0) {
-      allRes[i].r = MyCallbackResult.decode(contractResults[i].buffer);
+      allRes[i].r = decode<MyCallbackResult>(contractResults[i].buffer);
     }
   }
   let result: MyCallbackResult = {
@@ -183,5 +184,5 @@ export function callbackWithName(args: PromiseArgs): MyCallbackResult {
 }
 
 export function getLastResult(): MyCallbackResult {
-  return MyCallbackResult.decode(storage.getBytes("lastResult"));
+  return decode<MyCallbackResult>(storage.getBytes("lastResult"));
 }

@@ -17,12 +17,13 @@ function __wrapper_hello(): void {
   let result: string = hello(decode<string, Obj>(obj, "name"));
 
   let encoder = new JSONEncoder();
+  let val: Uint8Array;
   if ((isString<string>() || isNullable<string>()) && result == null) {
     encoder.setNull(null);
+    val = encoder.serialize();
   } else {
-    encode<string>(encoder, result, null);
+    val = encode<string>(result, null, encoder);
   }
-  let val: Uint8Array = encoder.serialize();
   value_return(val.byteLength, <usize>val.buffer);
 }
 
@@ -60,12 +61,13 @@ function __wrapper_getValueByKey(): void {
   let result: string = getValueByKey(decode<string, Obj>(obj, "key"));
 
   let encoder = new JSONEncoder();
+  let val: Uint8Array;
   if ((isString<string>() || isNullable<string>()) && result == null) {
     encoder.setNull(null);
+    val = encoder.serialize();
   } else {
-    encode<string>(encoder, result, null);
+    val = encode<string>(result, null, encoder);
   }
-  let val: Uint8Array = encoder.serialize();
   value_return(val.byteLength, <usize>val.buffer);
 }
 
@@ -86,12 +88,13 @@ function __wrapper_setValue(): void {
   let result: string = setValue(decode<string, Obj>(obj, "value"));
 
   let encoder = new JSONEncoder();
+  let val: Uint8Array;
   if ((isString<string>() || isNullable<string>()) && result == null) {
     encoder.setNull(null);
+    val = encoder.serialize();
   } else {
-    encode<string>(encoder, result, null);
+    val = encode<string>(result, null, encoder);
   }
-  let val: Uint8Array = encoder.serialize();
   value_return(val.byteLength, <usize>val.buffer);
 }
 
@@ -103,12 +106,13 @@ function __wrapper_getValue(): void {
   let result: string = getValue();
 
   let encoder = new JSONEncoder();
+  let val: Uint8Array;
   if ((isString<string>() || isNullable<string>()) && result == null) {
     encoder.setNull(null);
+    val = encoder.serialize();
   } else {
-    encode<string>(encoder, result, null);
+    val = encode<string>(result, null, encoder);
   }
-  let val: Uint8Array = encoder.serialize();
   value_return(val.byteLength, <usize>val.buffer);
 }
 
@@ -120,12 +124,13 @@ function __wrapper_getAllKeys(): void {
   let result: Array<string> = getAllKeys();
 
   let encoder = new JSONEncoder();
+  let val: Uint8Array;
   if ((isString<Array<string>>() || isNullable<Array<string>>()) && result == null) {
     encoder.setNull(null);
+    val = encoder.serialize();
   } else {
-    encode<Array<string>>(encoder, result, null);
+    val = encode<Array<string>>(result, null, encoder);
   }
-  let val: Uint8Array = encoder.serialize();
   value_return(val.byteLength, <usize>val.buffer);
 }
 
@@ -137,12 +142,13 @@ function __wrapper_benchmark(): void {
   let result: Array<string> = benchmark();
 
   let encoder = new JSONEncoder();
+  let val: Uint8Array;
   if ((isString<Array<string>>() || isNullable<Array<string>>()) && result == null) {
     encoder.setNull(null);
+    val = encoder.serialize();
   } else {
-    encode<Array<string>>(encoder, result, null);
+    val = encode<Array<string>>(result, null, encoder);
   }
-  let val: Uint8Array = encoder.serialize();
   value_return(val.byteLength, <usize>val.buffer);
 }
 
@@ -163,12 +169,13 @@ function __wrapper_benchmark_storage(): void {
   let result: string = benchmark_storage(decode<i32, Obj>(obj, "n"));
 
   let encoder = new JSONEncoder();
+  let val: Uint8Array;
   if ((isString<string>() || isNullable<string>()) && result == null) {
     encoder.setNull(null);
+    val = encoder.serialize();
   } else {
-    encode<string>(encoder, result, null);
+    val = encode<string>(result, null, encoder);
   }
-  let val: Uint8Array = encoder.serialize();
   value_return(val.byteLength, <usize>val.buffer);
 }
 
@@ -189,12 +196,13 @@ function __wrapper_limited_storage(): void {
   let result: string = limited_storage(decode<u64, Obj>(obj, "max_storage"));
 
   let encoder = new JSONEncoder();
+  let val: Uint8Array;
   if ((isString<string>() || isNullable<string>()) && result == null) {
     encoder.setNull(null);
+    val = encoder.serialize();
   } else {
-    encode<string>(encoder, result, null);
+    val = encode<string>(result, null, encoder);
   }
-  let val: Uint8Array = encoder.serialize();
   value_return(val.byteLength, <usize>val.buffer);
 }
 
@@ -215,12 +223,13 @@ function __wrapper_benchmark_sum_n(): void {
   let result: string = benchmark_sum_n(decode<i32, Obj>(obj, "n"));
 
   let encoder = new JSONEncoder();
+  let val: Uint8Array;
   if ((isString<string>() || isNullable<string>()) && result == null) {
     encoder.setNull(null);
+    val = encoder.serialize();
   } else {
-    encode<string>(encoder, result, null);
+    val = encode<string>(result, null, encoder);
   }
-  let val: Uint8Array = encoder.serialize();
   value_return(val.byteLength, <usize>val.buffer);
 }
 
@@ -232,12 +241,13 @@ function __wrapper_returnHiWithLogs(): void {
   let result: string = returnHiWithLogs();
 
   let encoder = new JSONEncoder();
+  let val: Uint8Array;
   if ((isString<string>() || isNullable<string>()) && result == null) {
     encoder.setNull(null);
+    val = encoder.serialize();
   } else {
-    encode<string>(encoder, result, null);
+    val = encode<string>(result, null, encoder);
   }
-  let val: Uint8Array = encoder.serialize();
   value_return(val.byteLength, <usize>val.buffer);
 }
 
@@ -309,12 +319,13 @@ function __wrapper_recurse(): void {
   let result: i32 = recurse(decode<i32, Obj>(obj, "n"));
 
   let encoder = new JSONEncoder();
+  let val: Uint8Array;
   if ((isString<i32>() || isNullable<i32>()) && result == null) {
     encoder.setNull(null);
+    val = encoder.serialize();
   } else {
-    encode<i32>(encoder, result, null);
+    val = encode<i32>(result, null, encoder);
   }
-  let val: Uint8Array = encoder.serialize();
   value_return(val.byteLength, <usize>val.buffer);
 }
 
@@ -352,12 +363,13 @@ function __wrapper_callbackWithName(): void {
   let result: MyCallbackResult = callbackWithName(decode<PromiseArgs, Obj>(obj, "args"));
 
   let encoder = new JSONEncoder();
+  let val: Uint8Array;
   if ((isString<MyCallbackResult>() || isNullable<MyCallbackResult>()) && result == null) {
     encoder.setNull(null);
+    val = encoder.serialize();
   } else {
-    encode<MyCallbackResult>(encoder, result, null);
+    val = encode<MyCallbackResult>(result, null, encoder);
   }
-  let val: Uint8Array = encoder.serialize();
   value_return(val.byteLength, <usize>val.buffer);
 }
 
@@ -369,12 +381,13 @@ function __wrapper_getLastResult(): void {
   let result: MyCallbackResult = getLastResult();
 
   let encoder = new JSONEncoder();
+  let val: Uint8Array;
   if ((isString<MyCallbackResult>() || isNullable<MyCallbackResult>()) && result == null) {
     encoder.setNull(null);
+    val = encoder.serialize();
   } else {
-    encode<MyCallbackResult>(encoder, result, null);
+    val = encode<MyCallbackResult>(result, null, encoder);
   }
-  let val: Uint8Array = encoder.serialize();
   value_return(val.byteLength, <usize>val.buffer);
 }
 
@@ -514,11 +527,11 @@ function callPromise(args: PromiseArgs): void {
     args: args.args
   };
   let balance = args.balance as u64;
-  let promise = ContractPromise.create(args.receiver, args.methodName, inputArgs.encode().serialize(), args.gas, new u128(args.balance));
+  let promise = ContractPromise.create(args.receiver, args.methodName, inputArgs.encode().serialize(), new u128(args.balance), args.gas);
   if (args.callback) {
     inputArgs.args = args.callbackArgs;
     let callbackBalance = args.callbackBalance as u64;
-    promise = promise.then(context.contractName, args.callback, inputArgs.encode().serialize(), args.callbackGas, new u128(callbackBalance));
+    promise = promise.then(context.contractName, args.callback, inputArgs.encode().serialize(), new u128(callbackBalance), args.callbackGas);
   }
   promise.returnAsResult();
 }
@@ -527,9 +540,9 @@ function callbackWithName(args: PromiseArgs): MyCallbackResult {
   let allRes = Array.create<MyContractPromiseResult>(contractResults.length);
   for (let i = 0; i < contractResults.length; ++i) {
     allRes[i] = new MyContractPromiseResult();
-    allRes[i].ok = (contractResults[i].status == 1);
+    allRes[i].ok = (contractResults[i].success);
     if (allRes[i].ok && contractResults[i].buffer != null && contractResults[i].buffer.length > 0) {
-      allRes[i].r = MyCallbackResult.decode(contractResults[i].buffer);
+      allRes[i].r = decode<MyCallbackResult>(contractResults[i].buffer);
     }
   }
   let result: MyCallbackResult = {
@@ -541,5 +554,5 @@ function callbackWithName(args: PromiseArgs): MyCallbackResult {
   return result;
 }
 function getLastResult(): MyCallbackResult {
-  return MyCallbackResult.decode(storage.getBytes("lastResult"));
+  return decode<MyCallbackResult>(storage.getBytes("lastResult"));
 }

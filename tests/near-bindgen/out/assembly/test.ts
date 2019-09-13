@@ -17,12 +17,13 @@ function __wrapper_convertFoobars(): void {
   let result: Array<ContainerClass> = convertFoobars(decode<Array<FooBar>, Obj>(obj, "foobars"));
 
   let encoder = new JSONEncoder();
+  let val: Uint8Array;
   if ((isString<Array<ContainerClass>>() || isNullable<Array<ContainerClass>>()) && result == null) {
     encoder.setNull(null);
+    val = encoder.serialize();
   } else {
-    encode<Array<ContainerClass>>(encoder, result, null);
+    val = encode<Array<ContainerClass>>(result, null, encoder);
   }
-  let val: Uint8Array = encoder.serialize();
   value_return(val.byteLength, <usize>val.buffer);
 }
 
@@ -43,12 +44,13 @@ function __wrapper_getStringArrayLength(): void {
   let result: i32 = getStringArrayLength(decode<Array<string>, Obj>(obj, "arr"));
 
   let encoder = new JSONEncoder();
+  let val: Uint8Array;
   if ((isString<i32>() || isNullable<i32>()) && result == null) {
     encoder.setNull(null);
+    val = encoder.serialize();
   } else {
-    encode<i32>(encoder, result, null);
+    val = encode<i32>(result, null, encoder);
   }
-  let val: Uint8Array = encoder.serialize();
   value_return(val.byteLength, <usize>val.buffer);
 }
 
@@ -69,12 +71,13 @@ function __wrapper_rewrapFoobar(): void {
   let result: AnotherContainerClass = rewrapFoobar(decode<ContainerClass, Obj>(obj, "container"));
 
   let encoder = new JSONEncoder();
+  let val: Uint8Array;
   if ((isString<AnotherContainerClass>() || isNullable<AnotherContainerClass>()) && result == null) {
     encoder.setNull(null);
+    val = encoder.serialize();
   } else {
-    encode<AnotherContainerClass>(encoder, result, null);
+    val = encode<AnotherContainerClass>(result, null, encoder);
   }
-  let val: Uint8Array = encoder.serialize();
   value_return(val.byteLength, <usize>val.buffer);
 }
 
@@ -95,12 +98,13 @@ function __wrapper_unwrapFoobar(): void {
   let result: FooBar = unwrapFoobar(decode<AnotherContainerClass, Obj>(obj, "container"));
 
   let encoder = new JSONEncoder();
+  let val: Uint8Array;
   if ((isString<FooBar>() || isNullable<FooBar>()) && result == null) {
     encoder.setNull(null);
+    val = encoder.serialize();
   } else {
-    encode<FooBar>(encoder, result, null);
+    val = encode<FooBar>(result, null, encoder);
   }
-  let val: Uint8Array = encoder.serialize();
   value_return(val.byteLength, <usize>val.buffer);
 }
 
@@ -112,12 +116,13 @@ function __wrapper_stringOrNull(): void {
   let result: string | null = stringOrNull();
 
   let encoder = new JSONEncoder();
+  let val: Uint8Array;
   if ((isString<string >() || isNullable<string >()) && result == null) {
     encoder.setNull(null);
+    val = encoder.serialize();
   } else {
-    encode<string >(encoder, result!, null);
+    val = encode<string >(result!, null, encoder);
   }
-  let val: Uint8Array = encoder.serialize();
   value_return(val.byteLength, <usize>val.buffer);
 }
 
@@ -138,12 +143,13 @@ function __wrapper_stringAliasTest(): void {
   let result: StringAlias = stringAliasTest(decode<StringAlias, Obj>(obj, "str"));
 
   let encoder = new JSONEncoder();
+  let val: Uint8Array;
   if ((isString<StringAlias>() || isNullable<StringAlias>()) && result == null) {
     encoder.setNull(null);
+    val = encoder.serialize();
   } else {
-    encode<StringAlias>(encoder, result, null);
+    val = encode<StringAlias>(result, null, encoder);
   }
-  let val: Uint8Array = encoder.serialize();
   value_return(val.byteLength, <usize>val.buffer);
 }
 
@@ -178,9 +184,8 @@ export function runTest(): void {
   original.uint8arrays[0] = base64.decode("aGVsbG8sIHdvcmxkIQ==");
   original.uint8arrays[1] = base64.decode("aGVsbG8sIHdvcmxkIQ==");
   original.u64Arr = [10000000000, 100000000000];
-  const encoder = original.encode();
-  logging.log("Before: " + encoder.toString());
-  const encoded = encoder.serialize();
+  logging.log("Before: " + original.toJSON());
+  const encoded = original.encode();
   let decoded: FooBar = decode<FooBar>(encoded);
   logging.log("After:  " + decoded.toJSON());
   assert(original.foo == decoded.foo);
@@ -191,7 +196,7 @@ export function runTest(): void {
   assert(original.u64Arr[0] == decoded.u64Arr[0]);
   assert(original.u64_zero == decoded.u64_zero);
   const nullable = new Nullables();
-  const nullable2 = decode<Nullables>(nullable.serialize());
+  const nullable2 = decode<Nullables>(nullable.encode());
   assert(nullable2.str == null);
   assert(nullable2.u128 == <u128>null);
   assert(nullable2.uint8Array == null);

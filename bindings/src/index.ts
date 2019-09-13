@@ -173,12 +173,13 @@ function __wrapper_${name}(): void {`);
     if (toString(returnType) !== "void") {
       this.sb.push(`
   let encoder = new JSONEncoder();
+  let val: Uint8Array;
   if ((isString<${returnTypeName}>() || isNullable<${returnTypeName}>()) && result == null) {
     encoder.setNull(null);
+    val = encoder.serialize();
   } else {
-    encode<${returnTypeName}>(encoder, result${hasNull ? "!" : ""}, null);
+    val = encode<${returnTypeName}>(result${hasNull ? "!" : ""}, null, encoder);
   }
-  let val: Uint8Array = encoder.serialize();
   value_return(val.byteLength, <usize>val.buffer);`);
     }
     this.sb.push(`}
@@ -186,7 +187,7 @@ function __wrapper_${name}(): void {`);
 export { __wrapper_${name} as ${name} }
 `);
   }
-  
+
   private typeName(type: TypeNode | ClassDeclaration): string {
     if (!isClass(type)) {
       return ASTBuilder.build(type);
@@ -251,20 +252,24 @@ export { __wrapper_${name} as ${name} }
     return this;
   }
 
-  encode(_encoder: JSONEncoder | null = null, name: string | null = ""): JSONEncoder {
+  _encode(name: string | null = "", _encoder: JSONEncoder | null = null): JSONEncoder {
     let encoder = (_encoder != null ? _encoder : new JSONEncoder())!;
     encoder.pushObject(name);
     ${createEncodeStatements(_class).join("\n    ")}
     encoder.popObject();
-    return encoder
+    return encoder;
+  }
+
+  encode(): Uint8Array {
+    return this._encode().serialize();
   }
 
   serialize(): Uint8Array {
-    return this.encode().serialize();
+    return this.encode();
   }
 
   toJSON(): string {
-    return this.encode().toString();
+    return this._encode().toString();
   }
 }`;
         }
@@ -295,7 +300,7 @@ function createEncodeStatements(_class: ClassDeclaration): string[] {
     (field: FieldDeclaration): string  => {
       let T = toString(field.type!);
       let name = toString(field.name);
-      return `encode<${T}>(encoder, this.${name}, "${name}");`;
+      return `encode<${T}, JSONEncoder>(this.${name}, "${name}", encoder);`;
     }
   );
 }
