@@ -51,6 +51,9 @@ async function loadModule(path) {
     let inputJson = null;
     let outputJson = null;
     let module;
+    let mem = { get U8() {
+                  return new Uint8Array(module.memory.buffer);
+    }}
     module = loader.instantiateBuffer(fs.readFileSync(path), {
         env: {
             abort(msg, file, line, column) {
@@ -99,14 +102,14 @@ async function loadModule(path) {
 
     function copyToPtr(fromBuf, toPtr) {
         for (let i = 0; i < fromBuf.length; i++) {
-            module.I8[toPtr + i] = fromBuf[i];
+            mem.U8[toPtr + i] = fromBuf[i];
         }
     }
 
     function readBuffer(valLen, valPtr) {
         const result = new Uint8Array(valLen);
         for (let i = 0; i < valLen; i++) {
-            result[i] = module.I8[valPtr + i];
+            result[i] = mem.U8[valPtr + i];
         }
 
         return result;
@@ -141,7 +144,8 @@ async function loadModule(path) {
         {"foobars":[[{"foo":123,"bar":1,"u64Val":"4294967297","i64Val":"-64","flag":false,"baz":"123","uint8array":null,"arr":null,"u32Arr":null,"i32Arr":null,"u128Val":null,"uint8arrays":null, "u64Arr":null, u64_zero:"0"}]]});
     assert.deepEqual(await module.unwrapFoobar({ container: { foobars: [[{ foo: 123 }]] } }),
         {"foo":123,"bar":1,"u64Val":"4294967297","i64Val":"-64","flag":false,"baz":"123","uint8array":null,"arr":null,"u32Arr":null,"i32Arr":null,"u128Val":null,"uint8arrays":null, u64Arr: null, u64_zero:"0"});
-    assert.deepEqual(await module.stringOrNull(), null)
+    assert.deepEqual(await module.stringOrNull(), null);
+    assert.deepStrictEqual(await module.stringAliasTest({str:"Hello"}), "Hello World");
 })().catch(e => {
     console.error('Error during test execution:', e);
     if (e.code == 'ERR_ASSERTION') {

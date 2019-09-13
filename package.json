@@ -45,7 +45,7 @@
   "scripts": {
     "build": "npm run build:bindings:prod && npm run build:bundle && npm run build:dts",
     "build:bundle": "webpack --mode production --display-modules",
-    "build:dts": "node scripts/build-dts",
+    "build:dts": "node scripts/build-dts && tsc --noEmit tests/dts/index",
     "build:bindings:prod": "npm run build:bindings -- --mode=production",
     "build:bindings:dev": "npm run build:bindings -- --mode=development",
     "build:bindings": "cd ./bindings && webpack",

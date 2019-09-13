@@ -6,12 +6,7 @@
   "scripts": {
     "build:as": "../../bin/asc assembly/test.ts --validate --runtime stub --binaryFile out/test.wasm --textFile out/test.wat --runPasses dce --debug",
     "build:hello": "../../bin/asc assembly/hello/main.ts --validate --runtime stub --binaryFile out/hello.wasm --textFile out/hello.wat --runPasses dce --debug",
-    "build": "npm run build:as && npm run build:hello",
+    "build": "npm run build:as",
     "test": "node --experimental-wasm-bigint ./test.js"
-  },
-  "author": "",
-  "license": "MIT",
-  "dependencies": {
-    "near-runtime-ts": "github:nearprotocol/near-runtime-ts#staging"
   }
 }

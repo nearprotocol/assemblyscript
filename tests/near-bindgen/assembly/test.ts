@@ -20,13 +20,12 @@ export function runTest(): void {
     original.uint8arrays[1] = base64.decode("aGVsbG8sIHdvcmxkIQ==");
     original.u64Arr =  [10000000000, 100000000000];
     //@ts-ignore
-    const encoder = original.encode();
-    logging.log("Before: " + encoder.toString());
+    logging.log("Before: " + original.toJSON());
     //@ts-ignore
-    const encoded = encoder.serialize();
+    const encoded = original.encode();
     //@ts-ignore
     let decoded: FooBar = decode<FooBar>(encoded);
-    logging.log("After: "+ decoded.toJSON());
+    logging.log("After:  "+ decoded.toJSON());
     assert(original.foo == decoded.foo);
     assert(original.bar == decoded.bar);
     assert(base64.encode(original.uint8array) == base64.encode(decoded.uint8array));
@@ -37,7 +36,7 @@ export function runTest(): void {
 
     const nullable = new Nullables();
     //@ts-ignore
-    const nullable2 = decode<Nullables>(nullable.serialize());
+    const nullable2 = decode<Nullables>(nullable.encode());
     assert(nullable2.str == null);
     assert(nullable2.u128 == <u128> null);
     assert(nullable2.uint8Array == null);
@@ -64,4 +63,10 @@ export function unwrapFoobar(container: AnotherContainerClass): FooBar {
 
 export function stringOrNull(): string | null {
     return main.stringOrNull();
+}
+
+type StringAlias = string;
+
+export function stringAliasTest(str: StringAlias): StringAlias {
+    return str + " World"
 }

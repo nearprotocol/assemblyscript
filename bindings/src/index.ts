@@ -11,7 +11,8 @@ import {
   NamedTypeNode,
   SourceKind,
   DeclarationStatement,
-  TypeName
+  TypeName,
+  ParameterNode
 } from "../../src/ast";
 import { CommonFlags } from "../../src/common";
 import { Parser } from "./mockTypes";
@@ -108,7 +109,6 @@ class NEARBindingsBuilder extends BaseVisitor {
 
   visitClassDeclaration(node: ClassDeclaration): void {
     if (this.exportedClasses.has(toString(node.name))) return;
-    this.generateHandler(node);
     this.exportedClasses.set(toString(node.name), node);
   }
 
@@ -121,43 +121,13 @@ class NEARBindingsBuilder extends BaseVisitor {
         super.visitFunctionDeclaration(node);
         return;
     }
-    if (numOfParameters(node) > 0){
-      this.generateArgsParser(node);
-    }
+    // if (numOfParameters(node) > 0){
+    //   this.generateArgsParser(node);
+    // }
     this.generateWrapperFunction(node);
     // Change function to not be an export
     node.flags = node.flags ^ CommonFlags.EXPORT;
     this.wrappedFuncs.add(toString(node.name));
-  }
-
-  private generateArgsParser(node: FunctionDeclaration): void {
-    var signature = node.signature;
-    let name = toString(node.name);
-    var args: SimpleField[] = signature.parameters.map(param => {
-      let name = toString(param.name);
-      let type = param.type;
-      return { name,
-        type,
-        isGeneric: node.typeParameters != null && node.typeParameters.some(T => toString(T) == toString(type))
-       };
-    });
-
-    this.sb.push(`
-export class __near_ArgsParser_${name} extends ThrowingJSONHandler {
-  buffer: Uint8Array;
-  decoder: JSONDecoder<__near_ArgsParser_${name}>;
-  handledRoot: boolean = false;`);
-    if (args.length > 0) {
-      args.forEach(arg => {
-        this.sb.push(
-`  __near_param_${arg.name}: ${this.typeName(arg.type)};`
-        );
-      });
-      this.generateHandlerMethods("this.__near_param_", args);
-    } else {
-      this.generateHandlerMethods("this.__near_param_", []);
-    }
-    this.sb.push(`}`);
   }
 
   /*
@@ -183,10 +153,7 @@ function __wrapper_${name}(): void {`);
   }
   let json = new Uint8Array(json_len as u32);
   read_register(0, <usize>json.buffer);
-  let handler = new __near_ArgsParser_${name}();
-  handler.buffer = json;
-  handler.decoder = new JSONDecoder<__near_ArgsParser_${name}>(handler);
-  handler.decoder.deserialize(json);`);
+  const obj: Obj = JSON.parse(json);`);
     }
     if (toString(returnType) !== "void") {
       this.sb.push(
@@ -198,7 +165,7 @@ function __wrapper_${name}(): void {`);
     if (params.length > 0) {
       this.sb[this.sb.length - 1] += (
         params
-          .map(paramName => `handler.__near_param_${paramName.name.symbol}`)
+          .map((param) => createDecodeStatement(param))
           .join(", ")
       );
     }
@@ -206,186 +173,19 @@ function __wrapper_${name}(): void {`);
     if (toString(returnType) !== "void") {
       this.sb.push(`
   let encoder = new JSONEncoder();
+  let val: Uint8Array;
   if ((isString<${returnTypeName}>() || isNullable<${returnTypeName}>()) && result == null) {
     encoder.setNull(null);
+    val = encoder.serialize();
   } else {
-    encode<${returnTypeName}>(encoder, result${hasNull ? "!" : ""}, null);
+    val = encode<${returnTypeName}>(result${hasNull ? "!" : ""}, null, encoder);
   }
-  let val: Uint8Array = encoder.serialize();
   value_return(val.byteLength, <usize>val.buffer);`);
     }
     this.sb.push(`}
 
 export { __wrapper_${name} as ${name} }
 `);
-  }
-
-  private generateHandlerMethods(
-    valuePrefix: string,
-    fields: SimpleField[]
-  ): void {
-    var fieldsWithTypes = (types: string[]): SimpleField[] =>
-      fields.filter(field =>
-            types.indexOf(this.typeName(field.type)) != -1 || field.isGeneric);
-
-    this.generateBasicSetterHandlers(
-      valuePrefix,
-      "Integer",
-      "i64",
-      fieldsWithTypes(["i32", "u32"])
-    );
-    this.generateBasicSetterHandlers(
-      valuePrefix,
-      "String",
-      "string",
-      fieldsWithTypes(["string", "i64", "u64", "Uint8Array", "u128"])
-    );
-    this.generateBasicSetterHandlers(
-      valuePrefix,
-      "Boolean",
-      "bool",
-      fieldsWithTypes(["bool"])
-    );
-
-    var nonBasicFields = fields.filter(field => isReference(field.type) || field.isGeneric);
-
-    this.sb.push(`  setNull(name: string): void {`);
-    nonBasicFields.forEach(field => {
-      this.sb.push(
-`    if (name == "${field.name}") {`);
-      let setter = `${valuePrefix}${field.name} = <${this.typeName(field.type)}>null`;
-      if (field.isGeneric) {
-        this.sb.push(
-`       if (isNullable<${this.typeName(field.type)}>()){
-         ${setter}
-          return;
-         }`);
-        } else {
-          this.sb.push(
-`        ${setter}
-         return;`);
-        }
-      this.sb.push(
-`      }`);
-    });
-    this.sb.push(`
-    super.setNull(name);
-  }`);
-
-    this.sb.push(`
-  pushObject(name: string): bool {`);
-    this.sb.push(
-    `if (!this.handledRoot) {
-      assert(name == null || name.length == 0);
-      this.handledRoot = true;
-      return true;
-    } else {
-      assert(name != null || name.length != 0);
-    }`);
-    this.generatePushHandler(
-      valuePrefix,
-      nonBasicFields.filter(field => !isArrayType(field.type))
-    );
-    this.sb.push(`
-    return super.pushObject(name);
-  }`);
-    this.sb.push(`
-  pushArray(name: string): bool {`);
-    this.generatePushHandler(
-      valuePrefix,
-      nonBasicFields.filter(field => isArrayType(field.type))
-    );
-    this.sb.push(`
-    return super.pushArray(name);
-  }`);
-  }
-
-  private generateBasicSetterHandlers(
-    valuePrefix: string,
-    setterType: string,
-    setterValueType: string,
-    matchingFields: SimpleField[]
-  ) {
-    if (matchingFields.length > 0) {
-      this.sb.push(
-`  set${setterType}(name: string, value: ${setterValueType}): void {`
-      );
-      matchingFields.forEach(field => {
-        // tslint:disable-next-line: as-variables
-        let fieldTypeName = this.typeName(field.type);
-        if (setterType == "String" && fieldTypeName != "string") {
-          if (fieldTypeName == "Uint8Array") {
-            this.sb.push(
-`    if (name == "${field.name}") {
-       ${valuePrefix}${field.name} = base64.decode(value);
-       return;
-     }`);
-          } else if (fieldTypeName === "u128") {
-            this.sb.push(
-`    if (name == "${field.name}") {
-      ${valuePrefix}${field.name} = u128.fromString(value);
-      return;
-     }`);
-          } else {
-            let className = this.typeName(field.type) === "u64" ? "U64" : "I64";
-            this.sb.push(
-`    if (name == "${field.name}") {
-      ${valuePrefix}${field.name} = ${field.isGeneric ? "<" + toString(field.type) + ">" : ""}${className}.parseInt(value);
-      return;
-     }`);
-          }
-        } else {
-          this.sb.push(
-`    if (name == "${field.name}") {
-      ${valuePrefix}${field.name} = <${fieldTypeName}>value;
-      return;
-     }`);
-        }
-        if (field.isGeneric) {
-          this.sb.push(
-`    assert(is${setterType}<${fieldTypeName}>(), "${field.name} is not a ${setterType}")`);
-        }
-      });
-
-      this.sb.push(
-`    super.set${setterType}(name, value);
-    }`);
-    }
-  }
-
-  private generatePushHandler(valuePrefix: string, fields: SimpleField[]) {
-    fields.forEach(field => {
-      if (!(this.typeName(field.type) in this.typeMapping)) {
-        let referenceCheck = field.isGeneric ? ` && isReference<${this.typeName(field.type)}>()` : "";
-        this.sb.push(
-`       if (name == "${field.name}"${referenceCheck}) {
-          ${valuePrefix}${field.name} = decode<${toString(field.type)}>(this.buffer, this.decoder.state);
-          return false;
-        }`);
-      }
-    });
-  }
-
-  private generateHandler(type: TypeNode | ClassDeclaration) {
-    if (isArrayType(type)) {
-      return;
-    }
-    let typeName = this.typeName(type);
-    this.sb
-      .push(`export class __near_JSONHandler_${typeName} extends ThrowingJSONHandler {
-  buffer: Uint8Array;
-  decoder: JSONDecoder<__near_JSONHandler_${typeName}>;
-  handledRoot: boolean = false;
-  value: ${this.typeName(type)};
-
-  constructor(value_: ${this.typeName(type)}) {
-    super();
-    this.value = value_;
-  }
-      `);
-
-    this.generateHandlerMethods("this.value.", this.getFields(type));
-    this.sb.push("}\n");
   }
 
   private typeName(type: TypeNode | ClassDeclaration): string {
@@ -431,35 +231,45 @@ export { __wrapper_${name} as ${name} }
           }
           let className = this.typeName(_class);
           str += `
-  static decode(json: Uint8Array, state: DecoderState | null = null): ${className} {
+  static decode(json: Uint8Array): ${className} {
     let value = instantiate<${className}>(); // Allocate without constructor
-    value.decode(json, state);
-    return value;
+    return value.decode<Uint8Array>(json);
   }
 
-  decode(json: Uint8Array, state: DecoderState | null): ${className} {
-    let handler: __near_JSONHandler_${className} = new __near_JSONHandler_${className}(this);
-    handler.buffer = json;
-    let decoder = new JSONDecoder<__near_JSONHandler_${className}>(handler);
-    handler.decoder = decoder;
-    decoder.deserialize(json, state);
+  decode<V = Uint8Array>(buf: V): ${className} {
+    let json: Obj;
+    if (buf instanceof Uint8Array) {
+      json = JSON.parse(buf);
+    }else {
+      assert(buf instanceof Obj, "argument must be Uint8Array or Json Object");
+      json = <Obj> buf;
+    }
+    return this._decode(json);
+  }
+
+  private _decode(obj: Obj): ${className} {
+    ${createDecodeStatements(_class).join("\n    ")}
     return this;
   }
 
-  encode(_encoder: JSONEncoder | null = null, name: string | null = ""): JSONEncoder {
+  _encode(name: string | null = "", _encoder: JSONEncoder | null = null): JSONEncoder {
     let encoder = (_encoder != null ? _encoder : new JSONEncoder())!;
     encoder.pushObject(name);
     ${createEncodeStatements(_class).join("\n    ")}
     encoder.popObject();
-    return encoder
+    return encoder;
+  }
+
+  encode(): Uint8Array {
+    return this._encode().serialize();
   }
 
   serialize(): Uint8Array {
-    return this.encode().serialize();
+    return this.encode();
   }
 
   toJSON(): string {
-    return this.encode().toString();
+    return this._encode().toString();
   }
 }`;
         }
@@ -471,12 +281,26 @@ export { __wrapper_${name} as ${name} }
 
 }
 
+function createDecodeStatements(_class: ClassDeclaration): string[] {
+  return _class.members.filter(isField).map((field: FieldDeclaration): string  => {
+    const name = toString(field.name);
+    return createDecodeStatement(field, `this.${name} = obj.has("${name}") ? `) + `: this.${name};`
+  })
+}
+
+function createDecodeStatement(field: FieldDeclaration | ParameterNode, setterPrefix: string = ""): string {
+  let T = toString(field.type!);
+  let name = toString(field.name);
+  return `${setterPrefix}decode<${T}, Obj>(obj, "${name}")`;
+
+}
+
 function createEncodeStatements(_class: ClassDeclaration): string[] {
   return _class.members.filter(isField).map(
     (field: FieldDeclaration): string  => {
       let T = toString(field.type!);
       let name = toString(field.name);
-      return `encode<${T}>(encoder, this.${name}, "${name}");`;
+      return `encode<${T}, JSONEncoder>(this.${name}, "${name}", encoder);`;
     }
   );
 }
