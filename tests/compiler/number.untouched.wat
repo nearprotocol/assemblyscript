@@ -82,7 +82,7 @@
     i32.lt_u
     select
     return
-   else    
+   else
     i32.const 4
     i32.const 5
     local.get $0
@@ -99,7 +99,7 @@
     return
    end
    unreachable
-  else   
+  else
    local.get $0
    i32.const 10000000
    i32.lt_u
@@ -111,7 +111,7 @@
     i32.lt_u
     select
     return
-   else    
+   else
     i32.const 9
     i32.const 10
     local.get $0
@@ -362,7 +362,7 @@
    i32.add
    local.get $5
    i32.store
-  else   
+  else
    local.get $2
    i32.const 1
    i32.sub
@@ -440,20 +440,12 @@
   call $~lib/util/number/itoa32
   return
  )
- (func $~lib/rt/stub/__release (; 8 ;) (type $FUNCSIG$vi) (param $0 i32)
-  nop
- )
- (func $~lib/number/I32#toString (; 9 ;) (type $FUNCSIG$ii) (param $0 i32) (result i32)
-  (local $1 i32)
-  (local $2 i32)
+ (func $~lib/number/I32#toString (; 8 ;) (type $FUNCSIG$ii) (param $0 i32) (result i32)
   local.get $0
   call $~lib/util/number/itoa<i32>
-  local.tee $1
-  call $~lib/rt/stub/__retain
-  local.set $2
-  local.get $1
-  call $~lib/rt/stub/__release
-  local.get $2
+ )
+ (func $~lib/rt/stub/__release (; 9 ;) (type $FUNCSIG$vi) (param $0 i32)
+  nop
  )
  (func $~lib/string/String#get:length (; 10 ;) (type $FUNCSIG$ii) (param $0 i32) (result i32)
   local.get $0
@@ -499,7 +491,7 @@
      i32.sub
      local.tee $5
      i32.eqz
-    else     
+    else
      i32.const 0
     end
     i32.eqz
@@ -555,7 +547,7 @@
   i32.eq
   if (result i32)
    i32.const 1
-  else   
+  else
    local.get $1
    i32.const 0
    i32.eq
@@ -935,7 +927,7 @@
         i64.sub
         local.get $21
         i64.ge_u
-       else        
+       else
         i32.const 0
        end
        if (result i32)
@@ -946,7 +938,7 @@
         i64.lt_u
         if (result i32)
          i32.const 1
-        else         
+        else
          local.get $20
          local.get $22
          i64.sub
@@ -957,7 +949,7 @@
          i64.sub
          i64.gt_u
         end
-       else        
+       else
         i32.const 0
        end
        i32.eqz
@@ -1084,7 +1076,7 @@
        i64.sub
        local.get $21
        i64.ge_u
-      else       
+      else
        i32.const 0
       end
       if (result i32)
@@ -1095,7 +1087,7 @@
        i64.lt_u
        if (result i32)
         i32.const 1
-       else        
+       else
         local.get $20
         local.get $22
         i64.sub
@@ -1106,7 +1098,7 @@
         i64.sub
         i64.gt_u
        end
-      else       
+      else
        i32.const 0
       end
       i32.eqz
@@ -1144,7 +1136,7 @@
      local.get $1
      i32.const 3
      i32.and
-    else     
+    else
      i32.const 0
     end
     i32.eqz
@@ -2186,7 +2178,7 @@
    i32.le_u
    if (result i32)
     i32.const 1
-   else    
+   else
     local.get $5
     local.get $3
     i32.add
@@ -2301,7 +2293,7 @@
      end
      unreachable
     end
-   else    
+   else
     local.get $4
     i32.const 7
     i32.and
@@ -2426,7 +2418,7 @@
    local.get $3
    i32.const 21
    i32.le_s
-  else   
+  else
    i32.const 0
   end
   if
@@ -2469,7 +2461,7 @@
    i32.const 2
    i32.add
    return
-  else   
+  else
    local.get $3
    i32.const 0
    i32.gt_s
@@ -2477,7 +2469,7 @@
     local.get $3
     i32.const 21
     i32.le_s
-   else    
+   else
     i32.const 0
    end
    if
@@ -2508,7 +2500,7 @@
     i32.const 1
     i32.add
     return
-   else    
+   else
     i32.const -6
     local.get $3
     i32.lt_s
@@ -2516,7 +2508,7 @@
      local.get $3
      i32.const 0
      i32.le_s
-    else     
+    else
      i32.const 0
     end
     if
@@ -2569,7 +2561,7 @@
      local.get $4
      i32.add
      return
-    else     
+    else
      local.get $1
      i32.const 1
      i32.eq
@@ -2623,7 +2615,7 @@
       i32.const 2
       i32.add
       return
-     else      
+     else
       local.get $1
       i32.const 1
       i32.shl
@@ -3213,7 +3205,7 @@
    i32.const 1
    i32.shl
    i32.eq
-  else   
+  else
    i32.const 0
   end
   if
@@ -3244,7 +3236,7 @@
    i32.const 15
    i32.and
    i32.eqz
-  else   
+  else
    i32.const 0
   end
   i32.eqz
@@ -3355,7 +3347,7 @@
    i32.const 1920
    call $~lib/rt/stub/__retain
    local.tee $1
-  else   
+  else
    i32.const 1944
    call $~lib/rt/stub/__retain
    local.tee $2
@@ -3377,7 +3369,7 @@
    f32.trunc
    local.get $0
    f32.eq
-  else   
+  else
    i32.const 0
   end
  )
@@ -3396,7 +3388,7 @@
    f32.trunc
    local.get $0
    f32.eq
-  else   
+  else
    i32.const 0
   end
  )
@@ -3410,7 +3402,7 @@
    f64.trunc
    local.get $0
    f64.eq
-  else   
+  else
    i32.const 0
   end
  )
@@ -3422,7 +3414,7 @@
    f64.trunc
    local.get $0
    f64.eq
-  else   
+  else
    i32.const 0
   end
  )
