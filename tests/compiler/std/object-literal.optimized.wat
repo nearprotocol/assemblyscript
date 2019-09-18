@@ -122,7 +122,7 @@
     i32.sub
     local.tee $3
     i32.eqz
-   else    
+   else
     i32.const 0
    end
    if
@@ -203,7 +203,7 @@
   (local $0 i32)
   i32.const 112
   global.set $~lib/rt/stub/startOffset
-  global.get $~lib/rt/stub/startOffset
+  i32.const 112
   global.set $~lib/rt/stub/offset
   i32.const 8
   i32.const 3

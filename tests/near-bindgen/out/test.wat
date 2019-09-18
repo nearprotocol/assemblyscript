@@ -35,16 +35,16 @@
  (data (i32.const 64) "\n\00\00\00\01\00\00\00\01\00\00\00\n\00\00\00:\00b\00a\00c\00k\00")
  (data (i32.const 96) "\04\00\00\00\01\00\00\00\01\00\00\00\04\00\00\00:\00:\00")
  (data (i32.const 120) "\04\00\00\00\01\00\00\00\01\00\00\00\04\00\00\00:\00r\00")
- (data (i32.const 144) "\08\00\00\00\01\00\00\00\01\00\00\00\08\00\00\00t\00r\00u\00e\00")
- (data (i32.const 168) "\n\00\00\00\01\00\00\00\01\00\00\00\n\00\00\00f\00a\00l\00s\00e\00")
- (data (i32.const 200) "\08\00\00\00\01\00\00\00\01\00\00\00\08\00\00\00n\00u\00l\00l\00")
- (data (i32.const 224) "\02\00\00\00\01\00\00\00\01\00\00\00\02\00\00\000\00")
- (data (i32.const 248) "\02\00\00\00\01\00\00\00\01\00\00\00\02\00\00\009\00")
- (data (i32.const 272) "\02\00\00\00\01\00\00\00\01\00\00\00\02\00\00\00A\00")
- (data (i32.const 296) "\02\00\00\00\01\00\00\00\01\00\00\00\02\00\00\00a\00")
- (data (i32.const 320) " \00\00\00\01\00\00\00\01\00\00\00 \00\00\000\001\002\003\004\005\006\007\008\009\00a\00b\00c\00d\00e\00f\00")
- (data (i32.const 368) "\02\00\00\00\01\00\00\00\01\00\00\00\02\00\00\00=\00")
- (data (i32.const 392) "\80\00\00\00\01\00\00\00\01\00\00\00\80\00\00\00A\00B\00C\00D\00E\00F\00G\00H\00I\00J\00K\00L\00M\00N\00O\00P\00Q\00R\00S\00T\00U\00V\00W\00X\00Y\00Z\00a\00b\00c\00d\00e\00f\00g\00h\00i\00j\00k\00l\00m\00n\00o\00p\00q\00r\00s\00t\00u\00v\00w\00x\00y\00z\000\001\002\003\004\005\006\007\008\009\00+\00/\00")
+ (data (i32.const 144) " \00\00\00\01\00\00\00\01\00\00\00 \00\00\000\001\002\003\004\005\006\007\008\009\00a\00b\00c\00d\00e\00f\00")
+ (data (i32.const 192) "\02\00\00\00\01\00\00\00\01\00\00\00\02\00\00\00=\00")
+ (data (i32.const 216) "\80\00\00\00\01\00\00\00\01\00\00\00\80\00\00\00A\00B\00C\00D\00E\00F\00G\00H\00I\00J\00K\00L\00M\00N\00O\00P\00Q\00R\00S\00T\00U\00V\00W\00X\00Y\00Z\00a\00b\00c\00d\00e\00f\00g\00h\00i\00j\00k\00l\00m\00n\00o\00p\00q\00r\00s\00t\00u\00v\00w\00x\00y\00z\000\001\002\003\004\005\006\007\008\009\00+\00/\00")
+ (data (i32.const 360) "\08\00\00\00\01\00\00\00\01\00\00\00\08\00\00\00t\00r\00u\00e\00")
+ (data (i32.const 384) "\n\00\00\00\01\00\00\00\01\00\00\00\n\00\00\00f\00a\00l\00s\00e\00")
+ (data (i32.const 416) "\08\00\00\00\01\00\00\00\01\00\00\00\08\00\00\00n\00u\00l\00l\00")
+ (data (i32.const 440) "\02\00\00\00\01\00\00\00\01\00\00\00\02\00\00\000\00")
+ (data (i32.const 464) "\02\00\00\00\01\00\00\00\01\00\00\00\02\00\00\009\00")
+ (data (i32.const 488) "\02\00\00\00\01\00\00\00\01\00\00\00\02\00\00\00A\00")
+ (data (i32.const 512) "\02\00\00\00\01\00\00\00\01\00\00\00\02\00\00\00a\00")
  (data (i32.const 536) "\1c\00\00\00\01\00\00\00\01\00\00\00\1c\00\00\00I\00n\00v\00a\00l\00i\00d\00 \00l\00e\00n\00g\00t\00h\00")
  (data (i32.const 584) "&\00\00\00\01\00\00\00\01\00\00\00&\00\00\00~\00l\00i\00b\00/\00a\00r\00r\00a\00y\00b\00u\00f\00f\00e\00r\00.\00t\00s\00")
  (data (i32.const 640) "^\00\00\00\01\00\00\00\01\00\00\00^\00\00\00E\00l\00e\00m\00e\00n\00t\00 \00t\00y\00p\00e\00 \00m\00u\00s\00t\00 \00b\00e\00 \00n\00u\00l\00l\00a\00b\00l\00e\00 \00i\00f\00 \00a\00r\00r\00a\00y\00 \00i\00s\00 \00h\00o\00l\00e\00y\00")
@@ -124,46 +124,44 @@
  (data (i32.const 3672) "(\00\00\00\01\00\00\00\01\00\00\00(\00\00\00~\00l\00i\00b\00/\00b\00i\00g\00n\00u\00m\00/\00u\00t\00i\00l\00s\00.\00t\00s\00")
  (data (i32.const 3728) "K\00\00\00\01\00\00\00\00\00\00\00K\00\00\00\00\01\02\03\04\05\06\07\08\t$$$$$$$\n\0b\0c\0d\0e\0f\10\11\12\13\14\15\16\17\18\19\1a\1b\1c\1d\1e\1f !\"#$$$$$$\n\0b\0c\0d\0e\0f\10\11\12\13\14\15\16\17\18\19\1a\1b\1c\1d\1e\1f !\"#")
  (data (i32.const 3824) "\10\00\00\00\01\00\00\00\1f\00\00\00\10\00\00\00\a0\0e\00\00\a0\0e\00\00K\00\00\00K\00\00\00")
- (data (i32.const 3856) "\08\00\00\00\01\00\00\00\01\00\00\00\08\00\00\00u\001\002\008\00")
- (data (i32.const 3880) "\04\00\00\00\01\00\00\00\01\00\00\00\04\00\00\00l\00o\00")
- (data (i32.const 3904) "\04\00\00\00\01\00\00\00\01\00\00\00\04\00\00\00h\00i\00")
- (data (i32.const 3928) "\16\00\00\00\01\00\00\00\01\00\00\00\16\00\00\00u\00i\00n\00t\008\00a\00r\00r\00a\00y\00s\00")
- (data (i32.const 3968) "\0c\00\00\00\01\00\00\00\01\00\00\00\0c\00\00\00u\006\004\00A\00r\00r\00")
- (data (i32.const 4000) "\04\00\00\00\01\00\00\00\01\00\00\00\04\00\00\00\\\00\"\00")
- (data (i32.const 4024) "\04\00\00\00\01\00\00\00\01\00\00\00\04\00\00\00\\\00\\\00")
- (data (i32.const 4048) "\04\00\00\00\01\00\00\00\01\00\00\00\04\00\00\00\\\00b\00")
- (data (i32.const 4072) "\04\00\00\00\01\00\00\00\01\00\00\00\04\00\00\00\\\00n\00")
- (data (i32.const 4096) "\04\00\00\00\01\00\00\00\01\00\00\00\04\00\00\00\\\00r\00")
- (data (i32.const 4120) "\04\00\00\00\01\00\00\00\01\00\00\00\04\00\00\00\\\00t\00")
- (data (i32.const 4144) "H\00\00\00\01\00\00\00\01\00\00\00H\00\00\00U\00n\00s\00u\00p\00p\00o\00r\00t\00e\00d\00 \00c\00o\00n\00t\00r\00o\00l\00 \00c\00h\00a\00r\00a\00c\00t\00e\00r\00 \00c\00o\00d\00e\00:\00 \00")
- (data (i32.const 4232) "\90\01\00\00\01\00\00\00\00\00\00\00\90\01\00\000\000\000\001\000\002\000\003\000\004\000\005\000\006\000\007\000\008\000\009\001\000\001\001\001\002\001\003\001\004\001\005\001\006\001\007\001\008\001\009\002\000\002\001\002\002\002\003\002\004\002\005\002\006\002\007\002\008\002\009\003\000\003\001\003\002\003\003\003\004\003\005\003\006\003\007\003\008\003\009\004\000\004\001\004\002\004\003\004\004\004\005\004\006\004\007\004\008\004\009\005\000\005\001\005\002\005\003\005\004\005\005\005\006\005\007\005\008\005\009\006\000\006\001\006\002\006\003\006\004\006\005\006\006\006\007\006\008\006\009\007\000\007\001\007\002\007\003\007\004\007\005\007\006\007\007\007\008\007\009\008\000\008\001\008\002\008\003\008\004\008\005\008\006\008\007\008\008\008\009\009\000\009\001\009\002\009\003\009\004\009\005\009\006\009\007\009\008\009\009\00")
- (data (i32.const 4648) "\10\00\00\00\01\00\00\00\1a\00\00\00\10\00\00\00\98\10\00\00\98\10\00\00\90\01\00\00d\00\00\00")
- (data (i32.const 4680) "F\00\00\00\01\00\00\00\01\00\00\00F\00\00\00~\00l\00i\00b\00/\00a\00s\00s\00e\00m\00b\00l\00y\00s\00c\00r\00i\00p\00t\00-\00j\00s\00o\00n\00/\00e\00n\00c\00o\00d\00e\00r\00.\00t\00s\00")
- (data (i32.const 4768) "\0c\00\00\00\01\00\00\00\01\00\00\00\0c\00\00\00f\00o\00o\00b\00a\00r\00")
- (data (i32.const 4800) "N\00\00\00\01\00\00\00\01\00\00\00N\00\00\00r\00a\00d\00i\00x\00 \00a\00r\00g\00u\00m\00e\00n\00t\00 \00m\00u\00s\00t\00 \00b\00e\00 \00b\00e\00t\00w\00e\00e\00n\00 \001\000\00 \00o\00r\00 \001\006\00")
- (data (i32.const 4896) "6\00\00\00\01\00\00\00\01\00\00\006\00\00\00~\00l\00i\00b\00/\00b\00i\00g\00n\00u\00m\00/\00i\00n\00t\00e\00g\00e\00r\00/\00u\001\002\008\00.\00t\00s\00")
- (data (i32.const 4968) "\12\00\00\00\01\00\00\00\01\00\00\00\12\00\00\00u\00n\00d\00e\00f\00i\00n\00e\00d\00")
- (data (i32.const 5008) ",\00\00\00\01\00\00\00\01\00\00\00,\00\00\00g\00e\00t\00S\00t\00r\00i\00n\00g\00A\00r\00r\00a\00y\00L\00e\00n\00g\00t\00h\00:\00 \00")
- (data (i32.const 5072) "\12\00\00\00\01\00\00\00\01\00\00\00\12\00\00\00c\00o\00n\00t\00a\00i\00n\00e\00r\00")
- (data (i32.const 5112) "\1c\00\00\00\01\00\00\00\01\00\00\00\1c\00\00\00C\00o\00n\00t\00a\00i\00n\00e\00r\00C\00l\00a\00s\00s\00")
- (data (i32.const 5160) "*\00\00\00\01\00\00\00\01\00\00\00*\00\00\00A\00n\00o\00t\00h\00e\00r\00C\00o\00n\00t\00a\00i\00n\00e\00r\00C\00l\00a\00s\00s\00")
- (data (i32.const 5224) "\06\00\00\00\01\00\00\00\01\00\00\00\06\00\00\00s\00t\00r\00")
- (data (i32.const 5248) "\0c\00\00\00\01\00\00\00\01\00\00\00\0c\00\00\00 \00W\00o\00r\00l\00d\00")
- (data (i32.const 5280) "\1a\00\00\00\01\00\00\00\01\00\00\00\1a\00\00\00s\00t\00a\00r\00t\00i\00n\00g\00 \00t\00e\00s\00t\00")
- (data (i32.const 5328) "\08\00\00\00\01\00\00\00\00\00\00\00\08\00\00\00*\00\00\00\0b\00\00\00")
- (data (i32.const 5352) "(\00\00\00\01\00\00\00\01\00\00\00(\00\00\00a\00G\00V\00s\00b\00G\008\00s\00I\00H\00d\00v\00c\00m\00x\00k\00I\00Q\00=\00=\00")
- (data (i32.const 5408) "\n\00\00\00\01\00\00\00\01\00\00\00\n\00\00\00H\00e\00l\00l\00o\00")
- (data (i32.const 5440) "\04\00\00\00\01\00\00\00\00\00\00\00\04\00\00\000\15\00\00")
- (data (i32.const 5464) "\n\00\00\00\01\00\00\00\01\00\00\00\n\00\00\00W\00o\00r\00l\00d\00")
- (data (i32.const 5496) "\04\00\00\00\01\00\00\00\00\00\00\00\04\00\00\00h\15\00\00")
- (data (i32.const 5520) "\10\00\00\00\01\00\00\00\00\00\00\00\10\00\00\00\00\e4\0bT\02\00\00\00\00\e8vH\17\00\00\00")
- (data (i32.const 5552) "\10\00\00\00\01\00\00\00\01\00\00\00\10\00\00\00B\00e\00f\00o\00r\00e\00:\00 \00")
- (data (i32.const 5584) "\10\00\00\00\01\00\00\00\01\00\00\00\10\00\00\00A\00f\00t\00e\00r\00:\00 \00 \00")
- (data (i32.const 5616) " \00\00\00\01\00\00\00\01\00\00\00 \00\00\00a\00s\00s\00e\00m\00b\00l\00y\00/\00t\00e\00s\00t\00.\00t\00s\00")
- (data (i32.const 5664) "\14\00\00\00\01\00\00\00\01\00\00\00\14\00\00\00u\00i\00n\00t\008\00A\00r\00r\00a\00y\00")
- (data (i32.const 5704) "\12\00\00\00\01\00\00\00\01\00\00\00\12\00\00\00N\00u\00l\00l\00a\00b\00l\00e\00s\00")
- (data (i32.const 5744) "\16\00\00\00\01\00\00\00\01\00\00\00\16\00\00\00T\00e\00s\00t\00 \00P\00a\00s\00s\00e\00d\00")
- (data (i32.const 5784) "%\00\00\00\10\00\00\00\00\00\00\00\10\00\00\00\00\00\00\00\10\00\00\00\00\00\00\00\10\00\00\00\00\00\00\00\10\00\00\00\00\00\00\00\10\00\00\00\00\00\00\001\00\00\00\02\00\00\00\10\00\00\00\00\00\00\00\10\00\00\00\07\00\00\00\98 A\00\00\00\00\00\93 \00\00\02\00\00\00\10\00\00\00\00\00\00\00\10\00\00\00\0b\00\00\00\10\00\00\00\0c\00\00\00\93 \00\00\02\00\00\00\10\00\00\00\00\00\00\00\10\00\00\00\00\00\00\00\10\00\00\00\07\00\00\00\93\04\00\00\02\00\00\00\10\00\00\00\07\00\00\00\10\00\00\00\07\00\00\00\10\00\00\00\07\00\00\00\10\00\00\00\07\00\00\00\10\00\00\00\00\00\00\00\10\00\00\00\00\00\00\00\93 \00\00\02\00\00\00\93\00\00\00\02\00\00\00\93 \00\00\02\00\00\00\13\01\00\00\02\00\00\00\93 \00\00\02\00\00\00\93 \00\00\02\00\00\003\00\00\00\02\00\00\00\10\00\00\00\00\00\00\001\04\00\00\02\00\00\00\10\00\00\00\00\00\00\00\93 \00\00\02\00\00\00\10\00\00\00\00\00\00\00")
+ (data (i32.const 3856) "\16\00\00\00\01\00\00\00\01\00\00\00\16\00\00\00u\00i\00n\00t\008\00a\00r\00r\00a\00y\00s\00")
+ (data (i32.const 3896) "\0c\00\00\00\01\00\00\00\01\00\00\00\0c\00\00\00u\006\004\00A\00r\00r\00")
+ (data (i32.const 3928) "\04\00\00\00\01\00\00\00\01\00\00\00\04\00\00\00\\\00\"\00")
+ (data (i32.const 3952) "\04\00\00\00\01\00\00\00\01\00\00\00\04\00\00\00\\\00\\\00")
+ (data (i32.const 3976) "\04\00\00\00\01\00\00\00\01\00\00\00\04\00\00\00\\\00b\00")
+ (data (i32.const 4000) "\04\00\00\00\01\00\00\00\01\00\00\00\04\00\00\00\\\00n\00")
+ (data (i32.const 4024) "\04\00\00\00\01\00\00\00\01\00\00\00\04\00\00\00\\\00r\00")
+ (data (i32.const 4048) "\04\00\00\00\01\00\00\00\01\00\00\00\04\00\00\00\\\00t\00")
+ (data (i32.const 4072) "H\00\00\00\01\00\00\00\01\00\00\00H\00\00\00U\00n\00s\00u\00p\00p\00o\00r\00t\00e\00d\00 \00c\00o\00n\00t\00r\00o\00l\00 \00c\00h\00a\00r\00a\00c\00t\00e\00r\00 \00c\00o\00d\00e\00:\00 \00")
+ (data (i32.const 4160) "\90\01\00\00\01\00\00\00\00\00\00\00\90\01\00\000\000\000\001\000\002\000\003\000\004\000\005\000\006\000\007\000\008\000\009\001\000\001\001\001\002\001\003\001\004\001\005\001\006\001\007\001\008\001\009\002\000\002\001\002\002\002\003\002\004\002\005\002\006\002\007\002\008\002\009\003\000\003\001\003\002\003\003\003\004\003\005\003\006\003\007\003\008\003\009\004\000\004\001\004\002\004\003\004\004\004\005\004\006\004\007\004\008\004\009\005\000\005\001\005\002\005\003\005\004\005\005\005\006\005\007\005\008\005\009\006\000\006\001\006\002\006\003\006\004\006\005\006\006\006\007\006\008\006\009\007\000\007\001\007\002\007\003\007\004\007\005\007\006\007\007\007\008\007\009\008\000\008\001\008\002\008\003\008\004\008\005\008\006\008\007\008\008\008\009\009\000\009\001\009\002\009\003\009\004\009\005\009\006\009\007\009\008\009\009\00")
+ (data (i32.const 4576) "\10\00\00\00\01\00\00\00\1a\00\00\00\10\00\00\00P\10\00\00P\10\00\00\90\01\00\00d\00\00\00")
+ (data (i32.const 4608) "F\00\00\00\01\00\00\00\01\00\00\00F\00\00\00~\00l\00i\00b\00/\00a\00s\00s\00e\00m\00b\00l\00y\00s\00c\00r\00i\00p\00t\00-\00j\00s\00o\00n\00/\00e\00n\00c\00o\00d\00e\00r\00.\00t\00s\00")
+ (data (i32.const 4696) "\0c\00\00\00\01\00\00\00\01\00\00\00\0c\00\00\00f\00o\00o\00b\00a\00r\00")
+ (data (i32.const 4728) "N\00\00\00\01\00\00\00\01\00\00\00N\00\00\00r\00a\00d\00i\00x\00 \00a\00r\00g\00u\00m\00e\00n\00t\00 \00m\00u\00s\00t\00 \00b\00e\00 \00b\00e\00t\00w\00e\00e\00n\00 \001\000\00 \00o\00r\00 \001\006\00")
+ (data (i32.const 4824) "6\00\00\00\01\00\00\00\01\00\00\006\00\00\00~\00l\00i\00b\00/\00b\00i\00g\00n\00u\00m\00/\00i\00n\00t\00e\00g\00e\00r\00/\00u\001\002\008\00.\00t\00s\00")
+ (data (i32.const 4896) "\12\00\00\00\01\00\00\00\01\00\00\00\12\00\00\00u\00n\00d\00e\00f\00i\00n\00e\00d\00")
+ (data (i32.const 4936) ",\00\00\00\01\00\00\00\01\00\00\00,\00\00\00g\00e\00t\00S\00t\00r\00i\00n\00g\00A\00r\00r\00a\00y\00L\00e\00n\00g\00t\00h\00:\00 \00")
+ (data (i32.const 5000) "\12\00\00\00\01\00\00\00\01\00\00\00\12\00\00\00c\00o\00n\00t\00a\00i\00n\00e\00r\00")
+ (data (i32.const 5040) "\1c\00\00\00\01\00\00\00\01\00\00\00\1c\00\00\00C\00o\00n\00t\00a\00i\00n\00e\00r\00C\00l\00a\00s\00s\00")
+ (data (i32.const 5088) "*\00\00\00\01\00\00\00\01\00\00\00*\00\00\00A\00n\00o\00t\00h\00e\00r\00C\00o\00n\00t\00a\00i\00n\00e\00r\00C\00l\00a\00s\00s\00")
+ (data (i32.const 5152) "\06\00\00\00\01\00\00\00\01\00\00\00\06\00\00\00s\00t\00r\00")
+ (data (i32.const 5176) "\0c\00\00\00\01\00\00\00\01\00\00\00\0c\00\00\00 \00W\00o\00r\00l\00d\00")
+ (data (i32.const 5208) "\1a\00\00\00\01\00\00\00\01\00\00\00\1a\00\00\00s\00t\00a\00r\00t\00i\00n\00g\00 \00t\00e\00s\00t\00")
+ (data (i32.const 5256) "\08\00\00\00\01\00\00\00\00\00\00\00\08\00\00\00*\00\00\00\0b\00\00\00")
+ (data (i32.const 5280) "(\00\00\00\01\00\00\00\01\00\00\00(\00\00\00a\00G\00V\00s\00b\00G\008\00s\00I\00H\00d\00v\00c\00m\00x\00k\00I\00Q\00=\00=\00")
+ (data (i32.const 5336) "\n\00\00\00\01\00\00\00\01\00\00\00\n\00\00\00H\00e\00l\00l\00o\00")
+ (data (i32.const 5368) "\04\00\00\00\01\00\00\00\00\00\00\00\04\00\00\00\e8\14\00\00")
+ (data (i32.const 5392) "\n\00\00\00\01\00\00\00\01\00\00\00\n\00\00\00W\00o\00r\00l\00d\00")
+ (data (i32.const 5424) "\04\00\00\00\01\00\00\00\00\00\00\00\04\00\00\00 \15\00\00")
+ (data (i32.const 5448) "\10\00\00\00\01\00\00\00\00\00\00\00\10\00\00\00\00\e4\0bT\02\00\00\00\00\e8vH\17\00\00\00")
+ (data (i32.const 5480) "\10\00\00\00\01\00\00\00\01\00\00\00\10\00\00\00B\00e\00f\00o\00r\00e\00:\00 \00")
+ (data (i32.const 5512) "\10\00\00\00\01\00\00\00\01\00\00\00\10\00\00\00A\00f\00t\00e\00r\00:\00 \00 \00")
+ (data (i32.const 5544) " \00\00\00\01\00\00\00\01\00\00\00 \00\00\00a\00s\00s\00e\00m\00b\00l\00y\00/\00t\00e\00s\00t\00.\00t\00s\00")
+ (data (i32.const 5592) "\08\00\00\00\01\00\00\00\01\00\00\00\08\00\00\00u\001\002\008\00")
+ (data (i32.const 5616) "\14\00\00\00\01\00\00\00\01\00\00\00\14\00\00\00u\00i\00n\00t\008\00A\00r\00r\00a\00y\00")
+ (data (i32.const 5656) "\12\00\00\00\01\00\00\00\01\00\00\00\12\00\00\00N\00u\00l\00l\00a\00b\00l\00e\00s\00")
+ (data (i32.const 5696) "\16\00\00\00\01\00\00\00\01\00\00\00\16\00\00\00T\00e\00s\00t\00 \00P\00a\00s\00s\00e\00d\00")
+ (data (i32.const 5736) "%\00\00\00\10\00\00\00\00\00\00\00\10\00\00\00\00\00\00\00\10\00\00\00\00\00\00\00\10\00\00\00\00\00\00\00\10\00\00\00\00\00\00\00\10\00\00\00\00\00\00\001\00\00\00\02\00\00\00\10\00\00\00\00\00\00\00\10\00\00\00\07\00\00\00\98 A\00\00\00\00\00\93 \00\00\02\00\00\00\10\00\00\00\00\00\00\00\10\00\00\00\0b\00\00\00\10\00\00\00\0c\00\00\00\93 \00\00\02\00\00\00\10\00\00\00\00\00\00\00\10\00\00\00\00\00\00\00\10\00\00\00\07\00\00\00\93\04\00\00\02\00\00\00\10\00\00\00\07\00\00\00\10\00\00\00\07\00\00\00\10\00\00\00\07\00\00\00\10\00\00\00\07\00\00\00\10\00\00\00\00\00\00\00\10\00\00\00\00\00\00\00\93 \00\00\02\00\00\00\93\00\00\00\02\00\00\00\93 \00\00\02\00\00\00\13\01\00\00\02\00\00\00\93 \00\00\02\00\00\00\93 \00\00\02\00\00\003\00\00\00\02\00\00\00\10\00\00\00\00\00\00\001\04\00\00\02\00\00\00\10\00\00\00\00\00\00\00\93 \00\00\02\00\00\00\10\00\00\00\00\00\00\00")
  (table $0 2 funcref)
  (elem (i32.const 0) $null $assembly/main/convertFoobars~anonymous|0)
  (global $~lib/rt/stub/startOffset (mut i32) (i32.const 0))
@@ -175,14 +173,7 @@
  (global $~lib/near-runtime-ts/collections/index/collections._KEY_ELEMENT_SUFFIX i32 (i32.const 112))
  (global $~lib/near-runtime-ts/collections/index/collections._KEY_RATING_SUFFIX i32 (i32.const 136))
  (global $~lib/near-runtime-ts/collections/index/collections._RATING_OFFSET i64 (i64.const 2147483648))
- (global $~lib/assemblyscript-json/decoder/TRUE_STR i32 (i32.const 160))
- (global $~lib/assemblyscript-json/decoder/FALSE_STR i32 (i32.const 184))
- (global $~lib/assemblyscript-json/decoder/NULL_STR i32 (i32.const 216))
- (global $~lib/assemblyscript-json/decoder/CHAR_0 (mut i32) (i32.const 0))
- (global $~lib/assemblyscript-json/decoder/CHAR_9 (mut i32) (i32.const 0))
- (global $~lib/assemblyscript-json/decoder/CHAR_A (mut i32) (i32.const 0))
- (global $~lib/assemblyscript-json/decoder/CHAR_A_LOWER (mut i32) (i32.const 0))
- (global $~lib/bignum/utils/HEX_CHARS i32 (i32.const 336))
+ (global $~lib/bignum/utils/HEX_CHARS i32 (i32.const 160))
  (global $~lib/bignum/globals/__divmod_quot_lo (mut i64) (i64.const 0))
  (global $~lib/bignum/globals/__divmod_quot_hi (mut i64) (i64.const 0))
  (global $~lib/bignum/globals/__divmod_rem (mut i64) (i64.const 0))
@@ -191,8 +182,15 @@
  (global $~lib/bignum/globals/__float_u128_lo (mut i64) (i64.const 0))
  (global $~lib/bignum/globals/__float_u128_hi (mut i64) (i64.const 0))
  (global $~lib/near-runtime-ts/contract/context (mut i32) (i32.const 0))
- (global $~lib/near-runtime-ts/base64/base64.PADCHAR i32 (i32.const 384))
- (global $~lib/near-runtime-ts/base64/base64.ALPHA i32 (i32.const 408))
+ (global $~lib/near-runtime-ts/base64/base64.PADCHAR i32 (i32.const 208))
+ (global $~lib/near-runtime-ts/base64/base64.ALPHA i32 (i32.const 232))
+ (global $~lib/assemblyscript-json/decoder/TRUE_STR i32 (i32.const 376))
+ (global $~lib/assemblyscript-json/decoder/FALSE_STR i32 (i32.const 400))
+ (global $~lib/assemblyscript-json/decoder/NULL_STR i32 (i32.const 432))
+ (global $~lib/assemblyscript-json/decoder/CHAR_0 (mut i32) (i32.const 0))
+ (global $~lib/assemblyscript-json/decoder/CHAR_9 (mut i32) (i32.const 0))
+ (global $~lib/assemblyscript-json/decoder/CHAR_A (mut i32) (i32.const 0))
+ (global $~lib/assemblyscript-json/decoder/CHAR_A_LOWER (mut i32) (i32.const 0))
  (global $~lib/builtins/u32.MAX_VALUE i32 (i32.const -1))
  (global $~lib/number/U32.MAX_VALUE i32 (i32.const -1))
  (global $~lib/ASC_SHRINK_LEVEL i32 (i32.const 0))
@@ -200,8 +198,8 @@
  (global $~lib/nearEntry/JSON.decoder (mut i32) (i32.const 0))
  (global $~lib/argc (mut i32) (i32.const 0))
  (global $~lib/bignum/utils/RadixCharsTable i32 (i32.const 3840))
- (global $~lib/rt/__rtti_base i32 (i32.const 5784))
- (global $~lib/heap/__heap_base i32 (i32.const 6084))
+ (global $~lib/rt/__rtti_base i32 (i32.const 5736))
+ (global $~lib/heap/__heap_base i32 (i32.const 6036))
  (export "memory" (memory $0))
  (export "__alloc" (func $~lib/rt/stub/__alloc))
  (export "__retain" (func $~lib/rt/stub/__retain))
@@ -353,7 +351,28 @@
   call $~lib/near-runtime-ts/storage/Storage#constructor
   global.set $~lib/near-runtime-ts/storage/storage
  )
- (func $~lib/string/String#get:length (; 12 ;) (type $FUNCSIG$ii) (param $0 i32) (result i32)
+ (func $~lib/near-runtime-ts/contract/Context#constructor (; 12 ;) (type $FUNCSIG$ii) (param $0 i32) (result i32)
+  local.get $0
+  i32.eqz
+  if
+   i32.const 0
+   i32.const 4
+   call $~lib/rt/stub/__alloc
+   call $~lib/rt/stub/__retain
+   local.set $0
+  end
+  local.get $0
+ )
+ (func $start:~lib/near-runtime-ts/contract (; 13 ;) (type $FUNCSIG$v)
+  i32.const 0
+  call $~lib/near-runtime-ts/contract/Context#constructor
+  global.set $~lib/near-runtime-ts/contract/context
+ )
+ (func $start:~lib/near-runtime-ts/index (; 14 ;) (type $FUNCSIG$v)
+  call $start:~lib/near-runtime-ts/storage
+  call $start:~lib/near-runtime-ts/contract
+ )
+ (func $~lib/string/String#get:length (; 15 ;) (type $FUNCSIG$ii) (param $0 i32) (result i32)
   local.get $0
   i32.const 16
   i32.sub
@@ -361,7 +380,7 @@
   i32.const 1
   i32.shr_u
  )
- (func $~lib/string/String#charCodeAt (; 13 ;) (type $FUNCSIG$iii) (param $0 i32) (param $1 i32) (result i32)
+ (func $~lib/string/String#charCodeAt (; 16 ;) (type $FUNCSIG$iii) (param $0 i32) (param $1 i32) (result i32)
   local.get $1
   local.get $0
   call $~lib/string/String#get:length
@@ -377,68 +396,38 @@
   i32.add
   i32.load16_u
  )
- (func $start:~lib/assemblyscript-json/decoder (; 14 ;) (type $FUNCSIG$v)
-  i32.const 240
+ (func $start:~lib/assemblyscript-json/decoder (; 17 ;) (type $FUNCSIG$v)
+  i32.const 456
   i32.const 0
   call $~lib/string/String#charCodeAt
   global.set $~lib/assemblyscript-json/decoder/CHAR_0
-  i32.const 264
+  i32.const 480
   i32.const 0
   call $~lib/string/String#charCodeAt
   global.set $~lib/assemblyscript-json/decoder/CHAR_9
-  i32.const 288
+  i32.const 504
   i32.const 0
   call $~lib/string/String#charCodeAt
   global.set $~lib/assemblyscript-json/decoder/CHAR_A
-  i32.const 312
+  i32.const 528
   i32.const 0
   call $~lib/string/String#charCodeAt
   global.set $~lib/assemblyscript-json/decoder/CHAR_A_LOWER
  )
- (func $start:~lib/assemblyscript-json/index (; 15 ;) (type $FUNCSIG$v)
+ (func $start:~lib/assemblyscript-json/index (; 18 ;) (type $FUNCSIG$v)
   call $start:~lib/assemblyscript-json/decoder
  )
- (func $start:~lib/bignum/integer/u128 (; 16 ;) (type $FUNCSIG$v)
+ (func $start:~lib/rt/index-stub (; 19 ;) (type $FUNCSIG$v)
+  call $start:~lib/near-runtime-ts/index
   call $start:~lib/assemblyscript-json/index
  )
- (func $start:~lib/bignum/integer/index (; 17 ;) (type $FUNCSIG$v)
-  call $start:~lib/bignum/integer/u128
- )
- (func $start:~lib/bignum/index (; 18 ;) (type $FUNCSIG$v)
-  call $start:~lib/bignum/integer/index
- )
- (func $~lib/near-runtime-ts/contract/Context#constructor (; 19 ;) (type $FUNCSIG$ii) (param $0 i32) (result i32)
-  local.get $0
-  i32.eqz
-  if
-   i32.const 0
-   i32.const 4
-   call $~lib/rt/stub/__alloc
-   call $~lib/rt/stub/__retain
-   local.set $0
-  end
-  local.get $0
- )
- (func $start:~lib/near-runtime-ts/contract (; 20 ;) (type $FUNCSIG$v)
-  call $start:~lib/bignum/index
-  i32.const 0
-  call $~lib/near-runtime-ts/contract/Context#constructor
-  global.set $~lib/near-runtime-ts/contract/context
- )
- (func $start:~lib/near-runtime-ts/index (; 21 ;) (type $FUNCSIG$v)
-  call $start:~lib/near-runtime-ts/storage
-  call $start:~lib/near-runtime-ts/contract
- )
- (func $start:~lib/rt/index-stub (; 22 ;) (type $FUNCSIG$v)
-  call $start:~lib/near-runtime-ts/index
- )
- (func $~lib/rt/stub/__release (; 23 ;) (type $FUNCSIG$vi) (param $0 i32)
+ (func $~lib/rt/stub/__release (; 20 ;) (type $FUNCSIG$vi) (param $0 i32)
   nop
  )
- (func $~lib/rt/stub/__collect (; 24 ;) (type $FUNCSIG$v)
+ (func $~lib/rt/stub/__collect (; 21 ;) (type $FUNCSIG$v)
   nop
  )
- (func $~lib/memory/memory.fill (; 25 ;) (type $FUNCSIG$viii) (param $0 i32) (param $1 i32) (param $2 i32)
+ (func $~lib/memory/memory.fill (; 22 ;) (type $FUNCSIG$viii) (param $0 i32) (param $1 i32) (param $2 i32)
   (local $3 i32)
   (local $4 i32)
   (local $5 i32)
@@ -702,7 +691,7 @@
    end
   end
  )
- (func $~lib/arraybuffer/ArrayBufferView#constructor (; 26 ;) (type $FUNCSIG$iiii) (param $0 i32) (param $1 i32) (param $2 i32) (result i32)
+ (func $~lib/arraybuffer/ArrayBufferView#constructor (; 23 ;) (type $FUNCSIG$iiii) (param $0 i32) (param $1 i32) (param $2 i32) (result i32)
   (local $3 i32)
   (local $4 i32)
   (local $5 i32)
@@ -773,11 +762,11 @@
   i32.store offset=8
   local.get $0
  )
- (func $~lib/typedarray/Uint8Array#constructor (; 27 ;) (type $FUNCSIG$iii) (param $0 i32) (param $1 i32) (result i32)
+ (func $~lib/typedarray/Uint8Array#constructor (; 24 ;) (type $FUNCSIG$iii) (param $0 i32) (param $1 i32) (result i32)
   local.get $0
   if (result i32)
    local.get $0
-  else   
+  else
    i32.const 12
    i32.const 6
    call $~lib/rt/stub/__alloc
@@ -789,12 +778,12 @@
   local.set $0
   local.get $0
  )
- (func $~lib/typedarray/Uint8Array#get:buffer (; 28 ;) (type $FUNCSIG$ii) (param $0 i32) (result i32)
+ (func $~lib/typedarray/Uint8Array#get:buffer (; 25 ;) (type $FUNCSIG$ii) (param $0 i32) (result i32)
   local.get $0
   i32.load
   call $~lib/rt/stub/__retain
  )
- (func $~lib/assemblyscript-json/decoder/JSONHandler#constructor (; 29 ;) (type $FUNCSIG$ii) (param $0 i32) (result i32)
+ (func $~lib/assemblyscript-json/decoder/JSONHandler#constructor (; 26 ;) (type $FUNCSIG$ii) (param $0 i32) (result i32)
   local.get $0
   i32.eqz
   if
@@ -806,7 +795,7 @@
   end
   local.get $0
  )
- (func $~lib/assemblyscript-json/decoder/ThrowingJSONHandler#constructor (; 30 ;) (type $FUNCSIG$ii) (param $0 i32) (result i32)
+ (func $~lib/assemblyscript-json/decoder/ThrowingJSONHandler#constructor (; 27 ;) (type $FUNCSIG$ii) (param $0 i32) (result i32)
   local.get $0
   i32.eqz
   if
@@ -821,11 +810,11 @@
   local.set $0
   local.get $0
  )
- (func $~lib/array/Array<~lib/nearEntry/Value>#constructor (; 31 ;) (type $FUNCSIG$iii) (param $0 i32) (param $1 i32) (result i32)
+ (func $~lib/array/Array<~lib/nearEntry/Value>#constructor (; 28 ;) (type $FUNCSIG$iii) (param $0 i32) (param $1 i32) (result i32)
   local.get $0
   if (result i32)
    local.get $0
-  else   
+  else
    i32.const 16
    i32.const 14
    call $~lib/rt/stub/__alloc
@@ -852,13 +841,13 @@
   i32.store offset=12
   local.get $0
  )
- (func $~lib/nearEntry/Handler#constructor (; 32 ;) (type $FUNCSIG$ii) (param $0 i32) (result i32)
+ (func $~lib/nearEntry/Handler#constructor (; 29 ;) (type $FUNCSIG$ii) (param $0 i32) (result i32)
   (local $1 i32)
   (local $2 i32)
   local.get $0
   if (result i32)
    local.get $0
-  else   
+  else
    i32.const 4
    i32.const 13
    call $~lib/rt/stub/__alloc
@@ -882,7 +871,7 @@
   i32.store
   local.get $0
  )
- (func $~lib/assemblyscript-json/decoder/JSONDecoder<~lib/nearEntry/Handler>#constructor (; 33 ;) (type $FUNCSIG$iii) (param $0 i32) (param $1 i32) (result i32)
+ (func $~lib/assemblyscript-json/decoder/JSONDecoder<~lib/nearEntry/Handler>#constructor (; 30 ;) (type $FUNCSIG$iii) (param $0 i32) (param $1 i32) (result i32)
   (local $2 i32)
   (local $3 i32)
   local.get $1
@@ -924,7 +913,7 @@
   call $~lib/rt/stub/__release
   local.get $0
  )
- (func $start:~lib/nearEntry (; 34 ;) (type $FUNCSIG$v)
+ (func $start:~lib/nearEntry (; 31 ;) (type $FUNCSIG$v)
   i32.const 0
   call $~lib/nearEntry/Handler#constructor
   global.set $~lib/nearEntry/JSON.handler
@@ -933,7 +922,7 @@
   call $~lib/assemblyscript-json/decoder/JSONDecoder<~lib/nearEntry/Handler>#constructor
   global.set $~lib/nearEntry/JSON.decoder
  )
- (func $~lib/assemblyscript-json/decoder/DecoderState#constructor (; 35 ;) (type $FUNCSIG$iii) (param $0 i32) (param $1 i32) (result i32)
+ (func $~lib/assemblyscript-json/decoder/DecoderState#constructor (; 32 ;) (type $FUNCSIG$iii) (param $0 i32) (param $1 i32) (result i32)
   local.get $1
   call $~lib/rt/stub/__retain
   drop
@@ -961,15 +950,15 @@
   call $~lib/rt/stub/__release
   local.get $0
  )
- (func $~lib/arraybuffer/ArrayBufferView#get:byteLength (; 36 ;) (type $FUNCSIG$ii) (param $0 i32) (result i32)
+ (func $~lib/arraybuffer/ArrayBufferView#get:byteLength (; 33 ;) (type $FUNCSIG$ii) (param $0 i32) (result i32)
   local.get $0
   i32.load offset=8
  )
- (func $~lib/typedarray/Uint8Array#get:length (; 37 ;) (type $FUNCSIG$ii) (param $0 i32) (result i32)
+ (func $~lib/typedarray/Uint8Array#get:length (; 34 ;) (type $FUNCSIG$ii) (param $0 i32) (result i32)
   local.get $0
   call $~lib/arraybuffer/ArrayBufferView#get:byteLength
  )
- (func $~lib/typedarray/Uint8Array#__get (; 38 ;) (type $FUNCSIG$iii) (param $0 i32) (param $1 i32) (result i32)
+ (func $~lib/typedarray/Uint8Array#__get (; 35 ;) (type $FUNCSIG$iii) (param $0 i32) (param $1 i32) (result i32)
   local.get $1
   local.get $0
   i32.load offset=8
@@ -977,7 +966,7 @@
   if
    i32.const 832
    i32.const 888
-   i32.const 147
+   i32.const 156
    i32.const 44
    call $~lib/builtins/abort
    unreachable
@@ -988,7 +977,7 @@
   i32.add
   i32.load8_u
  )
- (func $~lib/assemblyscript-json/decoder/JSONDecoder<~lib/nearEntry/Handler>#peekChar (; 39 ;) (type $FUNCSIG$ii) (param $0 i32) (result i32)
+ (func $~lib/assemblyscript-json/decoder/JSONDecoder<~lib/nearEntry/Handler>#peekChar (; 36 ;) (type $FUNCSIG$ii) (param $0 i32) (result i32)
   local.get $0
   i32.load offset=4
   i32.load offset=4
@@ -1009,33 +998,33 @@
   i32.load offset=4
   call $~lib/typedarray/Uint8Array#__get
  )
- (func $~lib/assemblyscript-json/decoder/JSONDecoder<~lib/nearEntry/Handler>#isWhitespace (; 40 ;) (type $FUNCSIG$iii) (param $0 i32) (param $1 i32) (result i32)
+ (func $~lib/assemblyscript-json/decoder/JSONDecoder<~lib/nearEntry/Handler>#isWhitespace (; 37 ;) (type $FUNCSIG$iii) (param $0 i32) (param $1 i32) (result i32)
   local.get $1
   i32.const 9
   i32.eq
   if (result i32)
    i32.const 1
-  else   
+  else
    local.get $1
    i32.const 10
    i32.eq
   end
   if (result i32)
    i32.const 1
-  else   
+  else
    local.get $1
    i32.const 13
    i32.eq
   end
   if (result i32)
    i32.const 1
-  else   
+  else
    local.get $1
    i32.const 32
    i32.eq
   end
  )
- (func $~lib/assemblyscript-json/decoder/JSONDecoder<~lib/nearEntry/Handler>#readChar (; 41 ;) (type $FUNCSIG$ii) (param $0 i32) (result i32)
+ (func $~lib/assemblyscript-json/decoder/JSONDecoder<~lib/nearEntry/Handler>#readChar (; 38 ;) (type $FUNCSIG$ii) (param $0 i32) (result i32)
   (local $1 i32)
   local.get $0
   i32.load offset=4
@@ -1069,7 +1058,7 @@
   local.get $1
   call $~lib/typedarray/Uint8Array#__get
  )
- (func $~lib/assemblyscript-json/decoder/JSONDecoder<~lib/nearEntry/Handler>#skipWhitespace (; 42 ;) (type $FUNCSIG$vi) (param $0 i32)
+ (func $~lib/assemblyscript-json/decoder/JSONDecoder<~lib/nearEntry/Handler>#skipWhitespace (; 39 ;) (type $FUNCSIG$vi) (param $0 i32)
   block $break|0
    loop $continue|0
     local.get $0
@@ -1086,7 +1075,7 @@
    unreachable
   end
  )
- (func $~lib/nearEntry/Value#constructor (; 43 ;) (type $FUNCSIG$ii) (param $0 i32) (result i32)
+ (func $~lib/nearEntry/Value#constructor (; 40 ;) (type $FUNCSIG$ii) (param $0 i32) (result i32)
   local.get $0
   i32.eqz
   if
@@ -1098,7 +1087,7 @@
   end
   local.get $0
  )
- (func $~lib/arraybuffer/ArrayBuffer#constructor (; 44 ;) (type $FUNCSIG$iii) (param $0 i32) (param $1 i32) (result i32)
+ (func $~lib/arraybuffer/ArrayBuffer#constructor (; 41 ;) (type $FUNCSIG$iii) (param $0 i32) (param $1 i32) (result i32)
   (local $2 i32)
   local.get $1
   i32.const 1073741808
@@ -1122,7 +1111,7 @@
   local.get $2
   call $~lib/rt/stub/__retain
  )
- (func $~lib/map/Map<~lib/string/String,~lib/nearEntry/Value>#clear (; 45 ;) (type $FUNCSIG$vi) (param $0 i32)
+ (func $~lib/map/Map<~lib/string/String,~lib/nearEntry/Value>#clear (; 42 ;) (type $FUNCSIG$vi) (param $0 i32)
   (local $1 i32)
   (local $2 i32)
   local.get $0
@@ -1162,7 +1151,7 @@
   i32.const 0
   i32.store offset=20
  )
- (func $~lib/map/Map<~lib/string/String,~lib/nearEntry/Value>#constructor (; 46 ;) (type $FUNCSIG$ii) (param $0 i32) (result i32)
+ (func $~lib/map/Map<~lib/string/String,~lib/nearEntry/Value>#constructor (; 43 ;) (type $FUNCSIG$ii) (param $0 i32) (result i32)
   local.get $0
   i32.eqz
   if
@@ -1194,11 +1183,11 @@
   call $~lib/map/Map<~lib/string/String,~lib/nearEntry/Value>#clear
   local.get $0
  )
- (func $~lib/array/Array<~lib/string/String>#constructor (; 47 ;) (type $FUNCSIG$iii) (param $0 i32) (param $1 i32) (result i32)
+ (func $~lib/array/Array<~lib/string/String>#constructor (; 44 ;) (type $FUNCSIG$iii) (param $0 i32) (param $1 i32) (result i32)
   local.get $0
   if (result i32)
    local.get $0
-  else   
+  else
    i32.const 16
    i32.const 10
    call $~lib/rt/stub/__alloc
@@ -1225,13 +1214,13 @@
   i32.store offset=12
   local.get $0
  )
- (func $~lib/nearEntry/Obj#constructor (; 48 ;) (type $FUNCSIG$ii) (param $0 i32) (result i32)
+ (func $~lib/nearEntry/Obj#constructor (; 45 ;) (type $FUNCSIG$ii) (param $0 i32) (result i32)
   (local $1 i32)
   (local $2 i32)
   local.get $0
   if (result i32)
    local.get $0
-  else   
+  else
    i32.const 8
    i32.const 8
    call $~lib/rt/stub/__alloc
@@ -1268,11 +1257,11 @@
   i32.store offset=4
   local.get $0
  )
- (func $~lib/nearEntry/Value.Object (; 49 ;) (type $FUNCSIG$i) (result i32)
+ (func $~lib/nearEntry/Value.Object (; 46 ;) (type $FUNCSIG$i) (result i32)
   i32.const 0
   call $~lib/nearEntry/Obj#constructor
  )
- (func $~lib/rt/__instanceof (; 50 ;) (type $FUNCSIG$iii) (param $0 i32) (param $1 i32) (result i32)
+ (func $~lib/rt/__instanceof (; 47 ;) (type $FUNCSIG$iii) (param $0 i32) (param $1 i32) (result i32)
   (local $2 i32)
   (local $3 i32)
   local.get $0
@@ -1309,11 +1298,11 @@
   end
   i32.const 0
  )
- (func $~lib/array/Array<~lib/nearEntry/Value>#get:length (; 51 ;) (type $FUNCSIG$ii) (param $0 i32) (result i32)
+ (func $~lib/array/Array<~lib/nearEntry/Value>#get:length (; 48 ;) (type $FUNCSIG$ii) (param $0 i32) (result i32)
   local.get $0
   i32.load offset=12
  )
- (func $~lib/util/memory/memcpy (; 52 ;) (type $FUNCSIG$viii) (param $0 i32) (param $1 i32) (param $2 i32)
+ (func $~lib/util/memory/memcpy (; 49 ;) (type $FUNCSIG$viii) (param $0 i32) (param $1 i32) (param $2 i32)
   (local $3 i32)
   (local $4 i32)
   (local $5 i32)
@@ -1324,7 +1313,7 @@
      local.get $1
      i32.const 3
      i32.and
-    else     
+    else
      i32.const 0
     end
     i32.eqz
@@ -2341,7 +2330,7 @@
    i32.store8
   end
  )
- (func $~lib/memory/memory.copy (; 53 ;) (type $FUNCSIG$viii) (param $0 i32) (param $1 i32) (param $2 i32)
+ (func $~lib/memory/memory.copy (; 50 ;) (type $FUNCSIG$viii) (param $0 i32) (param $1 i32) (param $2 i32)
   (local $3 i32)
   (local $4 i32)
   (local $5 i32)
@@ -2366,7 +2355,7 @@
    i32.le_u
    if (result i32)
     i32.const 1
-   else    
+   else
     local.get $5
     local.get $3
     i32.add
@@ -2481,7 +2470,7 @@
      end
      unreachable
     end
-   else    
+   else
     local.get $4
     i32.const 7
     i32.and
@@ -2566,7 +2555,7 @@
    end
   end
  )
- (func $~lib/rt/stub/__realloc (; 54 ;) (type $FUNCSIG$iii) (param $0 i32) (param $1 i32) (result i32)
+ (func $~lib/rt/stub/__realloc (; 51 ;) (type $FUNCSIG$iii) (param $0 i32) (param $1 i32) (result i32)
   (local $2 i32)
   (local $3 i32)
   (local $4 i32)
@@ -2579,7 +2568,7 @@
    i32.const 15
    i32.and
    i32.eqz
-  else   
+  else
    i32.const 0
   end
   i32.eqz
@@ -2642,7 +2631,7 @@
     local.get $2
     local.get $3
     i32.store
-   else    
+   else
     local.get $1
     i32.const 15
     i32.add
@@ -2676,7 +2665,7 @@
     i32.sub
     local.set $2
    end
-  else   
+  else
    local.get $0
    local.get $3
    i32.add
@@ -2705,7 +2694,7 @@
   i32.store offset=12
   local.get $0
  )
- (func $~lib/array/ensureSize (; 55 ;) (type $FUNCSIG$viii) (param $0 i32) (param $1 i32) (param $2 i32)
+ (func $~lib/array/ensureSize (; 52 ;) (type $FUNCSIG$viii) (param $0 i32) (param $1 i32) (param $2 i32)
   (local $3 i32)
   (local $4 i32)
   (local $5 i32)
@@ -2768,7 +2757,7 @@
    i32.store offset=8
   end
  )
- (func $~lib/array/Array<~lib/nearEntry/Value>#push (; 56 ;) (type $FUNCSIG$iii) (param $0 i32) (param $1 i32) (result i32)
+ (func $~lib/array/Array<~lib/nearEntry/Value>#push (; 53 ;) (type $FUNCSIG$iii) (param $0 i32) (param $1 i32) (result i32)
   (local $2 i32)
   (local $3 i32)
   (local $4 i32)
@@ -2804,7 +2793,7 @@
   call $~lib/rt/stub/__release
   local.get $4
  )
- (func $~lib/array/Array<~lib/nearEntry/Value>#__unchecked_get (; 57 ;) (type $FUNCSIG$iii) (param $0 i32) (param $1 i32) (result i32)
+ (func $~lib/array/Array<~lib/nearEntry/Value>#__unchecked_get (; 54 ;) (type $FUNCSIG$iii) (param $0 i32) (param $1 i32) (result i32)
   local.get $0
   i32.load offset=4
   local.get $1
@@ -2814,7 +2803,7 @@
   i32.load
   call $~lib/rt/stub/__retain
  )
- (func $~lib/array/Array<~lib/nearEntry/Value>#__get (; 58 ;) (type $FUNCSIG$iii) (param $0 i32) (param $1 i32) (result i32)
+ (func $~lib/array/Array<~lib/nearEntry/Value>#__get (; 55 ;) (type $FUNCSIG$iii) (param $0 i32) (param $1 i32) (result i32)
   local.get $1
   local.get $0
   i32.load offset=12
@@ -2845,7 +2834,7 @@
   local.get $1
   call $~lib/array/Array<~lib/nearEntry/Value>#__unchecked_get
  )
- (func $~lib/nearEntry/Handler#get:peek (; 59 ;) (type $FUNCSIG$ii) (param $0 i32) (result i32)
+ (func $~lib/nearEntry/Handler#get:peek (; 56 ;) (type $FUNCSIG$ii) (param $0 i32) (result i32)
   local.get $0
   i32.load
   local.get $0
@@ -2855,7 +2844,7 @@
   i32.sub
   call $~lib/array/Array<~lib/nearEntry/Value>#__get
  )
- (func $~lib/util/hash/hashStr (; 60 ;) (type $FUNCSIG$ii) (param $0 i32) (result i32)
+ (func $~lib/util/hash/hashStr (; 57 ;) (type $FUNCSIG$ii) (param $0 i32) (result i32)
   (local $1 i32)
   (local $2 i32)
   (local $3 i32)
@@ -2906,7 +2895,7 @@
   call $~lib/rt/stub/__release
   local.get $3
  )
- (func $~lib/util/string/compareImpl (; 61 ;) (type $FUNCSIG$iiiiii) (param $0 i32) (param $1 i32) (param $2 i32) (param $3 i32) (param $4 i32) (result i32)
+ (func $~lib/util/string/compareImpl (; 58 ;) (type $FUNCSIG$iiiiii) (param $0 i32) (param $1 i32) (param $2 i32) (param $3 i32) (param $4 i32) (result i32)
   (local $5 i32)
   (local $6 i32)
   (local $7 i32)
@@ -2942,7 +2931,7 @@
      i32.sub
      local.tee $5
      i32.eqz
-    else     
+    else
      i32.const 0
     end
     i32.eqz
@@ -2971,7 +2960,7 @@
   call $~lib/rt/stub/__release
   local.get $8
  )
- (func $~lib/string/String.__eq (; 62 ;) (type $FUNCSIG$iii) (param $0 i32) (param $1 i32) (result i32)
+ (func $~lib/string/String.__eq (; 59 ;) (type $FUNCSIG$iii) (param $0 i32) (param $1 i32) (result i32)
   (local $2 i32)
   (local $3 i32)
   local.get $0
@@ -2998,7 +2987,7 @@
   i32.eq
   if (result i32)
    i32.const 1
-  else   
+  else
    local.get $1
    i32.const 0
    i32.eq
@@ -3044,7 +3033,7 @@
   call $~lib/rt/stub/__release
   local.get $2
  )
- (func $~lib/map/Map<~lib/string/String,~lib/nearEntry/Value>#find (; 63 ;) (type $FUNCSIG$iiii) (param $0 i32) (param $1 i32) (param $2 i32) (result i32)
+ (func $~lib/map/Map<~lib/string/String,~lib/nearEntry/Value>#find (; 60 ;) (type $FUNCSIG$iiii) (param $0 i32) (param $1 i32) (param $2 i32) (result i32)
   (local $3 i32)
   (local $4 i32)
   local.get $1
@@ -3076,7 +3065,7 @@
      i32.load
      local.get $1
      call $~lib/string/String.__eq
-    else     
+    else
      i32.const 0
     end
     if
@@ -3104,7 +3093,7 @@
   call $~lib/rt/stub/__release
   local.get $4
  )
- (func $~lib/map/Map<~lib/string/String,~lib/nearEntry/Value>#has (; 64 ;) (type $FUNCSIG$iii) (param $0 i32) (param $1 i32) (result i32)
+ (func $~lib/map/Map<~lib/string/String,~lib/nearEntry/Value>#has (; 61 ;) (type $FUNCSIG$iii) (param $0 i32) (param $1 i32) (result i32)
   (local $2 i32)
   (local $3 i32)
   local.get $1
@@ -3132,7 +3121,7 @@
   call $~lib/rt/stub/__release
   local.get $2
  )
- (func $~lib/array/Array<~lib/string/String>#push (; 65 ;) (type $FUNCSIG$iii) (param $0 i32) (param $1 i32) (result i32)
+ (func $~lib/array/Array<~lib/string/String>#push (; 62 ;) (type $FUNCSIG$iii) (param $0 i32) (param $1 i32) (result i32)
   (local $2 i32)
   (local $3 i32)
   (local $4 i32)
@@ -3168,7 +3157,7 @@
   call $~lib/rt/stub/__release
   local.get $4
  )
- (func $~lib/map/Map<~lib/string/String,~lib/nearEntry/Value>#rehash (; 66 ;) (type $FUNCSIG$vii) (param $0 i32) (param $1 i32)
+ (func $~lib/map/Map<~lib/string/String,~lib/nearEntry/Value>#rehash (; 63 ;) (type $FUNCSIG$vii) (param $0 i32) (param $1 i32)
   (local $2 i32)
   (local $3 i32)
   (local $4 i32)
@@ -3330,7 +3319,7 @@
   local.get $5
   call $~lib/rt/stub/__release
  )
- (func $~lib/map/Map<~lib/string/String,~lib/nearEntry/Value>#set (; 67 ;) (type $FUNCSIG$viii) (param $0 i32) (param $1 i32) (param $2 i32)
+ (func $~lib/map/Map<~lib/string/String,~lib/nearEntry/Value>#set (; 64 ;) (type $FUNCSIG$viii) (param $0 i32) (param $1 i32) (param $2 i32)
   (local $3 i32)
   (local $4 i32)
   (local $5 i32)
@@ -3375,7 +3364,7 @@
     local.get $3
     call $~lib/rt/stub/__release
    end
-  else   
+  else
    local.get $0
    i32.load offset=16
    local.get $0
@@ -3395,7 +3384,7 @@
     if (result i32)
      local.get $0
      i32.load offset=4
-    else     
+    else
      local.get $0
      i32.load offset=4
      i32.const 1
@@ -3461,7 +3450,7 @@
   local.get $2
   call $~lib/rt/stub/__release
  )
- (func $~lib/nearEntry/Obj#set (; 68 ;) (type $FUNCSIG$viii) (param $0 i32) (param $1 i32) (param $2 i32)
+ (func $~lib/nearEntry/Obj#set (; 65 ;) (type $FUNCSIG$viii) (param $0 i32) (param $1 i32) (param $2 i32)
   local.get $1
   call $~lib/rt/stub/__retain
   drop
@@ -3490,7 +3479,7 @@
   local.get $2
   call $~lib/rt/stub/__release
  )
- (func $~lib/nearEntry/Arr#push (; 69 ;) (type $FUNCSIG$vii) (param $0 i32) (param $1 i32)
+ (func $~lib/nearEntry/Arr#push (; 66 ;) (type $FUNCSIG$vii) (param $0 i32) (param $1 i32)
   local.get $1
   call $~lib/rt/stub/__retain
   drop
@@ -3502,7 +3491,7 @@
   local.get $1
   call $~lib/rt/stub/__release
  )
- (func $~lib/nearEntry/Handler#addValue (; 70 ;) (type $FUNCSIG$viii) (param $0 i32) (param $1 i32) (param $2 i32)
+ (func $~lib/nearEntry/Handler#addValue (; 67 ;) (type $FUNCSIG$viii) (param $0 i32) (param $1 i32) (param $2 i32)
   (local $3 i32)
   (local $4 i32)
   (local $5 i32)
@@ -3522,12 +3511,12 @@
    i32.eqz
    if (result i32)
     i32.const 0
-   else    
+   else
     local.get $3
     i32.const 8
     call $~lib/rt/__instanceof
    end
-  else   
+  else
    i32.const 0
   end
   if (result i32)
@@ -3536,7 +3525,7 @@
    call $~lib/array/Array<~lib/nearEntry/Value>#get:length
    i32.const 0
    i32.eq
-  else   
+  else
    i32.const 0
   end
   if
@@ -3558,7 +3547,7 @@
   i32.eqz
   if (result i32)
    i32.const 0
-  else   
+  else
    local.get $4
    i32.const 8
    call $~lib/rt/__instanceof
@@ -3572,7 +3561,7 @@
    call $~lib/nearEntry/Obj#set
    local.get $4
    call $~lib/rt/stub/__release
-  else   
+  else
    local.get $0
    call $~lib/nearEntry/Handler#get:peek
    local.tee $4
@@ -3580,7 +3569,7 @@
    i32.eqz
    if (result i32)
     i32.const 0
-   else    
+   else
     local.get $5
     i32.const 17
     call $~lib/rt/__instanceof
@@ -3604,7 +3593,7 @@
   local.get $2
   call $~lib/rt/stub/__release
  )
- (func $~lib/nearEntry/Handler#pushObject (; 71 ;) (type $FUNCSIG$iii) (param $0 i32) (param $1 i32) (result i32)
+ (func $~lib/nearEntry/Handler#pushObject (; 68 ;) (type $FUNCSIG$iii) (param $0 i32) (param $1 i32) (result i32)
   (local $2 i32)
   (local $3 i32)
   local.get $1
@@ -3629,7 +3618,7 @@
   call $~lib/rt/stub/__release
   local.get $3
  )
- (func $~lib/assemblyscript-json/util/index/Buffer.getPtr (; 72 ;) (type $FUNCSIG$ii) (param $0 i32) (result i32)
+ (func $~lib/assemblyscript-json/util/index/Buffer.getPtr (; 69 ;) (type $FUNCSIG$ii) (param $0 i32) (result i32)
   (local $1 i32)
   local.get $0
   call $~lib/rt/stub/__retain
@@ -3641,7 +3630,7 @@
   call $~lib/rt/stub/__release
   local.get $1
  )
- (func $~lib/string/String.UTF8.decodeUnsafe (; 73 ;) (type $FUNCSIG$iiii) (param $0 i32) (param $1 i32) (param $2 i32) (result i32)
+ (func $~lib/string/String.UTF8.decodeUnsafe (; 70 ;) (type $FUNCSIG$iiii) (param $0 i32) (param $1 i32) (param $2 i32) (result i32)
   (local $3 i32)
   (local $4 i32)
   (local $5 i32)
@@ -3697,7 +3686,7 @@
      if (result i32)
       local.get $7
       i32.eqz
-     else      
+     else
       i32.const 0
      end
      if
@@ -3710,7 +3699,7 @@
      i32.const 2
      i32.add
      local.set $6
-    else     
+    else
      local.get $7
      i32.const 191
      i32.gt_u
@@ -3718,7 +3707,7 @@
       local.get $7
       i32.const 224
       i32.lt_u
-     else      
+     else
       i32.const 0
      end
      if
@@ -3751,7 +3740,7 @@
       i32.const 2
       i32.add
       local.set $6
-     else      
+     else
       local.get $7
       i32.const 239
       i32.gt_u
@@ -3759,7 +3748,7 @@
        local.get $7
        i32.const 365
        i32.lt_u
-      else       
+      else
        i32.const 0
       end
       if
@@ -3820,7 +3809,7 @@
        i32.const 4
        i32.add
        local.set $6
-      else       
+      else
        local.get $4
        local.get $3
        i32.sub
@@ -3870,7 +3859,7 @@
   call $~lib/rt/stub/__realloc
   call $~lib/rt/stub/__retain
  )
- (func $~lib/assemblyscript-json/util/index/Buffer.readString (; 74 ;) (type $FUNCSIG$iiii) (param $0 i32) (param $1 i32) (param $2 i32) (result i32)
+ (func $~lib/assemblyscript-json/util/index/Buffer.readString (; 71 ;) (type $FUNCSIG$iiii) (param $0 i32) (param $1 i32) (param $2 i32) (result i32)
   (local $3 i32)
   local.get $0
   call $~lib/rt/stub/__retain
@@ -3889,7 +3878,7 @@
   call $~lib/rt/stub/__release
   local.get $3
  )
- (func $~lib/assemblyscript-json/decoder/DecoderState#readString (; 75 ;) (type $FUNCSIG$iiii) (param $0 i32) (param $1 i32) (param $2 i32) (result i32)
+ (func $~lib/assemblyscript-json/decoder/DecoderState#readString (; 72 ;) (type $FUNCSIG$iiii) (param $0 i32) (param $1 i32) (param $2 i32) (result i32)
   local.get $0
   i32.load offset=8
   local.get $1
@@ -3898,7 +3887,7 @@
   i32.sub
   call $~lib/assemblyscript-json/util/index/Buffer.readString
  )
- (func $~lib/assemblyscript-json/decoder/DecoderState#readString|trampoline (; 76 ;) (type $FUNCSIG$iiii) (param $0 i32) (param $1 i32) (param $2 i32) (result i32)
+ (func $~lib/assemblyscript-json/decoder/DecoderState#readString|trampoline (; 73 ;) (type $FUNCSIG$iiii) (param $0 i32) (param $1 i32) (param $2 i32) (result i32)
   block $1of1
    block $0of1
     block $outOfRange
@@ -3918,12 +3907,11 @@
   local.get $2
   call $~lib/assemblyscript-json/decoder/DecoderState#readString
  )
- (func $~lib/array/Array<~lib/string/String>#get:length (; 77 ;) (type $FUNCSIG$ii) (param $0 i32) (result i32)
+ (func $~lib/array/Array<~lib/string/String>#get:length (; 74 ;) (type $FUNCSIG$ii) (param $0 i32) (result i32)
   local.get $0
   i32.load offset=12
  )
- (func $~lib/array/Array<~lib/string/String>#join_str (; 78 ;) (type $FUNCSIG$iii) (param $0 i32) (param $1 i32) (result i32)
-  (local $2 i32)
+ (func $~lib/util/string/joinStringArray (; 75 ;) (type $FUNCSIG$iiii) (param $0 i32) (param $1 i32) (param $2 i32) (result i32)
   (local $3 i32)
   (local $4 i32)
   (local $5 i32)
@@ -3934,42 +3922,38 @@
   (local $10 i32)
   (local $11 i32)
   (local $12 i32)
-  local.get $1
+  local.get $2
   call $~lib/rt/stub/__retain
   drop
-  local.get $0
-  i32.load offset=12
+  local.get $1
   i32.const 1
   i32.sub
-  local.set $2
-  local.get $2
+  local.set $3
+  local.get $3
   i32.const 0
   i32.lt_s
   if
    i32.const 816
    call $~lib/rt/stub/__retain
-   local.set $3
-   local.get $1
+   local.set $4
+   local.get $2
    call $~lib/rt/stub/__release
-   local.get $3
+   local.get $4
    return
   end
-  local.get $0
-  i32.load offset=4
-  local.set $4
-  local.get $2
+  local.get $3
   i32.eqz
   if
-   local.get $4
+   local.get $0
    i32.load
    call $~lib/rt/stub/__retain
-   local.set $3
-   local.get $1
+   local.set $4
+   local.get $2
    call $~lib/rt/stub/__release
-   local.get $3
+   local.get $4
    return
   end
-  local.get $1
+  local.get $2
   call $~lib/string/String#get:length
   local.set $5
   i32.const 0
@@ -3978,19 +3962,19 @@
   local.set $7
   block $break|0
    i32.const 0
-   local.set $3
-   local.get $2
+   local.set $4
+   local.get $3
    i32.const 1
    i32.add
    local.set $8
    loop $loop|0
-    local.get $3
+    local.get $4
     local.get $8
     i32.lt_s
     i32.eqz
     br_if $break|0
+    local.get $0
     local.get $4
-    local.get $3
     i32.const 2
     i32.shl
     i32.add
@@ -4018,10 +4002,10 @@
      i32.add
      local.set $6
     end
-    local.get $3
+    local.get $4
     i32.const 1
     i32.add
-    local.set $3
+    local.set $4
     br $loop|0
    end
    unreachable
@@ -4030,7 +4014,7 @@
   local.set $11
   local.get $6
   local.get $5
-  local.get $2
+  local.get $3
   i32.mul
   i32.add
   i32.const 1
@@ -4044,11 +4028,11 @@
    local.set $8
    loop $loop|1
     local.get $8
-    local.get $2
+    local.get $3
     i32.lt_s
     i32.eqz
     br_if $break|1
-    local.get $4
+    local.get $0
     local.get $8
     i32.const 2
     i32.shl
@@ -4056,13 +4040,13 @@
     i32.load
     local.tee $10
     local.get $7
-    local.tee $3
+    local.tee $4
     i32.ne
     if
      local.get $10
      call $~lib/rt/stub/__retain
      drop
-     local.get $3
+     local.get $4
      call $~lib/rt/stub/__release
     end
     local.get $10
@@ -4096,7 +4080,7 @@
      i32.const 1
      i32.shl
      i32.add
-     local.get $1
+     local.get $2
      local.get $5
      i32.const 1
      i32.shl
@@ -4114,8 +4098,8 @@
    end
    unreachable
   end
-  local.get $4
-  local.get $2
+  local.get $0
+  local.get $3
   i32.const 2
   i32.shl
   i32.add
@@ -4151,27 +4135,36 @@
   end
   local.get $12
   local.set $9
-  local.get $1
+  local.get $2
   call $~lib/rt/stub/__release
   local.get $7
   call $~lib/rt/stub/__release
   local.get $9
  )
- (func $~lib/array/Array<~lib/string/String>#join (; 79 ;) (type $FUNCSIG$iii) (param $0 i32) (param $1 i32) (result i32)
+ (func $~lib/array/Array<~lib/string/String>#join (; 76 ;) (type $FUNCSIG$iii) (param $0 i32) (param $1 i32) (result i32)
   (local $2 i32)
+  (local $3 i32)
+  (local $4 i32)
   local.get $1
   call $~lib/rt/stub/__retain
   drop
   local.get $0
-  local.get $1
-  call $~lib/array/Array<~lib/string/String>#join_str
+  i32.load offset=4
   local.set $2
+  local.get $0
+  i32.load offset=12
+  local.set $3
+  local.get $2
+  local.get $3
+  local.get $1
+  call $~lib/util/string/joinStringArray
+  local.set $4
   local.get $1
   call $~lib/rt/stub/__release
-  local.get $2
+  local.get $4
   return
  )
- (func $~lib/rt/__allocArray (; 80 ;) (type $FUNCSIG$iiiii) (param $0 i32) (param $1 i32) (param $2 i32) (param $3 i32) (result i32)
+ (func $~lib/rt/__allocArray (; 77 ;) (type $FUNCSIG$iiiii) (param $0 i32) (param $1 i32) (param $2 i32) (param $3 i32) (result i32)
   (local $4 i32)
   (local $5 i32)
   (local $6 i32)
@@ -4209,7 +4202,7 @@
   end
   local.get $4
  )
- (func $~lib/assemblyscript-json/decoder/JSONDecoder<~lib/nearEntry/Handler>#readHexDigit (; 81 ;) (type $FUNCSIG$ii) (param $0 i32) (result i32)
+ (func $~lib/assemblyscript-json/decoder/JSONDecoder<~lib/nearEntry/Handler>#readHexDigit (; 78 ;) (type $FUNCSIG$ii) (param $0 i32) (result i32)
   (local $1 i32)
   (local $2 i32)
   (local $3 i32)
@@ -4236,7 +4229,7 @@
    i32.lt_s
    if (result i32)
     i32.const 1
-   else    
+   else
     local.get $2
     i32.const 15
     i32.gt_s
@@ -4275,7 +4268,7 @@
    local.get $2
    i32.const 16
    i32.lt_s
-  else   
+  else
    i32.const 0
   end
   i32.eqz
@@ -4293,7 +4286,7 @@
   call $~lib/rt/stub/__release
   local.get $3
  )
- (func $~lib/string/String.fromCodePoint (; 82 ;) (type $FUNCSIG$ii) (param $0 i32) (result i32)
+ (func $~lib/string/String.fromCodePoint (; 79 ;) (type $FUNCSIG$ii) (param $0 i32) (result i32)
   (local $1 i32)
   (local $2 i32)
   (local $3 i32)
@@ -4326,35 +4319,35 @@
    local.get $2
    local.get $0
    i32.store16
-  else   
+  else
    local.get $0
    i32.const 65536
    i32.sub
    local.set $0
    local.get $0
-   i32.const 10
-   i32.shr_u
-   i32.const 55296
-   i32.add
-   local.set $3
-   local.get $0
    i32.const 1023
    i32.and
    i32.const 56320
    i32.add
+   local.set $3
+   local.get $0
+   i32.const 10
+   i32.shr_u
+   i32.const 55296
+   i32.add
    local.set $4
    local.get $2
+   local.get $4
    local.get $3
    i32.const 16
    i32.shl
-   local.get $4
    i32.or
    i32.store
   end
   local.get $2
   call $~lib/rt/stub/__retain
  )
- (func $~lib/string/String.fromCharCode (; 83 ;) (type $FUNCSIG$iii) (param $0 i32) (param $1 i32) (result i32)
+ (func $~lib/string/String.fromCharCode (; 80 ;) (type $FUNCSIG$iii) (param $0 i32) (param $1 i32) (result i32)
   (local $2 i32)
   (local $3 i32)
   local.get $1
@@ -4379,7 +4372,7 @@
   local.get $3
   call $~lib/rt/stub/__retain
  )
- (func $~lib/string/String.fromCharCode|trampoline (; 84 ;) (type $FUNCSIG$iii) (param $0 i32) (param $1 i32) (result i32)
+ (func $~lib/string/String.fromCharCode|trampoline (; 81 ;) (type $FUNCSIG$iii) (param $0 i32) (param $1 i32) (result i32)
   block $1of1
    block $0of1
     block $outOfRange
@@ -4397,7 +4390,7 @@
   local.get $1
   call $~lib/string/String.fromCharCode
  )
- (func $~lib/string/String#concat (; 85 ;) (type $FUNCSIG$iii) (param $0 i32) (param $1 i32) (result i32)
+ (func $~lib/string/String#concat (; 82 ;) (type $FUNCSIG$iii) (param $0 i32) (param $1 i32) (result i32)
   (local $2 i32)
   (local $3 i32)
   (local $4 i32)
@@ -4411,7 +4404,7 @@
   i32.const 0
   i32.eq
   if
-   i32.const 216
+   i32.const 432
    local.tee $2
    local.get $1
    local.tee $3
@@ -4473,7 +4466,7 @@
   call $~lib/rt/stub/__release
   local.get $2
  )
- (func $~lib/string/String.__concat (; 86 ;) (type $FUNCSIG$iii) (param $0 i32) (param $1 i32) (result i32)
+ (func $~lib/string/String.__concat (; 83 ;) (type $FUNCSIG$iii) (param $0 i32) (param $1 i32) (result i32)
   (local $2 i32)
   local.get $0
   call $~lib/rt/stub/__retain
@@ -4482,7 +4475,7 @@
   call $~lib/rt/stub/__retain
   drop
   local.get $0
-  i32.const 216
+  i32.const 432
   local.get $0
   i32.const 0
   i32.ne
@@ -4496,7 +4489,7 @@
   call $~lib/rt/stub/__release
   local.get $2
  )
- (func $~lib/assemblyscript-json/decoder/JSONDecoder<~lib/nearEntry/Handler>#readEscapedChar (; 87 ;) (type $FUNCSIG$ii) (param $0 i32) (result i32)
+ (func $~lib/assemblyscript-json/decoder/JSONDecoder<~lib/nearEntry/Handler>#readEscapedChar (; 84 ;) (type $FUNCSIG$ii) (param $0 i32) (result i32)
   (local $1 i32)
   (local $2 i32)
   (local $3 i32)
@@ -4639,7 +4632,7 @@
   call $~lib/rt/stub/__release
   local.get $4
  )
- (func $~lib/assemblyscript-json/decoder/JSONDecoder<~lib/nearEntry/Handler>#readString (; 88 ;) (type $FUNCSIG$ii) (param $0 i32) (result i32)
+ (func $~lib/assemblyscript-json/decoder/JSONDecoder<~lib/nearEntry/Handler>#readString (; 85 ;) (type $FUNCSIG$ii) (param $0 i32) (result i32)
   (local $1 i32)
   (local $2 i32)
   (local $3 i32)
@@ -4724,7 +4717,7 @@
     call $~lib/rt/stub/__release
     local.get $5
     return
-   else    
+   else
     local.get $3
     i32.const 1472
     i32.const 0
@@ -4771,7 +4764,7 @@
   end
   unreachable
  )
- (func $~lib/assemblyscript-json/decoder/JSONDecoder<~lib/nearEntry/Handler>#parseKey (; 89 ;) (type $FUNCSIG$vi) (param $0 i32)
+ (func $~lib/assemblyscript-json/decoder/JSONDecoder<~lib/nearEntry/Handler>#parseKey (; 86 ;) (type $FUNCSIG$vi) (param $0 i32)
   (local $1 i32)
   (local $2 i32)
   local.get $0
@@ -4805,7 +4798,7 @@
    unreachable
   end
  )
- (func $~lib/array/Array<~lib/nearEntry/Value>#pop (; 90 ;) (type $FUNCSIG$ii) (param $0 i32) (result i32)
+ (func $~lib/array/Array<~lib/nearEntry/Value>#pop (; 87 ;) (type $FUNCSIG$ii) (param $0 i32) (result i32)
   (local $1 i32)
   (local $2 i32)
   local.get $0
@@ -4839,7 +4832,7 @@
   i32.store offset=12
   local.get $2
  )
- (func $~lib/nearEntry/Handler#popObject (; 91 ;) (type $FUNCSIG$vi) (param $0 i32)
+ (func $~lib/nearEntry/Handler#popObject (; 88 ;) (type $FUNCSIG$vi) (param $0 i32)
   local.get $0
   i32.load
   call $~lib/array/Array<~lib/nearEntry/Value>#get:length
@@ -4852,7 +4845,7 @@
    call $~lib/rt/stub/__release
   end
  )
- (func $~lib/assemblyscript-json/decoder/JSONDecoder<~lib/nearEntry/Handler>#parseObject (; 92 ;) (type $FUNCSIG$ii) (param $0 i32) (result i32)
+ (func $~lib/assemblyscript-json/decoder/JSONDecoder<~lib/nearEntry/Handler>#parseObject (; 89 ;) (type $FUNCSIG$ii) (param $0 i32) (result i32)
   (local $1 i32)
   (local $2 i32)
   (local $3 i32)
@@ -4929,7 +4922,7 @@
        call $~lib/builtins/abort
        unreachable
       end
-     else      
+     else
       i32.const 0
       local.set $3
      end
@@ -4967,13 +4960,13 @@
   call $~lib/rt/stub/__release
   local.get $3
  )
- (func $~lib/nearEntry/Arr#constructor (; 93 ;) (type $FUNCSIG$ii) (param $0 i32) (result i32)
+ (func $~lib/nearEntry/Arr#constructor (; 90 ;) (type $FUNCSIG$ii) (param $0 i32) (result i32)
   (local $1 i32)
   (local $2 i32)
   local.get $0
   if (result i32)
    local.get $0
-  else   
+  else
    i32.const 4
    i32.const 17
    call $~lib/rt/stub/__alloc
@@ -4997,11 +4990,11 @@
   i32.store
   local.get $0
  )
- (func $~lib/nearEntry/Value.Array (; 94 ;) (type $FUNCSIG$i) (result i32)
+ (func $~lib/nearEntry/Value.Array (; 91 ;) (type $FUNCSIG$i) (result i32)
   i32.const 0
   call $~lib/nearEntry/Arr#constructor
  )
- (func $~lib/nearEntry/Handler#pushArray (; 95 ;) (type $FUNCSIG$iii) (param $0 i32) (param $1 i32) (result i32)
+ (func $~lib/nearEntry/Handler#pushArray (; 92 ;) (type $FUNCSIG$iii) (param $0 i32) (param $1 i32) (result i32)
   (local $2 i32)
   (local $3 i32)
   local.get $1
@@ -5026,7 +5019,7 @@
   call $~lib/rt/stub/__release
   local.get $3
  )
- (func $~lib/nearEntry/Handler#popArray (; 96 ;) (type $FUNCSIG$vi) (param $0 i32)
+ (func $~lib/nearEntry/Handler#popArray (; 93 ;) (type $FUNCSIG$vi) (param $0 i32)
   local.get $0
   i32.load
   call $~lib/array/Array<~lib/nearEntry/Value>#get:length
@@ -5039,7 +5032,7 @@
    call $~lib/rt/stub/__release
   end
  )
- (func $~lib/assemblyscript-json/decoder/JSONDecoder<~lib/nearEntry/Handler>#parseArray (; 97 ;) (type $FUNCSIG$ii) (param $0 i32) (result i32)
+ (func $~lib/assemblyscript-json/decoder/JSONDecoder<~lib/nearEntry/Handler>#parseArray (; 94 ;) (type $FUNCSIG$ii) (param $0 i32) (result i32)
   (local $1 i32)
   (local $2 i32)
   (local $3 i32)
@@ -5116,7 +5109,7 @@
        call $~lib/builtins/abort
        unreachable
       end
-     else      
+     else
       i32.const 0
       local.set $3
      end
@@ -5152,14 +5145,14 @@
   call $~lib/rt/stub/__release
   local.get $3
  )
- (func $~lib/nearEntry/Str#constructor (; 98 ;) (type $FUNCSIG$iii) (param $0 i32) (param $1 i32) (result i32)
+ (func $~lib/nearEntry/Str#constructor (; 95 ;) (type $FUNCSIG$iii) (param $0 i32) (param $1 i32) (result i32)
   local.get $1
   call $~lib/rt/stub/__retain
   drop
   local.get $0
   if (result i32)
    local.get $0
-  else   
+  else
    i32.const 4
    i32.const 19
    call $~lib/rt/stub/__alloc
@@ -5175,7 +5168,7 @@
   call $~lib/rt/stub/__release
   local.get $0
  )
- (func $~lib/nearEntry/Value.String (; 99 ;) (type $FUNCSIG$ii) (param $0 i32) (result i32)
+ (func $~lib/nearEntry/Value.String (; 96 ;) (type $FUNCSIG$ii) (param $0 i32) (result i32)
   (local $1 i32)
   local.get $0
   call $~lib/rt/stub/__retain
@@ -5188,7 +5181,7 @@
   call $~lib/rt/stub/__release
   local.get $1
  )
- (func $~lib/nearEntry/Handler#setString (; 100 ;) (type $FUNCSIG$viii) (param $0 i32) (param $1 i32) (param $2 i32)
+ (func $~lib/nearEntry/Handler#setString (; 97 ;) (type $FUNCSIG$viii) (param $0 i32) (param $1 i32) (param $2 i32)
   (local $3 i32)
   local.get $1
   call $~lib/rt/stub/__retain
@@ -5210,7 +5203,7 @@
   local.get $2
   call $~lib/rt/stub/__release
  )
- (func $~lib/assemblyscript-json/decoder/JSONDecoder<~lib/nearEntry/Handler>#parseString (; 101 ;) (type $FUNCSIG$ii) (param $0 i32) (result i32)
+ (func $~lib/assemblyscript-json/decoder/JSONDecoder<~lib/nearEntry/Handler>#parseString (; 98 ;) (type $FUNCSIG$ii) (param $0 i32) (result i32)
   (local $1 i32)
   (local $2 i32)
   local.get $0
@@ -5238,7 +5231,7 @@
   call $~lib/rt/stub/__release
   local.get $2
  )
- (func $~lib/assemblyscript-json/decoder/JSONDecoder<~lib/nearEntry/Handler>#readAndAssert (; 102 ;) (type $FUNCSIG$vii) (param $0 i32) (param $1 i32)
+ (func $~lib/assemblyscript-json/decoder/JSONDecoder<~lib/nearEntry/Handler>#readAndAssert (; 99 ;) (type $FUNCSIG$vii) (param $0 i32) (param $1 i32)
   (local $2 i32)
   (local $3 i32)
   (local $4 i32)
@@ -5291,11 +5284,11 @@
   local.get $1
   call $~lib/rt/stub/__release
  )
- (func $~lib/nearEntry/Bools#constructor (; 103 ;) (type $FUNCSIG$iii) (param $0 i32) (param $1 i32) (result i32)
+ (func $~lib/nearEntry/Bools#constructor (; 100 ;) (type $FUNCSIG$iii) (param $0 i32) (param $1 i32) (result i32)
   local.get $0
   if (result i32)
    local.get $0
-  else   
+  else
    i32.const 1
    i32.const 20
    call $~lib/rt/stub/__alloc
@@ -5308,12 +5301,12 @@
   i32.store8
   local.get $0
  )
- (func $~lib/nearEntry/Value.Bool (; 104 ;) (type $FUNCSIG$ii) (param $0 i32) (result i32)
+ (func $~lib/nearEntry/Value.Bool (; 101 ;) (type $FUNCSIG$ii) (param $0 i32) (result i32)
   i32.const 0
   local.get $0
   call $~lib/nearEntry/Bools#constructor
  )
- (func $~lib/nearEntry/Handler#setBoolean (; 105 ;) (type $FUNCSIG$viii) (param $0 i32) (param $1 i32) (param $2 i32)
+ (func $~lib/nearEntry/Handler#setBoolean (; 102 ;) (type $FUNCSIG$viii) (param $0 i32) (param $1 i32) (param $2 i32)
   (local $3 i32)
   local.get $1
   call $~lib/rt/stub/__retain
@@ -5330,10 +5323,10 @@
   local.get $1
   call $~lib/rt/stub/__release
  )
- (func $~lib/assemblyscript-json/decoder/JSONDecoder<~lib/nearEntry/Handler>#parseBoolean (; 106 ;) (type $FUNCSIG$ii) (param $0 i32) (result i32)
+ (func $~lib/assemblyscript-json/decoder/JSONDecoder<~lib/nearEntry/Handler>#parseBoolean (; 103 ;) (type $FUNCSIG$ii) (param $0 i32) (result i32)
   local.get $0
   call $~lib/assemblyscript-json/decoder/JSONDecoder<~lib/nearEntry/Handler>#peekChar
-  i32.const 184
+  i32.const 400
   i32.const 0
   call $~lib/string/String#charCodeAt
   i32.eq
@@ -5353,7 +5346,7 @@
   end
   local.get $0
   call $~lib/assemblyscript-json/decoder/JSONDecoder<~lib/nearEntry/Handler>#peekChar
-  i32.const 160
+  i32.const 376
   i32.const 0
   call $~lib/string/String#charCodeAt
   i32.eq
@@ -5373,11 +5366,11 @@
   end
   i32.const 0
  )
- (func $~lib/nearEntry/Num#constructor (; 107 ;) (type $FUNCSIG$iij) (param $0 i32) (param $1 i64) (result i32)
+ (func $~lib/nearEntry/Num#constructor (; 104 ;) (type $FUNCSIG$iij) (param $0 i32) (param $1 i64) (result i32)
   local.get $0
   if (result i32)
    local.get $0
-  else   
+  else
    i32.const 8
    i32.const 21
    call $~lib/rt/stub/__alloc
@@ -5390,12 +5383,12 @@
   i64.store
   local.get $0
  )
- (func $~lib/nearEntry/Value.Number (; 108 ;) (type $FUNCSIG$ij) (param $0 i64) (result i32)
+ (func $~lib/nearEntry/Value.Number (; 105 ;) (type $FUNCSIG$ij) (param $0 i64) (result i32)
   i32.const 0
   local.get $0
   call $~lib/nearEntry/Num#constructor
  )
- (func $~lib/nearEntry/Handler#setInteger (; 109 ;) (type $FUNCSIG$viij) (param $0 i32) (param $1 i32) (param $2 i64)
+ (func $~lib/nearEntry/Handler#setInteger (; 106 ;) (type $FUNCSIG$viij) (param $0 i32) (param $1 i32) (param $2 i64)
   (local $3 i32)
   local.get $1
   call $~lib/rt/stub/__retain
@@ -5412,7 +5405,7 @@
   local.get $1
   call $~lib/rt/stub/__release
  )
- (func $~lib/assemblyscript-json/decoder/JSONDecoder<~lib/nearEntry/Handler>#parseNumber (; 110 ;) (type $FUNCSIG$ii) (param $0 i32) (result i32)
+ (func $~lib/assemblyscript-json/decoder/JSONDecoder<~lib/nearEntry/Handler>#parseNumber (; 107 ;) (type $FUNCSIG$ii) (param $0 i32) (result i32)
   (local $1 i64)
   (local $2 i64)
   (local $3 i32)
@@ -5447,7 +5440,7 @@
      call $~lib/assemblyscript-json/decoder/JSONDecoder<~lib/nearEntry/Handler>#peekChar
      global.get $~lib/assemblyscript-json/decoder/CHAR_9
      i32.le_s
-    else     
+    else
      i32.const 0
     end
     i32.eqz
@@ -5492,11 +5485,11 @@
   end
   i32.const 0
  )
- (func $~lib/nearEntry/Null#constructor (; 111 ;) (type $FUNCSIG$ii) (param $0 i32) (result i32)
+ (func $~lib/nearEntry/Null#constructor (; 108 ;) (type $FUNCSIG$ii) (param $0 i32) (result i32)
   local.get $0
   if (result i32)
    local.get $0
-  else   
+  else
    i32.const 0
    i32.const 22
    call $~lib/rt/stub/__alloc
@@ -5506,11 +5499,11 @@
   local.set $0
   local.get $0
  )
- (func $~lib/nearEntry/Value.Null (; 112 ;) (type $FUNCSIG$i) (result i32)
+ (func $~lib/nearEntry/Value.Null (; 109 ;) (type $FUNCSIG$i) (result i32)
   i32.const 0
   call $~lib/nearEntry/Null#constructor
  )
- (func $~lib/nearEntry/Handler#setNull (; 113 ;) (type $FUNCSIG$vii) (param $0 i32) (param $1 i32)
+ (func $~lib/nearEntry/Handler#setNull (; 110 ;) (type $FUNCSIG$vii) (param $0 i32) (param $1 i32)
   (local $2 i32)
   local.get $1
   call $~lib/rt/stub/__retain
@@ -5526,10 +5519,10 @@
   local.get $1
   call $~lib/rt/stub/__release
  )
- (func $~lib/assemblyscript-json/decoder/JSONDecoder<~lib/nearEntry/Handler>#parseNull (; 114 ;) (type $FUNCSIG$ii) (param $0 i32) (result i32)
+ (func $~lib/assemblyscript-json/decoder/JSONDecoder<~lib/nearEntry/Handler>#parseNull (; 111 ;) (type $FUNCSIG$ii) (param $0 i32) (result i32)
   local.get $0
   call $~lib/assemblyscript-json/decoder/JSONDecoder<~lib/nearEntry/Handler>#peekChar
-  i32.const 216
+  i32.const 432
   i32.const 0
   call $~lib/string/String#charCodeAt
   i32.eq
@@ -5548,7 +5541,7 @@
   end
   i32.const 0
  )
- (func $~lib/assemblyscript-json/decoder/JSONDecoder<~lib/nearEntry/Handler>#parseValue (; 115 ;) (type $FUNCSIG$ii) (param $0 i32) (result i32)
+ (func $~lib/assemblyscript-json/decoder/JSONDecoder<~lib/nearEntry/Handler>#parseValue (; 112 ;) (type $FUNCSIG$ii) (param $0 i32) (result i32)
   (local $1 i32)
   local.get $0
   call $~lib/assemblyscript-json/decoder/JSONDecoder<~lib/nearEntry/Handler>#skipWhitespace
@@ -5557,35 +5550,35 @@
   local.tee $1
   if (result i32)
    local.get $1
-  else   
+  else
    local.get $0
    call $~lib/assemblyscript-json/decoder/JSONDecoder<~lib/nearEntry/Handler>#parseArray
   end
   local.tee $1
   if (result i32)
    local.get $1
-  else   
+  else
    local.get $0
    call $~lib/assemblyscript-json/decoder/JSONDecoder<~lib/nearEntry/Handler>#parseString
   end
   local.tee $1
   if (result i32)
    local.get $1
-  else   
+  else
    local.get $0
    call $~lib/assemblyscript-json/decoder/JSONDecoder<~lib/nearEntry/Handler>#parseBoolean
   end
   local.tee $1
   if (result i32)
    local.get $1
-  else   
+  else
    local.get $0
    call $~lib/assemblyscript-json/decoder/JSONDecoder<~lib/nearEntry/Handler>#parseNumber
   end
   local.tee $1
   if (result i32)
    local.get $1
-  else   
+  else
    local.get $0
    call $~lib/assemblyscript-json/decoder/JSONDecoder<~lib/nearEntry/Handler>#parseNull
   end
@@ -5594,7 +5587,7 @@
   call $~lib/assemblyscript-json/decoder/JSONDecoder<~lib/nearEntry/Handler>#skipWhitespace
   local.get $1
  )
- (func $~lib/assemblyscript-json/decoder/JSONDecoder<~lib/nearEntry/Handler>#deserialize (; 116 ;) (type $FUNCSIG$viii) (param $0 i32) (param $1 i32) (param $2 i32)
+ (func $~lib/assemblyscript-json/decoder/JSONDecoder<~lib/nearEntry/Handler>#deserialize (; 113 ;) (type $FUNCSIG$viii) (param $0 i32) (param $1 i32) (param $2 i32)
   (local $3 i32)
   (local $4 i32)
   local.get $1
@@ -5624,7 +5617,7 @@
    end
    local.get $4
    i32.store offset=4
-  else   
+  else
    local.get $0
    local.tee $4
    i32.const 0
@@ -5655,7 +5648,7 @@
   local.get $2
   call $~lib/rt/stub/__release
  )
- (func $~lib/nearEntry/Handler#reset (; 117 ;) (type $FUNCSIG$vi) (param $0 i32)
+ (func $~lib/nearEntry/Handler#reset (; 114 ;) (type $FUNCSIG$vi) (param $0 i32)
   block $break|0
    loop $continue|0
     local.get $0
@@ -5674,7 +5667,7 @@
    unreachable
   end
  )
- (func $~lib/nearEntry/JSON.parse (; 118 ;) (type $FUNCSIG$ii) (param $0 i32) (result i32)
+ (func $~lib/nearEntry/JSON.parse (; 115 ;) (type $FUNCSIG$ii) (param $0 i32) (result i32)
   (local $1 i32)
   (local $2 i32)
   (local $3 i32)
@@ -5702,7 +5695,7 @@
   call $~lib/rt/stub/__release
   local.get $3
  )
- (func $~lib/string/String.__ne (; 119 ;) (type $FUNCSIG$iii) (param $0 i32) (param $1 i32) (result i32)
+ (func $~lib/string/String.__ne (; 116 ;) (type $FUNCSIG$iii) (param $0 i32) (param $1 i32) (result i32)
   (local $2 i32)
   local.get $0
   call $~lib/rt/stub/__retain
@@ -5721,7 +5714,7 @@
   call $~lib/rt/stub/__release
   local.get $2
  )
- (func $~lib/map/Map<~lib/string/String,~lib/nearEntry/Value>#get (; 120 ;) (type $FUNCSIG$iii) (param $0 i32) (param $1 i32) (result i32)
+ (func $~lib/map/Map<~lib/string/String,~lib/nearEntry/Value>#get (; 117 ;) (type $FUNCSIG$iii) (param $0 i32) (param $1 i32) (result i32)
   (local $2 i32)
   (local $3 i32)
   (local $4 i32)
@@ -5764,7 +5757,7 @@
   call $~lib/rt/stub/__release
   local.get $2
  )
- (func $~lib/nearEntry/Obj#get (; 121 ;) (type $FUNCSIG$iii) (param $0 i32) (param $1 i32) (result i32)
+ (func $~lib/nearEntry/Obj#get (; 118 ;) (type $FUNCSIG$iii) (param $0 i32) (param $1 i32) (result i32)
   (local $2 i32)
   local.get $1
   call $~lib/rt/stub/__retain
@@ -5792,11 +5785,11 @@
   call $~lib/rt/stub/__release
   local.get $2
  )
- (func $~lib/array/Array<assembly/model/FooBar>#constructor (; 122 ;) (type $FUNCSIG$iii) (param $0 i32) (param $1 i32) (result i32)
+ (func $~lib/array/Array<assembly/model/FooBar>#constructor (; 119 ;) (type $FUNCSIG$iii) (param $0 i32) (param $1 i32) (result i32)
   local.get $0
   if (result i32)
    local.get $0
-  else   
+  else
    i32.const 16
    i32.const 30
    call $~lib/rt/stub/__alloc
@@ -5823,7 +5816,7 @@
   i32.store offset=12
   local.get $0
  )
- (func $assembly/model/FooBar#constructor (; 123 ;) (type $FUNCSIG$ii) (param $0 i32) (result i32)
+ (func $assembly/model/FooBar#constructor (; 120 ;) (type $FUNCSIG$ii) (param $0 i32) (result i32)
   local.get $0
   i32.eqz
   if
@@ -5878,7 +5871,7 @@
   i32.store offset=64
   local.get $0
  )
- (func $~lib/nearEntry/Obj#has (; 124 ;) (type $FUNCSIG$iii) (param $0 i32) (param $1 i32) (result i32)
+ (func $~lib/nearEntry/Obj#has (; 121 ;) (type $FUNCSIG$iii) (param $0 i32) (param $1 i32) (result i32)
   (local $2 i32)
   local.get $1
   call $~lib/rt/stub/__retain
@@ -5892,7 +5885,7 @@
   call $~lib/rt/stub/__release
   local.get $2
  )
- (func $~lib/nearEntry/decode<i32,~lib/nearEntry/Obj> (; 125 ;) (type $FUNCSIG$iii) (param $0 i32) (param $1 i32) (result i32)
+ (func $~lib/nearEntry/decode<i32,~lib/nearEntry/Obj> (; 122 ;) (type $FUNCSIG$iii) (param $0 i32) (param $1 i32) (result i32)
   (local $2 i32)
   (local $3 i32)
   (local $4 i32)
@@ -5917,7 +5910,7 @@
   i32.eqz
   if (result i32)
    i32.const 0
-  else   
+  else
    local.get $4
    i32.const 8
    call $~lib/rt/__instanceof
@@ -5926,7 +5919,7 @@
    local.get $1
    i32.const 816
    call $~lib/string/String.__ne
-  else   
+  else
    i32.const 0
   end
   if
@@ -5976,7 +5969,7 @@
    call $~lib/rt/stub/__release
    local.get $5
    call $~lib/rt/stub/__release
-  else   
+  else
    local.get $2
    local.tee $7
    local.get $3
@@ -5997,7 +5990,7 @@
   i32.eqz
   if (result i32)
    i32.const 0
-  else   
+  else
    local.get $7
    i32.const 22
    call $~lib/rt/__instanceof
@@ -6051,7 +6044,7 @@
   i32.eqz
   if (result i32)
    i32.const 0
-  else   
+  else
    local.get $6
    i32.const 21
    call $~lib/rt/__instanceof
@@ -6100,7 +6093,7 @@
   local.get $8
   return
  )
- (func $~lib/nearEntry/decode<u32,~lib/nearEntry/Obj> (; 126 ;) (type $FUNCSIG$iii) (param $0 i32) (param $1 i32) (result i32)
+ (func $~lib/nearEntry/decode<u32,~lib/nearEntry/Obj> (; 123 ;) (type $FUNCSIG$iii) (param $0 i32) (param $1 i32) (result i32)
   (local $2 i32)
   (local $3 i32)
   (local $4 i32)
@@ -6125,7 +6118,7 @@
   i32.eqz
   if (result i32)
    i32.const 0
-  else   
+  else
    local.get $4
    i32.const 8
    call $~lib/rt/__instanceof
@@ -6134,7 +6127,7 @@
    local.get $1
    i32.const 816
    call $~lib/string/String.__ne
-  else   
+  else
    i32.const 0
   end
   if
@@ -6184,7 +6177,7 @@
    call $~lib/rt/stub/__release
    local.get $5
    call $~lib/rt/stub/__release
-  else   
+  else
    local.get $2
    local.tee $7
    local.get $3
@@ -6205,7 +6198,7 @@
   i32.eqz
   if (result i32)
    i32.const 0
-  else   
+  else
    local.get $7
    i32.const 22
    call $~lib/rt/__instanceof
@@ -6259,7 +6252,7 @@
   i32.eqz
   if (result i32)
    i32.const 0
-  else   
+  else
    local.get $6
    i32.const 21
    call $~lib/rt/__instanceof
@@ -6308,117 +6301,83 @@
   local.get $8
   return
  )
- (func $~lib/util/string/isSpace (; 127 ;) (type $FUNCSIG$ii) (param $0 i32) (result i32)
+ (func $~lib/util/string/isSpace (; 124 ;) (type $FUNCSIG$ii) (param $0 i32) (result i32)
   (local $1 i32)
   local.get $0
   i32.const 255
   i32.le_s
   if
-   block $break|0
-    block $case6|0
-     block $case5|0
-      block $case4|0
-       block $case3|0
-        block $case2|0
-         block $case1|0
-          block $case0|0
-           local.get $0
-           local.set $1
-           local.get $1
-           i32.const 9
-           i32.eq
-           br_if $case0|0
-           local.get $1
-           i32.const 10
-           i32.eq
-           br_if $case1|0
-           local.get $1
-           i32.const 11
-           i32.eq
-           br_if $case2|0
-           local.get $1
-           i32.const 12
-           i32.eq
-           br_if $case3|0
-           local.get $1
-           i32.const 13
-           i32.eq
-           br_if $case4|0
-           local.get $1
-           i32.const 32
-           i32.eq
-           br_if $case5|0
-           local.get $1
-           i32.const 160
-           i32.eq
-           br_if $case6|0
-           br $break|0
-          end
-         end
-        end
-       end
-      end
-     end
-    end
+   local.get $0
+   i32.const 32
+   i32.eq
+   if (result i32)
     i32.const 1
-    return
+   else
+    local.get $0
+    i32.const 9
+    i32.sub
+    i32.const 13
+    i32.const 9
+    i32.sub
+    i32.le_u
    end
-   i32.const 0
+   if (result i32)
+    i32.const 1
+   else
+    local.get $0
+    i32.const 160
+    i32.eq
+   end
    return
   end
   local.get $0
   i32.const 8192
-  i32.ge_s
-  if (result i32)
-   local.get $0
-   i32.const 8202
-   i32.le_s
-  else   
-   i32.const 0
-  end
+  i32.sub
+  i32.const 10
+  i32.le_u
   if
    i32.const 1
    return
   end
-  block $break|1
-   block $case6|1
-    block $case5|1
-     block $case4|1
-      block $case3|1
-       block $case2|1
-        block $case1|1
-         block $case0|1
+  block $break|0
+   block $case6|0
+    block $case5|0
+     block $case4|0
+      block $case3|0
+       block $case2|0
+        block $case1|0
+         block $case0|0
           local.get $0
           local.set $1
           local.get $1
           i32.const 5760
           i32.eq
-          br_if $case0|1
+          br_if $case0|0
           local.get $1
           i32.const 8232
           i32.eq
-          br_if $case1|1
+          br_if $case1|0
           local.get $1
           i32.const 8233
           i32.eq
-          br_if $case2|1
+          br_if $case2|0
           local.get $1
           i32.const 8239
           i32.eq
-          br_if $case3|1
+          br_if $case3|0
           local.get $1
           i32.const 8287
           i32.eq
-          br_if $case4|1
+          br_if $case4|0
           local.get $1
           i32.const 12288
           i32.eq
-          br_if $case5|1
+          br_if $case5|0
           local.get $1
           i32.const 65279
           i32.eq
-          br_if $case6|1
-          br $break|1
+          br_if $case6|0
+          br $break|0
          end
         end
        end
@@ -6431,7 +6390,7 @@
   end
   i32.const 0
  )
- (func $~lib/util/string/strtol<i64> (; 128 ;) (type $FUNCSIG$jii) (param $0 i32) (param $1 i32) (result i64)
+ (func $~lib/util/string/strtol<i64> (; 125 ;) (type $FUNCSIG$jii) (param $0 i32) (param $1 i32) (result i64)
   (local $2 i32)
   (local $3 i64)
   (local $4 i32)
@@ -6507,7 +6466,7 @@
    local.set $5
    i64.const -1
    local.set $6
-  else   
+  else
    local.get $5
    i32.const 43
    i32.eq
@@ -6543,62 +6502,35 @@
     local.get $2
     i32.const 2
     i32.gt_s
-   else    
+   else
     i32.const 0
    end
    if
     block $break|1
-     block $case6|1
-      block $case5|1
-       block $case4|1
-        block $case3|1
-         block $case2|1
-          block $case1|1
-           block $case0|1
-            local.get $4
-            i32.const 2
-            i32.add
-            i32.load16_u
-            local.set $7
-            local.get $7
-            i32.const 66
-            i32.eq
-            br_if $case0|1
-            local.get $7
-            i32.const 98
-            i32.eq
-            br_if $case1|1
-            local.get $7
-            i32.const 79
-            i32.eq
-            br_if $case2|1
-            local.get $7
-            i32.const 111
-            i32.eq
-            br_if $case3|1
-            local.get $7
-            i32.const 88
-            i32.eq
-            br_if $case4|1
-            local.get $7
-            i32.const 120
-            i32.eq
-            br_if $case5|1
-            br $case6|1
-           end
-          end
-          local.get $4
-          i32.const 4
-          i32.add
-          local.set $4
-          local.get $2
-          i32.const 2
-          i32.sub
-          local.set $2
-          i32.const 2
-          local.set $1
-          br $break|1
-         end
+     block $case3|1
+      block $case2|1
+       block $case1|1
+        block $case0|1
+         local.get $4
+         i32.const 2
+         i32.add
+         i32.load16_u
+         i32.const 32
+         i32.or
+         local.set $7
+         local.get $7
+         i32.const 98
+         i32.eq
+         br_if $case0|1
+         local.get $7
+         i32.const 111
+         i32.eq
+         br_if $case1|1
+         local.get $7
+         i32.const 120
+         i32.eq
+         br_if $case2|1
+         br $case3|1
         end
         local.get $4
         i32.const 4
@@ -6608,10 +6540,21 @@
         i32.const 2
         i32.sub
         local.set $2
-        i32.const 8
+        i32.const 2
         local.set $1
         br $break|1
        end
+       local.get $4
+       i32.const 4
+       i32.add
+       local.set $4
+       local.get $2
+       i32.const 2
+       i32.sub
+       local.set $2
+       i32.const 8
+       local.set $1
+       br $break|1
       end
       local.get $4
       i32.const 4
@@ -6628,17 +6571,17 @@
      i32.const 10
      local.set $1
     end
-   else    
+   else
     i32.const 10
     local.set $1
    end
-  else   
+  else
    local.get $1
    i32.const 2
    i32.lt_s
    if (result i32)
     i32.const 1
-   else    
+   else
     local.get $1
     i32.const 36
     i32.gt_s
@@ -6669,30 +6612,20 @@
     local.set $5
     local.get $5
     i32.const 48
-    i32.ge_s
-    if (result i32)
-     local.get $5
-     i32.const 57
-     i32.le_s
-    else     
-     i32.const 0
-    end
+    i32.sub
+    i32.const 10
+    i32.lt_u
     if
      local.get $5
      i32.const 48
      i32.sub
      local.set $5
-    else     
+    else
      local.get $5
      i32.const 65
-     i32.ge_s
-     if (result i32)
-      local.get $5
-      i32.const 90
-      i32.le_s
-     else      
-      i32.const 0
-     end
+     i32.sub
+     i32.const 25
+     i32.le_u
      if
       local.get $5
       i32.const 65
@@ -6700,17 +6633,12 @@
       i32.sub
       i32.sub
       local.set $5
-     else      
+     else
       local.get $5
       i32.const 97
-      i32.ge_s
-      if (result i32)
-       local.get $5
-       i32.const 122
-       i32.le_s
-      else       
-       i32.const 0
-      end
+      i32.sub
+      i32.const 25
+      i32.le_u
       if
        local.get $5
        i32.const 97
@@ -6718,14 +6646,14 @@
        i32.sub
        i32.sub
        local.set $5
-      else       
+      else
        br $break|2
       end
      end
     end
     local.get $5
     local.get $1
-    i32.ge_s
+    i32.ge_u
     if
      br $break|2
     end
@@ -6734,7 +6662,7 @@
     i64.extend_i32_s
     i64.mul
     local.get $5
-    i64.extend_i32_s
+    i64.extend_i32_u
     i64.add
     local.set $8
     local.get $4
@@ -6753,7 +6681,7 @@
   call $~lib/rt/stub/__release
   local.get $3
  )
- (func $~lib/number/I64.parseInt (; 129 ;) (type $FUNCSIG$jii) (param $0 i32) (param $1 i32) (result i64)
+ (func $~lib/number/I64.parseInt (; 126 ;) (type $FUNCSIG$jii) (param $0 i32) (param $1 i32) (result i64)
   (local $2 i64)
   local.get $0
   call $~lib/rt/stub/__retain
@@ -6766,7 +6694,7 @@
   call $~lib/rt/stub/__release
   local.get $2
  )
- (func $~lib/nearEntry/decode<u64,~lib/nearEntry/Obj> (; 130 ;) (type $FUNCSIG$jii) (param $0 i32) (param $1 i32) (result i64)
+ (func $~lib/nearEntry/decode<u64,~lib/nearEntry/Obj> (; 127 ;) (type $FUNCSIG$jii) (param $0 i32) (param $1 i32) (result i64)
   (local $2 i32)
   (local $3 i32)
   (local $4 i32)
@@ -6792,7 +6720,7 @@
   i32.eqz
   if (result i32)
    i32.const 0
-  else   
+  else
    local.get $4
    i32.const 8
    call $~lib/rt/__instanceof
@@ -6801,7 +6729,7 @@
    local.get $1
    i32.const 816
    call $~lib/string/String.__ne
-  else   
+  else
    i32.const 0
   end
   if
@@ -6852,7 +6780,7 @@
    call $~lib/rt/stub/__release
    local.get $5
    call $~lib/rt/stub/__release
-  else   
+  else
    local.get $2
    local.tee $8
    local.get $3
@@ -6873,7 +6801,7 @@
   i32.eqz
   if (result i32)
    i32.const 0
-  else   
+  else
    local.get $8
    i32.const 22
    call $~lib/rt/__instanceof
@@ -6928,7 +6856,7 @@
   i32.eqz
   if (result i32)
    i32.const 0
-  else   
+  else
    local.get $7
    i32.const 19
    call $~lib/rt/__instanceof
@@ -6983,7 +6911,7 @@
   local.get $6
   return
  )
- (func $~lib/nearEntry/decode<i64,~lib/nearEntry/Obj> (; 131 ;) (type $FUNCSIG$jii) (param $0 i32) (param $1 i32) (result i64)
+ (func $~lib/nearEntry/decode<i64,~lib/nearEntry/Obj> (; 128 ;) (type $FUNCSIG$jii) (param $0 i32) (param $1 i32) (result i64)
   (local $2 i32)
   (local $3 i32)
   (local $4 i32)
@@ -7009,7 +6937,7 @@
   i32.eqz
   if (result i32)
    i32.const 0
-  else   
+  else
    local.get $4
    i32.const 8
    call $~lib/rt/__instanceof
@@ -7018,7 +6946,7 @@
    local.get $1
    i32.const 816
    call $~lib/string/String.__ne
-  else   
+  else
    i32.const 0
   end
   if
@@ -7069,7 +6997,7 @@
    call $~lib/rt/stub/__release
    local.get $5
    call $~lib/rt/stub/__release
-  else   
+  else
    local.get $2
    local.tee $8
    local.get $3
@@ -7090,7 +7018,7 @@
   i32.eqz
   if (result i32)
    i32.const 0
-  else   
+  else
    local.get $8
    i32.const 22
    call $~lib/rt/__instanceof
@@ -7145,7 +7073,7 @@
   i32.eqz
   if (result i32)
    i32.const 0
-  else   
+  else
    local.get $7
    i32.const 19
    call $~lib/rt/__instanceof
@@ -7200,7 +7128,7 @@
   local.get $6
   return
  )
- (func $~lib/nearEntry/decode<bool,~lib/nearEntry/Obj> (; 132 ;) (type $FUNCSIG$iii) (param $0 i32) (param $1 i32) (result i32)
+ (func $~lib/nearEntry/decode<bool,~lib/nearEntry/Obj> (; 129 ;) (type $FUNCSIG$iii) (param $0 i32) (param $1 i32) (result i32)
   (local $2 i32)
   (local $3 i32)
   (local $4 i32)
@@ -7224,7 +7152,7 @@
   i32.eqz
   if (result i32)
    i32.const 0
-  else   
+  else
    local.get $4
    i32.const 8
    call $~lib/rt/__instanceof
@@ -7233,7 +7161,7 @@
    local.get $1
    i32.const 816
    call $~lib/string/String.__ne
-  else   
+  else
    i32.const 0
   end
   if
@@ -7283,7 +7211,7 @@
    call $~lib/rt/stub/__release
    local.get $5
    call $~lib/rt/stub/__release
-  else   
+  else
    local.get $2
    local.tee $7
    local.get $3
@@ -7304,7 +7232,7 @@
   i32.eqz
   if (result i32)
    i32.const 0
-  else   
+  else
    local.get $7
    i32.const 22
    call $~lib/rt/__instanceof
@@ -7358,7 +7286,7 @@
   i32.eqz
   if (result i32)
    i32.const 0
-  else   
+  else
    local.get $6
    i32.const 20
    call $~lib/rt/__instanceof
@@ -7406,7 +7334,7 @@
   local.get $8
   return
  )
- (func $~lib/nearEntry/decode<~lib/string/String,~lib/nearEntry/Obj> (; 133 ;) (type $FUNCSIG$iii) (param $0 i32) (param $1 i32) (result i32)
+ (func $~lib/nearEntry/decode<~lib/string/String,~lib/nearEntry/Obj> (; 130 ;) (type $FUNCSIG$iii) (param $0 i32) (param $1 i32) (result i32)
   (local $2 i32)
   (local $3 i32)
   (local $4 i32)
@@ -7430,7 +7358,7 @@
   i32.eqz
   if (result i32)
    i32.const 0
-  else   
+  else
    local.get $4
    i32.const 8
    call $~lib/rt/__instanceof
@@ -7439,7 +7367,7 @@
    local.get $1
    i32.const 816
    call $~lib/string/String.__ne
-  else   
+  else
    i32.const 0
   end
   if
@@ -7490,7 +7418,7 @@
    call $~lib/rt/stub/__release
    local.get $5
    call $~lib/rt/stub/__release
-  else   
+  else
    local.get $2
    local.tee $7
    local.get $3
@@ -7511,7 +7439,7 @@
   i32.eqz
   if (result i32)
    i32.const 0
-  else   
+  else
    local.get $7
    i32.const 22
    call $~lib/rt/__instanceof
@@ -7542,7 +7470,7 @@
   i32.eqz
   if (result i32)
    i32.const 0
-  else   
+  else
    local.get $7
    i32.const 19
    call $~lib/rt/__instanceof
@@ -7587,7 +7515,7 @@
   local.get $5
   return
  )
- (func $~lib/string/String#charAt (; 134 ;) (type $FUNCSIG$iii) (param $0 i32) (param $1 i32) (result i32)
+ (func $~lib/string/String#charAt (; 131 ;) (type $FUNCSIG$iii) (param $0 i32) (param $1 i32) (result i32)
   (local $2 i32)
   local.get $1
   local.get $0
@@ -7613,7 +7541,7 @@
   local.get $2
   call $~lib/rt/stub/__retain
  )
- (func $~lib/string/String#indexOf (; 135 ;) (type $FUNCSIG$iiii) (param $0 i32) (param $1 i32) (param $2 i32) (result i32)
+ (func $~lib/string/String#indexOf (; 132 ;) (type $FUNCSIG$iiii) (param $0 i32) (param $1 i32) (param $2 i32) (result i32)
   (local $3 i32)
   (local $4 i32)
   (local $5 i32)
@@ -7704,7 +7632,7 @@
   call $~lib/rt/stub/__release
   local.get $4
  )
- (func $~lib/near-runtime-ts/base64/base64.getByte64 (; 136 ;) (type $FUNCSIG$iii) (param $0 i32) (param $1 i32) (result i32)
+ (func $~lib/near-runtime-ts/base64/base64.getByte64 (; 133 ;) (type $FUNCSIG$iii) (param $0 i32) (param $1 i32) (result i32)
   (local $2 i32)
   (local $3 i32)
   local.get $0
@@ -7724,7 +7652,7 @@
   call $~lib/rt/stub/__release
   local.get $3
  )
- (func $~lib/typedarray/Uint8Array#__set (; 137 ;) (type $FUNCSIG$viii) (param $0 i32) (param $1 i32) (param $2 i32)
+ (func $~lib/typedarray/Uint8Array#__set (; 134 ;) (type $FUNCSIG$viii) (param $0 i32) (param $1 i32) (param $2 i32)
   local.get $1
   local.get $0
   i32.load offset=8
@@ -7732,7 +7660,7 @@
   if
    i32.const 832
    i32.const 888
-   i32.const 158
+   i32.const 167
    i32.const 44
    call $~lib/builtins/abort
    unreachable
@@ -7744,7 +7672,7 @@
   local.get $2
   i32.store8
  )
- (func $~lib/near-runtime-ts/base64/base64.decode (; 138 ;) (type $FUNCSIG$ii) (param $0 i32) (result i32)
+ (func $~lib/near-runtime-ts/base64/base64.decode (; 135 ;) (type $FUNCSIG$ii) (param $0 i32) (result i32)
   (local $1 i32)
   (local $2 i32)
   (local $3 i32)
@@ -7783,7 +7711,7 @@
   i32.sub
   call $~lib/string/String#charAt
   local.tee $5
-  i32.const 384
+  i32.const 208
   call $~lib/string/String.__eq
   if
    i32.const 1
@@ -7794,7 +7722,7 @@
    i32.sub
    call $~lib/string/String#charAt
    local.tee $6
-   i32.const 384
+   i32.const 208
    call $~lib/string/String.__eq
    if
     i32.const 2
@@ -7818,7 +7746,7 @@
    i32.div_u
    i32.const 3
    i32.mul
-  else   
+  else
    local.get $4
    i32.const 4
    i32.div_u
@@ -7835,7 +7763,7 @@
    i32.const 3
    local.get $3
    i32.sub
-  else   
+  else
    i32.const 0
   end
   local.set $7
@@ -8027,7 +7955,7 @@
   call $~lib/rt/stub/__release
   local.get $11
  )
- (func $~lib/nearEntry/decode<~lib/typedarray/Uint8Array,~lib/nearEntry/Obj> (; 139 ;) (type $FUNCSIG$iii) (param $0 i32) (param $1 i32) (result i32)
+ (func $~lib/nearEntry/decode<~lib/typedarray/Uint8Array,~lib/nearEntry/Obj> (; 136 ;) (type $FUNCSIG$iii) (param $0 i32) (param $1 i32) (result i32)
   (local $2 i32)
   (local $3 i32)
   (local $4 i32)
@@ -8052,7 +7980,7 @@
   i32.eqz
   if (result i32)
    i32.const 0
-  else   
+  else
    local.get $4
    i32.const 8
    call $~lib/rt/__instanceof
@@ -8061,7 +7989,7 @@
    local.get $1
    i32.const 816
    call $~lib/string/String.__ne
-  else   
+  else
    i32.const 0
   end
   if
@@ -8112,7 +8040,7 @@
    call $~lib/rt/stub/__release
    local.get $5
    call $~lib/rt/stub/__release
-  else   
+  else
    local.get $2
    local.tee $7
    local.get $3
@@ -8133,7 +8061,7 @@
   i32.eqz
   if (result i32)
    i32.const 0
-  else   
+  else
    local.get $7
    i32.const 22
    call $~lib/rt/__instanceof
@@ -8166,7 +8094,7 @@
   i32.eqz
   if (result i32)
    i32.const 0
-  else   
+  else
    local.get $7
    i32.const 19
    call $~lib/rt/__instanceof
@@ -8217,11 +8145,11 @@
   local.get $7
   return
  )
- (func $~lib/array/Array<~lib/array/Array<~lib/string/String>>#constructor (; 140 ;) (type $FUNCSIG$iii) (param $0 i32) (param $1 i32) (result i32)
+ (func $~lib/array/Array<~lib/array/Array<~lib/string/String>>#constructor (; 137 ;) (type $FUNCSIG$iii) (param $0 i32) (param $1 i32) (result i32)
   local.get $0
   if (result i32)
    local.get $0
-  else   
+  else
    i32.const 16
    i32.const 25
    call $~lib/rt/stub/__alloc
@@ -8248,7 +8176,7 @@
   i32.store offset=12
   local.get $0
  )
- (func $~lib/nearEntry/decode<~lib/string/String,~lib/nearEntry/Value> (; 141 ;) (type $FUNCSIG$iii) (param $0 i32) (param $1 i32) (result i32)
+ (func $~lib/nearEntry/decode<~lib/string/String,~lib/nearEntry/Value> (; 138 ;) (type $FUNCSIG$iii) (param $0 i32) (param $1 i32) (result i32)
   (local $2 i32)
   (local $3 i32)
   (local $4 i32)
@@ -8272,7 +8200,7 @@
   i32.eqz
   if (result i32)
    i32.const 0
-  else   
+  else
    local.get $4
    i32.const 8
    call $~lib/rt/__instanceof
@@ -8281,7 +8209,7 @@
    local.get $1
    i32.const 816
    call $~lib/string/String.__ne
-  else   
+  else
    i32.const 0
   end
   if
@@ -8332,7 +8260,7 @@
    call $~lib/rt/stub/__release
    local.get $5
    call $~lib/rt/stub/__release
-  else   
+  else
    local.get $2
    local.tee $7
    local.get $3
@@ -8353,7 +8281,7 @@
   i32.eqz
   if (result i32)
    i32.const 0
-  else   
+  else
    local.get $7
    i32.const 22
    call $~lib/rt/__instanceof
@@ -8384,7 +8312,7 @@
   i32.eqz
   if (result i32)
    i32.const 0
-  else   
+  else
    local.get $7
    i32.const 19
    call $~lib/rt/__instanceof
@@ -8429,7 +8357,7 @@
   local.get $5
   return
  )
- (func $~lib/nearEntry/decodeArray<~lib/string/String> (; 142 ;) (type $FUNCSIG$iii) (param $0 i32) (param $1 i32) (result i32)
+ (func $~lib/nearEntry/decodeArray<~lib/string/String> (; 139 ;) (type $FUNCSIG$iii) (param $0 i32) (param $1 i32) (result i32)
   (local $2 i32)
   (local $3 i32)
   (local $4 i32)
@@ -8448,7 +8376,7 @@
   i32.eqz
   if (result i32)
    i32.const 0
-  else   
+  else
    local.get $2
    i32.const 17
    call $~lib/rt/__instanceof
@@ -8523,7 +8451,7 @@
   call $~lib/rt/stub/__release
   local.get $8
  )
- (func $~lib/nearEntry/decode<~lib/array/Array<~lib/string/String>,~lib/nearEntry/Value> (; 143 ;) (type $FUNCSIG$iii) (param $0 i32) (param $1 i32) (result i32)
+ (func $~lib/nearEntry/decode<~lib/array/Array<~lib/string/String>,~lib/nearEntry/Value> (; 140 ;) (type $FUNCSIG$iii) (param $0 i32) (param $1 i32) (result i32)
   (local $2 i32)
   (local $3 i32)
   (local $4 i32)
@@ -8547,7 +8475,7 @@
   i32.eqz
   if (result i32)
    i32.const 0
-  else   
+  else
    local.get $4
    i32.const 8
    call $~lib/rt/__instanceof
@@ -8556,7 +8484,7 @@
    local.get $1
    i32.const 816
    call $~lib/string/String.__ne
-  else   
+  else
    i32.const 0
   end
   if
@@ -8607,7 +8535,7 @@
    call $~lib/rt/stub/__release
    local.get $5
    call $~lib/rt/stub/__release
-  else   
+  else
    local.get $2
    local.tee $7
    local.get $3
@@ -8628,7 +8556,7 @@
   i32.eqz
   if (result i32)
    i32.const 0
-  else   
+  else
    local.get $7
    i32.const 22
    call $~lib/rt/__instanceof
@@ -8667,7 +8595,7 @@
   local.get $7
   return
  )
- (func $~lib/array/Array<~lib/array/Array<~lib/string/String>>#push (; 144 ;) (type $FUNCSIG$iii) (param $0 i32) (param $1 i32) (result i32)
+ (func $~lib/array/Array<~lib/array/Array<~lib/string/String>>#push (; 141 ;) (type $FUNCSIG$iii) (param $0 i32) (param $1 i32) (result i32)
   (local $2 i32)
   (local $3 i32)
   (local $4 i32)
@@ -8703,7 +8631,7 @@
   call $~lib/rt/stub/__release
   local.get $4
  )
- (func $~lib/nearEntry/decodeArray<~lib/array/Array<~lib/string/String>> (; 145 ;) (type $FUNCSIG$iii) (param $0 i32) (param $1 i32) (result i32)
+ (func $~lib/nearEntry/decodeArray<~lib/array/Array<~lib/string/String>> (; 142 ;) (type $FUNCSIG$iii) (param $0 i32) (param $1 i32) (result i32)
   (local $2 i32)
   (local $3 i32)
   (local $4 i32)
@@ -8722,7 +8650,7 @@
   i32.eqz
   if (result i32)
    i32.const 0
-  else   
+  else
    local.get $2
    i32.const 17
    call $~lib/rt/__instanceof
@@ -8797,7 +8725,7 @@
   call $~lib/rt/stub/__release
   local.get $8
  )
- (func $~lib/nearEntry/decode<~lib/array/Array<~lib/array/Array<~lib/string/String>>,~lib/nearEntry/Obj> (; 146 ;) (type $FUNCSIG$iii) (param $0 i32) (param $1 i32) (result i32)
+ (func $~lib/nearEntry/decode<~lib/array/Array<~lib/array/Array<~lib/string/String>>,~lib/nearEntry/Obj> (; 143 ;) (type $FUNCSIG$iii) (param $0 i32) (param $1 i32) (result i32)
   (local $2 i32)
   (local $3 i32)
   (local $4 i32)
@@ -8821,7 +8749,7 @@
   i32.eqz
   if (result i32)
    i32.const 0
-  else   
+  else
    local.get $4
    i32.const 8
    call $~lib/rt/__instanceof
@@ -8830,7 +8758,7 @@
    local.get $1
    i32.const 816
    call $~lib/string/String.__ne
-  else   
+  else
    i32.const 0
   end
   if
@@ -8881,7 +8809,7 @@
    call $~lib/rt/stub/__release
    local.get $5
    call $~lib/rt/stub/__release
-  else   
+  else
    local.get $2
    local.tee $7
    local.get $3
@@ -8902,7 +8830,7 @@
   i32.eqz
   if (result i32)
    i32.const 0
-  else   
+  else
    local.get $7
    i32.const 22
    call $~lib/rt/__instanceof
@@ -8941,11 +8869,11 @@
   local.get $7
   return
  )
- (func $~lib/array/Array<u32>#constructor (; 147 ;) (type $FUNCSIG$iii) (param $0 i32) (param $1 i32) (result i32)
+ (func $~lib/array/Array<u32>#constructor (; 144 ;) (type $FUNCSIG$iii) (param $0 i32) (param $1 i32) (result i32)
   local.get $0
   if (result i32)
    local.get $0
-  else   
+  else
    i32.const 16
    i32.const 26
    call $~lib/rt/stub/__alloc
@@ -8963,7 +8891,7 @@
   i32.store offset=12
   local.get $0
  )
- (func $~lib/nearEntry/decode<u32,~lib/nearEntry/Value> (; 148 ;) (type $FUNCSIG$iii) (param $0 i32) (param $1 i32) (result i32)
+ (func $~lib/nearEntry/decode<u32,~lib/nearEntry/Value> (; 145 ;) (type $FUNCSIG$iii) (param $0 i32) (param $1 i32) (result i32)
   (local $2 i32)
   (local $3 i32)
   (local $4 i32)
@@ -8988,7 +8916,7 @@
   i32.eqz
   if (result i32)
    i32.const 0
-  else   
+  else
    local.get $4
    i32.const 8
    call $~lib/rt/__instanceof
@@ -8997,7 +8925,7 @@
    local.get $1
    i32.const 816
    call $~lib/string/String.__ne
-  else   
+  else
    i32.const 0
   end
   if
@@ -9047,7 +8975,7 @@
    call $~lib/rt/stub/__release
    local.get $5
    call $~lib/rt/stub/__release
-  else   
+  else
    local.get $2
    local.tee $7
    local.get $3
@@ -9068,7 +8996,7 @@
   i32.eqz
   if (result i32)
    i32.const 0
-  else   
+  else
    local.get $7
    i32.const 22
    call $~lib/rt/__instanceof
@@ -9122,7 +9050,7 @@
   i32.eqz
   if (result i32)
    i32.const 0
-  else   
+  else
    local.get $6
    i32.const 21
    call $~lib/rt/__instanceof
@@ -9171,7 +9099,7 @@
   local.get $8
   return
  )
- (func $~lib/array/Array<u32>#push (; 149 ;) (type $FUNCSIG$iii) (param $0 i32) (param $1 i32) (result i32)
+ (func $~lib/array/Array<u32>#push (; 146 ;) (type $FUNCSIG$iii) (param $0 i32) (param $1 i32) (result i32)
   (local $2 i32)
   (local $3 i32)
   local.get $0
@@ -9198,7 +9126,7 @@
   i32.store offset=12
   local.get $3
  )
- (func $~lib/nearEntry/decodeArray<u32> (; 150 ;) (type $FUNCSIG$iii) (param $0 i32) (param $1 i32) (result i32)
+ (func $~lib/nearEntry/decodeArray<u32> (; 147 ;) (type $FUNCSIG$iii) (param $0 i32) (param $1 i32) (result i32)
   (local $2 i32)
   (local $3 i32)
   (local $4 i32)
@@ -9217,7 +9145,7 @@
   i32.eqz
   if (result i32)
    i32.const 0
-  else   
+  else
    local.get $2
    i32.const 17
    call $~lib/rt/__instanceof
@@ -9290,7 +9218,7 @@
   call $~lib/rt/stub/__release
   local.get $8
  )
- (func $~lib/nearEntry/decode<~lib/array/Array<u32>,~lib/nearEntry/Obj> (; 151 ;) (type $FUNCSIG$iii) (param $0 i32) (param $1 i32) (result i32)
+ (func $~lib/nearEntry/decode<~lib/array/Array<u32>,~lib/nearEntry/Obj> (; 148 ;) (type $FUNCSIG$iii) (param $0 i32) (param $1 i32) (result i32)
   (local $2 i32)
   (local $3 i32)
   (local $4 i32)
@@ -9314,7 +9242,7 @@
   i32.eqz
   if (result i32)
    i32.const 0
-  else   
+  else
    local.get $4
    i32.const 8
    call $~lib/rt/__instanceof
@@ -9323,7 +9251,7 @@
    local.get $1
    i32.const 816
    call $~lib/string/String.__ne
-  else   
+  else
    i32.const 0
   end
   if
@@ -9374,7 +9302,7 @@
    call $~lib/rt/stub/__release
    local.get $5
    call $~lib/rt/stub/__release
-  else   
+  else
    local.get $2
    local.tee $7
    local.get $3
@@ -9395,7 +9323,7 @@
   i32.eqz
   if (result i32)
    i32.const 0
-  else   
+  else
    local.get $7
    i32.const 22
    call $~lib/rt/__instanceof
@@ -9434,11 +9362,11 @@
   local.get $7
   return
  )
- (func $~lib/array/Array<i32>#constructor (; 152 ;) (type $FUNCSIG$iii) (param $0 i32) (param $1 i32) (result i32)
+ (func $~lib/array/Array<i32>#constructor (; 149 ;) (type $FUNCSIG$iii) (param $0 i32) (param $1 i32) (result i32)
   local.get $0
   if (result i32)
    local.get $0
-  else   
+  else
    i32.const 16
    i32.const 18
    call $~lib/rt/stub/__alloc
@@ -9456,7 +9384,7 @@
   i32.store offset=12
   local.get $0
  )
- (func $~lib/nearEntry/decode<i32,~lib/nearEntry/Value> (; 153 ;) (type $FUNCSIG$iii) (param $0 i32) (param $1 i32) (result i32)
+ (func $~lib/nearEntry/decode<i32,~lib/nearEntry/Value> (; 150 ;) (type $FUNCSIG$iii) (param $0 i32) (param $1 i32) (result i32)
   (local $2 i32)
   (local $3 i32)
   (local $4 i32)
@@ -9481,7 +9409,7 @@
   i32.eqz
   if (result i32)
    i32.const 0
-  else   
+  else
    local.get $4
    i32.const 8
    call $~lib/rt/__instanceof
@@ -9490,7 +9418,7 @@
    local.get $1
    i32.const 816
    call $~lib/string/String.__ne
-  else   
+  else
    i32.const 0
   end
   if
@@ -9540,7 +9468,7 @@
    call $~lib/rt/stub/__release
    local.get $5
    call $~lib/rt/stub/__release
-  else   
+  else
    local.get $2
    local.tee $7
    local.get $3
@@ -9561,7 +9489,7 @@
   i32.eqz
   if (result i32)
    i32.const 0
-  else   
+  else
    local.get $7
    i32.const 22
    call $~lib/rt/__instanceof
@@ -9615,7 +9543,7 @@
   i32.eqz
   if (result i32)
    i32.const 0
-  else   
+  else
    local.get $6
    i32.const 21
    call $~lib/rt/__instanceof
@@ -9664,7 +9592,7 @@
   local.get $8
   return
  )
- (func $~lib/array/Array<i32>#push (; 154 ;) (type $FUNCSIG$iii) (param $0 i32) (param $1 i32) (result i32)
+ (func $~lib/array/Array<i32>#push (; 151 ;) (type $FUNCSIG$iii) (param $0 i32) (param $1 i32) (result i32)
   (local $2 i32)
   (local $3 i32)
   local.get $0
@@ -9691,7 +9619,7 @@
   i32.store offset=12
   local.get $3
  )
- (func $~lib/nearEntry/decodeArray<i32> (; 155 ;) (type $FUNCSIG$iii) (param $0 i32) (param $1 i32) (result i32)
+ (func $~lib/nearEntry/decodeArray<i32> (; 152 ;) (type $FUNCSIG$iii) (param $0 i32) (param $1 i32) (result i32)
   (local $2 i32)
   (local $3 i32)
   (local $4 i32)
@@ -9710,7 +9638,7 @@
   i32.eqz
   if (result i32)
    i32.const 0
-  else   
+  else
    local.get $2
    i32.const 17
    call $~lib/rt/__instanceof
@@ -9783,7 +9711,7 @@
   call $~lib/rt/stub/__release
   local.get $8
  )
- (func $~lib/nearEntry/decode<~lib/array/Array<i32>,~lib/nearEntry/Obj> (; 156 ;) (type $FUNCSIG$iii) (param $0 i32) (param $1 i32) (result i32)
+ (func $~lib/nearEntry/decode<~lib/array/Array<i32>,~lib/nearEntry/Obj> (; 153 ;) (type $FUNCSIG$iii) (param $0 i32) (param $1 i32) (result i32)
   (local $2 i32)
   (local $3 i32)
   (local $4 i32)
@@ -9807,7 +9735,7 @@
   i32.eqz
   if (result i32)
    i32.const 0
-  else   
+  else
    local.get $4
    i32.const 8
    call $~lib/rt/__instanceof
@@ -9816,7 +9744,7 @@
    local.get $1
    i32.const 816
    call $~lib/string/String.__ne
-  else   
+  else
    i32.const 0
   end
   if
@@ -9867,7 +9795,7 @@
    call $~lib/rt/stub/__release
    local.get $5
    call $~lib/rt/stub/__release
-  else   
+  else
    local.get $2
    local.tee $7
    local.get $3
@@ -9888,7 +9816,7 @@
   i32.eqz
   if (result i32)
    i32.const 0
-  else   
+  else
    local.get $7
    i32.const 22
    call $~lib/rt/__instanceof
@@ -9927,7 +9855,7 @@
   local.get $7
   return
  )
- (func $~lib/bignum/integer/u128/u128#constructor (; 157 ;) (type $FUNCSIG$iijj) (param $0 i32) (param $1 i64) (param $2 i64) (result i32)
+ (func $~lib/bignum/integer/u128/u128#constructor (; 154 ;) (type $FUNCSIG$iijj) (param $0 i32) (param $1 i64) (param $2 i64) (result i32)
   local.get $0
   i32.eqz
   if
@@ -9945,7 +9873,7 @@
   i64.store offset=8
   local.get $0
  )
- (func $~lib/array/Array<u8>#__unchecked_get (; 158 ;) (type $FUNCSIG$iii) (param $0 i32) (param $1 i32) (result i32)
+ (func $~lib/array/Array<u8>#__unchecked_get (; 155 ;) (type $FUNCSIG$iii) (param $0 i32) (param $1 i32) (result i32)
   local.get $0
   i32.load offset=4
   local.get $1
@@ -9954,7 +9882,7 @@
   i32.add
   i32.load8_u
  )
- (func $~lib/array/Array<u8>#__get (; 159 ;) (type $FUNCSIG$iii) (param $0 i32) (param $1 i32) (result i32)
+ (func $~lib/array/Array<u8>#__get (; 156 ;) (type $FUNCSIG$iii) (param $0 i32) (param $1 i32) (result i32)
   local.get $1
   local.get $0
   i32.load offset=8
@@ -9973,7 +9901,7 @@
   local.get $1
   call $~lib/array/Array<u8>#__unchecked_get
  )
- (func $~lib/bignum/globals/__multi3 (; 160 ;) (type $FUNCSIG$vijjjj) (param $0 i32) (param $1 i64) (param $2 i64) (param $3 i64) (param $4 i64)
+ (func $~lib/bignum/globals/__multi3 (; 157 ;) (type $FUNCSIG$vijjjj) (param $0 i32) (param $1 i64) (param $2 i64) (param $3 i64) (param $4 i64)
   (local $5 i64)
   (local $6 i64)
   (local $7 i64)
@@ -10069,7 +9997,7 @@
   local.get $14
   global.set $~lib/bignum/globals/__res128_hi
  )
- (func $~lib/bignum/utils/atou128 (; 161 ;) (type $FUNCSIG$iii) (param $0 i32) (param $1 i32) (result i32)
+ (func $~lib/bignum/utils/atou128 (; 158 ;) (type $FUNCSIG$iii) (param $0 i32) (param $1 i32) (result i32)
   (local $2 i32)
   (local $3 i32)
   (local $4 i32)
@@ -10105,7 +10033,7 @@
   i32.lt_s
   if (result i32)
    i32.const 1
-  else   
+  else
    local.get $1
    i32.const 36
    i32.gt_s
@@ -10151,7 +10079,7 @@
    local.get $5
    i32.const 48
    i32.eq
-  else   
+  else
    i32.const 0
   end
   if
@@ -10176,7 +10104,7 @@
   local.get $6
   if (result i32)
    local.get $6
-  else   
+  else
    local.get $5
    i32.const 43
    i32.eq
@@ -10200,7 +10128,7 @@
    i32.eq
    if (result i32)
     i32.const 1
-   else    
+   else
     local.get $3
     i32.const 88
     i32.eq
@@ -10212,13 +10140,13 @@
     i32.const 1
     i32.add
     local.set $7
-   else    
+   else
     local.get $3
     i32.const 111
     i32.eq
     if (result i32)
      i32.const 1
-    else     
+    else
      local.get $3
      i32.const 79
      i32.eq
@@ -10230,13 +10158,13 @@
      i32.const 1
      i32.add
      local.set $7
-    else     
+    else
      local.get $3
      i32.const 98
      i32.eq
      if (result i32)
       i32.const 1
-     else      
+     else
       local.get $3
       i32.const 66
       i32.eq
@@ -11064,7 +10992,7 @@
    call $~lib/bignum/integer/u128/u128#constructor
    local.tee $18
    local.tee $11
-  else   
+  else
    local.get $8
    call $~lib/rt/stub/__retain
    local.tee $10
@@ -11081,78 +11009,7 @@
   call $~lib/rt/stub/__release
   local.get $18
  )
- (func $~lib/bignum/integer/u128/u128#_decode (; 162 ;) (type $FUNCSIG$iii) (param $0 i32) (param $1 i32) (result i32)
-  (local $2 i32)
-  local.get $1
-  call $~lib/rt/stub/__retain
-  drop
-  local.get $0
-  local.get $1
-  i32.const 3896
-  call $~lib/nearEntry/Obj#has
-  if (result i64)
-   local.get $1
-   i32.const 3896
-   call $~lib/nearEntry/decode<u64,~lib/nearEntry/Obj>
-  else   
-   local.get $0
-   i64.load
-  end
-  i64.store
-  local.get $0
-  local.get $1
-  i32.const 3920
-  call $~lib/nearEntry/Obj#has
-  if (result i64)
-   local.get $1
-   i32.const 3920
-   call $~lib/nearEntry/decode<u64,~lib/nearEntry/Obj>
-  else   
-   local.get $0
-   i64.load offset=8
-  end
-  i64.store offset=8
-  local.get $0
-  call $~lib/rt/stub/__retain
-  local.set $2
-  local.get $1
-  call $~lib/rt/stub/__release
-  local.get $2
- )
- (func $~lib/bignum/integer/u128/u128#decode<~lib/nearEntry/Obj> (; 163 ;) (type $FUNCSIG$iii) (param $0 i32) (param $1 i32) (result i32)
-  (local $2 i32)
-  (local $3 i32)
-  (local $4 i32)
-  local.get $1
-  call $~lib/rt/stub/__retain
-  drop
-  i32.const 0
-  local.set $2
-  local.get $1
-  local.tee $3
-  local.get $2
-  local.tee $4
-  i32.ne
-  if
-   local.get $3
-   call $~lib/rt/stub/__retain
-   drop
-   local.get $4
-   call $~lib/rt/stub/__release
-  end
-  local.get $3
-  local.set $2
-  local.get $0
-  local.get $2
-  call $~lib/bignum/integer/u128/u128#_decode
-  local.set $3
-  local.get $2
-  call $~lib/rt/stub/__release
-  local.get $1
-  call $~lib/rt/stub/__release
-  local.get $3
- )
- (func $~lib/nearEntry/decode<~lib/bignum/integer/u128/u128,~lib/nearEntry/Obj> (; 164 ;) (type $FUNCSIG$iii) (param $0 i32) (param $1 i32) (result i32)
+ (func $~lib/nearEntry/decode<~lib/bignum/integer/u128/u128,~lib/nearEntry/Obj> (; 159 ;) (type $FUNCSIG$iii) (param $0 i32) (param $1 i32) (result i32)
   (local $2 i32)
   (local $3 i32)
   (local $4 i32)
@@ -11161,8 +11018,6 @@
   (local $7 i32)
   (local $8 i32)
   (local $9 i32)
-  (local $10 i32)
-  (local $11 i32)
   local.get $0
   call $~lib/rt/stub/__retain
   drop
@@ -11179,7 +11034,7 @@
   i32.eqz
   if (result i32)
    i32.const 0
-  else   
+  else
    local.get $4
    i32.const 8
    call $~lib/rt/__instanceof
@@ -11188,7 +11043,7 @@
    local.get $1
    i32.const 816
    call $~lib/string/String.__ne
-  else   
+  else
    i32.const 0
   end
   if
@@ -11239,7 +11094,7 @@
    call $~lib/rt/stub/__release
    local.get $5
    call $~lib/rt/stub/__release
-  else   
+  else
    local.get $2
    local.tee $7
    local.get $3
@@ -11260,7 +11115,7 @@
   i32.eqz
   if (result i32)
    i32.const 0
-  else   
+  else
    local.get $7
    i32.const 22
    call $~lib/rt/__instanceof
@@ -11287,160 +11142,93 @@
   i32.eqz
   if (result i32)
    i32.const 0
-  else   
+  else
    local.get $7
    i32.const 19
    call $~lib/rt/__instanceof
   end
+  i32.eqz
   if
-   local.get $3
-   call $~lib/rt/stub/__retain
-   local.set $4
-   local.get $1
-   call $~lib/rt/stub/__retain
-   local.set $6
-   local.get $4
-   local.tee $7
-   i32.eqz
-   if (result i32)
-    i32.const 0
-   else    
-    local.get $7
-    i32.const 19
-    call $~lib/rt/__instanceof
-   end
-   i32.eqz
-   if
-    i32.const 2432
-    local.get $6
-    call $~lib/string/String.__concat
-    local.tee $7
-    i32.const 3416
-    call $~lib/string/String.__concat
-    local.tee $5
-    i32.const 2552
-    i32.const 318
-    i32.const 2
-    call $~lib/builtins/abort
-    unreachable
-   end
-   local.get $4
-   i32.load
-   call $~lib/rt/stub/__retain
-   local.set $9
-   local.get $6
-   call $~lib/rt/stub/__release
-   local.get $4
-   call $~lib/rt/stub/__release
-   local.get $7
-   call $~lib/rt/stub/__release
-   local.get $5
-   call $~lib/rt/stub/__release
-   local.get $9
-   local.set $9
    i32.const 0
-   local.set $5
-   local.get $9
-   local.get $5
-   call $~lib/bignum/utils/atou128
-   local.set $7
-   local.get $9
-   call $~lib/rt/stub/__release
-   local.get $7
-   local.set $5
-   local.get $0
-   call $~lib/rt/stub/__release
-   local.get $1
-   call $~lib/rt/stub/__release
-   local.get $2
-   call $~lib/rt/stub/__release
-   local.get $3
-   call $~lib/rt/stub/__release
-   local.get $8
-   call $~lib/rt/stub/__release
-   local.get $5
-   return
+   i32.const 2552
+   i32.const 390
+   i32.const 4
+   call $~lib/builtins/abort
+   unreachable
   end
   local.get $3
-  local.tee $5
+  call $~lib/rt/stub/__retain
+  local.set $4
+  local.get $1
+  call $~lib/rt/stub/__retain
+  local.set $6
+  local.get $4
+  local.tee $7
   i32.eqz
   if (result i32)
    i32.const 0
-  else   
-   local.get $5
-   i32.const 8
+  else
+   local.get $7
+   i32.const 19
    call $~lib/rt/__instanceof
   end
   i32.eqz
   if
    i32.const 2432
-   local.get $1
-   call $~lib/string/String.__concat
-   local.tee $5
-   i32.const 2608
-   call $~lib/string/String.__concat
-   local.tee $9
-   i32.const 3872
+   local.get $6
    call $~lib/string/String.__concat
    local.tee $7
-   i32.const 2680
+   i32.const 3416
    call $~lib/string/String.__concat
-   local.tee $4
+   local.tee $5
    i32.const 2552
-   i32.const 395
+   i32.const 318
    i32.const 2
    call $~lib/builtins/abort
    unreachable
   end
-  i32.const 0
-  i64.const 0
-  i64.const 0
-  call $~lib/bignum/integer/u128/u128#constructor
-  local.tee $6
-  local.tee $10
-  local.get $8
-  local.tee $11
-  i32.ne
-  if
-   local.get $10
-   call $~lib/rt/stub/__retain
-   drop
-   local.get $11
-   call $~lib/rt/stub/__release
-  end
-  local.get $10
-  local.set $8
-  local.get $8
-  local.get $3
-  call $~lib/bignum/integer/u128/u128#decode<~lib/nearEntry/Obj>
-  local.set $10
-  local.get $2
+  local.get $4
+  i32.load
+  call $~lib/rt/stub/__retain
+  local.set $9
+  local.get $6
+  call $~lib/rt/stub/__release
+  local.get $4
+  call $~lib/rt/stub/__release
+  local.get $7
   call $~lib/rt/stub/__release
   local.get $5
   call $~lib/rt/stub/__release
   local.get $9
+  local.set $9
+  i32.const 0
+  local.set $5
+  local.get $9
+  local.get $5
+  call $~lib/bignum/utils/atou128
+  local.set $7
+  local.get $9
   call $~lib/rt/stub/__release
   local.get $7
-  call $~lib/rt/stub/__release
-  local.get $4
-  call $~lib/rt/stub/__release
-  local.get $6
-  call $~lib/rt/stub/__release
+  local.set $5
   local.get $0
   call $~lib/rt/stub/__release
   local.get $1
+  call $~lib/rt/stub/__release
+  local.get $2
   call $~lib/rt/stub/__release
   local.get $3
   call $~lib/rt/stub/__release
   local.get $8
   call $~lib/rt/stub/__release
-  local.get $10
+  local.get $5
+  return
  )
- (func $~lib/array/Array<~lib/typedarray/Uint8Array>#constructor (; 165 ;) (type $FUNCSIG$iii) (param $0 i32) (param $1 i32) (result i32)
+ (func $~lib/array/Array<~lib/typedarray/Uint8Array>#constructor (; 160 ;) (type $FUNCSIG$iii) (param $0 i32) (param $1 i32) (result i32)
   local.get $0
   if (result i32)
    local.get $0
-  else   
+  else
    i32.const 16
    i32.const 27
    call $~lib/rt/stub/__alloc
@@ -11467,7 +11255,7 @@
   i32.store offset=12
   local.get $0
  )
- (func $~lib/nearEntry/decode<~lib/typedarray/Uint8Array,~lib/nearEntry/Value> (; 166 ;) (type $FUNCSIG$iii) (param $0 i32) (param $1 i32) (result i32)
+ (func $~lib/nearEntry/decode<~lib/typedarray/Uint8Array,~lib/nearEntry/Value> (; 161 ;) (type $FUNCSIG$iii) (param $0 i32) (param $1 i32) (result i32)
   (local $2 i32)
   (local $3 i32)
   (local $4 i32)
@@ -11492,7 +11280,7 @@
   i32.eqz
   if (result i32)
    i32.const 0
-  else   
+  else
    local.get $4
    i32.const 8
    call $~lib/rt/__instanceof
@@ -11501,7 +11289,7 @@
    local.get $1
    i32.const 816
    call $~lib/string/String.__ne
-  else   
+  else
    i32.const 0
   end
   if
@@ -11552,7 +11340,7 @@
    call $~lib/rt/stub/__release
    local.get $5
    call $~lib/rt/stub/__release
-  else   
+  else
    local.get $2
    local.tee $7
    local.get $3
@@ -11573,7 +11361,7 @@
   i32.eqz
   if (result i32)
    i32.const 0
-  else   
+  else
    local.get $7
    i32.const 22
    call $~lib/rt/__instanceof
@@ -11606,7 +11394,7 @@
   i32.eqz
   if (result i32)
    i32.const 0
-  else   
+  else
    local.get $7
    i32.const 19
    call $~lib/rt/__instanceof
@@ -11657,7 +11445,7 @@
   local.get $7
   return
  )
- (func $~lib/array/Array<~lib/typedarray/Uint8Array>#push (; 167 ;) (type $FUNCSIG$iii) (param $0 i32) (param $1 i32) (result i32)
+ (func $~lib/array/Array<~lib/typedarray/Uint8Array>#push (; 162 ;) (type $FUNCSIG$iii) (param $0 i32) (param $1 i32) (result i32)
   (local $2 i32)
   (local $3 i32)
   (local $4 i32)
@@ -11693,7 +11481,7 @@
   call $~lib/rt/stub/__release
   local.get $4
  )
- (func $~lib/nearEntry/decodeArray<~lib/typedarray/Uint8Array> (; 168 ;) (type $FUNCSIG$iii) (param $0 i32) (param $1 i32) (result i32)
+ (func $~lib/nearEntry/decodeArray<~lib/typedarray/Uint8Array> (; 163 ;) (type $FUNCSIG$iii) (param $0 i32) (param $1 i32) (result i32)
   (local $2 i32)
   (local $3 i32)
   (local $4 i32)
@@ -11712,7 +11500,7 @@
   i32.eqz
   if (result i32)
    i32.const 0
-  else   
+  else
    local.get $2
    i32.const 17
    call $~lib/rt/__instanceof
@@ -11787,7 +11575,7 @@
   call $~lib/rt/stub/__release
   local.get $8
  )
- (func $~lib/nearEntry/decode<~lib/array/Array<~lib/typedarray/Uint8Array>,~lib/nearEntry/Obj> (; 169 ;) (type $FUNCSIG$iii) (param $0 i32) (param $1 i32) (result i32)
+ (func $~lib/nearEntry/decode<~lib/array/Array<~lib/typedarray/Uint8Array>,~lib/nearEntry/Obj> (; 164 ;) (type $FUNCSIG$iii) (param $0 i32) (param $1 i32) (result i32)
   (local $2 i32)
   (local $3 i32)
   (local $4 i32)
@@ -11811,7 +11599,7 @@
   i32.eqz
   if (result i32)
    i32.const 0
-  else   
+  else
    local.get $4
    i32.const 8
    call $~lib/rt/__instanceof
@@ -11820,7 +11608,7 @@
    local.get $1
    i32.const 816
    call $~lib/string/String.__ne
-  else   
+  else
    i32.const 0
   end
   if
@@ -11871,7 +11659,7 @@
    call $~lib/rt/stub/__release
    local.get $5
    call $~lib/rt/stub/__release
-  else   
+  else
    local.get $2
    local.tee $7
    local.get $3
@@ -11892,7 +11680,7 @@
   i32.eqz
   if (result i32)
    i32.const 0
-  else   
+  else
    local.get $7
    i32.const 22
    call $~lib/rt/__instanceof
@@ -11931,11 +11719,11 @@
   local.get $7
   return
  )
- (func $~lib/array/Array<u64>#constructor (; 170 ;) (type $FUNCSIG$iii) (param $0 i32) (param $1 i32) (result i32)
+ (func $~lib/array/Array<u64>#constructor (; 165 ;) (type $FUNCSIG$iii) (param $0 i32) (param $1 i32) (result i32)
   local.get $0
   if (result i32)
    local.get $0
-  else   
+  else
    i32.const 16
    i32.const 28
    call $~lib/rt/stub/__alloc
@@ -11953,7 +11741,7 @@
   i32.store offset=12
   local.get $0
  )
- (func $~lib/nearEntry/decode<u64,~lib/nearEntry/Value> (; 171 ;) (type $FUNCSIG$jii) (param $0 i32) (param $1 i32) (result i64)
+ (func $~lib/nearEntry/decode<u64,~lib/nearEntry/Value> (; 166 ;) (type $FUNCSIG$jii) (param $0 i32) (param $1 i32) (result i64)
   (local $2 i32)
   (local $3 i32)
   (local $4 i32)
@@ -11979,7 +11767,7 @@
   i32.eqz
   if (result i32)
    i32.const 0
-  else   
+  else
    local.get $4
    i32.const 8
    call $~lib/rt/__instanceof
@@ -11988,7 +11776,7 @@
    local.get $1
    i32.const 816
    call $~lib/string/String.__ne
-  else   
+  else
    i32.const 0
   end
   if
@@ -12039,7 +11827,7 @@
    call $~lib/rt/stub/__release
    local.get $5
    call $~lib/rt/stub/__release
-  else   
+  else
    local.get $2
    local.tee $8
    local.get $3
@@ -12060,7 +11848,7 @@
   i32.eqz
   if (result i32)
    i32.const 0
-  else   
+  else
    local.get $8
    i32.const 22
    call $~lib/rt/__instanceof
@@ -12115,7 +11903,7 @@
   i32.eqz
   if (result i32)
    i32.const 0
-  else   
+  else
    local.get $7
    i32.const 19
    call $~lib/rt/__instanceof
@@ -12170,7 +11958,7 @@
   local.get $6
   return
  )
- (func $~lib/array/Array<u64>#push (; 172 ;) (type $FUNCSIG$iij) (param $0 i32) (param $1 i64) (result i32)
+ (func $~lib/array/Array<u64>#push (; 167 ;) (type $FUNCSIG$iij) (param $0 i32) (param $1 i64) (result i32)
   (local $2 i32)
   (local $3 i32)
   local.get $0
@@ -12197,7 +11985,7 @@
   i32.store offset=12
   local.get $3
  )
- (func $~lib/nearEntry/decodeArray<u64> (; 173 ;) (type $FUNCSIG$iii) (param $0 i32) (param $1 i32) (result i32)
+ (func $~lib/nearEntry/decodeArray<u64> (; 168 ;) (type $FUNCSIG$iii) (param $0 i32) (param $1 i32) (result i32)
   (local $2 i32)
   (local $3 i32)
   (local $4 i32)
@@ -12216,7 +12004,7 @@
   i32.eqz
   if (result i32)
    i32.const 0
-  else   
+  else
    local.get $2
    i32.const 17
    call $~lib/rt/__instanceof
@@ -12289,7 +12077,7 @@
   call $~lib/rt/stub/__release
   local.get $7
  )
- (func $~lib/nearEntry/decode<~lib/array/Array<u64>,~lib/nearEntry/Obj> (; 174 ;) (type $FUNCSIG$iii) (param $0 i32) (param $1 i32) (result i32)
+ (func $~lib/nearEntry/decode<~lib/array/Array<u64>,~lib/nearEntry/Obj> (; 169 ;) (type $FUNCSIG$iii) (param $0 i32) (param $1 i32) (result i32)
   (local $2 i32)
   (local $3 i32)
   (local $4 i32)
@@ -12313,7 +12101,7 @@
   i32.eqz
   if (result i32)
    i32.const 0
-  else   
+  else
    local.get $4
    i32.const 8
    call $~lib/rt/__instanceof
@@ -12322,7 +12110,7 @@
    local.get $1
    i32.const 816
    call $~lib/string/String.__ne
-  else   
+  else
    i32.const 0
   end
   if
@@ -12373,7 +12161,7 @@
    call $~lib/rt/stub/__release
    local.get $5
    call $~lib/rt/stub/__release
-  else   
+  else
    local.get $2
    local.tee $7
    local.get $3
@@ -12394,7 +12182,7 @@
   i32.eqz
   if (result i32)
    i32.const 0
-  else   
+  else
    local.get $7
    i32.const 22
    call $~lib/rt/__instanceof
@@ -12433,7 +12221,7 @@
   local.get $7
   return
  )
- (func $assembly/model/FooBar#_decode (; 175 ;) (type $FUNCSIG$iii) (param $0 i32) (param $1 i32) (result i32)
+ (func $assembly/model/FooBar#_decode (; 170 ;) (type $FUNCSIG$iii) (param $0 i32) (param $1 i32) (result i32)
   (local $2 i32)
   (local $3 i32)
   local.get $1
@@ -12447,7 +12235,7 @@
    local.get $1
    i32.const 2776
    call $~lib/nearEntry/decode<i32,~lib/nearEntry/Obj>
-  else   
+  else
    local.get $0
    i32.load
   end
@@ -12460,7 +12248,7 @@
    local.get $1
    i32.const 2960
    call $~lib/nearEntry/decode<u32,~lib/nearEntry/Obj>
-  else   
+  else
    local.get $0
    i32.load offset=4
   end
@@ -12473,7 +12261,7 @@
    local.get $1
    i32.const 3008
    call $~lib/nearEntry/decode<u64,~lib/nearEntry/Obj>
-  else   
+  else
    local.get $0
    i64.load offset=8
   end
@@ -12486,7 +12274,7 @@
    local.get $1
    i32.const 3208
    call $~lib/nearEntry/decode<u64,~lib/nearEntry/Obj>
-  else   
+  else
    local.get $0
    i64.load offset=16
   end
@@ -12499,7 +12287,7 @@
    local.get $1
    i32.const 3240
    call $~lib/nearEntry/decode<i64,~lib/nearEntry/Obj>
-  else   
+  else
    local.get $0
    i64.load offset=24
   end
@@ -12512,7 +12300,7 @@
    local.get $1
    i32.const 3296
    call $~lib/nearEntry/decode<bool,~lib/nearEntry/Obj>
-  else   
+  else
    local.get $0
    i32.load8_u offset=32
   end
@@ -12526,7 +12314,7 @@
    local.get $1
    i32.const 3392
    call $~lib/nearEntry/decode<~lib/string/String,~lib/nearEntry/Obj>
-  else   
+  else
    local.get $0
    i32.load offset=36
    call $~lib/rt/stub/__retain
@@ -12546,7 +12334,7 @@
    local.get $1
    i32.const 3480
    call $~lib/nearEntry/decode<~lib/typedarray/Uint8Array,~lib/nearEntry/Obj>
-  else   
+  else
    local.get $0
    i32.load offset=40
    call $~lib/rt/stub/__retain
@@ -12566,7 +12354,7 @@
    local.get $1
    i32.const 3520
    call $~lib/nearEntry/decode<~lib/array/Array<~lib/array/Array<~lib/string/String>>,~lib/nearEntry/Obj>
-  else   
+  else
    local.get $0
    i32.load offset=44
    call $~lib/rt/stub/__retain
@@ -12586,7 +12374,7 @@
    local.get $1
    i32.const 3544
    call $~lib/nearEntry/decode<~lib/array/Array<u32>,~lib/nearEntry/Obj>
-  else   
+  else
    local.get $0
    i32.load offset=48
    call $~lib/rt/stub/__retain
@@ -12606,7 +12394,7 @@
    local.get $1
    i32.const 3576
    call $~lib/nearEntry/decode<~lib/array/Array<i32>,~lib/nearEntry/Obj>
-  else   
+  else
    local.get $0
    i32.load offset=52
    call $~lib/rt/stub/__retain
@@ -12626,7 +12414,7 @@
    local.get $1
    i32.const 3608
    call $~lib/nearEntry/decode<~lib/bignum/integer/u128/u128,~lib/nearEntry/Obj>
-  else   
+  else
    local.get $0
    i32.load offset=56
    call $~lib/rt/stub/__retain
@@ -12640,13 +12428,13 @@
   local.get $0
   local.tee $2
   local.get $1
-  i32.const 3944
+  i32.const 3872
   call $~lib/nearEntry/Obj#has
   if (result i32)
    local.get $1
-   i32.const 3944
+   i32.const 3872
    call $~lib/nearEntry/decode<~lib/array/Array<~lib/typedarray/Uint8Array>,~lib/nearEntry/Obj>
-  else   
+  else
    local.get $0
    i32.load offset=60
    call $~lib/rt/stub/__retain
@@ -12660,13 +12448,13 @@
   local.get $0
   local.tee $3
   local.get $1
-  i32.const 3984
+  i32.const 3912
   call $~lib/nearEntry/Obj#has
   if (result i32)
    local.get $1
-   i32.const 3984
+   i32.const 3912
    call $~lib/nearEntry/decode<~lib/array/Array<u64>,~lib/nearEntry/Obj>
-  else   
+  else
    local.get $0
    i32.load offset=64
    call $~lib/rt/stub/__retain
@@ -12684,7 +12472,7 @@
   call $~lib/rt/stub/__release
   local.get $2
  )
- (func $assembly/model/FooBar#decode<~lib/nearEntry/Obj> (; 176 ;) (type $FUNCSIG$iii) (param $0 i32) (param $1 i32) (result i32)
+ (func $assembly/model/FooBar#decode<~lib/nearEntry/Obj> (; 171 ;) (type $FUNCSIG$iii) (param $0 i32) (param $1 i32) (result i32)
   (local $2 i32)
   (local $3 i32)
   (local $4 i32)
@@ -12717,7 +12505,7 @@
   call $~lib/rt/stub/__release
   local.get $3
  )
- (func $~lib/nearEntry/decode<assembly/model/FooBar,~lib/nearEntry/Value> (; 177 ;) (type $FUNCSIG$iii) (param $0 i32) (param $1 i32) (result i32)
+ (func $~lib/nearEntry/decode<assembly/model/FooBar,~lib/nearEntry/Value> (; 172 ;) (type $FUNCSIG$iii) (param $0 i32) (param $1 i32) (result i32)
   (local $2 i32)
   (local $3 i32)
   (local $4 i32)
@@ -12744,7 +12532,7 @@
   i32.eqz
   if (result i32)
    i32.const 0
-  else   
+  else
    local.get $4
    i32.const 8
    call $~lib/rt/__instanceof
@@ -12753,7 +12541,7 @@
    local.get $1
    i32.const 816
    call $~lib/string/String.__ne
-  else   
+  else
    i32.const 0
   end
   if
@@ -12804,7 +12592,7 @@
    call $~lib/rt/stub/__release
    local.get $5
    call $~lib/rt/stub/__release
-  else   
+  else
    local.get $2
    local.tee $7
    local.get $3
@@ -12825,7 +12613,7 @@
   i32.eqz
   if (result i32)
    i32.const 0
-  else   
+  else
    local.get $7
    i32.const 22
    call $~lib/rt/__instanceof
@@ -12852,20 +12640,7 @@
   i32.eqz
   if (result i32)
    i32.const 0
-  else   
-   local.get $7
-   i32.const 19
-   call $~lib/rt/__instanceof
-  end
-  if
-   nop
-  end
-  local.get $3
-  local.tee $7
-  i32.eqz
-  if (result i32)
-   i32.const 0
-  else   
+  else
    local.get $7
    i32.const 8
    call $~lib/rt/__instanceof
@@ -12886,7 +12661,7 @@
    call $~lib/string/String.__concat
    local.tee $6
    i32.const 2552
-   i32.const 395
+   i32.const 394
    i32.const 2
    call $~lib/builtins/abort
    unreachable
@@ -12933,7 +12708,7 @@
   call $~lib/rt/stub/__release
   local.get $10
  )
- (func $~lib/array/Array<assembly/model/FooBar>#push (; 178 ;) (type $FUNCSIG$iii) (param $0 i32) (param $1 i32) (result i32)
+ (func $~lib/array/Array<assembly/model/FooBar>#push (; 173 ;) (type $FUNCSIG$iii) (param $0 i32) (param $1 i32) (result i32)
   (local $2 i32)
   (local $3 i32)
   (local $4 i32)
@@ -12969,7 +12744,7 @@
   call $~lib/rt/stub/__release
   local.get $4
  )
- (func $~lib/nearEntry/decodeArray<assembly/model/FooBar> (; 179 ;) (type $FUNCSIG$iii) (param $0 i32) (param $1 i32) (result i32)
+ (func $~lib/nearEntry/decodeArray<assembly/model/FooBar> (; 174 ;) (type $FUNCSIG$iii) (param $0 i32) (param $1 i32) (result i32)
   (local $2 i32)
   (local $3 i32)
   (local $4 i32)
@@ -12988,7 +12763,7 @@
   i32.eqz
   if (result i32)
    i32.const 0
-  else   
+  else
    local.get $2
    i32.const 17
    call $~lib/rt/__instanceof
@@ -13063,7 +12838,7 @@
   call $~lib/rt/stub/__release
   local.get $8
  )
- (func $~lib/nearEntry/decode<~lib/array/Array<assembly/model/FooBar>,~lib/nearEntry/Obj> (; 180 ;) (type $FUNCSIG$iii) (param $0 i32) (param $1 i32) (result i32)
+ (func $~lib/nearEntry/decode<~lib/array/Array<assembly/model/FooBar>,~lib/nearEntry/Obj> (; 175 ;) (type $FUNCSIG$iii) (param $0 i32) (param $1 i32) (result i32)
   (local $2 i32)
   (local $3 i32)
   (local $4 i32)
@@ -13087,7 +12862,7 @@
   i32.eqz
   if (result i32)
    i32.const 0
-  else   
+  else
    local.get $4
    i32.const 8
    call $~lib/rt/__instanceof
@@ -13096,7 +12871,7 @@
    local.get $1
    i32.const 816
    call $~lib/string/String.__ne
-  else   
+  else
    i32.const 0
   end
   if
@@ -13147,7 +12922,7 @@
    call $~lib/rt/stub/__release
    local.get $5
    call $~lib/rt/stub/__release
-  else   
+  else
    local.get $2
    local.tee $7
    local.get $3
@@ -13168,7 +12943,7 @@
   i32.eqz
   if (result i32)
    i32.const 0
-  else   
+  else
    local.get $7
    i32.const 22
    call $~lib/rt/__instanceof
@@ -13207,7 +12982,7 @@
   local.get $7
   return
  )
- (func $assembly/main/convertFoobars~anonymous|0 (; 181 ;) (type $FUNCSIG$iiii) (param $0 i32) (param $1 i32) (param $2 i32) (result i32)
+ (func $assembly/main/convertFoobars~anonymous|0 (; 176 ;) (type $FUNCSIG$iiii) (param $0 i32) (param $1 i32) (param $2 i32) (result i32)
   (local $3 i32)
   (local $4 i32)
   local.get $0
@@ -13234,7 +13009,7 @@
   call $~lib/rt/stub/__release
   local.get $4
  )
- (func $~lib/array/Array<assembly/model/FooBar>#map<assembly/model/ContainerClass> (; 182 ;) (type $FUNCSIG$iii) (param $0 i32) (param $1 i32) (result i32)
+ (func $~lib/array/Array<assembly/model/FooBar>#map<assembly/model/ContainerClass> (; 177 ;) (type $FUNCSIG$iii) (param $0 i32) (param $1 i32) (result i32)
   (local $2 i32)
   (local $3 i32)
   (local $4 i32)
@@ -13309,7 +13084,7 @@
   end
   local.get $3
  )
- (func $assembly/main/convertFoobars (; 183 ;) (type $FUNCSIG$ii) (param $0 i32) (result i32)
+ (func $assembly/main/convertFoobars (; 178 ;) (type $FUNCSIG$ii) (param $0 i32) (result i32)
   (local $1 i32)
   local.get $0
   call $~lib/rt/stub/__retain
@@ -13322,7 +13097,7 @@
   call $~lib/rt/stub/__release
   local.get $1
  )
- (func $assembly/test/convertFoobars (; 184 ;) (type $FUNCSIG$ii) (param $0 i32) (result i32)
+ (func $assembly/test/convertFoobars (; 179 ;) (type $FUNCSIG$ii) (param $0 i32) (result i32)
   (local $1 i32)
   local.get $0
   call $~lib/rt/stub/__retain
@@ -13334,7 +13109,7 @@
   call $~lib/rt/stub/__release
   local.get $1
  )
- (func $~lib/assemblyscript-json/encoder/JSONEncoder#constructor (; 185 ;) (type $FUNCSIG$ii) (param $0 i32) (result i32)
+ (func $~lib/assemblyscript-json/encoder/JSONEncoder#constructor (; 180 ;) (type $FUNCSIG$ii) (param $0 i32) (result i32)
   (local $1 i32)
   (local $2 i32)
   local.get $0
@@ -13381,11 +13156,11 @@
   drop
   local.get $0
  )
- (func $~lib/array/Array<i32>#get:length (; 186 ;) (type $FUNCSIG$ii) (param $0 i32) (result i32)
+ (func $~lib/array/Array<i32>#get:length (; 181 ;) (type $FUNCSIG$ii) (param $0 i32) (result i32)
   local.get $0
   i32.load offset=12
  )
- (func $~lib/array/Array<i32>#__unchecked_get (; 187 ;) (type $FUNCSIG$iii) (param $0 i32) (param $1 i32) (result i32)
+ (func $~lib/array/Array<i32>#__unchecked_get (; 182 ;) (type $FUNCSIG$iii) (param $0 i32) (param $1 i32) (result i32)
   local.get $0
   i32.load offset=4
   local.get $1
@@ -13394,7 +13169,7 @@
   i32.add
   i32.load
  )
- (func $~lib/array/Array<i32>#__get (; 188 ;) (type $FUNCSIG$iii) (param $0 i32) (param $1 i32) (result i32)
+ (func $~lib/array/Array<i32>#__get (; 183 ;) (type $FUNCSIG$iii) (param $0 i32) (param $1 i32) (result i32)
   local.get $1
   local.get $0
   i32.load offset=8
@@ -13413,7 +13188,7 @@
   local.get $1
   call $~lib/array/Array<i32>#__unchecked_get
  )
- (func $~lib/assemblyscript-json/encoder/JSONEncoder#get:isFirstKey (; 189 ;) (type $FUNCSIG$ii) (param $0 i32) (result i32)
+ (func $~lib/assemblyscript-json/encoder/JSONEncoder#get:isFirstKey (; 184 ;) (type $FUNCSIG$ii) (param $0 i32) (result i32)
   local.get $0
   i32.load
   local.get $0
@@ -13423,7 +13198,7 @@
   i32.sub
   call $~lib/array/Array<i32>#__get
  )
- (func $~lib/assemblyscript-json/encoder/JSONEncoder#write (; 190 ;) (type $FUNCSIG$vii) (param $0 i32) (param $1 i32)
+ (func $~lib/assemblyscript-json/encoder/JSONEncoder#write (; 185 ;) (type $FUNCSIG$vii) (param $0 i32) (param $1 i32)
   local.get $1
   call $~lib/rt/stub/__retain
   drop
@@ -13435,7 +13210,7 @@
   local.get $1
   call $~lib/rt/stub/__release
  )
- (func $~lib/array/Array<i32>#__unchecked_set (; 191 ;) (type $FUNCSIG$viii) (param $0 i32) (param $1 i32) (param $2 i32)
+ (func $~lib/array/Array<i32>#__unchecked_set (; 186 ;) (type $FUNCSIG$viii) (param $0 i32) (param $1 i32) (param $2 i32)
   local.get $0
   i32.load offset=4
   local.get $1
@@ -13445,7 +13220,7 @@
   local.get $2
   i32.store
  )
- (func $~lib/array/Array<i32>#__set (; 192 ;) (type $FUNCSIG$viii) (param $0 i32) (param $1 i32) (param $2 i32)
+ (func $~lib/array/Array<i32>#__set (; 187 ;) (type $FUNCSIG$viii) (param $0 i32) (param $1 i32) (param $2 i32)
   (local $3 i32)
   local.get $0
   i32.load offset=12
@@ -13471,7 +13246,7 @@
    i32.store offset=12
   end
  )
- (func $~lib/string/String#substring (; 193 ;) (type $FUNCSIG$iiii) (param $0 i32) (param $1 i32) (param $2 i32) (result i32)
+ (func $~lib/string/String#substring (; 188 ;) (type $FUNCSIG$iiii) (param $0 i32) (param $1 i32) (param $2 i32) (result i32)
   (local $3 i32)
   (local $4 i32)
   (local $5 i32)
@@ -13557,7 +13332,7 @@
    i32.const 1
    i32.shl
    i32.eq
-  else   
+  else
    i32.const 0
   end
   if
@@ -13578,7 +13353,7 @@
   local.get $10
   call $~lib/rt/stub/__retain
  )
- (func $~lib/util/number/decimalCount32 (; 194 ;) (type $FUNCSIG$ii) (param $0 i32) (result i32)
+ (func $~lib/util/number/decimalCount32 (; 189 ;) (type $FUNCSIG$ii) (param $0 i32) (result i32)
   (local $1 i32)
   local.get $0
   i32.const 100000
@@ -13595,7 +13370,7 @@
     i32.lt_u
     select
     return
-   else    
+   else
     i32.const 4
     i32.const 5
     local.get $0
@@ -13612,7 +13387,7 @@
     return
    end
    unreachable
-  else   
+  else
    local.get $0
    i32.const 10000000
    i32.lt_u
@@ -13624,7 +13399,7 @@
     i32.lt_u
     select
     return
-   else    
+   else
     i32.const 9
     i32.const 10
     local.get $0
@@ -13644,7 +13419,7 @@
   end
   unreachable
  )
- (func $~lib/util/number/utoa32_lut (; 195 ;) (type $FUNCSIG$viii) (param $0 i32) (param $1 i32) (param $2 i32)
+ (func $~lib/util/number/utoa32_lut (; 190 ;) (type $FUNCSIG$viii) (param $0 i32) (param $1 i32) (param $2 i32)
   (local $3 i32)
   (local $4 i32)
   (local $5 i32)
@@ -13652,7 +13427,7 @@
   (local $7 i32)
   (local $8 i64)
   (local $9 i64)
-  i32.const 4664
+  i32.const 4592
   i32.load offset=4
   local.set $3
   block $break|0
@@ -13768,7 +13543,7 @@
    i32.add
    local.get $5
    i32.store
-  else   
+  else
    local.get $2
    i32.const 1
    i32.sub
@@ -13786,7 +13561,7 @@
    i32.store16
   end
  )
- (func $~lib/util/number/itoa32 (; 196 ;) (type $FUNCSIG$ii) (param $0 i32) (result i32)
+ (func $~lib/util/number/itoa32 (; 191 ;) (type $FUNCSIG$ii) (param $0 i32) (result i32)
   (local $1 i32)
   (local $2 i32)
   (local $3 i32)
@@ -13796,7 +13571,7 @@
   local.get $0
   i32.eqz
   if
-   i32.const 240
+   i32.const 456
    call $~lib/rt/stub/__retain
    return
   end
@@ -13841,24 +13616,16 @@
   local.get $3
   call $~lib/rt/stub/__retain
  )
- (func $~lib/util/number/itoa<i32> (; 197 ;) (type $FUNCSIG$ii) (param $0 i32) (result i32)
+ (func $~lib/util/number/itoa<i32> (; 192 ;) (type $FUNCSIG$ii) (param $0 i32) (result i32)
   local.get $0
   call $~lib/util/number/itoa32
   return
  )
- (func $~lib/number/I32#toString (; 198 ;) (type $FUNCSIG$ii) (param $0 i32) (result i32)
-  (local $1 i32)
-  (local $2 i32)
+ (func $~lib/number/I32#toString (; 193 ;) (type $FUNCSIG$ii) (param $0 i32) (result i32)
   local.get $0
   call $~lib/util/number/itoa<i32>
-  local.tee $1
-  call $~lib/rt/stub/__retain
-  local.set $2
-  local.get $1
-  call $~lib/rt/stub/__release
-  local.get $2
  )
- (func $~lib/assemblyscript-json/encoder/JSONEncoder#writeString (; 199 ;) (type $FUNCSIG$vii) (param $0 i32) (param $1 i32)
+ (func $~lib/assemblyscript-json/encoder/JSONEncoder#writeString (; 194 ;) (type $FUNCSIG$vii) (param $0 i32) (param $1 i32)
   (local $2 i32)
   (local $3 i32)
   (local $4 i32)
@@ -13894,7 +13661,7 @@
     local.tee $5
     if (result i32)
      local.get $5
-    else     
+    else
      local.get $4
      i32.const 1248
      i32.const 0
@@ -13904,7 +13671,7 @@
     local.tee $5
     if (result i32)
      local.get $5
-    else     
+    else
      local.get $4
      i32.const 1472
      i32.const 0
@@ -13932,9 +13699,9 @@
      i32.eq
      if
       local.get $0
-      i32.const 4016
+      i32.const 3944
       call $~lib/assemblyscript-json/encoder/JSONEncoder#write
-     else      
+     else
       local.get $4
       i32.const 1472
       i32.const 0
@@ -13942,9 +13709,9 @@
       i32.eq
       if
        local.get $0
-       i32.const 4040
+       i32.const 3968
        call $~lib/assemblyscript-json/encoder/JSONEncoder#write
-      else       
+      else
        local.get $4
        i32.const 1544
        i32.const 0
@@ -13952,9 +13719,9 @@
        i32.eq
        if
         local.get $0
-        i32.const 4064
+        i32.const 3992
         call $~lib/assemblyscript-json/encoder/JSONEncoder#write
-       else        
+       else
         local.get $4
         i32.const 1592
         i32.const 0
@@ -13962,9 +13729,9 @@
         i32.eq
         if
          local.get $0
-         i32.const 4088
+         i32.const 4016
          call $~lib/assemblyscript-json/encoder/JSONEncoder#write
-        else         
+        else
          local.get $4
          i32.const 1640
          i32.const 0
@@ -13972,9 +13739,9 @@
          i32.eq
          if
           local.get $0
-          i32.const 4112
+          i32.const 4040
           call $~lib/assemblyscript-json/encoder/JSONEncoder#write
-         else          
+         else
           local.get $4
           i32.const 1688
           i32.const 0
@@ -13982,19 +13749,19 @@
           i32.eq
           if
            local.get $0
-           i32.const 4136
+           i32.const 4064
            call $~lib/assemblyscript-json/encoder/JSONEncoder#write
-          else           
+          else
            i32.const 0
            i32.eqz
            if
-            i32.const 4160
+            i32.const 4088
             local.get $4
             call $~lib/number/I32#toString
             local.tee $7
             call $~lib/string/String.__concat
             local.tee $8
-            i32.const 4696
+            i32.const 4624
             i32.const 108
             i32.const 20
             call $~lib/builtins/abort
@@ -14037,7 +13804,7 @@
   local.get $1
   call $~lib/rt/stub/__release
  )
- (func $~lib/assemblyscript-json/encoder/JSONEncoder#writeKey (; 200 ;) (type $FUNCSIG$vii) (param $0 i32) (param $1 i32)
+ (func $~lib/assemblyscript-json/encoder/JSONEncoder#writeKey (; 195 ;) (type $FUNCSIG$vii) (param $0 i32) (param $1 i32)
   (local $2 i32)
   local.get $1
   call $~lib/rt/stub/__retain
@@ -14051,7 +13818,7 @@
    local.get $0
    i32.const 1184
    call $~lib/assemblyscript-json/encoder/JSONEncoder#write
-  else   
+  else
    local.get $0
    i32.load
    local.get $0
@@ -14070,7 +13837,7 @@
    call $~lib/string/String#get:length
    i32.const 0
    i32.gt_s
-  else   
+  else
    i32.const 0
   end
   if
@@ -14079,7 +13846,7 @@
    local.tee $2
    if (result i32)
     local.get $2
-   else    
+   else
     unreachable
    end
    call $~lib/assemblyscript-json/encoder/JSONEncoder#writeString
@@ -14090,7 +13857,7 @@
   local.get $1
   call $~lib/rt/stub/__release
  )
- (func $~lib/assemblyscript-json/encoder/JSONEncoder#setNull (; 201 ;) (type $FUNCSIG$vii) (param $0 i32) (param $1 i32)
+ (func $~lib/assemblyscript-json/encoder/JSONEncoder#setNull (; 196 ;) (type $FUNCSIG$vii) (param $0 i32) (param $1 i32)
   local.get $1
   call $~lib/rt/stub/__retain
   drop
@@ -14098,12 +13865,12 @@
   local.get $1
   call $~lib/assemblyscript-json/encoder/JSONEncoder#writeKey
   local.get $0
-  i32.const 216
+  i32.const 432
   call $~lib/assemblyscript-json/encoder/JSONEncoder#write
   local.get $1
   call $~lib/rt/stub/__release
  )
- (func $~lib/assemblyscript-json/encoder/JSONEncoder#pushArray (; 202 ;) (type $FUNCSIG$iii) (param $0 i32) (param $1 i32) (result i32)
+ (func $~lib/assemblyscript-json/encoder/JSONEncoder#pushArray (; 197 ;) (type $FUNCSIG$iii) (param $0 i32) (param $1 i32) (result i32)
   (local $2 i32)
   local.get $1
   call $~lib/rt/stub/__retain
@@ -14125,11 +13892,11 @@
   call $~lib/rt/stub/__release
   local.get $2
  )
- (func $~lib/array/Array<assembly/model/ContainerClass>#get:length (; 203 ;) (type $FUNCSIG$ii) (param $0 i32) (result i32)
+ (func $~lib/array/Array<assembly/model/ContainerClass>#get:length (; 198 ;) (type $FUNCSIG$ii) (param $0 i32) (result i32)
   local.get $0
   i32.load offset=12
  )
- (func $~lib/array/Array<assembly/model/ContainerClass>#__unchecked_get (; 204 ;) (type $FUNCSIG$iii) (param $0 i32) (param $1 i32) (result i32)
+ (func $~lib/array/Array<assembly/model/ContainerClass>#__unchecked_get (; 199 ;) (type $FUNCSIG$iii) (param $0 i32) (param $1 i32) (result i32)
   local.get $0
   i32.load offset=4
   local.get $1
@@ -14139,7 +13906,7 @@
   i32.load
   call $~lib/rt/stub/__retain
  )
- (func $~lib/array/Array<assembly/model/ContainerClass>#__get (; 205 ;) (type $FUNCSIG$iii) (param $0 i32) (param $1 i32) (result i32)
+ (func $~lib/array/Array<assembly/model/ContainerClass>#__get (; 200 ;) (type $FUNCSIG$iii) (param $0 i32) (param $1 i32) (result i32)
   local.get $1
   local.get $0
   i32.load offset=12
@@ -14170,7 +13937,7 @@
   local.get $1
   call $~lib/array/Array<assembly/model/ContainerClass>#__unchecked_get
  )
- (func $~lib/assemblyscript-json/encoder/JSONEncoder#pushObject (; 206 ;) (type $FUNCSIG$iii) (param $0 i32) (param $1 i32) (result i32)
+ (func $~lib/assemblyscript-json/encoder/JSONEncoder#pushObject (; 201 ;) (type $FUNCSIG$iii) (param $0 i32) (param $1 i32) (result i32)
   (local $2 i32)
   local.get $1
   call $~lib/rt/stub/__retain
@@ -14192,7 +13959,7 @@
   call $~lib/rt/stub/__release
   local.get $2
  )
- (func $~lib/util/number/decimalCount64 (; 207 ;) (type $FUNCSIG$ij) (param $0 i64) (result i32)
+ (func $~lib/util/number/decimalCount64 (; 202 ;) (type $FUNCSIG$ij) (param $0 i64) (result i32)
   (local $1 i32)
   local.get $0
   i64.const 1000000000000000
@@ -14216,7 +13983,7 @@
     i64.lt_u
     select
     return
-   else    
+   else
     i32.const 14
     i32.const 15
     local.get $0
@@ -14233,7 +14000,7 @@
     return
    end
    unreachable
-  else   
+  else
    local.get $0
    i64.const 100000000000000000
    i64.lt_u
@@ -14245,7 +14012,7 @@
     i64.lt_u
     select
     return
-   else    
+   else
     i32.const 19
     i32.const 20
     local.get $0
@@ -14265,7 +14032,7 @@
   end
   unreachable
  )
- (func $~lib/util/number/utoa64_lut (; 208 ;) (type $FUNCSIG$viji) (param $0 i32) (param $1 i64) (param $2 i32)
+ (func $~lib/util/number/utoa64_lut (; 203 ;) (type $FUNCSIG$viji) (param $0 i32) (param $1 i64) (param $2 i32)
   (local $3 i32)
   (local $4 i64)
   (local $5 i32)
@@ -14277,7 +14044,7 @@
   (local $11 i32)
   (local $12 i64)
   (local $13 i64)
-  i32.const 4664
+  i32.const 4592
   i32.load offset=4
   local.set $3
   block $break|0
@@ -14392,7 +14159,7 @@
   local.get $2
   call $~lib/util/number/utoa32_lut
  )
- (func $~lib/util/number/itoa64 (; 209 ;) (type $FUNCSIG$ij) (param $0 i64) (result i32)
+ (func $~lib/util/number/itoa64 (; 204 ;) (type $FUNCSIG$ij) (param $0 i64) (result i32)
   (local $1 i32)
   (local $2 i32)
   (local $3 i32)
@@ -14404,7 +14171,7 @@
   local.get $0
   i64.eqz
   if
-   i32.const 240
+   i32.const 456
    call $~lib/rt/stub/__retain
    return
   end
@@ -14447,7 +14214,7 @@
    local.get $6
    local.get $5
    call $~lib/util/number/utoa32_lut
-  else   
+  else
    local.get $0
    call $~lib/util/number/decimalCount64
    local.get $1
@@ -14479,24 +14246,16 @@
   local.get $2
   call $~lib/rt/stub/__retain
  )
- (func $~lib/util/number/itoa<i64> (; 210 ;) (type $FUNCSIG$ij) (param $0 i64) (result i32)
+ (func $~lib/util/number/itoa<i64> (; 205 ;) (type $FUNCSIG$ij) (param $0 i64) (result i32)
   local.get $0
   call $~lib/util/number/itoa64
   return
  )
- (func $~lib/number/I64#toString (; 211 ;) (type $FUNCSIG$ij) (param $0 i64) (result i32)
-  (local $1 i32)
-  (local $2 i32)
+ (func $~lib/number/I64#toString (; 206 ;) (type $FUNCSIG$ij) (param $0 i64) (result i32)
   local.get $0
   call $~lib/util/number/itoa<i64>
-  local.tee $1
-  call $~lib/rt/stub/__retain
-  local.set $2
-  local.get $1
-  call $~lib/rt/stub/__release
-  local.get $2
  )
- (func $~lib/assemblyscript-json/encoder/JSONEncoder#writeInteger (; 212 ;) (type $FUNCSIG$vij) (param $0 i32) (param $1 i64)
+ (func $~lib/assemblyscript-json/encoder/JSONEncoder#writeInteger (; 207 ;) (type $FUNCSIG$vij) (param $0 i32) (param $1 i64)
   (local $2 i32)
   local.get $0
   local.get $1
@@ -14506,7 +14265,7 @@
   local.get $2
   call $~lib/rt/stub/__release
  )
- (func $~lib/assemblyscript-json/encoder/JSONEncoder#setInteger (; 213 ;) (type $FUNCSIG$viij) (param $0 i32) (param $1 i32) (param $2 i64)
+ (func $~lib/assemblyscript-json/encoder/JSONEncoder#setInteger (; 208 ;) (type $FUNCSIG$viij) (param $0 i32) (param $1 i32) (param $2 i64)
   local.get $1
   call $~lib/rt/stub/__retain
   drop
@@ -14519,7 +14278,7 @@
   local.get $1
   call $~lib/rt/stub/__release
  )
- (func $~lib/nearEntry/encode<i32,~lib/assemblyscript-json/encoder/JSONEncoder> (; 214 ;) (type $FUNCSIG$iiii) (param $0 i32) (param $1 i32) (param $2 i32) (result i32)
+ (func $~lib/nearEntry/encode<i32,~lib/assemblyscript-json/encoder/JSONEncoder> (; 209 ;) (type $FUNCSIG$iiii) (param $0 i32) (param $1 i32) (param $2 i32) (result i32)
   (local $3 i32)
   (local $4 i32)
   local.get $1
@@ -14543,7 +14302,7 @@
   call $~lib/rt/stub/__release
   local.get $4
  )
- (func $~lib/nearEntry/encode<u32,~lib/assemblyscript-json/encoder/JSONEncoder> (; 215 ;) (type $FUNCSIG$iiii) (param $0 i32) (param $1 i32) (param $2 i32) (result i32)
+ (func $~lib/nearEntry/encode<u32,~lib/assemblyscript-json/encoder/JSONEncoder> (; 210 ;) (type $FUNCSIG$iiii) (param $0 i32) (param $1 i32) (param $2 i32) (result i32)
   (local $3 i32)
   (local $4 i32)
   local.get $1
@@ -14567,7 +14326,7 @@
   call $~lib/rt/stub/__release
   local.get $4
  )
- (func $~lib/util/number/utoa64 (; 216 ;) (type $FUNCSIG$ij) (param $0 i64) (result i32)
+ (func $~lib/util/number/utoa64 (; 211 ;) (type $FUNCSIG$ij) (param $0 i64) (result i32)
   (local $1 i32)
   (local $2 i32)
   (local $3 i32)
@@ -14578,7 +14337,7 @@
   local.get $0
   i64.eqz
   if
-   i32.const 240
+   i32.const 456
    call $~lib/rt/stub/__retain
    return
   end
@@ -14608,7 +14367,7 @@
    local.get $5
    local.get $4
    call $~lib/util/number/utoa32_lut
-  else   
+  else
    local.get $0
    call $~lib/util/number/decimalCount64
    local.set $3
@@ -14632,24 +14391,16 @@
   local.get $1
   call $~lib/rt/stub/__retain
  )
- (func $~lib/util/number/itoa<u64> (; 217 ;) (type $FUNCSIG$ij) (param $0 i64) (result i32)
+ (func $~lib/util/number/itoa<u64> (; 212 ;) (type $FUNCSIG$ij) (param $0 i64) (result i32)
   local.get $0
   call $~lib/util/number/utoa64
   return
  )
- (func $~lib/number/U64#toString (; 218 ;) (type $FUNCSIG$ij) (param $0 i64) (result i32)
-  (local $1 i32)
-  (local $2 i32)
+ (func $~lib/number/U64#toString (; 213 ;) (type $FUNCSIG$ij) (param $0 i64) (result i32)
   local.get $0
   call $~lib/util/number/itoa<u64>
-  local.tee $1
-  call $~lib/rt/stub/__retain
-  local.set $2
-  local.get $1
-  call $~lib/rt/stub/__release
-  local.get $2
  )
- (func $~lib/assemblyscript-json/encoder/JSONEncoder#setString (; 219 ;) (type $FUNCSIG$viii) (param $0 i32) (param $1 i32) (param $2 i32)
+ (func $~lib/assemblyscript-json/encoder/JSONEncoder#setString (; 214 ;) (type $FUNCSIG$viii) (param $0 i32) (param $1 i32) (param $2 i32)
   local.get $1
   call $~lib/rt/stub/__retain
   drop
@@ -14667,7 +14418,7 @@
   local.get $2
   call $~lib/rt/stub/__release
  )
- (func $~lib/nearEntry/encode<u64,~lib/assemblyscript-json/encoder/JSONEncoder> (; 220 ;) (type $FUNCSIG$ijii) (param $0 i64) (param $1 i32) (param $2 i32) (result i32)
+ (func $~lib/nearEntry/encode<u64,~lib/assemblyscript-json/encoder/JSONEncoder> (; 215 ;) (type $FUNCSIG$ijii) (param $0 i64) (param $1 i32) (param $2 i32) (result i32)
   (local $3 i32)
   (local $4 i32)
   local.get $1
@@ -14694,7 +14445,7 @@
   call $~lib/rt/stub/__release
   local.get $3
  )
- (func $~lib/nearEntry/encode<i64,~lib/assemblyscript-json/encoder/JSONEncoder> (; 221 ;) (type $FUNCSIG$ijii) (param $0 i64) (param $1 i32) (param $2 i32) (result i32)
+ (func $~lib/nearEntry/encode<i64,~lib/assemblyscript-json/encoder/JSONEncoder> (; 216 ;) (type $FUNCSIG$ijii) (param $0 i64) (param $1 i32) (param $2 i32) (result i32)
   (local $3 i32)
   (local $4 i32)
   local.get $1
@@ -14721,23 +14472,23 @@
   call $~lib/rt/stub/__release
   local.get $3
  )
- (func $~lib/assemblyscript-json/encoder/JSONEncoder#writeBoolean (; 222 ;) (type $FUNCSIG$vii) (param $0 i32) (param $1 i32)
+ (func $~lib/assemblyscript-json/encoder/JSONEncoder#writeBoolean (; 217 ;) (type $FUNCSIG$vii) (param $0 i32) (param $1 i32)
   (local $2 i32)
   (local $3 i32)
   local.get $0
   local.get $1
   if (result i32)
-   i32.const 160
+   i32.const 376
    call $~lib/rt/stub/__retain
    local.tee $2
-  else   
-   i32.const 184
+  else
+   i32.const 400
    call $~lib/rt/stub/__retain
    local.tee $3
   end
   call $~lib/assemblyscript-json/encoder/JSONEncoder#write
  )
- (func $~lib/assemblyscript-json/encoder/JSONEncoder#setBoolean (; 223 ;) (type $FUNCSIG$viii) (param $0 i32) (param $1 i32) (param $2 i32)
+ (func $~lib/assemblyscript-json/encoder/JSONEncoder#setBoolean (; 218 ;) (type $FUNCSIG$viii) (param $0 i32) (param $1 i32) (param $2 i32)
   local.get $1
   call $~lib/rt/stub/__retain
   drop
@@ -14750,7 +14501,7 @@
   local.get $1
   call $~lib/rt/stub/__release
  )
- (func $~lib/nearEntry/encode<bool,~lib/assemblyscript-json/encoder/JSONEncoder> (; 224 ;) (type $FUNCSIG$iiii) (param $0 i32) (param $1 i32) (param $2 i32) (result i32)
+ (func $~lib/nearEntry/encode<bool,~lib/assemblyscript-json/encoder/JSONEncoder> (; 219 ;) (type $FUNCSIG$iiii) (param $0 i32) (param $1 i32) (param $2 i32) (result i32)
   (local $3 i32)
   (local $4 i32)
   local.get $1
@@ -14773,7 +14524,7 @@
   call $~lib/rt/stub/__release
   local.get $4
  )
- (func $~lib/nearEntry/encode<~lib/string/String,~lib/assemblyscript-json/encoder/JSONEncoder> (; 225 ;) (type $FUNCSIG$iiii) (param $0 i32) (param $1 i32) (param $2 i32) (result i32)
+ (func $~lib/nearEntry/encode<~lib/string/String,~lib/assemblyscript-json/encoder/JSONEncoder> (; 220 ;) (type $FUNCSIG$iiii) (param $0 i32) (param $1 i32) (param $2 i32) (result i32)
   (local $3 i32)
   (local $4 i32)
   local.get $0
@@ -14792,7 +14543,7 @@
    local.get $2
    local.get $1
    call $~lib/assemblyscript-json/encoder/JSONEncoder#setNull
-  else   
+  else
    local.get $2
    local.get $1
    local.get $0
@@ -14810,7 +14561,7 @@
   call $~lib/rt/stub/__release
   local.get $4
  )
- (func $~lib/near-runtime-ts/base64/base64.encode (; 226 ;) (type $FUNCSIG$ii) (param $0 i32) (result i32)
+ (func $~lib/near-runtime-ts/base64/base64.encode (; 221 ;) (type $FUNCSIG$ii) (param $0 i32) (result i32)
   (local $1 i32)
   (local $2 i32)
   (local $3 i32)
@@ -15059,7 +14810,7 @@
   call $~lib/rt/stub/__release
   local.get $6
  )
- (func $~lib/nearEntry/encode<~lib/typedarray/Uint8Array,~lib/assemblyscript-json/encoder/JSONEncoder> (; 227 ;) (type $FUNCSIG$iiii) (param $0 i32) (param $1 i32) (param $2 i32) (result i32)
+ (func $~lib/nearEntry/encode<~lib/typedarray/Uint8Array,~lib/assemblyscript-json/encoder/JSONEncoder> (; 222 ;) (type $FUNCSIG$iiii) (param $0 i32) (param $1 i32) (param $2 i32) (result i32)
   (local $3 i32)
   (local $4 i32)
   local.get $0
@@ -15078,7 +14829,7 @@
    local.get $2
    local.get $1
    call $~lib/assemblyscript-json/encoder/JSONEncoder#setNull
-  else   
+  else
    local.get $2
    local.get $1
    local.get $0
@@ -15100,11 +14851,11 @@
   call $~lib/rt/stub/__release
   local.get $3
  )
- (func $~lib/array/Array<~lib/array/Array<~lib/string/String>>#get:length (; 228 ;) (type $FUNCSIG$ii) (param $0 i32) (result i32)
+ (func $~lib/array/Array<~lib/array/Array<~lib/string/String>>#get:length (; 223 ;) (type $FUNCSIG$ii) (param $0 i32) (result i32)
   local.get $0
   i32.load offset=12
  )
- (func $~lib/array/Array<~lib/array/Array<~lib/string/String>>#__unchecked_get (; 229 ;) (type $FUNCSIG$iii) (param $0 i32) (param $1 i32) (result i32)
+ (func $~lib/array/Array<~lib/array/Array<~lib/string/String>>#__unchecked_get (; 224 ;) (type $FUNCSIG$iii) (param $0 i32) (param $1 i32) (result i32)
   local.get $0
   i32.load offset=4
   local.get $1
@@ -15114,7 +14865,7 @@
   i32.load
   call $~lib/rt/stub/__retain
  )
- (func $~lib/array/Array<~lib/array/Array<~lib/string/String>>#__get (; 230 ;) (type $FUNCSIG$iii) (param $0 i32) (param $1 i32) (result i32)
+ (func $~lib/array/Array<~lib/array/Array<~lib/string/String>>#__get (; 225 ;) (type $FUNCSIG$iii) (param $0 i32) (param $1 i32) (result i32)
   local.get $1
   local.get $0
   i32.load offset=12
@@ -15145,7 +14896,7 @@
   local.get $1
   call $~lib/array/Array<~lib/array/Array<~lib/string/String>>#__unchecked_get
  )
- (func $~lib/array/Array<~lib/string/String>#__unchecked_get (; 231 ;) (type $FUNCSIG$iii) (param $0 i32) (param $1 i32) (result i32)
+ (func $~lib/array/Array<~lib/string/String>#__unchecked_get (; 226 ;) (type $FUNCSIG$iii) (param $0 i32) (param $1 i32) (result i32)
   local.get $0
   i32.load offset=4
   local.get $1
@@ -15155,7 +14906,7 @@
   i32.load
   call $~lib/rt/stub/__retain
  )
- (func $~lib/array/Array<~lib/string/String>#__get (; 232 ;) (type $FUNCSIG$iii) (param $0 i32) (param $1 i32) (result i32)
+ (func $~lib/array/Array<~lib/string/String>#__get (; 227 ;) (type $FUNCSIG$iii) (param $0 i32) (param $1 i32) (result i32)
   local.get $1
   local.get $0
   i32.load offset=12
@@ -15186,7 +14937,7 @@
   local.get $1
   call $~lib/array/Array<~lib/string/String>#__unchecked_get
  )
- (func $~lib/array/Array<i32>#pop (; 233 ;) (type $FUNCSIG$ii) (param $0 i32) (result i32)
+ (func $~lib/array/Array<i32>#pop (; 228 ;) (type $FUNCSIG$ii) (param $0 i32) (result i32)
   (local $1 i32)
   (local $2 i32)
   local.get $0
@@ -15219,7 +14970,7 @@
   i32.store offset=12
   local.get $2
  )
- (func $~lib/assemblyscript-json/encoder/JSONEncoder#popArray (; 234 ;) (type $FUNCSIG$vi) (param $0 i32)
+ (func $~lib/assemblyscript-json/encoder/JSONEncoder#popArray (; 229 ;) (type $FUNCSIG$vi) (param $0 i32)
   local.get $0
   i32.const 2072
   call $~lib/assemblyscript-json/encoder/JSONEncoder#write
@@ -15228,7 +14979,7 @@
   call $~lib/array/Array<i32>#pop
   drop
  )
- (func $~lib/nearEntry/encode<~lib/array/Array<~lib/string/String>,~lib/assemblyscript-json/encoder/JSONEncoder> (; 235 ;) (type $FUNCSIG$iiii) (param $0 i32) (param $1 i32) (param $2 i32) (result i32)
+ (func $~lib/nearEntry/encode<~lib/array/Array<~lib/string/String>,~lib/assemblyscript-json/encoder/JSONEncoder> (; 230 ;) (type $FUNCSIG$iiii) (param $0 i32) (param $1 i32) (param $2 i32) (result i32)
   (local $3 i32)
   (local $4 i32)
   (local $5 i32)
@@ -15248,7 +14999,7 @@
    local.get $2
    local.get $1
    call $~lib/assemblyscript-json/encoder/JSONEncoder#setNull
-  else   
+  else
    local.get $2
    local.get $1
    call $~lib/assemblyscript-json/encoder/JSONEncoder#pushArray
@@ -15296,7 +15047,7 @@
   call $~lib/rt/stub/__release
   local.get $4
  )
- (func $~lib/nearEntry/encode<~lib/array/Array<~lib/array/Array<~lib/string/String>>,~lib/assemblyscript-json/encoder/JSONEncoder> (; 236 ;) (type $FUNCSIG$iiii) (param $0 i32) (param $1 i32) (param $2 i32) (result i32)
+ (func $~lib/nearEntry/encode<~lib/array/Array<~lib/array/Array<~lib/string/String>>,~lib/assemblyscript-json/encoder/JSONEncoder> (; 231 ;) (type $FUNCSIG$iiii) (param $0 i32) (param $1 i32) (param $2 i32) (result i32)
   (local $3 i32)
   (local $4 i32)
   (local $5 i32)
@@ -15316,7 +15067,7 @@
    local.get $2
    local.get $1
    call $~lib/assemblyscript-json/encoder/JSONEncoder#setNull
-  else   
+  else
    local.get $2
    local.get $1
    call $~lib/assemblyscript-json/encoder/JSONEncoder#pushArray
@@ -15364,11 +15115,11 @@
   call $~lib/rt/stub/__release
   local.get $4
  )
- (func $~lib/array/Array<u32>#get:length (; 237 ;) (type $FUNCSIG$ii) (param $0 i32) (result i32)
+ (func $~lib/array/Array<u32>#get:length (; 232 ;) (type $FUNCSIG$ii) (param $0 i32) (result i32)
   local.get $0
   i32.load offset=12
  )
- (func $~lib/array/Array<u32>#__unchecked_get (; 238 ;) (type $FUNCSIG$iii) (param $0 i32) (param $1 i32) (result i32)
+ (func $~lib/array/Array<u32>#__unchecked_get (; 233 ;) (type $FUNCSIG$iii) (param $0 i32) (param $1 i32) (result i32)
   local.get $0
   i32.load offset=4
   local.get $1
@@ -15377,7 +15128,7 @@
   i32.add
   i32.load
  )
- (func $~lib/array/Array<u32>#__get (; 239 ;) (type $FUNCSIG$iii) (param $0 i32) (param $1 i32) (result i32)
+ (func $~lib/array/Array<u32>#__get (; 234 ;) (type $FUNCSIG$iii) (param $0 i32) (param $1 i32) (result i32)
   local.get $1
   local.get $0
   i32.load offset=8
@@ -15396,7 +15147,7 @@
   local.get $1
   call $~lib/array/Array<u32>#__unchecked_get
  )
- (func $~lib/nearEntry/encode<~lib/array/Array<u32>,~lib/assemblyscript-json/encoder/JSONEncoder> (; 240 ;) (type $FUNCSIG$iiii) (param $0 i32) (param $1 i32) (param $2 i32) (result i32)
+ (func $~lib/nearEntry/encode<~lib/array/Array<u32>,~lib/assemblyscript-json/encoder/JSONEncoder> (; 235 ;) (type $FUNCSIG$iiii) (param $0 i32) (param $1 i32) (param $2 i32) (result i32)
   (local $3 i32)
   (local $4 i32)
   local.get $0
@@ -15415,7 +15166,7 @@
    local.get $2
    local.get $1
    call $~lib/assemblyscript-json/encoder/JSONEncoder#setNull
-  else   
+  else
    local.get $2
    local.get $1
    call $~lib/assemblyscript-json/encoder/JSONEncoder#pushArray
@@ -15460,7 +15211,7 @@
   call $~lib/rt/stub/__release
   local.get $3
  )
- (func $~lib/nearEntry/encode<~lib/array/Array<i32>,~lib/assemblyscript-json/encoder/JSONEncoder> (; 241 ;) (type $FUNCSIG$iiii) (param $0 i32) (param $1 i32) (param $2 i32) (result i32)
+ (func $~lib/nearEntry/encode<~lib/array/Array<i32>,~lib/assemblyscript-json/encoder/JSONEncoder> (; 236 ;) (type $FUNCSIG$iiii) (param $0 i32) (param $1 i32) (param $2 i32) (result i32)
   (local $3 i32)
   (local $4 i32)
   local.get $0
@@ -15479,7 +15230,7 @@
    local.get $2
    local.get $1
    call $~lib/assemblyscript-json/encoder/JSONEncoder#setNull
-  else   
+  else
    local.get $2
    local.get $1
    call $~lib/assemblyscript-json/encoder/JSONEncoder#pushArray
@@ -15524,11 +15275,11 @@
   call $~lib/rt/stub/__release
   local.get $3
  )
- (func $~lib/typedarray/Int8Array#constructor (; 242 ;) (type $FUNCSIG$iii) (param $0 i32) (param $1 i32) (result i32)
+ (func $~lib/typedarray/Int8Array#constructor (; 237 ;) (type $FUNCSIG$iii) (param $0 i32) (param $1 i32) (result i32)
   local.get $0
   if (result i32)
    local.get $0
-  else   
+  else
    i32.const 12
    i32.const 33
    call $~lib/rt/stub/__alloc
@@ -15540,11 +15291,11 @@
   local.set $0
   local.get $0
  )
- (func $~lib/typedarray/Int8Array#get:length (; 243 ;) (type $FUNCSIG$ii) (param $0 i32) (result i32)
+ (func $~lib/typedarray/Int8Array#get:length (; 238 ;) (type $FUNCSIG$ii) (param $0 i32) (result i32)
   local.get $0
   call $~lib/arraybuffer/ArrayBufferView#get:byteLength
  )
- (func $~lib/typedarray/Int8Array#__get (; 244 ;) (type $FUNCSIG$iii) (param $0 i32) (param $1 i32) (result i32)
+ (func $~lib/typedarray/Int8Array#__get (; 239 ;) (type $FUNCSIG$iii) (param $0 i32) (param $1 i32) (result i32)
   local.get $1
   local.get $0
   i32.load offset=8
@@ -15552,7 +15303,7 @@
   if
    i32.const 832
    i32.const 888
-   i32.const 27
+   i32.const 28
    i32.const 44
    call $~lib/builtins/abort
    unreachable
@@ -15563,7 +15314,7 @@
   i32.add
   i32.load8_s
  )
- (func $~lib/typedarray/Int8Array#__set (; 245 ;) (type $FUNCSIG$viii) (param $0 i32) (param $1 i32) (param $2 i32)
+ (func $~lib/typedarray/Int8Array#__set (; 240 ;) (type $FUNCSIG$viii) (param $0 i32) (param $1 i32) (param $2 i32)
   local.get $1
   local.get $0
   i32.load offset=8
@@ -15571,7 +15322,7 @@
   if
    i32.const 832
    i32.const 888
-   i32.const 38
+   i32.const 39
    i32.const 44
    call $~lib/builtins/abort
    unreachable
@@ -15583,7 +15334,7 @@
   local.get $2
   i32.store8
  )
- (func $~lib/bignum/utils/processU64 (; 246 ;) (type $FUNCSIG$vij) (param $0 i32) (param $1 i64)
+ (func $~lib/bignum/utils/processU64 (; 241 ;) (type $FUNCSIG$vij) (param $0 i32) (param $1 i64)
   (local $2 i32)
   (local $3 i32)
   (local $4 i32)
@@ -15626,6 +15377,10 @@
       i32.const 3
       i32.mul
       i32.add
+      i32.const 24
+      i32.shl
+      i32.const 24
+      i32.shr_s
       call $~lib/typedarray/Int8Array#__set
       local.get $4
       i32.const 1
@@ -15651,6 +15406,10 @@
       call $~lib/typedarray/Int8Array#__get
       i32.const 1
       i32.shl
+      i32.const 24
+      i32.shl
+      i32.const 24
+      i32.shr_s
       call $~lib/typedarray/Int8Array#__set
       local.get $4
       local.get $2
@@ -15671,6 +15430,10 @@
        i32.const 15
        i32.gt_s
        i32.or
+       i32.const 24
+       i32.shl
+       i32.const 24
+       i32.shr_s
        call $~lib/typedarray/Int8Array#__set
       end
       local.get $0
@@ -15703,6 +15466,10 @@
     i64.const 0
     i64.ne
     i32.add
+    i32.const 24
+    i32.shl
+    i32.const 24
+    i32.shr_s
     call $~lib/typedarray/Int8Array#__set
     local.get $3
     i32.const 1
@@ -15715,7 +15482,7 @@
   local.get $0
   call $~lib/rt/stub/__release
  )
- (func $~lib/bignum/utils/u128toa10 (; 247 ;) (type $FUNCSIG$ii) (param $0 i32) (result i32)
+ (func $~lib/bignum/utils/u128toa10 (; 242 ;) (type $FUNCSIG$ii) (param $0 i32) (result i32)
   (local $1 i32)
   (local $2 i32)
   (local $3 i32)
@@ -15764,7 +15531,7 @@
      call $~lib/typedarray/Int8Array#__get
      i32.const 0
      i32.gt_s
-    else     
+    else
      i32.const 0
     end
     if
@@ -15805,7 +15572,7 @@
   call $~lib/rt/stub/__release
   local.get $5
  )
- (func $~lib/bignum/integer/u128/u128#toString (; 248 ;) (type $FUNCSIG$iii) (param $0 i32) (param $1 i32) (result i32)
+ (func $~lib/bignum/integer/u128/u128#toString (; 243 ;) (type $FUNCSIG$iii) (param $0 i32) (param $1 i32) (result i32)
   (local $2 i32)
   (local $3 i32)
   (local $4 i32)
@@ -15829,16 +15596,16 @@
   i32.eq
   if (result i32)
    i32.const 1
-  else   
+  else
    local.get $1
    i32.const 16
    i32.eq
   end
   i32.eqz
   if
-   i32.const 4816
-   i32.const 4912
-   i32.const 688
+   i32.const 4744
+   i32.const 4840
+   i32.const 894
    i32.const 4
    call $~lib/builtins/abort
    unreachable
@@ -15852,7 +15619,7 @@
   i64.or
   i64.eqz
   if
-   i32.const 240
+   i32.const 456
    call $~lib/rt/stub/__retain
    return
   end
@@ -16020,7 +15787,7 @@
    call $~lib/rt/stub/__release
    local.get $9
    return
-  else   
+  else
    local.get $1
    i32.const 10
    i32.eq
@@ -16036,7 +15803,7 @@
     return
    end
   end
-  i32.const 4984
+  i32.const 4912
   call $~lib/rt/stub/__retain
   local.set $2
   local.get $3
@@ -16045,7 +15812,7 @@
   call $~lib/rt/stub/__release
   local.get $2
  )
- (func $~lib/nearEntry/encode<~lib/bignum/integer/u128/u128,~lib/assemblyscript-json/encoder/JSONEncoder> (; 249 ;) (type $FUNCSIG$iiii) (param $0 i32) (param $1 i32) (param $2 i32) (result i32)
+ (func $~lib/nearEntry/encode<~lib/bignum/integer/u128/u128,~lib/assemblyscript-json/encoder/JSONEncoder> (; 244 ;) (type $FUNCSIG$iiii) (param $0 i32) (param $1 i32) (param $2 i32) (result i32)
   (local $3 i32)
   (local $4 i32)
   (local $5 i32)
@@ -16076,7 +15843,7 @@
    local.get $3
    i64.load
    i64.eq
-  else   
+  else
    i32.const 0
   end
   local.set $5
@@ -16089,7 +15856,7 @@
    local.get $2
    local.get $1
    call $~lib/assemblyscript-json/encoder/JSONEncoder#setNull
-  else   
+  else
    local.get $2
    local.get $1
    local.get $0
@@ -16112,11 +15879,11 @@
   call $~lib/rt/stub/__release
   local.get $4
  )
- (func $~lib/array/Array<~lib/typedarray/Uint8Array>#get:length (; 250 ;) (type $FUNCSIG$ii) (param $0 i32) (result i32)
+ (func $~lib/array/Array<~lib/typedarray/Uint8Array>#get:length (; 245 ;) (type $FUNCSIG$ii) (param $0 i32) (result i32)
   local.get $0
   i32.load offset=12
  )
- (func $~lib/array/Array<~lib/typedarray/Uint8Array>#__unchecked_get (; 251 ;) (type $FUNCSIG$iii) (param $0 i32) (param $1 i32) (result i32)
+ (func $~lib/array/Array<~lib/typedarray/Uint8Array>#__unchecked_get (; 246 ;) (type $FUNCSIG$iii) (param $0 i32) (param $1 i32) (result i32)
   local.get $0
   i32.load offset=4
   local.get $1
@@ -16126,7 +15893,7 @@
   i32.load
   call $~lib/rt/stub/__retain
  )
- (func $~lib/array/Array<~lib/typedarray/Uint8Array>#__get (; 252 ;) (type $FUNCSIG$iii) (param $0 i32) (param $1 i32) (result i32)
+ (func $~lib/array/Array<~lib/typedarray/Uint8Array>#__get (; 247 ;) (type $FUNCSIG$iii) (param $0 i32) (param $1 i32) (result i32)
   local.get $1
   local.get $0
   i32.load offset=12
@@ -16157,7 +15924,7 @@
   local.get $1
   call $~lib/array/Array<~lib/typedarray/Uint8Array>#__unchecked_get
  )
- (func $~lib/nearEntry/encode<~lib/array/Array<~lib/typedarray/Uint8Array>,~lib/assemblyscript-json/encoder/JSONEncoder> (; 253 ;) (type $FUNCSIG$iiii) (param $0 i32) (param $1 i32) (param $2 i32) (result i32)
+ (func $~lib/nearEntry/encode<~lib/array/Array<~lib/typedarray/Uint8Array>,~lib/assemblyscript-json/encoder/JSONEncoder> (; 248 ;) (type $FUNCSIG$iiii) (param $0 i32) (param $1 i32) (param $2 i32) (result i32)
   (local $3 i32)
   (local $4 i32)
   (local $5 i32)
@@ -16177,7 +15944,7 @@
    local.get $2
    local.get $1
    call $~lib/assemblyscript-json/encoder/JSONEncoder#setNull
-  else   
+  else
    local.get $2
    local.get $1
    call $~lib/assemblyscript-json/encoder/JSONEncoder#pushArray
@@ -16225,11 +15992,11 @@
   call $~lib/rt/stub/__release
   local.get $4
  )
- (func $~lib/array/Array<u64>#get:length (; 254 ;) (type $FUNCSIG$ii) (param $0 i32) (result i32)
+ (func $~lib/array/Array<u64>#get:length (; 249 ;) (type $FUNCSIG$ii) (param $0 i32) (result i32)
   local.get $0
   i32.load offset=12
  )
- (func $~lib/array/Array<u64>#__unchecked_get (; 255 ;) (type $FUNCSIG$jii) (param $0 i32) (param $1 i32) (result i64)
+ (func $~lib/array/Array<u64>#__unchecked_get (; 250 ;) (type $FUNCSIG$jii) (param $0 i32) (param $1 i32) (result i64)
   local.get $0
   i32.load offset=4
   local.get $1
@@ -16238,7 +16005,7 @@
   i32.add
   i64.load
  )
- (func $~lib/array/Array<u64>#__get (; 256 ;) (type $FUNCSIG$jii) (param $0 i32) (param $1 i32) (result i64)
+ (func $~lib/array/Array<u64>#__get (; 251 ;) (type $FUNCSIG$jii) (param $0 i32) (param $1 i32) (result i64)
   local.get $1
   local.get $0
   i32.load offset=8
@@ -16257,7 +16024,7 @@
   local.get $1
   call $~lib/array/Array<u64>#__unchecked_get
  )
- (func $~lib/nearEntry/encode<~lib/array/Array<u64>,~lib/assemblyscript-json/encoder/JSONEncoder> (; 257 ;) (type $FUNCSIG$iiii) (param $0 i32) (param $1 i32) (param $2 i32) (result i32)
+ (func $~lib/nearEntry/encode<~lib/array/Array<u64>,~lib/assemblyscript-json/encoder/JSONEncoder> (; 252 ;) (type $FUNCSIG$iiii) (param $0 i32) (param $1 i32) (param $2 i32) (result i32)
   (local $3 i32)
   (local $4 i32)
   local.get $0
@@ -16276,7 +16043,7 @@
    local.get $2
    local.get $1
    call $~lib/assemblyscript-json/encoder/JSONEncoder#setNull
-  else   
+  else
    local.get $2
    local.get $1
    call $~lib/assemblyscript-json/encoder/JSONEncoder#pushArray
@@ -16321,7 +16088,7 @@
   call $~lib/rt/stub/__release
   local.get $3
  )
- (func $~lib/assemblyscript-json/encoder/JSONEncoder#popObject (; 258 ;) (type $FUNCSIG$vi) (param $0 i32)
+ (func $~lib/assemblyscript-json/encoder/JSONEncoder#popObject (; 253 ;) (type $FUNCSIG$vi) (param $0 i32)
   local.get $0
   i32.const 1160
   call $~lib/assemblyscript-json/encoder/JSONEncoder#write
@@ -16330,7 +16097,7 @@
   call $~lib/array/Array<i32>#pop
   drop
  )
- (func $assembly/model/FooBar#_encode (; 259 ;) (type $FUNCSIG$iiii) (param $0 i32) (param $1 i32) (param $2 i32) (result i32)
+ (func $assembly/model/FooBar#_encode (; 254 ;) (type $FUNCSIG$iiii) (param $0 i32) (param $1 i32) (param $2 i32) (result i32)
   (local $3 i32)
   (local $4 i32)
   local.get $1
@@ -16345,14 +16112,14 @@
   if (result i32)
    local.get $2
    call $~lib/rt/stub/__retain
-  else   
+  else
    i32.const 0
    call $~lib/assemblyscript-json/encoder/JSONEncoder#constructor
   end
   local.tee $3
   if (result i32)
    local.get $3
-  else   
+  else
    unreachable
   end
   call $~lib/rt/stub/__retain
@@ -16435,13 +16202,13 @@
   call $~lib/rt/stub/__release
   local.get $0
   i32.load offset=60
-  i32.const 3944
+  i32.const 3872
   local.get $3
   call $~lib/nearEntry/encode<~lib/array/Array<~lib/typedarray/Uint8Array>,~lib/assemblyscript-json/encoder/JSONEncoder>
   call $~lib/rt/stub/__release
   local.get $0
   i32.load offset=64
-  i32.const 3984
+  i32.const 3912
   local.get $3
   call $~lib/nearEntry/encode<~lib/array/Array<u64>,~lib/assemblyscript-json/encoder/JSONEncoder>
   call $~lib/rt/stub/__release
@@ -16455,7 +16222,7 @@
   call $~lib/rt/stub/__release
   local.get $4
  )
- (func $~lib/nearEntry/encode<assembly/model/FooBar,~lib/assemblyscript-json/encoder/JSONEncoder> (; 260 ;) (type $FUNCSIG$iiii) (param $0 i32) (param $1 i32) (param $2 i32) (result i32)
+ (func $~lib/nearEntry/encode<assembly/model/FooBar,~lib/assemblyscript-json/encoder/JSONEncoder> (; 255 ;) (type $FUNCSIG$iiii) (param $0 i32) (param $1 i32) (param $2 i32) (result i32)
   (local $3 i32)
   (local $4 i32)
   local.get $0
@@ -16474,7 +16241,7 @@
    local.get $2
    local.get $1
    call $~lib/assemblyscript-json/encoder/JSONEncoder#setNull
-  else   
+  else
    local.get $0
    local.get $1
    local.get $2
@@ -16493,7 +16260,7 @@
   call $~lib/rt/stub/__release
   local.get $4
  )
- (func $assembly/model/ContainerClass#_encode (; 261 ;) (type $FUNCSIG$iiii) (param $0 i32) (param $1 i32) (param $2 i32) (result i32)
+ (func $assembly/model/ContainerClass#_encode (; 256 ;) (type $FUNCSIG$iiii) (param $0 i32) (param $1 i32) (param $2 i32) (result i32)
   (local $3 i32)
   (local $4 i32)
   local.get $1
@@ -16508,14 +16275,14 @@
   if (result i32)
    local.get $2
    call $~lib/rt/stub/__retain
-  else   
+  else
    i32.const 0
    call $~lib/assemblyscript-json/encoder/JSONEncoder#constructor
   end
   local.tee $3
   if (result i32)
    local.get $3
-  else   
+  else
    unreachable
   end
   call $~lib/rt/stub/__retain
@@ -16526,7 +16293,7 @@
   drop
   local.get $0
   i32.load
-  i32.const 4784
+  i32.const 4712
   local.get $3
   call $~lib/nearEntry/encode<assembly/model/FooBar,~lib/assemblyscript-json/encoder/JSONEncoder>
   call $~lib/rt/stub/__release
@@ -16540,7 +16307,7 @@
   call $~lib/rt/stub/__release
   local.get $4
  )
- (func $~lib/nearEntry/encode<assembly/model/ContainerClass,~lib/assemblyscript-json/encoder/JSONEncoder> (; 262 ;) (type $FUNCSIG$iiii) (param $0 i32) (param $1 i32) (param $2 i32) (result i32)
+ (func $~lib/nearEntry/encode<assembly/model/ContainerClass,~lib/assemblyscript-json/encoder/JSONEncoder> (; 257 ;) (type $FUNCSIG$iiii) (param $0 i32) (param $1 i32) (param $2 i32) (result i32)
   (local $3 i32)
   (local $4 i32)
   local.get $0
@@ -16559,7 +16326,7 @@
    local.get $2
    local.get $1
    call $~lib/assemblyscript-json/encoder/JSONEncoder#setNull
-  else   
+  else
    local.get $0
    local.get $1
    local.get $2
@@ -16578,13 +16345,13 @@
   call $~lib/rt/stub/__release
   local.get $4
  )
- (func $~lib/assemblyscript-json/encoder/JSONEncoder#toString (; 263 ;) (type $FUNCSIG$ii) (param $0 i32) (result i32)
+ (func $~lib/assemblyscript-json/encoder/JSONEncoder#toString (; 258 ;) (type $FUNCSIG$ii) (param $0 i32) (result i32)
   local.get $0
   i32.load offset=4
   i32.const 816
   call $~lib/array/Array<~lib/string/String>#join
  )
- (func $~lib/string/String.UTF8.byteLength (; 264 ;) (type $FUNCSIG$iii) (param $0 i32) (param $1 i32) (result i32)
+ (func $~lib/string/String.UTF8.byteLength (; 259 ;) (type $FUNCSIG$iii) (param $0 i32) (param $1 i32) (result i32)
   (local $2 i32)
   (local $3 i32)
   (local $4 i32)
@@ -16604,7 +16371,7 @@
   local.get $1
   if (result i32)
    i32.const 1
-  else   
+  else
    i32.const 0
   end
   local.set $4
@@ -16626,7 +16393,7 @@
      if (result i32)
       local.get $5
       i32.eqz
-     else      
+     else
       i32.const 0
      end
      if
@@ -16640,7 +16407,7 @@
      i32.const 2
      i32.add
      local.set $2
-    else     
+    else
      local.get $5
      i32.const 2048
      i32.lt_u
@@ -16653,7 +16420,7 @@
       i32.const 2
       i32.add
       local.set $2
-     else      
+     else
       local.get $5
       i32.const 64512
       i32.and
@@ -16665,7 +16432,7 @@
        i32.add
        local.get $3
        i32.lt_u
-      else       
+      else
        i32.const 0
       end
       if
@@ -16707,7 +16474,7 @@
   call $~lib/rt/stub/__release
   local.get $5
  )
- (func $~lib/string/String.UTF8.encode (; 265 ;) (type $FUNCSIG$iii) (param $0 i32) (param $1 i32) (result i32)
+ (func $~lib/string/String.UTF8.encode (; 260 ;) (type $FUNCSIG$iii) (param $0 i32) (param $1 i32) (result i32)
   (local $2 i32)
   (local $3 i32)
   (local $4 i32)
@@ -16752,7 +16519,7 @@
      if (result i32)
       local.get $6
       i32.eqz
-     else      
+     else
       i32.const 0
      end
      if
@@ -16769,7 +16536,7 @@
      i32.const 2
      i32.add
      local.set $2
-    else     
+    else
      local.get $6
      i32.const 2048
      i32.lt_u
@@ -16796,7 +16563,7 @@
       i32.const 2
       i32.add
       local.set $2
-     else      
+     else
       local.get $6
       i32.const 64512
       i32.and
@@ -16808,7 +16575,7 @@
        i32.add
        local.get $3
        i32.lt_u
-      else       
+      else
        i32.const 0
       end
       if
@@ -16938,7 +16705,7 @@
    local.get $5
    i32.const 0
    i32.store8
-  else   
+  else
    local.get $2
    local.get $3
    i32.eq
@@ -16959,7 +16726,7 @@
   call $~lib/rt/stub/__release
   local.get $6
  )
- (func $~lib/assemblyscript-json/util/index/Buffer.fromString (; 266 ;) (type $FUNCSIG$ii) (param $0 i32) (result i32)
+ (func $~lib/assemblyscript-json/util/index/Buffer.fromString (; 261 ;) (type $FUNCSIG$ii) (param $0 i32) (result i32)
   (local $1 i32)
   (local $2 i32)
   (local $3 i32)
@@ -16993,7 +16760,7 @@
   call $~lib/rt/stub/__release
   local.get $4
  )
- (func $~lib/assemblyscript-json/encoder/JSONEncoder#serialize (; 267 ;) (type $FUNCSIG$ii) (param $0 i32) (result i32)
+ (func $~lib/assemblyscript-json/encoder/JSONEncoder#serialize (; 262 ;) (type $FUNCSIG$ii) (param $0 i32) (result i32)
   (local $1 i32)
   (local $2 i32)
   local.get $0
@@ -17005,7 +16772,7 @@
   call $~lib/rt/stub/__release
   local.get $2
  )
- (func $~lib/nearEntry/encode<~lib/array/Array<assembly/model/ContainerClass>,~lib/typedarray/Uint8Array> (; 268 ;) (type $FUNCSIG$iiii) (param $0 i32) (param $1 i32) (param $2 i32) (result i32)
+ (func $~lib/nearEntry/encode<~lib/array/Array<assembly/model/ContainerClass>,~lib/typedarray/Uint8Array> (; 263 ;) (type $FUNCSIG$iiii) (param $0 i32) (param $1 i32) (param $2 i32) (result i32)
   (local $3 i32)
   (local $4 i32)
   (local $5 i32)
@@ -17025,7 +16792,7 @@
    local.get $2
    local.get $1
    call $~lib/assemblyscript-json/encoder/JSONEncoder#setNull
-  else   
+  else
    local.get $2
    local.get $1
    call $~lib/assemblyscript-json/encoder/JSONEncoder#pushArray
@@ -17077,7 +16844,7 @@
   local.get $4
   return
  )
- (func $assembly/test/__wrapper_convertFoobars (; 269 ;) (type $FUNCSIG$v)
+ (func $assembly/test/__wrapper_convertFoobars (; 264 ;) (type $FUNCSIG$v)
   (local $0 i64)
   (local $1 i32)
   (local $2 i32)
@@ -17157,7 +16924,7 @@
   local.get $8
   call $~lib/rt/stub/__release
  )
- (func $~lib/nearEntry/decode<~lib/array/Array<~lib/string/String>,~lib/nearEntry/Obj> (; 270 ;) (type $FUNCSIG$iii) (param $0 i32) (param $1 i32) (result i32)
+ (func $~lib/nearEntry/decode<~lib/array/Array<~lib/string/String>,~lib/nearEntry/Obj> (; 265 ;) (type $FUNCSIG$iii) (param $0 i32) (param $1 i32) (result i32)
   (local $2 i32)
   (local $3 i32)
   (local $4 i32)
@@ -17181,7 +16948,7 @@
   i32.eqz
   if (result i32)
    i32.const 0
-  else   
+  else
    local.get $4
    i32.const 8
    call $~lib/rt/__instanceof
@@ -17190,7 +16957,7 @@
    local.get $1
    i32.const 816
    call $~lib/string/String.__ne
-  else   
+  else
    i32.const 0
   end
   if
@@ -17241,7 +17008,7 @@
    call $~lib/rt/stub/__release
    local.get $5
    call $~lib/rt/stub/__release
-  else   
+  else
    local.get $2
    local.tee $7
    local.get $3
@@ -17262,7 +17029,7 @@
   i32.eqz
   if (result i32)
    i32.const 0
-  else   
+  else
    local.get $7
    i32.const 22
    call $~lib/rt/__instanceof
@@ -17301,7 +17068,7 @@
   local.get $7
   return
  )
- (func $~lib/near-runtime-ts/util/util.toUTF8 (; 271 ;) (type $FUNCSIG$iii) (param $0 i32) (param $1 i32) (result i32)
+ (func $~lib/near-runtime-ts/util/util.toUTF8 (; 266 ;) (type $FUNCSIG$iii) (param $0 i32) (param $1 i32) (result i32)
   (local $2 i32)
   (local $3 i32)
   local.get $0
@@ -17318,7 +17085,7 @@
   call $~lib/rt/stub/__release
   local.get $3
  )
- (func $~lib/near-runtime-ts/util/util.stringToBytes (; 272 ;) (type $FUNCSIG$ii) (param $0 i32) (result i32)
+ (func $~lib/near-runtime-ts/util/util.stringToBytes (; 267 ;) (type $FUNCSIG$ii) (param $0 i32) (result i32)
   (local $1 i32)
   (local $2 i32)
   (local $3 i32)
@@ -17348,13 +17115,13 @@
   call $~lib/rt/stub/__release
   local.get $3
  )
- (func $~lib/arraybuffer/ArrayBuffer#get:byteLength (; 273 ;) (type $FUNCSIG$ii) (param $0 i32) (result i32)
+ (func $~lib/arraybuffer/ArrayBuffer#get:byteLength (; 268 ;) (type $FUNCSIG$ii) (param $0 i32) (result i32)
   local.get $0
   i32.const 16
   i32.sub
   i32.load offset=12
  )
- (func $~lib/near-runtime-ts/logging/logging.log (; 274 ;) (type $FUNCSIG$vi) (param $0 i32)
+ (func $~lib/near-runtime-ts/logging/logging.log (; 269 ;) (type $FUNCSIG$vi) (param $0 i32)
   (local $1 i32)
   (local $2 i32)
   local.get $0
@@ -17379,7 +17146,7 @@
   local.get $0
   call $~lib/rt/stub/__release
  )
- (func $assembly/main/getStringArrayLength (; 275 ;) (type $FUNCSIG$ii) (param $0 i32) (result i32)
+ (func $assembly/main/getStringArrayLength (; 270 ;) (type $FUNCSIG$ii) (param $0 i32) (result i32)
   (local $1 i32)
   (local $2 i32)
   (local $3 i32)
@@ -17390,7 +17157,7 @@
   local.get $0
   call $~lib/array/Array<~lib/string/String>#get:length
   local.set $1
-  i32.const 5024
+  i32.const 4952
   local.get $1
   call $~lib/number/I32#toString
   local.tee $2
@@ -17408,7 +17175,7 @@
   call $~lib/rt/stub/__release
   local.get $4
  )
- (func $assembly/test/getStringArrayLength (; 276 ;) (type $FUNCSIG$ii) (param $0 i32) (result i32)
+ (func $assembly/test/getStringArrayLength (; 271 ;) (type $FUNCSIG$ii) (param $0 i32) (result i32)
   (local $1 i32)
   local.get $0
   call $~lib/rt/stub/__retain
@@ -17420,7 +17187,7 @@
   call $~lib/rt/stub/__release
   local.get $1
  )
- (func $~lib/nearEntry/encode<i32,~lib/typedarray/Uint8Array> (; 277 ;) (type $FUNCSIG$iiii) (param $0 i32) (param $1 i32) (param $2 i32) (result i32)
+ (func $~lib/nearEntry/encode<i32,~lib/typedarray/Uint8Array> (; 272 ;) (type $FUNCSIG$iiii) (param $0 i32) (param $1 i32) (param $2 i32) (result i32)
   (local $3 i32)
   (local $4 i32)
   local.get $1
@@ -17448,7 +17215,7 @@
   local.get $4
   return
  )
- (func $assembly/test/__wrapper_getStringArrayLength (; 278 ;) (type $FUNCSIG$v)
+ (func $assembly/test/__wrapper_getStringArrayLength (; 273 ;) (type $FUNCSIG$v)
   (local $0 i64)
   (local $1 i32)
   (local $2 i32)
@@ -17526,7 +17293,7 @@
   local.get $8
   call $~lib/rt/stub/__release
  )
- (func $assembly/model/ContainerClass#constructor (; 279 ;) (type $FUNCSIG$ii) (param $0 i32) (result i32)
+ (func $assembly/model/ContainerClass#constructor (; 274 ;) (type $FUNCSIG$ii) (param $0 i32) (result i32)
   local.get $0
   i32.eqz
   if
@@ -17541,7 +17308,7 @@
   i32.store
   local.get $0
  )
- (func $~lib/nearEntry/decode<assembly/model/FooBar,~lib/nearEntry/Obj> (; 280 ;) (type $FUNCSIG$iii) (param $0 i32) (param $1 i32) (result i32)
+ (func $~lib/nearEntry/decode<assembly/model/FooBar,~lib/nearEntry/Obj> (; 275 ;) (type $FUNCSIG$iii) (param $0 i32) (param $1 i32) (result i32)
   (local $2 i32)
   (local $3 i32)
   (local $4 i32)
@@ -17568,7 +17335,7 @@
   i32.eqz
   if (result i32)
    i32.const 0
-  else   
+  else
    local.get $4
    i32.const 8
    call $~lib/rt/__instanceof
@@ -17577,7 +17344,7 @@
    local.get $1
    i32.const 816
    call $~lib/string/String.__ne
-  else   
+  else
    i32.const 0
   end
   if
@@ -17628,7 +17395,7 @@
    call $~lib/rt/stub/__release
    local.get $5
    call $~lib/rt/stub/__release
-  else   
+  else
    local.get $2
    local.tee $7
    local.get $3
@@ -17649,7 +17416,7 @@
   i32.eqz
   if (result i32)
    i32.const 0
-  else   
+  else
    local.get $7
    i32.const 22
    call $~lib/rt/__instanceof
@@ -17676,20 +17443,7 @@
   i32.eqz
   if (result i32)
    i32.const 0
-  else   
-   local.get $7
-   i32.const 19
-   call $~lib/rt/__instanceof
-  end
-  if
-   nop
-  end
-  local.get $3
-  local.tee $7
-  i32.eqz
-  if (result i32)
-   i32.const 0
-  else   
+  else
    local.get $7
    i32.const 8
    call $~lib/rt/__instanceof
@@ -17710,7 +17464,7 @@
    call $~lib/string/String.__concat
    local.tee $6
    i32.const 2552
-   i32.const 395
+   i32.const 394
    i32.const 2
    call $~lib/builtins/abort
    unreachable
@@ -17757,7 +17511,7 @@
   call $~lib/rt/stub/__release
   local.get $10
  )
- (func $assembly/model/ContainerClass#_decode (; 281 ;) (type $FUNCSIG$iii) (param $0 i32) (param $1 i32) (result i32)
+ (func $assembly/model/ContainerClass#_decode (; 276 ;) (type $FUNCSIG$iii) (param $0 i32) (param $1 i32) (result i32)
   (local $2 i32)
   (local $3 i32)
   local.get $1
@@ -17766,13 +17520,13 @@
   local.get $0
   local.tee $2
   local.get $1
-  i32.const 4784
+  i32.const 4712
   call $~lib/nearEntry/Obj#has
   if (result i32)
    local.get $1
-   i32.const 4784
+   i32.const 4712
    call $~lib/nearEntry/decode<assembly/model/FooBar,~lib/nearEntry/Obj>
-  else   
+  else
    local.get $0
    i32.load
    call $~lib/rt/stub/__retain
@@ -17790,7 +17544,7 @@
   call $~lib/rt/stub/__release
   local.get $3
  )
- (func $assembly/model/ContainerClass#decode<~lib/nearEntry/Obj> (; 282 ;) (type $FUNCSIG$iii) (param $0 i32) (param $1 i32) (result i32)
+ (func $assembly/model/ContainerClass#decode<~lib/nearEntry/Obj> (; 277 ;) (type $FUNCSIG$iii) (param $0 i32) (param $1 i32) (result i32)
   (local $2 i32)
   (local $3 i32)
   (local $4 i32)
@@ -17823,7 +17577,7 @@
   call $~lib/rt/stub/__release
   local.get $3
  )
- (func $~lib/nearEntry/decode<assembly/model/ContainerClass,~lib/nearEntry/Obj> (; 283 ;) (type $FUNCSIG$iii) (param $0 i32) (param $1 i32) (result i32)
+ (func $~lib/nearEntry/decode<assembly/model/ContainerClass,~lib/nearEntry/Obj> (; 278 ;) (type $FUNCSIG$iii) (param $0 i32) (param $1 i32) (result i32)
   (local $2 i32)
   (local $3 i32)
   (local $4 i32)
@@ -17850,7 +17604,7 @@
   i32.eqz
   if (result i32)
    i32.const 0
-  else   
+  else
    local.get $4
    i32.const 8
    call $~lib/rt/__instanceof
@@ -17859,7 +17613,7 @@
    local.get $1
    i32.const 816
    call $~lib/string/String.__ne
-  else   
+  else
    i32.const 0
   end
   if
@@ -17910,7 +17664,7 @@
    call $~lib/rt/stub/__release
    local.get $5
    call $~lib/rt/stub/__release
-  else   
+  else
    local.get $2
    local.tee $7
    local.get $3
@@ -17931,7 +17685,7 @@
   i32.eqz
   if (result i32)
    i32.const 0
-  else   
+  else
    local.get $7
    i32.const 22
    call $~lib/rt/__instanceof
@@ -17958,20 +17712,7 @@
   i32.eqz
   if (result i32)
    i32.const 0
-  else   
-   local.get $7
-   i32.const 19
-   call $~lib/rt/__instanceof
-  end
-  if
-   nop
-  end
-  local.get $3
-  local.tee $7
-  i32.eqz
-  if (result i32)
-   i32.const 0
-  else   
+  else
    local.get $7
    i32.const 8
    call $~lib/rt/__instanceof
@@ -17985,14 +17726,14 @@
    i32.const 2608
    call $~lib/string/String.__concat
    local.tee $5
-   i32.const 5128
+   i32.const 5056
    call $~lib/string/String.__concat
    local.tee $4
    i32.const 2680
    call $~lib/string/String.__concat
    local.tee $6
    i32.const 2552
-   i32.const 395
+   i32.const 394
    i32.const 2
    call $~lib/builtins/abort
    unreachable
@@ -18039,7 +17780,7 @@
   call $~lib/rt/stub/__release
   local.get $10
  )
- (func $assembly/model/AnotherContainerClass#constructor (; 284 ;) (type $FUNCSIG$ii) (param $0 i32) (result i32)
+ (func $assembly/model/AnotherContainerClass#constructor (; 279 ;) (type $FUNCSIG$ii) (param $0 i32) (result i32)
   local.get $0
   i32.eqz
   if
@@ -18054,7 +17795,7 @@
   i32.store
   local.get $0
  )
- (func $assembly/main/rewrapFoobar (; 285 ;) (type $FUNCSIG$ii) (param $0 i32) (result i32)
+ (func $assembly/main/rewrapFoobar (; 280 ;) (type $FUNCSIG$ii) (param $0 i32) (result i32)
   (local $1 i32)
   (local $2 i32)
   (local $3 i32)
@@ -18116,7 +17857,7 @@
   call $~lib/rt/stub/__release
   local.get $4
  )
- (func $assembly/test/rewrapFoobar (; 286 ;) (type $FUNCSIG$ii) (param $0 i32) (result i32)
+ (func $assembly/test/rewrapFoobar (; 281 ;) (type $FUNCSIG$ii) (param $0 i32) (result i32)
   (local $1 i32)
   local.get $0
   call $~lib/rt/stub/__retain
@@ -18128,11 +17869,11 @@
   call $~lib/rt/stub/__release
   local.get $1
  )
- (func $~lib/array/Array<~lib/array/Array<assembly/model/FooBar>>#get:length (; 287 ;) (type $FUNCSIG$ii) (param $0 i32) (result i32)
+ (func $~lib/array/Array<~lib/array/Array<assembly/model/FooBar>>#get:length (; 282 ;) (type $FUNCSIG$ii) (param $0 i32) (result i32)
   local.get $0
   i32.load offset=12
  )
- (func $~lib/array/Array<~lib/array/Array<assembly/model/FooBar>>#__unchecked_get (; 288 ;) (type $FUNCSIG$iii) (param $0 i32) (param $1 i32) (result i32)
+ (func $~lib/array/Array<~lib/array/Array<assembly/model/FooBar>>#__unchecked_get (; 283 ;) (type $FUNCSIG$iii) (param $0 i32) (param $1 i32) (result i32)
   local.get $0
   i32.load offset=4
   local.get $1
@@ -18142,7 +17883,7 @@
   i32.load
   call $~lib/rt/stub/__retain
  )
- (func $~lib/array/Array<~lib/array/Array<assembly/model/FooBar>>#__get (; 289 ;) (type $FUNCSIG$iii) (param $0 i32) (param $1 i32) (result i32)
+ (func $~lib/array/Array<~lib/array/Array<assembly/model/FooBar>>#__get (; 284 ;) (type $FUNCSIG$iii) (param $0 i32) (param $1 i32) (result i32)
   local.get $1
   local.get $0
   i32.load offset=12
@@ -18173,11 +17914,11 @@
   local.get $1
   call $~lib/array/Array<~lib/array/Array<assembly/model/FooBar>>#__unchecked_get
  )
- (func $~lib/array/Array<assembly/model/FooBar>#get:length (; 290 ;) (type $FUNCSIG$ii) (param $0 i32) (result i32)
+ (func $~lib/array/Array<assembly/model/FooBar>#get:length (; 285 ;) (type $FUNCSIG$ii) (param $0 i32) (result i32)
   local.get $0
   i32.load offset=12
  )
- (func $~lib/array/Array<assembly/model/FooBar>#__unchecked_get (; 291 ;) (type $FUNCSIG$iii) (param $0 i32) (param $1 i32) (result i32)
+ (func $~lib/array/Array<assembly/model/FooBar>#__unchecked_get (; 286 ;) (type $FUNCSIG$iii) (param $0 i32) (param $1 i32) (result i32)
   local.get $0
   i32.load offset=4
   local.get $1
@@ -18187,7 +17928,7 @@
   i32.load
   call $~lib/rt/stub/__retain
  )
- (func $~lib/array/Array<assembly/model/FooBar>#__get (; 292 ;) (type $FUNCSIG$iii) (param $0 i32) (param $1 i32) (result i32)
+ (func $~lib/array/Array<assembly/model/FooBar>#__get (; 287 ;) (type $FUNCSIG$iii) (param $0 i32) (param $1 i32) (result i32)
   local.get $1
   local.get $0
   i32.load offset=12
@@ -18218,7 +17959,7 @@
   local.get $1
   call $~lib/array/Array<assembly/model/FooBar>#__unchecked_get
  )
- (func $~lib/nearEntry/encode<~lib/array/Array<assembly/model/FooBar>,~lib/assemblyscript-json/encoder/JSONEncoder> (; 293 ;) (type $FUNCSIG$iiii) (param $0 i32) (param $1 i32) (param $2 i32) (result i32)
+ (func $~lib/nearEntry/encode<~lib/array/Array<assembly/model/FooBar>,~lib/assemblyscript-json/encoder/JSONEncoder> (; 288 ;) (type $FUNCSIG$iiii) (param $0 i32) (param $1 i32) (param $2 i32) (result i32)
   (local $3 i32)
   (local $4 i32)
   (local $5 i32)
@@ -18238,7 +17979,7 @@
    local.get $2
    local.get $1
    call $~lib/assemblyscript-json/encoder/JSONEncoder#setNull
-  else   
+  else
    local.get $2
    local.get $1
    call $~lib/assemblyscript-json/encoder/JSONEncoder#pushArray
@@ -18286,7 +18027,7 @@
   call $~lib/rt/stub/__release
   local.get $4
  )
- (func $~lib/nearEntry/encode<~lib/array/Array<~lib/array/Array<assembly/model/FooBar>>,~lib/assemblyscript-json/encoder/JSONEncoder> (; 294 ;) (type $FUNCSIG$iiii) (param $0 i32) (param $1 i32) (param $2 i32) (result i32)
+ (func $~lib/nearEntry/encode<~lib/array/Array<~lib/array/Array<assembly/model/FooBar>>,~lib/assemblyscript-json/encoder/JSONEncoder> (; 289 ;) (type $FUNCSIG$iiii) (param $0 i32) (param $1 i32) (param $2 i32) (result i32)
   (local $3 i32)
   (local $4 i32)
   (local $5 i32)
@@ -18306,7 +18047,7 @@
    local.get $2
    local.get $1
    call $~lib/assemblyscript-json/encoder/JSONEncoder#setNull
-  else   
+  else
    local.get $2
    local.get $1
    call $~lib/assemblyscript-json/encoder/JSONEncoder#pushArray
@@ -18354,7 +18095,7 @@
   call $~lib/rt/stub/__release
   local.get $4
  )
- (func $assembly/model/AnotherContainerClass#_encode (; 295 ;) (type $FUNCSIG$iiii) (param $0 i32) (param $1 i32) (param $2 i32) (result i32)
+ (func $assembly/model/AnotherContainerClass#_encode (; 290 ;) (type $FUNCSIG$iiii) (param $0 i32) (param $1 i32) (param $2 i32) (result i32)
   (local $3 i32)
   (local $4 i32)
   local.get $1
@@ -18369,14 +18110,14 @@
   if (result i32)
    local.get $2
    call $~lib/rt/stub/__retain
-  else   
+  else
    i32.const 0
    call $~lib/assemblyscript-json/encoder/JSONEncoder#constructor
   end
   local.tee $3
   if (result i32)
    local.get $3
-  else   
+  else
    unreachable
   end
   call $~lib/rt/stub/__retain
@@ -18401,7 +18142,7 @@
   call $~lib/rt/stub/__release
   local.get $4
  )
- (func $~lib/nearEntry/encode<assembly/model/AnotherContainerClass,~lib/typedarray/Uint8Array> (; 296 ;) (type $FUNCSIG$iiii) (param $0 i32) (param $1 i32) (param $2 i32) (result i32)
+ (func $~lib/nearEntry/encode<assembly/model/AnotherContainerClass,~lib/typedarray/Uint8Array> (; 291 ;) (type $FUNCSIG$iiii) (param $0 i32) (param $1 i32) (param $2 i32) (result i32)
   (local $3 i32)
   (local $4 i32)
   local.get $0
@@ -18420,7 +18161,7 @@
    local.get $2
    local.get $1
    call $~lib/assemblyscript-json/encoder/JSONEncoder#setNull
-  else   
+  else
    local.get $0
    local.get $1
    local.get $2
@@ -18443,7 +18184,7 @@
   local.get $4
   return
  )
- (func $assembly/test/__wrapper_rewrapFoobar (; 297 ;) (type $FUNCSIG$v)
+ (func $assembly/test/__wrapper_rewrapFoobar (; 292 ;) (type $FUNCSIG$v)
   (local $0 i64)
   (local $1 i32)
   (local $2 i32)
@@ -18479,7 +18220,7 @@
   call $~lib/nearEntry/JSON.parse
   local.set $3
   local.get $3
-  i32.const 5088
+  i32.const 5016
   call $~lib/nearEntry/decode<assembly/model/ContainerClass,~lib/nearEntry/Obj>
   local.tee $4
   call $assembly/test/rewrapFoobar
@@ -18523,11 +18264,11 @@
   local.get $8
   call $~lib/rt/stub/__release
  )
- (func $~lib/array/Array<~lib/array/Array<assembly/model/FooBar>>#constructor (; 298 ;) (type $FUNCSIG$iii) (param $0 i32) (param $1 i32) (result i32)
+ (func $~lib/array/Array<~lib/array/Array<assembly/model/FooBar>>#constructor (; 293 ;) (type $FUNCSIG$iii) (param $0 i32) (param $1 i32) (result i32)
   local.get $0
   if (result i32)
    local.get $0
-  else   
+  else
    i32.const 16
    i32.const 35
    call $~lib/rt/stub/__alloc
@@ -18554,7 +18295,7 @@
   i32.store offset=12
   local.get $0
  )
- (func $~lib/nearEntry/decode<~lib/array/Array<assembly/model/FooBar>,~lib/nearEntry/Value> (; 299 ;) (type $FUNCSIG$iii) (param $0 i32) (param $1 i32) (result i32)
+ (func $~lib/nearEntry/decode<~lib/array/Array<assembly/model/FooBar>,~lib/nearEntry/Value> (; 294 ;) (type $FUNCSIG$iii) (param $0 i32) (param $1 i32) (result i32)
   (local $2 i32)
   (local $3 i32)
   (local $4 i32)
@@ -18578,7 +18319,7 @@
   i32.eqz
   if (result i32)
    i32.const 0
-  else   
+  else
    local.get $4
    i32.const 8
    call $~lib/rt/__instanceof
@@ -18587,7 +18328,7 @@
    local.get $1
    i32.const 816
    call $~lib/string/String.__ne
-  else   
+  else
    i32.const 0
   end
   if
@@ -18638,7 +18379,7 @@
    call $~lib/rt/stub/__release
    local.get $5
    call $~lib/rt/stub/__release
-  else   
+  else
    local.get $2
    local.tee $7
    local.get $3
@@ -18659,7 +18400,7 @@
   i32.eqz
   if (result i32)
    i32.const 0
-  else   
+  else
    local.get $7
    i32.const 22
    call $~lib/rt/__instanceof
@@ -18698,7 +18439,7 @@
   local.get $7
   return
  )
- (func $~lib/array/Array<~lib/array/Array<assembly/model/FooBar>>#push (; 300 ;) (type $FUNCSIG$iii) (param $0 i32) (param $1 i32) (result i32)
+ (func $~lib/array/Array<~lib/array/Array<assembly/model/FooBar>>#push (; 295 ;) (type $FUNCSIG$iii) (param $0 i32) (param $1 i32) (result i32)
   (local $2 i32)
   (local $3 i32)
   (local $4 i32)
@@ -18734,7 +18475,7 @@
   call $~lib/rt/stub/__release
   local.get $4
  )
- (func $~lib/nearEntry/decodeArray<~lib/array/Array<assembly/model/FooBar>> (; 301 ;) (type $FUNCSIG$iii) (param $0 i32) (param $1 i32) (result i32)
+ (func $~lib/nearEntry/decodeArray<~lib/array/Array<assembly/model/FooBar>> (; 296 ;) (type $FUNCSIG$iii) (param $0 i32) (param $1 i32) (result i32)
   (local $2 i32)
   (local $3 i32)
   (local $4 i32)
@@ -18753,7 +18494,7 @@
   i32.eqz
   if (result i32)
    i32.const 0
-  else   
+  else
    local.get $2
    i32.const 17
    call $~lib/rt/__instanceof
@@ -18828,7 +18569,7 @@
   call $~lib/rt/stub/__release
   local.get $8
  )
- (func $~lib/nearEntry/decode<~lib/array/Array<~lib/array/Array<assembly/model/FooBar>>,~lib/nearEntry/Obj> (; 302 ;) (type $FUNCSIG$iii) (param $0 i32) (param $1 i32) (result i32)
+ (func $~lib/nearEntry/decode<~lib/array/Array<~lib/array/Array<assembly/model/FooBar>>,~lib/nearEntry/Obj> (; 297 ;) (type $FUNCSIG$iii) (param $0 i32) (param $1 i32) (result i32)
   (local $2 i32)
   (local $3 i32)
   (local $4 i32)
@@ -18852,7 +18593,7 @@
   i32.eqz
   if (result i32)
    i32.const 0
-  else   
+  else
    local.get $4
    i32.const 8
    call $~lib/rt/__instanceof
@@ -18861,7 +18602,7 @@
    local.get $1
    i32.const 816
    call $~lib/string/String.__ne
-  else   
+  else
    i32.const 0
   end
   if
@@ -18912,7 +18653,7 @@
    call $~lib/rt/stub/__release
    local.get $5
    call $~lib/rt/stub/__release
-  else   
+  else
    local.get $2
    local.tee $7
    local.get $3
@@ -18933,7 +18674,7 @@
   i32.eqz
   if (result i32)
    i32.const 0
-  else   
+  else
    local.get $7
    i32.const 22
    call $~lib/rt/__instanceof
@@ -18972,7 +18713,7 @@
   local.get $7
   return
  )
- (func $assembly/model/AnotherContainerClass#_decode (; 303 ;) (type $FUNCSIG$iii) (param $0 i32) (param $1 i32) (result i32)
+ (func $assembly/model/AnotherContainerClass#_decode (; 298 ;) (type $FUNCSIG$iii) (param $0 i32) (param $1 i32) (result i32)
   (local $2 i32)
   (local $3 i32)
   local.get $1
@@ -18987,7 +18728,7 @@
    local.get $1
    i32.const 2304
    call $~lib/nearEntry/decode<~lib/array/Array<~lib/array/Array<assembly/model/FooBar>>,~lib/nearEntry/Obj>
-  else   
+  else
    local.get $0
    i32.load
    call $~lib/rt/stub/__retain
@@ -19005,7 +18746,7 @@
   call $~lib/rt/stub/__release
   local.get $3
  )
- (func $assembly/model/AnotherContainerClass#decode<~lib/nearEntry/Obj> (; 304 ;) (type $FUNCSIG$iii) (param $0 i32) (param $1 i32) (result i32)
+ (func $assembly/model/AnotherContainerClass#decode<~lib/nearEntry/Obj> (; 299 ;) (type $FUNCSIG$iii) (param $0 i32) (param $1 i32) (result i32)
   (local $2 i32)
   (local $3 i32)
   (local $4 i32)
@@ -19038,7 +18779,7 @@
   call $~lib/rt/stub/__release
   local.get $3
  )
- (func $~lib/nearEntry/decode<assembly/model/AnotherContainerClass,~lib/nearEntry/Obj> (; 305 ;) (type $FUNCSIG$iii) (param $0 i32) (param $1 i32) (result i32)
+ (func $~lib/nearEntry/decode<assembly/model/AnotherContainerClass,~lib/nearEntry/Obj> (; 300 ;) (type $FUNCSIG$iii) (param $0 i32) (param $1 i32) (result i32)
   (local $2 i32)
   (local $3 i32)
   (local $4 i32)
@@ -19065,7 +18806,7 @@
   i32.eqz
   if (result i32)
    i32.const 0
-  else   
+  else
    local.get $4
    i32.const 8
    call $~lib/rt/__instanceof
@@ -19074,7 +18815,7 @@
    local.get $1
    i32.const 816
    call $~lib/string/String.__ne
-  else   
+  else
    i32.const 0
   end
   if
@@ -19125,7 +18866,7 @@
    call $~lib/rt/stub/__release
    local.get $5
    call $~lib/rt/stub/__release
-  else   
+  else
    local.get $2
    local.tee $7
    local.get $3
@@ -19146,7 +18887,7 @@
   i32.eqz
   if (result i32)
    i32.const 0
-  else   
+  else
    local.get $7
    i32.const 22
    call $~lib/rt/__instanceof
@@ -19173,20 +18914,7 @@
   i32.eqz
   if (result i32)
    i32.const 0
-  else   
-   local.get $7
-   i32.const 19
-   call $~lib/rt/__instanceof
-  end
-  if
-   nop
-  end
-  local.get $3
-  local.tee $7
-  i32.eqz
-  if (result i32)
-   i32.const 0
-  else   
+  else
    local.get $7
    i32.const 8
    call $~lib/rt/__instanceof
@@ -19200,14 +18928,14 @@
    i32.const 2608
    call $~lib/string/String.__concat
    local.tee $5
-   i32.const 5176
+   i32.const 5104
    call $~lib/string/String.__concat
    local.tee $4
    i32.const 2680
    call $~lib/string/String.__concat
    local.tee $6
    i32.const 2552
-   i32.const 395
+   i32.const 394
    i32.const 2
    call $~lib/builtins/abort
    unreachable
@@ -19254,7 +18982,7 @@
   call $~lib/rt/stub/__release
   local.get $10
  )
- (func $assembly/main/unwrapFoobar (; 306 ;) (type $FUNCSIG$ii) (param $0 i32) (result i32)
+ (func $assembly/main/unwrapFoobar (; 301 ;) (type $FUNCSIG$ii) (param $0 i32) (result i32)
   (local $1 i32)
   (local $2 i32)
   local.get $0
@@ -19274,7 +19002,7 @@
   call $~lib/rt/stub/__release
   local.get $2
  )
- (func $assembly/test/unwrapFoobar (; 307 ;) (type $FUNCSIG$ii) (param $0 i32) (result i32)
+ (func $assembly/test/unwrapFoobar (; 302 ;) (type $FUNCSIG$ii) (param $0 i32) (result i32)
   (local $1 i32)
   local.get $0
   call $~lib/rt/stub/__retain
@@ -19286,7 +19014,7 @@
   call $~lib/rt/stub/__release
   local.get $1
  )
- (func $~lib/nearEntry/encode<assembly/model/FooBar,~lib/typedarray/Uint8Array> (; 308 ;) (type $FUNCSIG$iiii) (param $0 i32) (param $1 i32) (param $2 i32) (result i32)
+ (func $~lib/nearEntry/encode<assembly/model/FooBar,~lib/typedarray/Uint8Array> (; 303 ;) (type $FUNCSIG$iiii) (param $0 i32) (param $1 i32) (param $2 i32) (result i32)
   (local $3 i32)
   (local $4 i32)
   local.get $0
@@ -19305,7 +19033,7 @@
    local.get $2
    local.get $1
    call $~lib/assemblyscript-json/encoder/JSONEncoder#setNull
-  else   
+  else
    local.get $0
    local.get $1
    local.get $2
@@ -19328,7 +19056,7 @@
   local.get $4
   return
  )
- (func $assembly/test/__wrapper_unwrapFoobar (; 309 ;) (type $FUNCSIG$v)
+ (func $assembly/test/__wrapper_unwrapFoobar (; 304 ;) (type $FUNCSIG$v)
   (local $0 i64)
   (local $1 i32)
   (local $2 i32)
@@ -19364,7 +19092,7 @@
   call $~lib/nearEntry/JSON.parse
   local.set $3
   local.get $3
-  i32.const 5088
+  i32.const 5016
   call $~lib/nearEntry/decode<assembly/model/AnotherContainerClass,~lib/nearEntry/Obj>
   local.tee $4
   call $assembly/test/unwrapFoobar
@@ -19408,14 +19136,14 @@
   local.get $8
   call $~lib/rt/stub/__release
  )
- (func $assembly/main/stringOrNull (; 310 ;) (type $FUNCSIG$i) (result i32)
+ (func $assembly/main/stringOrNull (; 305 ;) (type $FUNCSIG$i) (result i32)
   i32.const 0
   call $~lib/rt/stub/__retain
  )
- (func $assembly/test/stringOrNull (; 311 ;) (type $FUNCSIG$i) (result i32)
+ (func $assembly/test/stringOrNull (; 306 ;) (type $FUNCSIG$i) (result i32)
   call $assembly/main/stringOrNull
  )
- (func $~lib/nearEntry/encode<~lib/string/String,~lib/typedarray/Uint8Array> (; 312 ;) (type $FUNCSIG$iiii) (param $0 i32) (param $1 i32) (param $2 i32) (result i32)
+ (func $~lib/nearEntry/encode<~lib/string/String,~lib/typedarray/Uint8Array> (; 307 ;) (type $FUNCSIG$iiii) (param $0 i32) (param $1 i32) (param $2 i32) (result i32)
   (local $3 i32)
   (local $4 i32)
   local.get $0
@@ -19434,7 +19162,7 @@
    local.get $2
    local.get $1
    call $~lib/assemblyscript-json/encoder/JSONEncoder#setNull
-  else   
+  else
    local.get $2
    local.get $1
    local.get $0
@@ -19456,7 +19184,7 @@
   local.get $4
   return
  )
- (func $assembly/test/__wrapper_stringOrNull (; 313 ;) (type $FUNCSIG$v)
+ (func $assembly/test/__wrapper_stringOrNull (; 308 ;) (type $FUNCSIG$v)
   (local $0 i32)
   (local $1 i32)
   (local $2 i32)
@@ -19482,12 +19210,12 @@
    call $~lib/rt/stub/__release
    local.get $3
    local.set $2
-  else   
+  else
    local.get $0
    local.tee $3
    if (result i32)
     local.get $3
-   else    
+   else
     unreachable
    end
    i32.const 0
@@ -19516,14 +19244,14 @@
   local.get $3
   call $~lib/rt/stub/__release
  )
- (func $assembly/test/stringAliasTest (; 314 ;) (type $FUNCSIG$ii) (param $0 i32) (result i32)
+ (func $assembly/test/stringAliasTest (; 309 ;) (type $FUNCSIG$ii) (param $0 i32) (result i32)
   (local $1 i32)
   (local $2 i32)
   local.get $0
   call $~lib/rt/stub/__retain
   drop
   local.get $0
-  i32.const 5264
+  i32.const 5192
   call $~lib/string/String.__concat
   local.tee $1
   call $~lib/rt/stub/__retain
@@ -19534,7 +19262,7 @@
   call $~lib/rt/stub/__release
   local.get $2
  )
- (func $assembly/test/__wrapper_stringAliasTest (; 315 ;) (type $FUNCSIG$v)
+ (func $assembly/test/__wrapper_stringAliasTest (; 310 ;) (type $FUNCSIG$v)
   (local $0 i64)
   (local $1 i32)
   (local $2 i32)
@@ -19570,7 +19298,7 @@
   call $~lib/nearEntry/JSON.parse
   local.set $3
   local.get $3
-  i32.const 5240
+  i32.const 5168
   call $~lib/nearEntry/decode<~lib/string/String,~lib/nearEntry/Obj>
   local.tee $4
   call $assembly/test/stringAliasTest
@@ -19594,7 +19322,7 @@
    call $~lib/rt/stub/__release
    local.get $8
    local.set $7
-  else   
+  else
    local.get $5
    i32.const 0
    local.get $6
@@ -19630,7 +19358,7 @@
   local.get $8
   call $~lib/rt/stub/__release
  )
- (func $~lib/array/Array.create<~lib/typedarray/Uint8Array> (; 316 ;) (type $FUNCSIG$ii) (param $0 i32) (result i32)
+ (func $~lib/array/Array.create<~lib/typedarray/Uint8Array> (; 311 ;) (type $FUNCSIG$ii) (param $0 i32) (result i32)
   (local $1 i32)
   local.get $0
   i32.const 268435452
@@ -19661,7 +19389,7 @@
   call $~lib/memory/memory.fill
   local.get $1
  )
- (func $~lib/array/Array<~lib/typedarray/Uint8Array>#__unchecked_set (; 317 ;) (type $FUNCSIG$viii) (param $0 i32) (param $1 i32) (param $2 i32)
+ (func $~lib/array/Array<~lib/typedarray/Uint8Array>#__unchecked_set (; 312 ;) (type $FUNCSIG$viii) (param $0 i32) (param $1 i32) (param $2 i32)
   (local $3 i32)
   (local $4 i32)
   local.get $2
@@ -19691,7 +19419,7 @@
   local.get $2
   call $~lib/rt/stub/__release
  )
- (func $~lib/array/Array<~lib/typedarray/Uint8Array>#__set (; 318 ;) (type $FUNCSIG$viii) (param $0 i32) (param $1 i32) (param $2 i32)
+ (func $~lib/array/Array<~lib/typedarray/Uint8Array>#__set (; 313 ;) (type $FUNCSIG$viii) (param $0 i32) (param $1 i32) (param $2 i32)
   (local $3 i32)
   local.get $2
   call $~lib/rt/stub/__retain
@@ -19735,7 +19463,7 @@
   local.get $2
   call $~lib/rt/stub/__release
  )
- (func $assembly/model/FooBar#toJSON (; 319 ;) (type $FUNCSIG$ii) (param $0 i32) (result i32)
+ (func $assembly/model/FooBar#toJSON (; 314 ;) (type $FUNCSIG$ii) (param $0 i32) (result i32)
   (local $1 i32)
   (local $2 i32)
   local.get $0
@@ -19749,7 +19477,7 @@
   call $~lib/rt/stub/__release
   local.get $2
  )
- (func $assembly/model/FooBar#encode (; 320 ;) (type $FUNCSIG$ii) (param $0 i32) (result i32)
+ (func $assembly/model/FooBar#encode (; 315 ;) (type $FUNCSIG$ii) (param $0 i32) (result i32)
   (local $1 i32)
   (local $2 i32)
   local.get $0
@@ -19763,7 +19491,7 @@
   call $~lib/rt/stub/__release
   local.get $2
  )
- (func $~lib/nearEntry/decode<assembly/model/FooBar,~lib/typedarray/Uint8Array> (; 321 ;) (type $FUNCSIG$iii) (param $0 i32) (param $1 i32) (result i32)
+ (func $~lib/nearEntry/decode<assembly/model/FooBar,~lib/typedarray/Uint8Array> (; 316 ;) (type $FUNCSIG$iii) (param $0 i32) (param $1 i32) (result i32)
   (local $2 i32)
   (local $3 i32)
   (local $4 i32)
@@ -19793,7 +19521,7 @@
   i32.eqz
   if (result i32)
    i32.const 0
-  else   
+  else
    local.get $5
    i32.const 8
    call $~lib/rt/__instanceof
@@ -19802,7 +19530,7 @@
    local.get $1
    i32.const 816
    call $~lib/string/String.__ne
-  else   
+  else
    i32.const 0
   end
   if
@@ -19855,7 +19583,7 @@
    call $~lib/rt/stub/__release
    local.get $6
    call $~lib/rt/stub/__release
-  else   
+  else
    local.get $3
    local.tee $8
    local.get $4
@@ -19876,7 +19604,7 @@
   i32.eqz
   if (result i32)
    i32.const 0
-  else   
+  else
    local.get $8
    i32.const 22
    call $~lib/rt/__instanceof
@@ -19905,20 +19633,7 @@
   i32.eqz
   if (result i32)
    i32.const 0
-  else   
-   local.get $8
-   i32.const 19
-   call $~lib/rt/__instanceof
-  end
-  if
-   nop
-  end
-  local.get $4
-  local.tee $8
-  i32.eqz
-  if (result i32)
-   i32.const 0
-  else   
+  else
    local.get $8
    i32.const 8
    call $~lib/rt/__instanceof
@@ -19939,7 +19654,7 @@
    call $~lib/string/String.__concat
    local.tee $7
    i32.const 2552
-   i32.const 395
+   i32.const 394
    i32.const 2
    call $~lib/builtins/abort
    unreachable
@@ -19988,7 +19703,7 @@
   call $~lib/rt/stub/__release
   local.get $11
  )
- (func $assembly/model/Nullables#constructor (; 322 ;) (type $FUNCSIG$ii) (param $0 i32) (result i32)
+ (func $assembly/model/Nullables#constructor (; 317 ;) (type $FUNCSIG$ii) (param $0 i32) (result i32)
   local.get $0
   i32.eqz
   if
@@ -20009,7 +19724,7 @@
   i32.store offset=8
   local.get $0
  )
- (func $assembly/model/Nullables#_encode (; 323 ;) (type $FUNCSIG$iiii) (param $0 i32) (param $1 i32) (param $2 i32) (result i32)
+ (func $assembly/model/Nullables#_encode (; 318 ;) (type $FUNCSIG$iiii) (param $0 i32) (param $1 i32) (param $2 i32) (result i32)
   (local $3 i32)
   (local $4 i32)
   local.get $1
@@ -20024,14 +19739,14 @@
   if (result i32)
    local.get $2
    call $~lib/rt/stub/__retain
-  else   
+  else
    i32.const 0
    call $~lib/assemblyscript-json/encoder/JSONEncoder#constructor
   end
   local.tee $3
   if (result i32)
    local.get $3
-  else   
+  else
    unreachable
   end
   call $~lib/rt/stub/__retain
@@ -20042,19 +19757,19 @@
   drop
   local.get $0
   i32.load
-  i32.const 5240
+  i32.const 5168
   local.get $3
   call $~lib/nearEntry/encode<~lib/string/String,~lib/assemblyscript-json/encoder/JSONEncoder>
   call $~lib/rt/stub/__release
   local.get $0
   i32.load offset=4
-  i32.const 3872
+  i32.const 5608
   local.get $3
   call $~lib/nearEntry/encode<~lib/bignum/integer/u128/u128,~lib/assemblyscript-json/encoder/JSONEncoder>
   call $~lib/rt/stub/__release
   local.get $0
   i32.load offset=8
-  i32.const 5680
+  i32.const 5632
   local.get $3
   call $~lib/nearEntry/encode<~lib/typedarray/Uint8Array,~lib/assemblyscript-json/encoder/JSONEncoder>
   call $~lib/rt/stub/__release
@@ -20068,7 +19783,7 @@
   call $~lib/rt/stub/__release
   local.get $4
  )
- (func $assembly/model/Nullables#encode (; 324 ;) (type $FUNCSIG$ii) (param $0 i32) (result i32)
+ (func $assembly/model/Nullables#encode (; 319 ;) (type $FUNCSIG$ii) (param $0 i32) (result i32)
   (local $1 i32)
   (local $2 i32)
   local.get $0
@@ -20082,7 +19797,7 @@
   call $~lib/rt/stub/__release
   local.get $2
  )
- (func $assembly/model/Nullables#_decode (; 325 ;) (type $FUNCSIG$iii) (param $0 i32) (param $1 i32) (result i32)
+ (func $assembly/model/Nullables#_decode (; 320 ;) (type $FUNCSIG$iii) (param $0 i32) (param $1 i32) (result i32)
   (local $2 i32)
   (local $3 i32)
   local.get $1
@@ -20091,13 +19806,13 @@
   local.get $0
   local.tee $2
   local.get $1
-  i32.const 5240
+  i32.const 5168
   call $~lib/nearEntry/Obj#has
   if (result i32)
    local.get $1
-   i32.const 5240
+   i32.const 5168
    call $~lib/nearEntry/decode<~lib/string/String,~lib/nearEntry/Obj>
-  else   
+  else
    local.get $0
    i32.load
    call $~lib/rt/stub/__retain
@@ -20111,13 +19826,13 @@
   local.get $0
   local.tee $3
   local.get $1
-  i32.const 3872
+  i32.const 5608
   call $~lib/nearEntry/Obj#has
   if (result i32)
    local.get $1
-   i32.const 3872
+   i32.const 5608
    call $~lib/nearEntry/decode<~lib/bignum/integer/u128/u128,~lib/nearEntry/Obj>
-  else   
+  else
    local.get $0
    i32.load offset=4
    call $~lib/rt/stub/__retain
@@ -20131,13 +19846,13 @@
   local.get $0
   local.tee $2
   local.get $1
-  i32.const 5680
+  i32.const 5632
   call $~lib/nearEntry/Obj#has
   if (result i32)
    local.get $1
-   i32.const 5680
+   i32.const 5632
    call $~lib/nearEntry/decode<~lib/typedarray/Uint8Array,~lib/nearEntry/Obj>
-  else   
+  else
    local.get $0
    i32.load offset=8
    call $~lib/rt/stub/__retain
@@ -20155,7 +19870,7 @@
   call $~lib/rt/stub/__release
   local.get $3
  )
- (func $assembly/model/Nullables#decode<~lib/nearEntry/Obj> (; 326 ;) (type $FUNCSIG$iii) (param $0 i32) (param $1 i32) (result i32)
+ (func $assembly/model/Nullables#decode<~lib/nearEntry/Obj> (; 321 ;) (type $FUNCSIG$iii) (param $0 i32) (param $1 i32) (result i32)
   (local $2 i32)
   (local $3 i32)
   (local $4 i32)
@@ -20188,7 +19903,7 @@
   call $~lib/rt/stub/__release
   local.get $3
  )
- (func $~lib/nearEntry/decode<assembly/model/Nullables,~lib/typedarray/Uint8Array> (; 327 ;) (type $FUNCSIG$iii) (param $0 i32) (param $1 i32) (result i32)
+ (func $~lib/nearEntry/decode<assembly/model/Nullables,~lib/typedarray/Uint8Array> (; 322 ;) (type $FUNCSIG$iii) (param $0 i32) (param $1 i32) (result i32)
   (local $2 i32)
   (local $3 i32)
   (local $4 i32)
@@ -20218,7 +19933,7 @@
   i32.eqz
   if (result i32)
    i32.const 0
-  else   
+  else
    local.get $5
    i32.const 8
    call $~lib/rt/__instanceof
@@ -20227,7 +19942,7 @@
    local.get $1
    i32.const 816
    call $~lib/string/String.__ne
-  else   
+  else
    i32.const 0
   end
   if
@@ -20280,7 +19995,7 @@
    call $~lib/rt/stub/__release
    local.get $6
    call $~lib/rt/stub/__release
-  else   
+  else
    local.get $3
    local.tee $8
    local.get $4
@@ -20301,7 +20016,7 @@
   i32.eqz
   if (result i32)
    i32.const 0
-  else   
+  else
    local.get $8
    i32.const 22
    call $~lib/rt/__instanceof
@@ -20330,20 +20045,7 @@
   i32.eqz
   if (result i32)
    i32.const 0
-  else   
-   local.get $8
-   i32.const 19
-   call $~lib/rt/__instanceof
-  end
-  if
-   nop
-  end
-  local.get $4
-  local.tee $8
-  i32.eqz
-  if (result i32)
-   i32.const 0
-  else   
+  else
    local.get $8
    i32.const 8
    call $~lib/rt/__instanceof
@@ -20357,14 +20059,14 @@
    i32.const 2608
    call $~lib/string/String.__concat
    local.tee $6
-   i32.const 5720
+   i32.const 5672
    call $~lib/string/String.__concat
    local.tee $5
    i32.const 2680
    call $~lib/string/String.__concat
    local.tee $7
    i32.const 2552
-   i32.const 395
+   i32.const 394
    i32.const 2
    call $~lib/builtins/abort
    unreachable
@@ -20413,7 +20115,7 @@
   call $~lib/rt/stub/__release
   local.get $11
  )
- (func $assembly/test/runTest (; 328 ;) (type $FUNCSIG$v)
+ (func $assembly/test/runTest (; 323 ;) (type $FUNCSIG$v)
   (local $0 i32)
   (local $1 i32)
   (local $2 i32)
@@ -20441,7 +20143,7 @@
   (local $24 i32)
   (local $25 i32)
   (local $26 i32)
-  i32.const 5296
+  i32.const 5224
   call $~lib/near-runtime-ts/logging/logging.log
   i32.const 0
   call $assembly/model/FooBar#constructor
@@ -20451,7 +20153,7 @@
   i32.const 2
   i32.const 2
   i32.const 26
-  i32.const 5344
+  i32.const 5272
   call $~lib/rt/__allocArray
   call $~lib/rt/stub/__retain
   local.tee $2
@@ -20497,7 +20199,7 @@
   i32.store offset=36
   local.get $0
   local.tee $1
-  i32.const 5368
+  i32.const 5296
   call $~lib/near-runtime-ts/base64/base64.decode
   local.set $3
   local.get $1
@@ -20532,7 +20234,7 @@
   i32.const 1
   i32.const 2
   i32.const 10
-  i32.const 5456
+  i32.const 5384
   call $~lib/rt/__allocArray
   call $~lib/rt/stub/__retain
   local.tee $5
@@ -20542,7 +20244,7 @@
   i32.const 1
   i32.const 2
   i32.const 10
-  i32.const 5512
+  i32.const 5440
   call $~lib/rt/__allocArray
   call $~lib/rt/stub/__retain
   local.tee $6
@@ -20576,14 +20278,14 @@
   local.get $0
   i32.load offset=60
   i32.const 0
-  i32.const 5368
+  i32.const 5296
   call $~lib/near-runtime-ts/base64/base64.decode
   local.tee $1
   call $~lib/array/Array<~lib/typedarray/Uint8Array>#__set
   local.get $0
   i32.load offset=60
   i32.const 1
-  i32.const 5368
+  i32.const 5296
   call $~lib/near-runtime-ts/base64/base64.decode
   local.tee $4
   call $~lib/array/Array<~lib/typedarray/Uint8Array>#__set
@@ -20592,7 +20294,7 @@
   i32.const 2
   i32.const 3
   i32.const 28
-  i32.const 5536
+  i32.const 5464
   call $~lib/rt/__allocArray
   call $~lib/rt/stub/__retain
   local.tee $7
@@ -20610,7 +20312,7 @@
   end
   local.get $8
   i32.store offset=64
-  i32.const 5568
+  i32.const 5496
   local.get $0
   call $assembly/model/FooBar#toJSON
   local.tee $8
@@ -20624,7 +20326,7 @@
   i32.const 816
   call $~lib/nearEntry/decode<assembly/model/FooBar,~lib/typedarray/Uint8Array>
   local.set $10
-  i32.const 5600
+  i32.const 5528
   local.get $10
   call $assembly/model/FooBar#toJSON
   local.tee $11
@@ -20639,7 +20341,7 @@
   i32.eqz
   if
    i32.const 0
-   i32.const 5632
+   i32.const 5560
    i32.const 191
    i32.const 2
    call $~lib/builtins/abort
@@ -20653,7 +20355,7 @@
   i32.eqz
   if
    i32.const 0
-   i32.const 5632
+   i32.const 5560
    i32.const 192
    i32.const 2
    call $~lib/builtins/abort
@@ -20671,7 +20373,7 @@
   i32.eqz
   if
    i32.const 0
-   i32.const 5632
+   i32.const 5560
    i32.const 193
    i32.const 2
    call $~lib/builtins/abort
@@ -20695,7 +20397,7 @@
   i32.eqz
   if
    i32.const 0
-   i32.const 5632
+   i32.const 5560
    i32.const 194
    i32.const 2
    call $~lib/builtins/abort
@@ -20709,12 +20411,12 @@
   i32.const 0
   call $~lib/array/Array<~lib/string/String>#__get
   local.tee $20
-  i32.const 5424
+  i32.const 5352
   call $~lib/string/String.__eq
   i32.eqz
   if
    i32.const 0
-   i32.const 5632
+   i32.const 5560
    i32.const 195
    i32.const 2
    call $~lib/builtins/abort
@@ -20732,7 +20434,7 @@
   i32.eqz
   if
    i32.const 0
-   i32.const 5632
+   i32.const 5560
    i32.const 196
    i32.const 2
    call $~lib/builtins/abort
@@ -20746,7 +20448,7 @@
   i32.eqz
   if
    i32.const 0
-   i32.const 5632
+   i32.const 5560
    i32.const 197
    i32.const 2
    call $~lib/builtins/abort
@@ -20768,7 +20470,7 @@
   i32.eqz
   if
    i32.const 0
-   i32.const 5632
+   i32.const 5560
    i32.const 200
    i32.const 2
    call $~lib/builtins/abort
@@ -20792,7 +20494,7 @@
    local.get $24
    i64.load
    i64.eq
-  else   
+  else
    i32.const 0
   end
   local.set $26
@@ -20806,7 +20508,7 @@
   i32.eqz
   if
    i32.const 0
-   i32.const 5632
+   i32.const 5560
    i32.const 201
    i32.const 2
    call $~lib/builtins/abort
@@ -20819,13 +20521,13 @@
   i32.eqz
   if
    i32.const 0
-   i32.const 5632
+   i32.const 5560
    i32.const 202
    i32.const 2
    call $~lib/builtins/abort
    unreachable
   end
-  i32.const 5760
+  i32.const 5712
   call $~lib/near-runtime-ts/logging/logging.log
   local.get $0
   call $~lib/rt/stub/__release
@@ -20876,10 +20578,10 @@
   local.get $23
   call $~lib/rt/stub/__release
  )
- (func $start (; 329 ;) (type $FUNCSIG$v)
+ (func $start (; 324 ;) (type $FUNCSIG$v)
   call $start:~lib/rt/index-stub
   call $start:~lib/nearEntry
  )
- (func $null (; 330 ;) (type $FUNCSIG$v)
+ (func $null (; 325 ;) (type $FUNCSIG$v)
  )
 )

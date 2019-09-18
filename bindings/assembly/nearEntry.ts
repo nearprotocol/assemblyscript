@@ -385,12 +385,11 @@ function decode<T, V = Uint8Array>(buf: V, name: string = ""): T {
     //@ts-ignore only checking the instance
     return <T>decodeArray<valueof<T>>(val, name);
   }
-  if (val instanceof Str) {
+  //@ts-ignore
+  if (value instanceof u128) {
+    assert(val instanceof Str);
     //@ts-ignore
-    if (value instanceof u128) {
-      //@ts-ignore
-      return u128.fromString(getStr(val, name));
-    }
+    return u128.fromString(getStr(val, name));
   }
   assert(val instanceof Obj, "Value with Key: " +  name + " with type " + nameof<T>()  + " is not an object or null");
   value = instantiate<T>();

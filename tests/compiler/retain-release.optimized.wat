@@ -221,13 +221,13 @@
   global.get $~lib/started
   if
    return
-  else   
+  else
    i32.const 1
    global.set $~lib/started
   end
   i32.const 96
   global.set $~lib/rt/stub/startOffset
-  global.get $~lib/rt/stub/startOffset
+  i32.const 96
   global.set $~lib/rt/stub/offset
   call $retain-release/Ref#constructor
   global.set $retain-release/REF
