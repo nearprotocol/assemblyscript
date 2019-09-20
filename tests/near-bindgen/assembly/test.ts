@@ -70,3 +70,7 @@ type StringAlias = string;
 export function stringAliasTest(str: StringAlias): StringAlias {
     return str + " World"
 }
+
+export function getMetadata(): string {
+    return main.metadata();
+}

@@ -1,18 +1,16 @@
 // tslint:disable: no-void-expression as-types as-variables
 import {
-  Source,
-  NodeKind,
   ClassDeclaration,
-  FunctionDeclaration,
-  TypeNode,
-  FieldDeclaration,
-  Statement,
-  Node,
-  NamedTypeNode,
-  SourceKind,
   DeclarationStatement,
-  TypeName,
-  ParameterNode
+  FieldDeclaration,
+  FunctionDeclaration, ImportDeclaration, ImportStatement,
+  Node,
+  NodeKind,
+  ParameterNode,
+  Source,
+  SourceKind,
+  Statement,
+  TypeNode
 } from "../../src/ast";
 import { CommonFlags } from "../../src/common";
 import { Parser } from "./mockTypes";
@@ -20,11 +18,58 @@ import { Parser } from "./mockTypes";
 import { ASTBuilder } from "./sourceBuilder";
 import { BaseVisitor } from "./base";
 import { preamble } from "./preamble";
+import { main } from "../../cli/asc";
 
 interface SimpleField {
   name: string;
   type: TypeNode;
   isGeneric: boolean;
+}
+
+const METADATA_VERSION = "1.0";
+
+class FunctionMetadata {
+  name: string;
+  parameters: {[key: string]: string}[];
+  returnType: string;
+  stateMutability: boolean;
+}
+
+class ClassMetadata {
+  name: string;
+  fields: {[key: string]: string};
+}
+
+class ContractMetadata {
+  functions: FunctionMetadata[];
+  classes: ClassMetadata[];
+  description: {[key: string]: string};
+  version: string;
+}
+
+function generateFunctionMetadata(func: FunctionDeclaration): FunctionMetadata {
+  let name = toString(func.name);
+  let signature = func.signature;
+  let parameters = signature.parameters.map(param => {
+    let name = toString(param.name);
+    let type = toString(param.type);
+    return {"name": name, "type": type};
+  });
+  let returnType = toString(signature.returnType);
+  let stateMutability = func.decorators ? func.decorators!.findIndex(node => toString(node) == "view") != -1 : false;
+  return {name, parameters, returnType, stateMutability};
+}
+
+function generateClassMetadata(node: ClassDeclaration): ClassMetadata {
+  let fields: {[key: string]: string} = {};
+  for (let member of node.members) {
+    if (isField(member)) {
+      let name = toString(member.name);
+      fields[name] = toString((<FieldDeclaration>member).type!);
+    }
+  }
+  let className = toString(node.name);
+  return {name: className, fields};
 }
 
 function returnsVoid(node: FunctionDeclaration): boolean {
@@ -52,15 +97,6 @@ function isEntry(source: Source | Node): boolean {
   return _source.sourceKind == SourceKind.USER_ENTRY;
 }
 
-function isArrayType(type: TypeNode | ClassDeclaration): boolean {
-  return !!(
-    (type.kind == NodeKind.NAMEDTYPE) &&
-    toString(type).startsWith("Array") &&
-    (<NamedTypeNode>type).typeArguments &&
-    (<NamedTypeNode>type).typeArguments!.length > 0
-  );
-}
-
 function isClass(type: Node): boolean {
   return type.kind == NodeKind.CLASSDECLARATION;
 }
@@ -69,37 +105,14 @@ function isField(mem: DeclarationStatement) {
   return mem.kind == NodeKind.FIELDDECLARATION;
 }
 
-function isReference(type: TypeNode): boolean {
-  let simpleTypes = [
-    "i32",
-    "u32",
-    "bool",
-    "i64",
-    "u64",
-    "boolean",
-  ];
-  return !simpleTypes.includes(toString(type));
-}
-
-// TODO: Extract this into separate module, preferrable pluggable
 class NEARBindingsBuilder extends BaseVisitor {
-  private typeMapping: { [key: string]: string } = {
-    i32: "Integer",
-    u32: "Integer",
-    i64: "String",
-    u64: "String",
-    string: "String",
-    bool: "Boolean",
-    Uint8Array: "String",
-  };
-
-  private nonNullableTypes = ["i32", "u32", "i64", "u64", "bool", "boolean"];
-
   private sb: string[] = [];
-  private exportedClasses: Map<string, ClassDeclaration> = new Map();
+  exportedClasses: Map<string, ClassDeclaration> = new Map();
+  exportedFunctions: Map<string, FunctionDeclaration> = new Map();
+  imports: Map<string, Set<string> | string> = new Map();
   wrappedFuncs: Set<string> = new Set();
 
-  static build(parser: Parser, source: Source): string {
+  static build(source: Source): string {
     return (new NEARBindingsBuilder().build(source));
   }
 
@@ -113,6 +126,9 @@ class NEARBindingsBuilder extends BaseVisitor {
   }
 
   visitFunctionDeclaration(node: FunctionDeclaration): void {
+    if (node.is(CommonFlags.EXPORT) && !this.exportedFunctions.has(toString(node.name))) {
+      this.exportedFunctions.set(toString(node.name), node);
+    }
     if (!isEntry(node)
         || this.wrappedFuncs.has(toString(node.name))
         || !node.is(CommonFlags.EXPORT)
@@ -128,6 +144,23 @@ class NEARBindingsBuilder extends BaseVisitor {
     // Change function to not be an export
     node.flags = node.flags ^ CommonFlags.EXPORT;
     this.wrappedFuncs.add(toString(node.name));
+  }
+
+  visitImportStatement(node: ImportStatement): void {
+    let path = node.internalPath;
+    if (node.declarations) {
+      node.declarations!.forEach(decl => {
+        let curImports = this.imports.get(path);
+        curImports = curImports ? curImports! : new Set();
+        if (curImports instanceof Set) {
+          curImports.add(toString(decl.foreignName));
+        }
+        this.imports.set(path, curImports);
+      });
+    } else {
+      assert(node.namespaceName, "Using wildcard with empty namespace");
+      this.imports.set(path, toString(node.namespaceName!));
+    }
   }
 
   /*
@@ -312,28 +345,89 @@ function isGeneric(_class: ClassDeclaration, field: FieldDeclaration): boolean {
   return _class.typeParameters.some(param => toString(param.name) == toString(field.type!));
 }
 
+function deleteSource(parser: Parser, source: Source): boolean {
+  let writeOut = source.text.substr(0, source.text.indexOf("\n")).includes("out");
+  // Remove from logs in parser
+  parser.donelog.delete(source.internalPath);
+  parser.seenlog.delete(source.internalPath);
+  // Remove from programs sources
+  parser.program.sources = parser.program.sources.filter(
+      (_source: Source) => _source !== source
+  );
+  return writeOut;
+}
+
 export function afterParse(parser: Parser, writeFile: FileWriter, baseDir: string): void {
   let files = NEARBindingsBuilder.nearFiles(parser);
-  files.forEach(source => {
-    let writeOut = source.text.substr(0, source.text.indexOf("\n")).includes("out");
-    // Remove from logs in parser
-    parser.donelog.delete(source.internalPath);
-    parser.seenlog.delete(source.internalPath);
-    // Remove from programs sources
-    parser.program.sources = parser.program.sources.filter(
-      (_source: Source) => _source !== source
-    );
-    // Build new Source
-    let sourceText = NEARBindingsBuilder.build(parser, source);
-    if (writeOut) {
-     writeFile("out/" + source.normalizedPath, sourceText, baseDir);
-    }
-    // Parses file and any new imports added to the source
-    parser.parseFile(
-      sourceText,
-      (isEntry(source) ? "" : "./") + source.normalizedPath,
-      isEntry(source)
-    );
-  });
+  let mainSource = files.filter(source => source.simplePath == "main")[0];
+  let writeOut = deleteSource(parser, mainSource);
+  let nearBindingsBuilder = new NEARBindingsBuilder();
+  let sourceText = nearBindingsBuilder.build(mainSource);
+  let imports = nearBindingsBuilder.imports;
+  let allExportedFunctions = nearBindingsBuilder.exportedFunctions;
+  let allExportedClasses: Map<string, ClassDeclaration> = new Map();
 
+  files.forEach(source => {
+    if (source.simplePath != "main") {
+      let writeOut = deleteSource(parser, source);
+      // Build new Source
+      let bindingsBuilder = new NEARBindingsBuilder();
+      let sourceText = bindingsBuilder.build(source);
+      let importsFromSource = imports.get(source.internalPath);
+      if (importsFromSource) {
+        if (typeof importsFromSource === "string") {
+          for (let [key, value] of bindingsBuilder.exportedClasses) {
+            let typeName = importsFromSource + "." + key;
+            allExportedClasses.set(typeName, value);
+          }
+        } else {
+          for (let name of importsFromSource) {
+            allExportedClasses.set(name, bindingsBuilder.exportedClasses.get(name)!);
+          }
+        }
+      }
+      if (writeOut) {
+        writeFile("out/" + source.normalizedPath, sourceText, baseDir);
+      }
+      // Parses file and any new imports added to the source
+      parser.parseFile(
+          sourceText,
+          (isEntry(source) ? "" : "./") + source.normalizedPath,
+          isEntry(source)
+      );
+    }
+  });
+  // generate contract metadata
+  let functionMetadata = [];
+  for (let value of allExportedFunctions.values()) {
+    functionMetadata.push(generateFunctionMetadata(value));
+  }
+  let classMetadata = [];
+  for (let value of allExportedClasses.values()) {
+    classMetadata.push(generateClassMetadata(value));
+  }
+  let description = null;
+  let descriptionFunc = allExportedFunctions.get("description");
+  if (descriptionFunc) {
+    description = JSON.parse(toString(descriptionFunc.body!));
+  }
+  let contractMedata: ContractMetadata = {
+    functions: functionMetadata,
+    classes: classMetadata,
+    description,
+    version: METADATA_VERSION
+  };
+  let metadataStr = `
+export function metadata(): string {
+  return ${JSON.stringify(JSON.stringify(contractMedata))};
+}`;
+  sourceText += metadataStr;
+  if (writeOut) {
+    writeFile("out/" + mainSource.normalizedPath, sourceText, baseDir);
+  }
+  parser.parseFile(
+      sourceText,
+      (isEntry(mainSource) ? "" : "./") + mainSource.normalizedPath,
+      isEntry(mainSource)
+  );
 }

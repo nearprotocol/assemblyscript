@@ -24,7 +24,7 @@ function UTF8toStr(array) {
     while(i < len) {
     c = array[i++];
     switch(c >> 4)
-    { 
+    {
       case 0: case 1: case 2: case 3: case 4: case 5: case 6: case 7:
         // 0xxxxxxx
         out += String.fromCharCode(c);
@@ -134,7 +134,7 @@ async function loadModule(path) {
     assert.deepEqual(await module.convertFoobars({
         foobars: [{ foo: -12345, bar: 123, flag: true, baz: "bazinga" }] }),
         [{ foobar: { foo: -12345, bar: 123, u64Val: (2**32 + 1).toString(),
-             i64Val: "-64", flag: true, baz: "bazinga", uint8array: null, arr: null, 
+             i64Val: "-64", flag: true, baz: "bazinga", uint8array: null, arr: null,
              u32Arr: null, i32Arr: null, u128Val: null, uint8arrays: null, u64Arr: null, u64_zero:"0"}}]);
     assert.deepEqual(await module.convertFoobars({
         foobars: [{ arr: [["1", "2"], ["3"]]  }] }),
@@ -146,6 +146,11 @@ async function loadModule(path) {
         {"foo":123,"bar":1,"u64Val":"4294967297","i64Val":"-64","flag":false,"baz":"123","uint8array":null,"arr":null,"u32Arr":null,"i32Arr":null,"u128Val":null,"uint8arrays":null, u64Arr: null, u64_zero:"0"});
     assert.deepEqual(await module.stringOrNull(), null);
     assert.deepStrictEqual(await module.stringAliasTest({str:"Hello"}), "Hello World");
+    let metadata = JSON.parse(await module.getMetadata());
+    let functionNames = metadata.functions.map(r => r.name);
+    let classNames = metadata.classes.map(r => r.name);
+    assert.deepEqual(functionNames, ["doNothing", "add", "rewrapFoobar", "unwrapFoobar", "getStringArrayLength", "convertFoobars", "callbackWithName", "stringOrNull"]);
+    assert.deepEqual(classNames, ["FooBar", "ContainerClass", "AnotherContainerClass", "PromiseArgs", "MyCallbackResult", "MyContractPromiseResult"]);
 })().catch(e => {
     console.error('Error during test execution:', e);
     if (e.code == 'ERR_ASSERTION') {

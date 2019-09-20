@@ -155,6 +155,24 @@ function __wrapper_stringAliasTest(): void {
 
 export { __wrapper_stringAliasTest as stringAliasTest }
 
+
+//@ts-ignore
+function __wrapper_getMetadata(): void {
+  let result: string = getMetadata();
+
+  let encoder = new JSONEncoder();
+  let val: Uint8Array;
+  if ((isString<string>() || isNullable<string>()) && result == null) {
+    encoder.setNull(null);
+    val = encoder.serialize();
+  } else {
+    val = encode<string>(result, null, encoder);
+  }
+  value_return(val.byteLength, <usize>val.buffer);
+}
+
+export { __wrapper_getMetadata as getMetadata }
+
 import * as main from "./main"
 import {
   base64,
@@ -220,4 +238,7 @@ function stringOrNull(): string | null {
 type StringAlias = string
 function stringAliasTest(str: StringAlias): StringAlias {
   return str + " World";
+}
+function getMetadata(): string {
+  return main.metadata();
 }
