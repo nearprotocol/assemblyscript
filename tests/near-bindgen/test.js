@@ -150,7 +150,11 @@ async function loadModule(path) {
     let functionNames = metadata.functions.map(r => r.name);
     let classNames = metadata.classes.map(r => r.name);
     assert.deepEqual(functionNames, ["doNothing", "add", "rewrapFoobar", "unwrapFoobar", "getStringArrayLength", "convertFoobars", "callbackWithName", "stringOrNull"]);
+    let convertFoobarMetadata = metadata.functions.find(r => r.name == "convertFoobars");
+    assert.deepEqual(convertFoobarMetadata, {name: "convertFoobars", parameters: [{name: "foobars", type: "Seq<FooBar>" }], returnType: "Seq<ContainerClass>", stateMutability: "change"})
     assert.deepEqual(classNames, ["FooBar", "ContainerClass", "AnotherContainerClass", "PromiseArgs", "MyCallbackResult", "MyContractPromiseResult"]);
+    let containerClassMetadata = metadata.classes.find(r => r.name == "ContainerClass");
+    assert.deepEqual(containerClassMetadata, {name: "ContainerClass", fields: [{name: "foobar", type: "FooBar"}]});
 })().catch(e => {
     console.error('Error during test execution:', e);
     if (e.code == 'ERR_ASSERTION') {

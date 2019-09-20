@@ -353,13 +353,14 @@ export function afterParse(parser: Parser, writeFile: FileWriter, baseDir: strin
   let contractMedata: ContractMetadata = {
     functions: functionMetadata,
     classes: classMetadata,
-    description,
+    contract: description,
     version: METADATA_VERSION
   };
   let metadataStr = `
 export function metadata(): string {
   return ${JSON.stringify(JSON.stringify(contractMedata))};
 }`;
+  console.log(metadataStr);
   sourceText += metadataStr;
   if (writeOut) {
     writeFile("out/" + mainSource.normalizedPath, sourceText, baseDir);

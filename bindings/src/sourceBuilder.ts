@@ -113,6 +113,10 @@ export class ASTBuilder {
         this.visitFunctionTypeNode(<FunctionTypeNode>node);
         break;
       }
+      case NodeKind.TYPENAME: {
+        this.visitTypeName(<TypeName>node);
+        break;
+      }
       case NodeKind.TYPEPARAMETER: {
         this.visitTypeParameter(<TypeParameterNode>node);
         break;
