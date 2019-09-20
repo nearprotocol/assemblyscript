@@ -18,58 +18,14 @@ import { Parser } from "./mockTypes";
 import { ASTBuilder } from "./sourceBuilder";
 import { BaseVisitor } from "./base";
 import { preamble } from "./preamble";
+import { isEntry, isField, isClass, toString } from "./utils";
+import { ContractMetadata, generateClassMetadata, generateFunctionMetadata, METADATA_VERSION } from "./metadata";
 import { main } from "../../cli/asc";
 
 interface SimpleField {
   name: string;
   type: TypeNode;
   isGeneric: boolean;
-}
-
-const METADATA_VERSION = "1.0";
-
-class FunctionMetadata {
-  name: string;
-  parameters: {[key: string]: string}[];
-  returnType: string;
-  stateMutability: boolean;
-}
-
-class ClassMetadata {
-  name: string;
-  fields: {[key: string]: string};
-}
-
-class ContractMetadata {
-  functions: FunctionMetadata[];
-  classes: ClassMetadata[];
-  description: {[key: string]: string};
-  version: string;
-}
-
-function generateFunctionMetadata(func: FunctionDeclaration): FunctionMetadata {
-  let name = toString(func.name);
-  let signature = func.signature;
-  let parameters = signature.parameters.map(param => {
-    let name = toString(param.name);
-    let type = toString(param.type);
-    return {"name": name, "type": type};
-  });
-  let returnType = toString(signature.returnType);
-  let stateMutability = func.decorators ? func.decorators!.findIndex(node => toString(node) == "view") != -1 : false;
-  return {name, parameters, returnType, stateMutability};
-}
-
-function generateClassMetadata(node: ClassDeclaration): ClassMetadata {
-  let fields: {[key: string]: string} = {};
-  for (let member of node.members) {
-    if (isField(member)) {
-      let name = toString(member.name);
-      fields[name] = toString((<FieldDeclaration>member).type!);
-    }
-  }
-  let className = toString(node.name);
-  return {name: className, fields};
 }
 
 function returnsVoid(node: FunctionDeclaration): boolean {
@@ -86,23 +42,6 @@ function isComment(stmt: Statement): boolean {
 
 function hasNearDecorator(stmt: Source): boolean {
   return stmt.text.includes("@nearfile") || isEntry(stmt);
-}
-
-function toString(node: Node): string {
-  return ASTBuilder.build(node);
-}
-
-function isEntry(source: Source | Node): boolean {
-  let _source = <Source>((source.kind == NodeKind.SOURCE) ? source : source.range.source);
-  return _source.sourceKind == SourceKind.USER_ENTRY;
-}
-
-function isClass(type: Node): boolean {
-  return type.kind == NodeKind.CLASSDECLARATION;
-}
-
-function isField(mem: DeclarationStatement) {
-  return mem.kind == NodeKind.FIELDDECLARATION;
 }
 
 class NEARBindingsBuilder extends BaseVisitor {
