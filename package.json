@@ -19,19 +19,17 @@
     "source-map-support": "^0.5.13"
   },
   "devDependencies": {
-    "@types/node": "^12.7.4",
-    "assemblyscript-json": "github:nearprotocol/assemblyscript-json",
-    "bignum": "github:WebAssemblyOS/bignum.wasm#ef043261e06ca36c86a2d330f8b0742211a884a5",
+    "@types/node": "^12.7.5",
     "browser-process-hrtime": "^1.0.0",
     "diff": "^4.0.1",
+    "ts-loader": "^6.1.1",
     "near-runtime-ts": "github:nearprotocol/near-runtime-ts",
-    "ts-loader": "^6.1.0",
     "ts-node": "^6.2.0",
     "tslint": "^5.20.0",
     "typedoc-plugin-external-module-name": "^2.1.0",
-    "typescript": "^3.6.2",
-    "webpack": "^4.39.3",
-    "webpack-cli": "^3.3.8"
+    "typescript": "^3.6.3",
+    "webpack": "^4.40.2",
+    "webpack-cli": "^3.3.9"
   },
   "main": "index.js",
   "types": "index.d.ts",
