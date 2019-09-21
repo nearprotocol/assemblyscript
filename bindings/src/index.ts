@@ -298,7 +298,11 @@ function deleteSource(parser: Parser, source: Source): boolean {
 
 export function afterParse(parser: Parser, writeFile: FileWriter, baseDir: string): void {
   let files = NEARBindingsBuilder.nearFiles(parser);
-  let mainSource = files.filter(source => source.simplePath == "main")[0];
+  let mainSourceIndex = files.findIndex(source => source.simplePath == "main");
+  if (mainSourceIndex == -1) {
+    return;
+  }
+  let mainSource = files[mainSourceIndex];
   let writeOut = deleteSource(parser, mainSource);
   let nearBindingsBuilder = new NEARBindingsBuilder();
   let sourceText = nearBindingsBuilder.build(mainSource);
@@ -360,7 +364,6 @@ export function afterParse(parser: Parser, writeFile: FileWriter, baseDir: strin
 export function metadata(): string {
   return ${JSON.stringify(JSON.stringify(contractMedata))};
 }`;
-  console.log(metadataStr);
   sourceText += metadataStr;
   if (writeOut) {
     writeFile("out/" + mainSource.normalizedPath, sourceText, baseDir);
