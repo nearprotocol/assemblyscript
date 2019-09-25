@@ -35,7 +35,7 @@ jobs:
     needs: check
     strategy:
       matrix:
-        node_version: ["lts/*", "node"]
+        node_version: ["v12.7.0", "node"]
     steps:
     - uses: actions/checkout@v1.0.0
     - uses: dcodeIO/setup-node-nvm@v1.0.0
