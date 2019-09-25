@@ -78,7 +78,9 @@
     "package-lock.json",
     "README.md",
     "std/",
-    "tsconfig-base.json"
+    "tsconfig-base.json",
+    "bindings/dist/",
+    "bindings/assembly/nearEntry.ts"
   ],
   "collective": {
     "type": "opencollective",
