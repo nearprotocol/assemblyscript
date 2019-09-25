@@ -33,24 +33,26 @@
   "main": "index.js",
   "types": "index.d.ts",
   "bin": {
-    "asc": "bin/asc",
+    "near-asc": "bin/asc",
     "asinit": "bin/asinit"
   },
   "engines": {
     "node": ">=8"
   },
   "scripts": {
-    "build": "npm run build:bundle && npm run build:dts",
+    "build": "npm run build:bindings && npm run build:bundle && npm run build:dts",
     "build:bundle": "webpack --mode production --display-modules",
     "build:dts": "node scripts/build-dts && tsc --noEmit tests/dts/index",
+    "build:bindings": "cd bindings && npm run build",
     "clean": "node scripts/clean",
     "check": "npm run check:config && npm run check:compiler",
     "check:config": "tsc --noEmit -p src --diagnostics --listFiles",
     "check:compiler": "tslint -c tslint.json --project src --formatters-dir lib/lint/formatters --format as",
-    "test": "npm run test:parser && npm run test:compiler && npm run test:packages",
+    "test": "npm run test:bindings && npm run test:parser && npm run test:compiler && npm run test:packages",
     "test:parser": "node tests/parser",
     "test:compiler": "node tests/compiler",
     "test:packages": "cd tests/packages && npm run test",
+    "test:bindings": "cd bindings/tests && npm install && npm run test",
     "make": "npm run clean && npm test && npm run build && npm test",
     "all": "npm run check && npm run make",
     "docs": "typedoc --tsconfig tsconfig-docs.json --mode modules --name \"AssemblyScript Compiler API\" --out ./docs/api --ignoreCompilerErrors --excludeNotExported --excludePrivate --excludeExternals --exclude **/std/** --includeDeclarations --readme src/README.md",

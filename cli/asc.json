@@ -255,5 +255,10 @@
   "-O0z": { "value": { "optimizeLevel": 0, "shrinkLevel": 2 } },
   "-O1z": { "value": { "optimizeLevel": 1, "shrinkLevel": 2 } },
   "-O2z": { "value": { "optimizeLevel": 2, "shrinkLevel": 2 } },
-  "-O3z": { "value": { "optimizeLevel": 3, "shrinkLevel": 2 } }
+  "-O3z": { "value": { "optimizeLevel": 3, "shrinkLevel": 2 } },
+  "notNear": {
+    "description": "Prevent the instrumentation of the binding code for near",
+    "type": "b",
+    "default": false
+  }
 }

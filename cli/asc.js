@@ -23,7 +23,8 @@ const optionsUtil = require("./util/options");
 const mkdirp = require("./util/mkdirp");
 const EOL = process.platform === "win32" ? "\r\n" : "\n";
 const SEP = process.platform === "win32" ? "\\" : "/";
-
+const nearBindings = require("../bindings/dist/transformerBundle.js");
+const nearLibEntry = path.join(__dirname, "..", "bindings", "assembly", "nearEntry.ts");
 // global.Binaryen = require("../lib/binaryen");
 
 // Emscripten adds an `uncaughtException` listener to Binaryen that results in an additional
@@ -80,8 +81,10 @@ exports.defaultShrinkLevel = 1;
 /** Bundled library files. */
 exports.libraryFiles = exports.isBundle ? BUNDLE_LIBRARY : (() => { // set up if not a bundle
   const libDir = path.join(__dirname, "..", "std", "assembly");
-  const libFiles = require("glob").sync("**/!(*.d).ts", { cwd: libDir });
-  const bundled = {};
+  const libFiles = require("glob").sync("**/!(*.d).ts", { cwd: libDir })
+  const bundled = {
+    "nearEntry": fs.readFileSync(nearLibEntry, "utf8")
+  };
   libFiles.forEach(file => bundled[file.replace(/\.ts$/, "")] = fs.readFileSync(path.join(libDir, file), "utf8" ));
   return bundled;
 })();
@@ -210,7 +213,8 @@ exports.main = function main(argv, options, callback) {
   const baseDir = args.baseDir ? path.resolve(args.baseDir) : ".";
 
   // Set up transforms
-  const transforms = [];
+  const transforms = args.notNear ? [] :  [nearBindings];
+  //Add near's bindings by default
   if (args.transform) {
     args.transform.forEach(transform =>
       transforms.push(
@@ -521,6 +525,9 @@ exports.main = function main(argv, options, callback) {
   try {
     stats.compileTime += measure(() => {
       module = assemblyscript.compileProgram(program, compilerOptions);
+      if (!args.notNear && /f32|f64/.test(module.toText())) {
+        throw new Error("Floating point numbers are not allowedin smart contracts.");
+      }
     });
   } catch (e) {
     return callback(e);
