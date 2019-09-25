@@ -22,6 +22,7 @@
     "@types/node": "^12.7.5",
     "browser-process-hrtime": "^1.0.0",
     "diff": "^4.0.1",
+    "near-runtime-ts": "^0.3.0",
     "ts-loader": "^6.1.1",
     "ts-node": "^6.2.0",
     "tslint": "^5.20.0",
@@ -37,7 +38,7 @@
     "asinit": "bin/asinit"
   },
   "engines": {
-    "node": ">=8"
+    "node": ">=12"
   },
   "scripts": {
     "build": "npm run build:bindings && npm run build:bundle && npm run build:dts",
@@ -52,7 +53,7 @@
     "test:parser": "node tests/parser",
     "test:compiler": "node tests/compiler",
     "test:packages": "cd tests/packages && npm run test",
-    "test:bindings": "cd bindings/tests && npm install && npm run test",
+    "test:bindings": "cd bindings/tests && npm run test",
     "make": "npm run clean && npm test && npm run build && npm test",
     "all": "npm run check && npm run make",
     "docs": "typedoc --tsconfig tsconfig-docs.json --mode modules --name \"AssemblyScript Compiler API\" --out ./docs/api --ignoreCompilerErrors --excludeNotExported --excludePrivate --excludeExternals --exclude **/std/** --includeDeclarations --readme src/README.md",
