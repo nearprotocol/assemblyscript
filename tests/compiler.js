@@ -138,6 +138,7 @@ tests.forEach(filename => {
     "--validate",
     "--measure",
     "--debug",
+    "--notNear",
     "--textFile" // -> stdout
   ];
   if (asc_flags)
@@ -219,6 +220,7 @@ tests.forEach(filename => {
       "--validate",
       "--measure",
       "--binaryFile", // -> stdout
+      "--notNear",
       "-O"
     ];
     if (asc_flags)
