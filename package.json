@@ -1,6 +1,6 @@
 {
   "name": "near-assemblyscript",
-  "version": "0.7.1",
+  "version": "0.7.3-preview",
   "author": "Daniel Wirtz <dcode+assemblyscript@dcode.io>",
   "license": "Apache-2.0",
   "repository": {
