@@ -38,7 +38,7 @@
     "asinit": "bin/asinit"
   },
   "engines": {
-    "node": ">=12"
+    "node": ">=10"
   },
   "scripts": {
     "build": "npm run build:bindings && npm run build:bundle && npm run build:dts",
