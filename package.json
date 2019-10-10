@@ -1,6 +1,6 @@
 {
-  "name": "assemblyscript",
-  "version": "0.7.0",
+  "name": "near-assemblyscript",
+  "version": "0.7.4",
   "author": "Daniel Wirtz <dcode+assemblyscript@dcode.io>",
   "license": "Apache-2.0",
   "repository": {
@@ -34,11 +34,11 @@
   "main": "index.js",
   "types": "index.d.ts",
   "bin": {
-    "asc": "bin/asc",
+    "near-asc": "bin/asc",
     "asinit": "bin/asinit"
   },
   "engines": {
-    "node": ">=8"
+    "node": ">=10"
   },
   "scripts": {
     "build": "npm run build:bundle && npm run build:dts",

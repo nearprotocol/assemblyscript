@@ -997,7 +997,7 @@
    call $~lib/rt/stub/__release
    i32.const 200
    i32.const 256
-   i32.const 103
+   i32.const 107
    i32.const 16
    call $~lib/builtins/abort
    unreachable
@@ -1032,56 +1032,58 @@
   call $~lib/arraybuffer/ArrayBuffer#constructor
   local.set $3
   local.get $2
-  f64.convert_i32_s
-  f64.const 2.6666666666666665
-  f64.mul
-  i32.trunc_f64_s
   local.set $4
-  i32.const 0
   local.get $4
+  i32.const 8
+  i32.mul
+  i32.const 3
+  i32.div_s
+  local.set $5
+  i32.const 0
+  local.get $5
   i32.const 12
   i32.mul
   call $~lib/arraybuffer/ArrayBuffer#constructor
-  local.set $5
+  local.set $6
   local.get $0
   i32.load offset=8
-  local.set $6
-  local.get $6
+  local.set $7
+  local.get $7
   local.get $0
   i32.load offset=16
   i32.const 12
   i32.mul
   i32.add
-  local.set $7
-  local.get $5
   local.set $8
+  local.get $6
+  local.set $9
   block $break|0
    loop $continue|0
-    local.get $6
     local.get $7
+    local.get $8
     i32.ne
     i32.eqz
     br_if $break|0
-    local.get $6
-    local.set $9
-    local.get $9
+    local.get $7
+    local.set $4
+    local.get $4
     i32.load offset=8
     i32.const 1
     i32.and
     i32.eqz
     if
-     local.get $8
+     local.get $9
      local.set $10
      local.get $10
-     local.get $9
+     local.get $4
      i32.load
      i32.store
      local.get $10
-     local.get $9
+     local.get $4
      i32.load offset=4
      i32.store offset=4
      block $~lib/util/hash/HASH<~lib/string/String>|inlined.3 (result i32)
-      local.get $9
+      local.get $4
       i32.load
       call $~lib/rt/stub/__retain
       local.set $11
@@ -1107,34 +1109,34 @@
      i32.load
      i32.store offset=8
      local.get $12
-     local.get $8
+     local.get $9
      i32.store
-     local.get $8
+     local.get $9
      i32.const 12
      i32.add
-     local.set $8
+     local.set $9
     end
-    local.get $6
+    local.get $7
     i32.const 12
     i32.add
-    local.set $6
+    local.set $7
     br $continue|0
    end
    unreachable
   end
   local.get $0
-  local.tee $9
+  local.tee $4
   local.get $3
   local.tee $10
-  local.get $9
+  local.get $4
   i32.load
-  local.tee $9
+  local.tee $4
   i32.ne
   if
    local.get $10
    call $~lib/rt/stub/__retain
    drop
-   local.get $9
+   local.get $4
    call $~lib/rt/stub/__release
   end
   local.get $10
@@ -1144,7 +1146,7 @@
   i32.store offset=4
   local.get $0
   local.tee $10
-  local.get $5
+  local.get $6
   local.tee $11
   local.get $10
   i32.load offset=8
@@ -1160,7 +1162,7 @@
   local.get $11
   i32.store offset=8
   local.get $0
-  local.get $4
+  local.get $5
   i32.store offset=12
   local.get $0
   local.get $0
@@ -1168,7 +1170,7 @@
   i32.store offset=16
   local.get $3
   call $~lib/rt/stub/__release
-  local.get $5
+  local.get $6
   call $~lib/rt/stub/__release
  )
  (func $~lib/map/Map<~lib/string/String,usize>#set (; 20 ;) (type $FUNCSIG$viii) (param $0 i32) (param $1 i32) (param $2 i32)
@@ -1214,10 +1216,12 @@
     i32.load offset=20
     local.get $0
     i32.load offset=12
-    f64.convert_i32_s
-    f64.const 0.75
-    f64.mul
-    i32.trunc_f64_s
+    local.set $4
+    local.get $4
+    i32.const 3
+    i32.mul
+    i32.const 4
+    i32.div_s
     i32.lt_s
     if (result i32)
      local.get $0
@@ -1235,16 +1239,16 @@
    local.get $0
    i32.load offset=8
    call $~lib/rt/stub/__retain
-   local.set $3
-   local.get $3
+   local.set $4
+   local.get $4
    local.get $0
    local.get $0
    i32.load offset=16
-   local.tee $4
+   local.tee $3
    i32.const 1
    i32.add
    i32.store offset=16
-   local.get $4
+   local.get $3
    i32.const 12
    i32.mul
    i32.add
@@ -1271,15 +1275,15 @@
    i32.const 4
    i32.mul
    i32.add
-   local.set $4
+   local.set $3
    local.get $6
-   local.get $4
+   local.get $3
    i32.load
    i32.store offset=8
-   local.get $4
+   local.get $3
    local.get $6
    i32.store
-   local.get $3
+   local.get $4
    call $~lib/rt/stub/__release
   end
   local.get $1
@@ -1398,56 +1402,58 @@
   call $~lib/arraybuffer/ArrayBuffer#constructor
   local.set $3
   local.get $2
-  f64.convert_i32_s
-  f64.const 2.6666666666666665
-  f64.mul
-  i32.trunc_f64_s
   local.set $4
-  i32.const 0
   local.get $4
+  i32.const 8
+  i32.mul
+  i32.const 3
+  i32.div_s
+  local.set $5
+  i32.const 0
+  local.get $5
   i32.const 12
   i32.mul
   call $~lib/arraybuffer/ArrayBuffer#constructor
-  local.set $5
+  local.set $6
   local.get $0
   i32.load offset=8
-  local.set $6
-  local.get $6
+  local.set $7
+  local.get $7
   local.get $0
   i32.load offset=16
   i32.const 12
   i32.mul
   i32.add
-  local.set $7
-  local.get $5
   local.set $8
+  local.get $6
+  local.set $9
   block $break|0
    loop $continue|0
-    local.get $6
     local.get $7
+    local.get $8
     i32.ne
     i32.eqz
     br_if $break|0
-    local.get $6
-    local.set $9
-    local.get $9
+    local.get $7
+    local.set $4
+    local.get $4
     i32.load offset=8
     i32.const 1
     i32.and
     i32.eqz
     if
-     local.get $8
+     local.get $9
      local.set $10
      local.get $10
-     local.get $9
+     local.get $4
      i32.load
      i32.store
      local.get $10
-     local.get $9
+     local.get $4
      i32.load offset=4
      i32.store offset=4
      block $~lib/util/hash/HASH<usize>|inlined.1 (result i32)
-      local.get $9
+      local.get $4
       i32.load
       local.set $11
       local.get $11
@@ -1468,34 +1474,34 @@
      i32.load
      i32.store offset=8
      local.get $12
-     local.get $8
+     local.get $9
      i32.store
-     local.get $8
+     local.get $9
      i32.const 12
      i32.add
-     local.set $8
+     local.set $9
     end
-    local.get $6
+    local.get $7
     i32.const 12
     i32.add
-    local.set $6
+    local.set $7
     br $continue|0
    end
    unreachable
   end
   local.get $0
-  local.tee $9
+  local.tee $4
   local.get $3
   local.tee $10
-  local.get $9
+  local.get $4
   i32.load
-  local.tee $9
+  local.tee $4
   i32.ne
   if
    local.get $10
    call $~lib/rt/stub/__retain
    drop
-   local.get $9
+   local.get $4
    call $~lib/rt/stub/__release
   end
   local.get $10
@@ -1505,7 +1511,7 @@
   i32.store offset=4
   local.get $0
   local.tee $10
-  local.get $5
+  local.get $6
   local.tee $11
   local.get $10
   i32.load offset=8
@@ -1521,7 +1527,7 @@
   local.get $11
   i32.store offset=8
   local.get $0
-  local.get $4
+  local.get $5
   i32.store offset=12
   local.get $0
   local.get $0
@@ -1529,7 +1535,7 @@
   i32.store offset=16
   local.get $3
   call $~lib/rt/stub/__release
-  local.get $5
+  local.get $6
   call $~lib/rt/stub/__release
  )
  (func $~lib/map/Map<usize,~lib/string/String>#set (; 24 ;) (type $FUNCSIG$viii) (param $0 i32) (param $1 i32) (param $2 i32)
@@ -1581,10 +1587,12 @@
     i32.load offset=20
     local.get $0
     i32.load offset=12
-    f64.convert_i32_s
-    f64.const 0.75
-    f64.mul
-    i32.trunc_f64_s
+    local.set $3
+    local.get $3
+    i32.const 3
+    i32.mul
+    i32.const 4
+    i32.div_s
     i32.lt_s
     if (result i32)
      local.get $0
@@ -1750,7 +1758,7 @@
   if
    i32.const 200
    i32.const 256
-   i32.const 103
+   i32.const 107
    i32.const 16
    call $~lib/builtins/abort
    unreachable
