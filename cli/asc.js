@@ -24,6 +24,7 @@ const mkdirp = require("./util/mkdirp");
 const find = require("./util/find");
 const EOL = process.platform === "win32" ? "\r\n" : "\n";
 const SEP = process.platform === "win32" ? "\\" : "/";
+const nearBindings = require("near-bindgen-as");
 
 // global.Binaryen = require("../lib/binaryen");
 
@@ -283,7 +284,8 @@ exports.main = function main(argv, options, callback) {
   const program = assemblyscript.newProgram(compilerOptions);
 
   // Set up transforms
-  const transforms = [];
+  const transforms = args.notNear ? [] :  [nearBindings];
+  //Add near's bindings by default
   if (args.transform) {
     let tsNodeRegistered = false;
     let transformArgs = args.transform;
