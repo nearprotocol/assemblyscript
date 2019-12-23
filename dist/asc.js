@@ -601,7 +601,7 @@ const mkdirp = __webpack_require__(/*! ./util/mkdirp */ "./util/mkdirp.js");
 const find = __webpack_require__(/*! ./util/find */ "./util/find.js");
 const EOL = process.platform === "win32" ? "\r\n" : "\n";
 const SEP = process.platform === "win32" ? "\\" : "/";
-const nearBindings = {}//require("near-bindgen-as");
+const transformers = global.ASTransformers || [];
 
 // global.Binaryen = require("../lib/binaryen");
 
@@ -861,7 +861,7 @@ exports.main = function main(argv, options, callback) {
   const program = assemblyscript.newProgram(compilerOptions);
 
   // Set up transforms
-  const transforms = args.notNear ? [] :  [nearBindings];
+  const transforms = transformers;
   //Add near's bindings by default
   if (args.transform) {
     let tsNodeRegistered = false;
