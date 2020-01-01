@@ -1,8 +1,10 @@
 (function webpackUniversalModuleDefinition(root, factory) {
 	if(typeof exports === 'object' && typeof module === 'object')
 		module.exports = factory(require("assemblyscript"), require("NearBindgen"));
-	else if(typeof define === 'function' && define.amd)
+	else if(typeof define === 'function' && define.amd) {
+    debugger;
 		define(["assemblyscript", "NearBindgen"], factory);
+  }
 	else if(typeof exports === 'object')
 		exports["asc"] = factory(require("assemblyscript"), require("NearBindgen"));
 	else
