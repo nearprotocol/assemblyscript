@@ -38,7 +38,7 @@ const bin = {
   externals: [{
     "../dist/assemblyscript.js": "assemblyscript",
     "assemblyscript": "assemblyscript",
-    // "near-bindgen-as": "nearBindings"
+    "near-bindgen-as": "nearBindings"
   }],
   node: {
     "buffer": false,
