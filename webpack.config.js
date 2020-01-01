@@ -36,7 +36,9 @@ const bin = {
   context: path.join(__dirname, "cli"),
   entry: [ "./asc.js" ],
   externals: [{
-    "../dist/assemblyscript.js": "assemblyscript"
+    "../dist/assemblyscript.js": "assemblyscript",
+    "assemblyscript": "assemblyscript",
+    // "near-bindgen-as": "nearBindings"
   }],
   node: {
     "buffer": false,
