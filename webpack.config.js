@@ -37,8 +37,7 @@ const bin = {
   entry: [ "./asc.js" ],
   externals: [{
     "../dist/assemblyscript.js": "assemblyscript",
-    "assemblyscript": "assemblyscript",
-    "near-bindgen-as": "NearBindgen"
+    "assemblyscript": "assemblyscript"
   }],
   node: {
     "buffer": false,
