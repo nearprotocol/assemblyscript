@@ -24,7 +24,9 @@ const mkdirp = require("./util/mkdirp");
 const find = require("./util/find");
 const EOL = process.platform === "win32" ? "\r\n" : "\n";
 const SEP = process.platform === "win32" ? "\\" : "/";
-const nearbindgen = require("near-bindgen-as");
+const nearBindgen = require("near-bindgen-as/index");
+global.NearBindgen = nearBindgen;
+const _ = require("near-bindgen-as");
 
 // global.Binaryen = require("../lib/binaryen");
 
