@@ -24,7 +24,8 @@ const mkdirp = require("./util/mkdirp");
 const find = require("./util/find");
 const EOL = process.platform === "win32" ? "\r\n" : "\n";
 const SEP = process.platform === "win32" ? "\\" : "/";
-const nearBindgen = require("near-bindgen-as");
+// const nearBindgen = global.NearBindgen || require("near-bindgen-as");
+// global.NearBindgen = nearBindgen;
 
 // global.Binaryen = require("../lib/binaryen");
 
@@ -215,7 +216,7 @@ exports.main = function main(argv, options, callback) {
   const baseDir = args.baseDir ? path.resolve(args.baseDir) : ".";
 
   // Set up transforms
-  const transforms = [nearBindgen];
+  const transforms = global.NearBindgen ? [global.NearBindgen] : [];
   //Add near's bindings by default
   if (args.transform) {
     let transformArgs = args.transform;
