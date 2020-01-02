@@ -601,8 +601,6 @@ const mkdirp = __webpack_require__(/*! ./util/mkdirp */ "./util/mkdirp.js");
 const find = __webpack_require__(/*! ./util/find */ "./util/find.js");
 const EOL = process.platform === "win32" ? "\r\n" : "\n";
 const SEP = process.platform === "win32" ? "\\" : "/";
-// const nearBindgen = global.NearBindgen || require("near-bindgen-as");
-// global.NearBindgen = nearBindgen;
 
 // global.Binaryen = require("../lib/binaryen");
 
@@ -793,7 +791,7 @@ exports.main = function main(argv, options, callback) {
   const baseDir = args.baseDir ? path.resolve(args.baseDir) : ".";
 
   // Set up transforms
-  const transforms = global.NearBindgen ? [global.NearBindgen] : [];
+  const transforms = global.NearBindgenAs ? ["NearBindgenAs"] : [];
   //Add near's bindings by default
   if (args.transform) {
     let transformArgs = args.transform;
@@ -801,7 +799,7 @@ exports.main = function main(argv, options, callback) {
       let filename = transformArgs[i].trim();
       if (/\.ts$/.test(filename)) __webpack_require__(!(function webpackMissingModule() { var e = new Error("Cannot find module 'ts-node'"); e.code = 'MODULE_NOT_FOUND'; throw e; }())).register({ transpileOnly: true, skipProject: true });
       try {
-        const classOrModule = __webpack_require__("./ sync recursive")(__webpack_require__("./ sync recursive").resolve(filename, { paths: [baseDir, process.cwd()] }));
+        const classOrModule = global[filename] || __webpack_require__("./ sync recursive")(__webpack_require__("./ sync recursive").resolve(filename, { paths: [baseDir, process.cwd()] }));
         if (typeof classOrModule === "function") {
           Object.assign(classOrModule.prototype, {
             baseDir,

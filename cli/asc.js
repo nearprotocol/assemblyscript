@@ -24,8 +24,6 @@ const mkdirp = require("./util/mkdirp");
 const find = require("./util/find");
 const EOL = process.platform === "win32" ? "\r\n" : "\n";
 const SEP = process.platform === "win32" ? "\\" : "/";
-// const nearBindgen = global.NearBindgen || require("near-bindgen-as");
-// global.NearBindgen = nearBindgen;
 
 // global.Binaryen = require("../lib/binaryen");
 
@@ -216,7 +214,7 @@ exports.main = function main(argv, options, callback) {
   const baseDir = args.baseDir ? path.resolve(args.baseDir) : ".";
 
   // Set up transforms
-  const transforms = global.NearBindgen ? [global.NearBindgen] : [];
+  const transforms = global.NearBindgenAs ? ["NearBindgenAs"] : [];
   //Add near's bindings by default
   if (args.transform) {
     let transformArgs = args.transform;
@@ -224,7 +222,7 @@ exports.main = function main(argv, options, callback) {
       let filename = transformArgs[i].trim();
       if (/\.ts$/.test(filename)) require("ts-node").register({ transpileOnly: true, skipProject: true });
       try {
-        const classOrModule = require(require.resolve(filename, { paths: [baseDir, process.cwd()] }));
+        const classOrModule = global[filename] || require(require.resolve(filename, { paths: [baseDir, process.cwd()] }));
         if (typeof classOrModule === "function") {
           Object.assign(classOrModule.prototype, {
             baseDir,
