@@ -214,7 +214,7 @@ exports.main = function main(argv, options, callback) {
   const baseDir = args.baseDir ? path.resolve(args.baseDir) : ".";
 
   // Set up transforms
-  const transforms = global.NearBindgenAs ? ["NearBindgenAs"] : [];
+  const transforms = [];
   //Add near's bindings by default
   if (args.transform) {
     let transformArgs = args.transform;
